@@ -1,0 +1,19 @@
+* What do I want to learn or understand better?
+
+Since this is the first week of the course, I don't really have any concrete 
+goals other than to find something to work on. One thing I would like to use this
+course for though is to try my hands on maybe a new programming language or a new 
+library. 
+
+* how can I help someone else, or the entire team, to learn something new?
+We will have to teach the whole team about Git since that will become our 
+online repository manager. I think I can contribute with programming abilities and 
+be helpful in the management and setup of the project. 
+
+* what is my contribution towards the team’s use of Scrum?
+We haven't started using scrum yet so I leave this question blank for now. 
+
+* what is my contribution towards the team’s deliveries?
+Currently I am trying to come up with a good idea and to be helpful in the setup of 
+the project. In the future I believe that we will have an idea and that I can contribute
+with ideas of how to implement this first idea. 
