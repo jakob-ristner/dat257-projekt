@@ -1,0 +1,33 @@
+Möteshållning:
+* Lunchmöte mån, fre
+* Prel: Måndagsmöten till uppdelning av arbete, fredagsmöten till att göra team reflection.
+* Gör inget om någon missar ett möte, men man ska komma på så många som möjligt.
+* Byta sekreterare varje möte.
+* Försöka hålla tiden men är man sen kan man skriva först
+
+Utvecklingsmiljö:
+* Git
+* Trello för user stories
+
+Programmeringsmässigt:
+* Pusha enbart kod som fungerar på din maskin. 
+
+Kommunikation: 
+* Discord för möten och kommunikation
+* Kamera på!
+
+Beslut:
+* Mindre beslut kan man ta själv
+* Större beslut är bättre på möten
+* Implementationer man inte håller med om kan man ta upp på möten.
+
+Ambitionsnivå:
+* Gärna godkänt. 
+* Sikta på att göra klart. 
+
+Vad göra om någon/några inte bidrar?
+* Förvarna personen, och ta upp det på ett möte. 
+* Om man själv känner att man inte gjort så mycket
+så ta gärna upp det själv och be om hjälp. 
+* Dialog
+
