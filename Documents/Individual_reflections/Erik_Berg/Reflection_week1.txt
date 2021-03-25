@@ -14,6 +14,6 @@ be helpful in the management and setup of the project.
 We haven't started using scrum yet so I leave this question blank for now. 
 
 * what is my contribution towards the team’s deliveries?
-Currently I am trying to come up with a good idea and to be helpful in the setup of 
-the project. In the future I believe that we will have an idea and that I can contribute
-with ideas of how to implement this first idea. 
+I have contributed to the social contract and currently I'm trying to come up with a good idea 
+and to be helpful in the setup of the project. In the future I believe that we will have 
+an idea and that I can contribute with ideas of how to implement this first idea. 
