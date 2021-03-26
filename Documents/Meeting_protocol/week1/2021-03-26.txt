@@ -1,4 +1,5 @@
 Fredagsmöte 26e Mars
+Sekreterare: Jakob Ristner
 
 Punkter:
 
@@ -6,9 +7,14 @@ Punkter:
     Jakob R löser det.
     
 * status github
-Bjuder in alla till repot.
+Bjuder in alla till repot. Gör ett github konto!
 
 * Ideér:
+Vi kikar med IT:s Sexmästeri, ingen har hittat något konkret. 
 
-* status trello
+Jakob H tar konakt med sin styvfar, de har ett projekt kring dokumenthantering.
+Alla tycker att detta verkar som en riktigt bra idé.
+
+Genomgång av hur man laddar upp och klonar ett git repo.
+
 
