@@ -1,1 +1,0 @@
-Well we discussed some things but this file is mainly for git to not delete the folders. 
