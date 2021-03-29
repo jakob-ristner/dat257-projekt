@@ -1,0 +1,15 @@
+Individual reflection - Haris Cehic
+
+Week 1 26/3
+
+What do I want to learn or understand better?
+For the first week the goal was to get an intro to Scrum and start applying it to the project design. The goal is to really understand the full scope of Scrum and how it can be applied for the best possible outcome. Also more specific, a goal is to really understand the relationship between stakeholder, product and process. This is because in the past we have learnt the technical and detailed parts of programming but not how you actually construct a project to deliver a working product. The way to reach this goal is not only to get a better understanding of what Scrum is but also the whole team needs to be on the same page and we need to implement this together.
+
+How can I help someone else, or the entire team, to learn something new?
+Currently there is a good situation in the group where I feel that sharing knowledge is not an issue and everybody is helpful. The goal though is not only reactively helping each other but maybe a more proactive approach could be used to share knowledge. The way to do this is first and foremost that you explain everything you do or ask if everybody in the group understands it. Even if someone wrote a specific line of code, all group members should understand why it was written etc.
+
+What is my contribution towards the team’s use of Scrum?
+I have taken part in the planning phase in the beginning of the sprint and the reflection part aswell and given my thoughts and opinions. The goal is to get a deeper insight and more experience of Scrum to be able to perfect the team’s use of it. To do this and get better we need to reflect on each sprint and aspire to improve for each week.
+
+What is my contribution towards the team’s deliveries?
+The delivery of this week was the social contract. The goal here was to construct the contract in a suitable manner where everybody agrees on the specifics. I gave my thoughts and opinions about what should be in it and the process itself was very  hassle free. For the next week I need to keep helping the team to move forward in each sprint and more specifically to come up with a concrete idea. 
