@@ -1,0 +1,28 @@
+Måndagsmöte 29 Mars
+Sekreterare: Haris Cehic
+
+Punkter:
+
+Project scope
+	Möte med PO först och sedan sätta upp en Business Model Canvas	
+	och en mockup. Se över om det går att dela upp arbetsuppgifter.
+	Preliminär mockup och BMC till på torsdag. 
+	Mockup - Jakob/Jakob/Erik/Mohammad
+	BMC - Haris/Anton/Nima
+
+Meetings
+	Torsdag 1/4, lunch preliminärt 12.30 även med PO
+
+Frågor till PO:
+Vart/Hur lagras datan? Standard?
+Hur många jobbar med datan?
+Vem ska kunna få tillgång till datan?
+Hur många användare?
+Ta bort och lägga till frågor, vad menas specifikt?
+Vad har de för struktur idag?
+
+
+
+
+
+	
