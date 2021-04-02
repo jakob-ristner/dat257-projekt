@@ -1,0 +1,18 @@
+* what do I want to learn or understand better?
+	- I have understood a lot more about the project this week than I did the week before. It is all getting much clearer now. 
+	- Now I want to learn how to set up react since that is the development environment that we envision for this project currently.
+	- Also I would like to get a better grasp on how we will do the actual development in regards to user stories and programming. 
+	- This will be done by downloading react and starting up a small web server, and by looking at the project scope, mockup and 
+	- figuring out what is what.
+	
+* how can I help someone else, or the entire team, to learn something new?
+	- By learning how to set up React, maybe I can help someone else, although it is probably me who needs the most help. 
+
+* what is my contribution towards the team’s use of Scrum?
+	- Currently I haven't done much, but this is because we are still in the planning phase. I will help in the use of 
+	- scrum more next week when we start creating user stories.
+
+* what is my contribution towards the team’s deliveries?
+	- I have contributed to the mockup this week and I have been helpful in the construction of the project scope. 
+	- I want to help contribute with user stories and with the setup of the development platform. This will be done
+	- next week by deciding a day that we all sit down and write stories on, and by trying React for myself a bit. 

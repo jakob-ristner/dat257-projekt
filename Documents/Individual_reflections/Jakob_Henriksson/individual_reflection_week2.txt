@@ -1,0 +1,20 @@
+Individual reflection 2021-04-01 14:28
+
+what do I want to learn or understand better?
+-Right now I want to understand react better! This will most likely be the language we will write our code in. I will continue learning about scrum and agile development.
+I also want to refresh my memory on how to make useful user stories.
+
+how can I help someone else, or the entire team, to learn something new?
+-Right now I can help through my contact with the customers. I can also help with setting up a development environment for our team members and continue iterating on how the GUI
+should look like. During the upcomming week we will start making userstories which I have some experience in from another course.
+
+what is my contribution towards the team’s use of Scrum?
+-I managed to find our customer through personal contacts so I have had the roll of communicating with the customer this week. I added a customer file containing their suggestions of how the 
+webpage should look like on github (two iterations from them as of now).
+
+what is my contribution towards the team’s deliveries?
+-As of now I have been apart of making our first iteration of the mockup. This mockup has the same style as the one we recieved from the customer and they gave us the freedom
+to make it better from a GUI perspective, therefore we made some suggestion on changes that could be made that they approved of during our meeting today at lunch. I have also been
+the main contact with our customer as mentioned earlier.
+
+
