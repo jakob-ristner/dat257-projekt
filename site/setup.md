@@ -3,7 +3,7 @@
 ## What you need to have installed
 I do not know if this is a complete list so feel free to add anything you needed to intall aswell
 
-* PostgreSQL
+### PostgreSQL
 Install according to instructions and then create a database by typing CREATE DATABASE <your database name>;
 It does not matter what the name of your database is, since it is specific yo your local machine but you need to remember it.
 
@@ -41,7 +41,7 @@ module.exports = pool;
 
 Don't worry about storing your password in plain text, this file won't be pushed up to github.
 
-* Node js
+### Node js
 
 Install according to online instructions and then you need to install some node packages, again
 i do not know if this is a complete list, if you get some error "could not load module X" try
