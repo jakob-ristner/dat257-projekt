@@ -4,7 +4,7 @@
 I do not know if this is a complete list so feel free to add anything you needed to intall aswell
 
 ### PostgreSQL
-Install according to instructions and then create a database by typing CREATE DATABASE <your database name>;
+Install according to instructions and then create a database by typing CREATE DATABASE "your database name";
 It does not matter what the name of your database is, since it is specific yo your local machine but you need to remember it.
 
 Now go into the server folder and create a file called db.js. In this file you will specify how the webserver will connect to your database. Mine looks like this
@@ -21,7 +21,7 @@ const pool = new Pool({
 
 module.exports = pool;
 ```
-obviously replace <your database name> with the one you created earlier.
+obviously replace "your database name" with the one you created earlier.
 
 If you have password to your postgres user, yours should look like this:
 
@@ -58,7 +58,7 @@ install:
     
 ## Setting up and using the database
 To do this you need to enter your psql shell and navigate to the server directory. Alternatively you could start the psql shell inside this directory.
-type \c <your database name> to enter your database and then type \i setup.sql to run the setup file.
+type \c "your database name" to enter your database and then type \i setup.sql to run the setup file.
 
 ## Starting the server and client
 
