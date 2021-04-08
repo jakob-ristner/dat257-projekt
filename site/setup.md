@@ -4,8 +4,10 @@
 I do not know if this is a complete list so feel free to add anything you needed to intall aswell
 
 * PostgreSQL
+    - On WINDOWS: Remember to add the path to PostgreSQL's bin folder to your PATH in the environment variables. 
+
 Install according to instructions and then create a database by typing CREATE DATABASE <your database name>;
-It does not matter what the name of your database is, since it is specific yo your local machine but you need to remember it.
+It does not matter what the name of your database is, since it is specific to your local machine but you need to remember it.
 
 Now go into the server folder and create a file called db.js. In this file you will specify how the webserver will connect to your database. Mine looks like this
 
@@ -55,6 +57,7 @@ install:
     * react-dom
     * cors
     * react-router-dom
+    * react-scripts
     
 ## Setting up and using the database
 To do this you need to enter your psql shell and navigate to the server directory. Alternatively you could start the psql shell inside this directory.
@@ -62,6 +65,8 @@ type \c <your database name> to enter your database and then type \i setup.sql t
 
 ## Starting the server and client
 
-This is very simple, to start the server, simply navigate to the server directory and type nodemon server.js. To start the client, simply navigate to the client directory and type npm start.
+This is very simple, to start the server, simply navigate to the server directory and type nodemon server.js. 
+
+To start the client, simply navigate to the client directory and type npm start.
 
 
