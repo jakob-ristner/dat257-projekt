@@ -3,7 +3,8 @@
 ## What you need to have installed
 I do not know if this is a complete list so feel free to add anything you needed to intall aswell
 
-* PostgreSQL
+
+### PostgreSQL
     - On WINDOWS: Remember to add the path to PostgreSQL's bin folder to your PATH in the environment variables. 
 
 Install according to instructions and then create a database by typing CREATE DATABASE <your database name>;
@@ -23,7 +24,7 @@ const pool = new Pool({
 
 module.exports = pool;
 ```
-obviously replace <your database name> with the one you created earlier.
+obviously replace "your database name" with the one you created earlier.
 
 If you have password to your postgres user, yours should look like this:
 
@@ -43,7 +44,7 @@ module.exports = pool;
 
 Don't worry about storing your password in plain text, this file won't be pushed up to github.
 
-* Node js
+### Node js
 
 Install according to online instructions and then you need to install some node packages, again
 i do not know if this is a complete list, if you get some error "could not load module X" try
@@ -61,7 +62,7 @@ install:
     
 ## Setting up and using the database
 To do this you need to enter your psql shell and navigate to the server directory. Alternatively you could start the psql shell inside this directory.
-type \c <your database name> to enter your database and then type \i setup.sql to run the setup file.
+type \c "your database name" to enter your database and then type \i setup.sql to run the setup file.
 
 ## Starting the server and client
 
