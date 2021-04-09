@@ -1,0 +1,55 @@
+Möte med PO 2021-04-09
+Sekreterare: Erik Berg
+
+* Visar att vi kopplat ihop databas med hemsida
+
+* Visar vår trello - och user stories. 
+
+* Vad är viktigast för PO:
+	- Inskrivning/utskrivning används vid ett tillfälle
+	- Hembesök görs flera gånger. 
+	- Ta bort hembesök gör man bara en gång. 
+	- 4 användare som loggar in och registrerar sina besök. 
+
+Vad är viktigast:
+	1. Hembesök
+	2. In-/Utskrivning
+
+- Anton frågar om utskrivning
+	- vill man se det i hemsidan? 
+		* man får sin sista chans att redigera i samband med utskrivning?
+		* Man vill ha tillgång till det. 
+		* När man är utskriven och klar om man söker ett protokoll så kan det
+		stå att den är utskriven. Kan vara så att man kanske måste ändra. 
+		När personen är utskriven är det viktigt att det varnas om man vill ändra
+		för bör inte behöva ändra 
+
+- Vad är ett protokoll:
+	* Ett barn - ett protokoll
+	* Hela alltet är ett protokoll
+		- men det behöver vara uppdelat. 
+		- protokollnummer är rimligt
+		- In/utskrivning var bra. 
+
+- Hur fungerar återläggning?
+	* Det blir två protokoll för den blir utskriven och
+	  sen inskriven igen
+	* Det bästa är att göra det som ett nytt barn - fast markerat att det är återlagt
+
+Frida frågar om hjältarnas hus, hur många barn bodde där?
+	- Boende hjältarnas hus tillagt till In-/Utskrivning. 
+	- Inskrivningssidan:
+		Barnet erhåller bröstmjölk (Ja, Nej (Inte alls), Delvis)
+		Inte bor hemma. (Under bakgrundsdata)
+		Riskpatient kryssas i vid inskrivning. (Har tillkommit under arbetstiden och bara hamnat här)
+		Överrapporteringen kryssas i under vårdtiden. (Har tillkommit under arbetstiden och bara hamnat här)
+		Risk & Över hänger ihop men hänger inte ihop med inskrivningen eller utskrivningen riktigt. 
+
+Beslut:
+	* Fokus #1 hembesök
+	* Fokus #2 In-/Utskrivning
+
+Nästa möte:
+	2021 - 04 - 16
+	Kl. 09.00
+
