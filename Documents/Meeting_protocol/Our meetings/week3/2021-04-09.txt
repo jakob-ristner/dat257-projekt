@@ -1,0 +1,34 @@
+Måndagsmöte 9 April
+Sekreterare: Jakob Henriksson
+
+Punkter:
+*Hur ska vi strukturera upp tasks
+	- Separat flik i trello eller inte?
+	- Dela upp userstory till tasks.
+*Påbörja skapa tasks detta möte
+
+*Till nästa möte
+   Dela ut tasks/områden till utvecklare
+	- Bestämma kring parprogrammering
+	- Vem gör vad?
+	- Hur löser vi testning
+   Alla ska ha fått sin kod att fungera
+
+	
+
+Frågor till PO:
+*Hos familj datum, från familj datum
+	-Vill ni ha data för hur lång tid det tar.
+
+Frågor till handledare
+*Visa trello
+	-Har vi strukturerat det som det är tänkt?
+	
+
+
+
+
+
+
+
+	
