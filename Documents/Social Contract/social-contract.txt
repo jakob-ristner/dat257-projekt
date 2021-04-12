@@ -31,3 +31,11 @@ Vad göra om någon/några inte bidrar?
 så ta gärna upp det själv och be om hjälp. 
 * Dialog
 
+Konflikthantering - håller inte med varandra
+* Diskutera igenom, låt alla säga sitt
+* Majoritetsbeslut gäller
+* Släpp det och gå vidare
+
+Delning av kunskap
+* Fråga på Discord
+* Kör screensharing

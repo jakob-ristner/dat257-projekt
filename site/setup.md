@@ -60,6 +60,7 @@ install:
     * react-router-dom
     * react-scripts
     
+    
 ## Setting up and using the database
 To do this you need to enter your psql shell and navigate to the server directory. Alternatively you could start the psql shell inside this directory.
 type \c "your database name" to enter your database and then type \i setup.sql to run the setup file.
