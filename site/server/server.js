@@ -1,7 +1,9 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const pool = require("./db")
+const pool = require("./db");
+
+require("./routes/hembesok.js")(app, pool);
 
 //middleware
 app.use(cors());

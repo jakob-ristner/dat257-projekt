@@ -2,6 +2,7 @@ DROP TABLE IF EXISTS Hembesok;
 
 CREATE TABLE Hembesok (
     id SERIAL PRIMARY KEY,
+    protokollnr TEXT NOT NULL,
 
     date_added DATE NOT NULL DEFAULT NOW(),
     at_family TIMESTAMP NOT NULL,
@@ -27,5 +28,20 @@ CREATE TABLE Hembesok (
 
 -- Test inserts
 
-INSERT INTO Hembesok (at_family, from_family, performed_by)
-    VALUES ('2021-04-12 15:00', '2021-04-12 16:00', 'John');
+INSERT INTO Hembesok (protokollnr, at_family, from_family, performed_by)
+    VALUES ('111', '2021-04-12 15:00', '2021-04-12 16:00', 'John');
+
+INSERT INTO Hembesok (protokollnr, at_family, from_family, performed_by)
+    VALUES ('222', '2021-04-11 15:00', '2021-04-11 16:00', 'John');
+
+INSERT INTO Hembesok (protokollnr, at_family, from_family, performed_by)
+    VALUES ('333', '2021-04-12 13:00', '2021-04-12 16:00', 'Mary');
+
+INSERT INTO Hembesok (protokollnr, at_family, from_family, performed_by)
+    VALUES ('333', '2021-03-12 15:00', '2021-03-12 16:00', 'Jane');
+
+
+INSERT INTO Hembesok (protokollnr, at_family, from_family, performed_by, stodsamtal,
+                        lakare, av_logistik, av_beskrivning)
+    VALUES ('111', '2021-03-12 15:00', '2021-03-12 16:00', 'Jane', true, true, 
+            true, 'blev sen');
