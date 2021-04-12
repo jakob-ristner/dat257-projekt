@@ -3,7 +3,7 @@ module.exports = function(app, pool) {
         try {
             const { id } = req.params;
             const allHembesok  = await pool.query(
-            `SELECT * FROM Hembesok 
+            `SELECT at_family :: TEXT, from_family :: TEXT, performed_by FROM Hembesok 
             WHERE protokollnr = $1`, [id]);
 
             res.json(allHembesok.rows);

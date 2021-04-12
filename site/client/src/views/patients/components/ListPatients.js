@@ -34,5 +34,6 @@ const ListPatients = () => {
     );
 }
 
+
 export default ListPatients;
 

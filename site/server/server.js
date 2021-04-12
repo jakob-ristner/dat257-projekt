@@ -3,11 +3,12 @@ const cors = require("cors");
 const app = express();
 const pool = require("./db");
 
-require("./routes/hembesok.js")(app, pool);
 
 //middleware
 app.use(cors());
 app.use(express.json());
+
+require("./routes/hembesok.js")(app, pool);
 
 // ROUTES
 app.get("/patients", async(req, res) => {
