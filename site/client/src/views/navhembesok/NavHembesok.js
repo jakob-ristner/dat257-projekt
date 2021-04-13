@@ -1,7 +1,5 @@
 import React, { Fragment, useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
-
-import "./navHembesok.css"
+import {useParams} from "react-router-dom"; import "./navHembesok.css"
 const NavHembesok = (useParams) => {
 
     const [showListHembesok, showHembesok] = useState([]);
@@ -71,13 +69,14 @@ const NavHembesok = (useParams) => {
         <Fragment>
             <h1>protokollnr: {id} </h1>
 
-            {earlierButton()}
-
             {getHeader()}
+
+            {earlierButton()}
 
             {showListHembesok.reverse().map((form, index) => (
                 <div class="hembesok">
                     Hembesöknr: {index + hembIndex + 1}<br/>
+                    Datum utfört: {form.date} <br/>
                     Kl till familj: {form.at_family}<br/>
                     Kl från familj: {form.from_family}<br/>
                     Performed by: {form.performed_by}<br/>

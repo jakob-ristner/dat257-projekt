@@ -3,8 +3,11 @@ module.exports = function(app, pool) {
         try {
             const { id } = req.params;
             const allHembesok  = await pool.query(
-            `SELECT at_family :: TEXT, from_family :: TEXT, performed_by FROM Hembesok 
-            WHERE protokollnr = $1 ORDER BY from_family`, [id]);
+                `SELECT to_char(at_family, 'HH24:MI') AS at_family, 
+                to_char(from_family, 'HH24:MI') AS from_family, 
+                to_char(from_family, 'yyyy-mm-dd') AS date,
+                performed_by FROM Hembesok 
+                WHERE protokollnr = $1 ORDER BY from_family`, [id]);
 
             res.json(allHembesok.rows);
         } catch(err) {
