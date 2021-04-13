@@ -14,8 +14,8 @@ const NavHembesok = (useParams) => {
             const response = await fetch(
             "http://localhost:5000/hembesok/" + id);
             const jsonData = await response.json();
-            setHembesok(jsonData);
-            showHembesok(jsonData.slice(index, index + 3));
+            setHembesok(jsonData.reverse());
+            showHembesok(jsonData.slice(index, index + 3).reverse());
         } catch(err) {
             console.error(err);
         }
@@ -54,16 +54,17 @@ const NavHembesok = (useParams) => {
             <h1>protokollnr: {id} </h1>
             <h2> Your hembesök: </h2>
 
-            {laterButton()}
 
-            {showListHembesok.map(form => (
+            {earlierButton()}
+            {showListHembesok.reverse().map((form, index) => (
                 <div class="hembesok">
+                    Hembesöknr: {index + hembIndex + 1}<br/>
                     Kl till familj: {form.at_family}<br/>
                     Kl från familj: {form.from_family}<br/>
                     Performed by: {form.performed_by}<br/>
                 </div>
-            ))}    
-            {earlierButton()}
+            )).reverse()}    
+            {laterButton()}
         </Fragment>
     );
 }

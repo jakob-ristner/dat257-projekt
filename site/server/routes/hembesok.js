@@ -4,7 +4,7 @@ module.exports = function(app, pool) {
             const { id } = req.params;
             const allHembesok  = await pool.query(
             `SELECT at_family :: TEXT, from_family :: TEXT, performed_by FROM Hembesok 
-            WHERE protokollnr = $1`, [id]);
+            WHERE protokollnr = $1 ORDER BY from_family`, [id]);
 
             res.json(allHembesok.rows);
         } catch(err) {
