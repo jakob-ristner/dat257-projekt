@@ -1,7 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const pool = require("./db")
+const pool = require("./db");
+
 
 
 
@@ -10,6 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 require("./routes/registration.js")(app,pool);
+require("./routes/hembesok.js")(app, pool);
 
 // ROUTES
 app.get("/patients", async(req, res) => {
