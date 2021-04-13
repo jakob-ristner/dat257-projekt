@@ -1,7 +1,5 @@
 import React, { Fragment, useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
-
-import "./navHembesok.css"
+import {useParams} from "react-router-dom"; import "./navHembesok.css"
 const NavHembesok = (useParams) => {
 
     const [showListHembesok, showHembesok] = useState([]);
@@ -14,8 +12,8 @@ const NavHembesok = (useParams) => {
             const response = await fetch(
             "http://localhost:5000/hembesok/" + id);
             const jsonData = await response.json();
-            setHembesok(jsonData);
-            showHembesok(jsonData.slice(index, index + 3));
+            setHembesok(jsonData.reverse());
+            showHembesok(jsonData.slice(index, index + 3).reverse());
         } catch(err) {
             console.error(err);
         }
@@ -32,6 +30,9 @@ const NavHembesok = (useParams) => {
     }
 
     const laterButton = () => {
+        if (totHembesok.length === 0) {
+            return;
+        }
         if (hembIndex === 0) {
             return (<button onClick={() => decHembIndex()} disabled="true">Senare hembesök </button>);
         }
@@ -39,9 +40,12 @@ const NavHembesok = (useParams) => {
     }
 
     const earlierButton = () => {
+        if (totHembesok.length === 0) {
+            return;
+        }
         if (hembIndex === totHembesok.length - 3) {
             return (<button onClick={() => incHembIndex()} disabled="true"> Tidigare hembesök </button>);
-        }
+        } 
         return (<button onClick={() => incHembIndex()}> Tidigare hembesök </button>);
     }
 
@@ -49,21 +53,36 @@ const NavHembesok = (useParams) => {
         getHembesok(hembIndex);
     }, []);
 
+    const getHeader = () => {
+        if (totHembesok.length > 0) {
+            return (
+                <h2>Visar hembesök {Math.min(totHembesok.length, hembIndex + 1)} - 
+                    {Math.min(totHembesok.length, hembIndex + 3 )} ut av totalt {totHembesok.length} st hembesök</h2>
+            );
+        }
+        return (
+            <h2>Det finns ej några hembesök för detta protokollnr</h2> 
+        );
+    }
+
     return (
         <Fragment>
             <h1>protokollnr: {id} </h1>
-            <h2> Your hembesök: </h2>
 
-            {laterButton()}
+            {getHeader()}
 
-            {showListHembesok.map(form => (
+            {earlierButton()}
+
+            {showListHembesok.reverse().map((form, index) => (
                 <div class="hembesok">
+                    Hembesöknr: {index + hembIndex + 1}<br/>
+                    Datum utfört: {form.date} <br/>
                     Kl till familj: {form.at_family}<br/>
                     Kl från familj: {form.from_family}<br/>
                     Performed by: {form.performed_by}<br/>
                 </div>
-            ))}    
-            {earlierButton()}
+            )).reverse()}    
+            {laterButton()}
         </Fragment>
     );
 }
