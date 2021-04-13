@@ -32,6 +32,9 @@ const NavHembesok = (useParams) => {
     }
 
     const laterButton = () => {
+        if (totHembesok.length === 0) {
+            return;
+        }
         if (hembIndex === 0) {
             return (<button onClick={() => decHembIndex()} disabled="true">Senare hembesök </button>);
         }
@@ -39,9 +42,12 @@ const NavHembesok = (useParams) => {
     }
 
     const earlierButton = () => {
+        if (totHembesok.length === 0) {
+            return;
+        }
         if (hembIndex === totHembesok.length - 3) {
             return (<button onClick={() => incHembIndex()} disabled="true"> Tidigare hembesök </button>);
-        }
+        } 
         return (<button onClick={() => incHembIndex()}> Tidigare hembesök </button>);
     }
 
@@ -49,13 +55,26 @@ const NavHembesok = (useParams) => {
         getHembesok(hembIndex);
     }, []);
 
+    const getHeader = () => {
+        if (totHembesok.length > 0) {
+            return (
+                <h2>Visar hembesök {Math.min(totHembesok.length, hembIndex + 1)} - 
+                    {Math.min(totHembesok.length, hembIndex + 3 )} ut av totalt {totHembesok.length} st hembesök</h2>
+            );
+        }
+        return (
+            <h2>Det finns ej några hembesök för detta protokollnr</h2> 
+        );
+    }
+
     return (
         <Fragment>
             <h1>protokollnr: {id} </h1>
-            <h2> Your hembesök: </h2>
-
 
             {earlierButton()}
+
+            {getHeader()}
+
             {showListHembesok.reverse().map((form, index) => (
                 <div class="hembesok">
                     Hembesöknr: {index + hembIndex + 1}<br/>
