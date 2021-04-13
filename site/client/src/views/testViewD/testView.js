@@ -1,14 +1,18 @@
 import React, { Fragment } from "react";
 
-const Home = () => {
+const testView = () => {
     return (
         <Fragment>
             <div className="container">
                 <h1> Neonatal Hemsjukvård </h1>
-                <a href="/patients"> Protokoll </a>
+                <button onClick = {() =>{window.location = "/home"}}>
+                </button>
+
+                
+
             </div>
         </Fragment>
     );
 }
 
-export default Home;
+export default testView;
