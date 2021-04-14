@@ -78,32 +78,45 @@ const NavHembesok = (useParams) => {
         
 
             {earlierButton()}
+            <div class="list">
 
             {showListHembesok.reverse().map((form, index) => (
                 <div class="hembesok">
-                    <button> Redigera </button> <br/>
+                    <button class="edit"> Redigera </button> <br/>
+                    <div class="info">
                     Hembesöknr: {totHembesok.length - (index + hembIndex)}<br/>
                     Datum utfört: {form.date} <br/>
                     Kl till familj: {form.at_family}<br/>
                     Kl från familj: {form.from_family}<br/>
                     Utförd av: {form.performed_by}<br/><br/>
+                    </div>
+
+                    <div class="atgard">
                     Stödsamtal<input type="checkbox" checked={form.stodsamtal}/>
                     Viktkontroll<input type="checkbox" checked={form.viktkontroll}/> <br/>
                     Provtagning<input type="checkbox" checked={form.provtagning}/>
-                    Läkemedel<input type="checkbox" checked={form.lakemedel}/>
+                        Läkemedel<input type="checkbox" checked={form.lakemedel}/><br/>
                     Annan Åtgärd<input value={form.annan_åt}/><br/><br/>
+                    </div>
+
+                    <div class="resurs">
                     Läkare<input type="checkbox" checked={form.lakare}/>
                     Logoped<input type="checkbox" checked={form.logoped}/><br/>
                     Dietist<input type="checkbox" checked={form.dietist}/>
                     Annan Resurs<input value={form.annan_resurs}/> <br/><br/>
+                    </div>
+
+                    <div class="avvikning">
                     Avvikning Logistik<input type="checkbox" checked={form.av_logistik}/>
                     Avvikning Barn/Familj<input type="checkbox" checked={form.av_barn_familj}/><br/>
                     Avvikning Personal<input type="checkbox" checked={form.av_personal}/><br/>
                     Beskrivning<input value={form.av_beskrivning}/><br/>
+                    </div>
 
 
                 </div>
             )).reverse()}    
+            </div>
             {laterButton()}
         </Fragment>
     );
