@@ -7,7 +7,8 @@ module.exports = function(app, pool) {
                 to_char(from_family, 'HH24:MI') AS from_family, 
                 to_char(from_family, 'yyyy-mm-dd') AS date,
                 performed_by FROM Hembesok 
-                WHERE protokollnr = $1 ORDER BY from_family`, [id]);
+                WHERE protokollnr = $1 
+                ORDER BY from_family DESC`, [id]);
 
             res.json(allHembesok.rows);
         } catch(err) {

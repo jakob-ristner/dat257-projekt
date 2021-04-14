@@ -56,8 +56,12 @@ const NavHembesok = (useParams) => {
     const getHeader = () => {
         if (totHembesok.length > 0) {
             return (
-                <h2>Visar hembesök {Math.min(totHembesok.length, hembIndex + 1)} - 
-                    {Math.min(totHembesok.length, hembIndex + 3 )} ut av totalt {totHembesok.length} st hembesök</h2>
+                <h2>Visar hembesök {totHembesok.length -
+                    Math.min(totHembesok.length, hembIndex + 2 )}
+                    - 
+                    {totHembesok.length - 
+                    Math.min(totHembesok.length, hembIndex)} ut 
+                    av totalt {totHembesok.length} st hembesök</h2>
             );
         }
         return (
@@ -75,7 +79,7 @@ const NavHembesok = (useParams) => {
 
             {showListHembesok.reverse().map((form, index) => (
                 <div class="hembesok">
-                    Hembesöknr: {index + hembIndex + 1}<br/>
+                    Hembesöknr: {totHembesok.length - (index + hembIndex)}<br/>
                     Datum utfört: {form.date} <br/>
                     Kl till familj: {form.at_family}<br/>
                     Kl från familj: {form.from_family}<br/>
