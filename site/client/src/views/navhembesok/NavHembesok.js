@@ -1,6 +1,8 @@
 import React, { Fragment, useEffect, useState} from "react";
 import {useParams} from "react-router-dom"; import "./navHembesok.css"
+import Navigation from "../components/navigationButtons";
 const NavHembesok = (useParams) => {
+    console.log(window.location.pathname.split("/"));
 
     const [showListHembesok, showHembesok] = useState([]);
     const [totHembesok, setHembesok] = useState([]);
@@ -118,6 +120,7 @@ const NavHembesok = (useParams) => {
             )).reverse()}    
             </div>
             {laterButton()}
+            <Navigation id={id}/>
         </Fragment>
     );
 }
