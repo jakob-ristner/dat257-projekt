@@ -29,25 +29,25 @@ const AddHembesok = (useParams) => {
         <div class="hembesok">
             <form><div class="info">
                    Datum utfört: <input type="date" value={date_performed} onChange={(e) => {set_date_performed(e.target.value)}}></input><br/>
-                   Till familj:<input type="time"></input><br/>
-                   Från familj:<input type="time"></input><br/> 
-                   Utförd av: <input></input><br/> 
+                   Till familj:<input type="time" value={at_family} onChange={(e) => {set_at_family(e.target.value)}}></input><br/>
+                   Från familj:<input type="time" value={from_family} onChange={(e) => {set_from_family(e.target.value)}}></input><br/> 
+                   Utförd av: <input value={performed_by} onChange={(e) => {set_performed_by(e.target.value)}}></input><br/> 
                     </div>
 
                     <div class="atgard">
                     Amning/nutrition: <input type="checkbox" checked={amning_nutrition} onChange={(e) => {set_amning_nutrition(e.target.checked)}}></input><br/>
-                    Stödsamtal: <input type="checkbox"></input><br/>
-                    Viktkontroll: <input type="checkbox"></input><br/>
-                    Provtagning: <input type="checkbox"></input><br/>
-                    Läkemedel: <input type="checkbox"></input><br/>
-                    Annan Åtgärd:: <input></input><br/>
+                    Stödsamtal: <input type="checkbox" checked={stodsamtal} onChange={(e) => {set_stodsamtal(e.target.checked)}}></input><br/>
+                    Viktkontroll: <input type="checkbox" checked={viktkontroll} onChange={(e) => {set_viktkontroll(e.target.checked)}}></input><br/>
+                    Provtagning: <input type="checkbox" checked={provtagning} onChange={(e) => {set_provtagning(e.target.checked)}}></input><br/>
+                    Läkemedel: <input type="checkbox" checked={lakemedel} onChange={(e) => {set_lakemedel(e.target.checked)}}></input><br/>
+                    Annan Åtgärd:: <input value={annan_at} onChange={(e) => {set_annan_at(e.target.value)}}></input><br/>
                     </div>
 
                     <div class="resurs">
-                    Läkare: <input type="checkbox"></input><br/>
-                    Logoped: <input type="checkbox"></input><br/>
-                    Dietist: <input type="checkbox"></input><br/>
-                    Annan resurs: <input type="checkbox"></input><br/>
+                    Läkare: <input type="checkbox" checked={lakemedel} onChange={(e) => {set_lakemedel(e.target.checked)}}></input><br/>
+                    Logoped: <input type="checkbox" checked={logoped} onChange={(e) => {set_logoped(e.target.checked)}}></input><br/>
+                    Dietist: <input type="checkbox" checked={dietist} onChange={(e) => {set_dietist(e.target.checked)}}></input><br/>
+                    Annan resurs: <input type="checkbox" checked={annan_resurs} onChange={(e) => {set_annan_resurs(e.target.checked)}}></input><br/>
                     </div>
 
                     <div class="avvikning">
