@@ -6,7 +6,7 @@ const Home = () => {
             <div className="container">
                 <h1> Neonatal Hemsjukvård </h1>
                 <a href="/patients"> Protokoll </a>
-                <a href="/testViewD"> testView </a>
+                <a href="/testView"> TestView </a>
 
             </div>
         </Fragment>

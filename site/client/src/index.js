@@ -6,6 +6,7 @@ import './index.css';
 //views 
 import Home from './views/home/Home.js';
 import Patients from "./views/patients/Patients.js"
+import TestView from "./views/testView/TestView.js"
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(
@@ -13,6 +14,9 @@ ReactDOM.render(
         <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/Patients" component={Patients} />
+            <Route exact path ="/TestView" component ={TestView} />
+
+
         </Switch>
     </BrowserRouter>,
     rootElement
