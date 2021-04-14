@@ -15,5 +15,5 @@ module.exports = function(app, pool){
         } catch (error) {
             console.error(error.message);
         }
-    })
+    });
 }
