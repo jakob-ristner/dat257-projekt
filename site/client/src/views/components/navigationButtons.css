@@ -1,0 +1,31 @@
+
+.navigation {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+
+}
+.inskrivningDiv {
+    grid-area: 1;
+}
+.hembesokDiv {
+    grid-area: 2;
+}
+.digitalVardDiv {
+    grid-area: 2;
+}
+.mottagningDiv{
+    grid-area: 3;
+}
+.aterlaggningDiv{
+    grid-area: 4;
+    
+}
+
+.navigationButton {
+    min-width: fill;
+    margin: 5px; 
+
+  }
+
+

@@ -96,7 +96,7 @@ const NavHembesok = (useParams) => {
                     Viktkontroll<input type="checkbox" checked={form.viktkontroll}/> <br/>
                     Provtagning<input type="checkbox" checked={form.provtagning}/>
                         Läkemedel<input type="checkbox" checked={form.lakemedel}/><br/>
-                    Annan Åtgärd<input value={form.annan_åt}/><br/><br/>
+                    Annan Åtgärd<input value={form.annan_at}/><br/><br/>
                     </div>
 
                     <div class="resurs">

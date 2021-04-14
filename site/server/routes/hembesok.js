@@ -11,7 +11,7 @@ module.exports = function(app, pool) {
                 viktkontroll,
                 provtagning,
                 lakemedel,
-                annan_åt,
+                annan_at,
                 lakare,
                 logoped,
                 dietist,
