@@ -1,19 +1,31 @@
 
 .navigation {
     display: grid;
-    grid-template-columns: 200px;
-    grid-gap: 20px;
-    grid-template-areas: 
-    "button"
-    "button"
-    "button"
-    "button"
+    grid-template-columns: auto;
+    grid-template-rows: 20% 20% 20% 20% 20%;
 
 }
-.hembesok{
-    grid-column: 1 / -1;
+.inskrivningDiv {
+    grid-area: 1;
 }
-.digitalVard{
-    grid-column: 2 / -2;
+.hembesokDiv {
+    grid-area: 2;
 }
-  
+.digitalVardDiv {
+    grid-area: 2;
+}
+.mottagningDiv{
+    grid-area: 3;
+}
+.aterlaggningDiv{
+    grid-area: 4;
+    
+}
+
+.navigationButton {
+    min-width: fill;
+    margin: 5px; 
+
+  }
+
+
