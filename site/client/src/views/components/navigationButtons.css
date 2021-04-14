@@ -1,0 +1,19 @@
+
+.navigation {
+    display: grid;
+    grid-template-columns: 200px;
+    grid-gap: 20px;
+    grid-template-areas: 
+    "button"
+    "button"
+    "button"
+    "button"
+
+}
+.hembesok{
+    grid-column: 1 / -1;
+}
+.digitalVard{
+    grid-column: 2 / -2;
+}
+  

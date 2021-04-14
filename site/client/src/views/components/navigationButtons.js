@@ -1,14 +1,39 @@
 import React from 'react'
-import Home from '../home/Home'
-class navigation extends React.Component{
-    render(){
-        return(
-            <button onClick={() => {
-                navigation.navigate('Home')
-            }}> Hello </button>
+
+
+const Navigation = (params) => {
+    const { id } = params;
+    const getNavigationHome = () => {
+        return (
+            <button class="mybutton" onClick={() => {
+                window.location = "/home/";
+            }}> Home </button>
         )
     }
-}
-export default navigation;
+    const getNavigationHembesok = () => {
+        return (
+            <button class="hembesok" onClick={() => {
+                window.location = "/hembesok/" + id;
+            }}> Hembesok </button>
+        )
+    }
+    const getNavigationDigitalaVardmot = () => {
+        return (
+            <button class="digitalVard" onClick={() => {
+                window.location = "/digitalvardmote/" + id;
+            }}> Digitalvardmote </button>
+        )
+    }
+        return(
+            <div class="navigation"> 
+            {getNavigationHembesok()}
+            {getNavigationDigitalaVardmot()}
+            {getNavigationHembesok()}
+            </div>
+            
+        );
+    }
+    
+export default Navigation;
 
 
