@@ -56,32 +56,67 @@ const NavHembesok = (useParams) => {
     const getHeader = () => {
         if (totHembesok.length > 0) {
             return (
-                <h2>Visar hembesök {Math.min(totHembesok.length, hembIndex + 1)} - 
-                    {Math.min(totHembesok.length, hembIndex + 3 )} ut av totalt {totHembesok.length} st hembesök</h2>
+                <h2>Visar hembesök {totHembesok.length -
+                    Math.min(totHembesok.length, hembIndex + 2 )}
+                    - 
+                    {totHembesok.length - 
+                    Math.min(totHembesok.length, hembIndex)} ut 
+                    av totalt {totHembesok.length} st hembesök</h2>
             );
         }
         return (
             <h2>Det finns ej några hembesök för detta protokollnr</h2> 
         );
     }
-
+    let value = false;
     return (
         <Fragment>
             <h1>protokollnr: {id} </h1>
 
             {getHeader()}
 
+        
+
             {earlierButton()}
+            <div class="list">
 
             {showListHembesok.reverse().map((form, index) => (
                 <div class="hembesok">
-                    Hembesöknr: {index + hembIndex + 1}<br/>
+                    <button class="edit"> Redigera </button> <br/>
+                    <div class="info">
+                    Hembesöknr: {totHembesok.length - (index + hembIndex)}<br/>
                     Datum utfört: {form.date} <br/>
                     Kl till familj: {form.at_family}<br/>
                     Kl från familj: {form.from_family}<br/>
-                    Performed by: {form.performed_by}<br/>
+                    Utförd av: {form.performed_by}<br/><br/>
+                    </div>
+
+                    <div class="atgard">
+                    Stödsamtal<input type="checkbox" checked={form.stodsamtal}/>
+                    Viktkontroll<input type="checkbox" checked={form.viktkontroll}/> <br/>
+                    Provtagning<input type="checkbox" checked={form.provtagning}/>
+                        Läkemedel<input type="checkbox" checked={form.lakemedel}/><br/>
+                    Annan Åtgärd<input value={form.annan_åt}/><br/><br/>
+                    </div>
+
+                    <div class="resurs">
+                    Läkare<input type="checkbox" checked={form.lakare}/>
+                    Logoped<input type="checkbox" checked={form.logoped}/><br/>
+                    Dietist<input type="checkbox" checked={form.dietist}/>
+                    Annan Resurs<input value={form.annan_resurs}/> <br/><br/>
+                    </div>
+
+                    <div class="avvikning">
+                    Avvikning Logistik<input type="checkbox" checked={form.av_logistik}/>
+                    Avvikning Barn/Familj<input type="checkbox" checked={form.av_barn_familj}/><br/>
+                    Avvikning Personal<input type="checkbox" checked={form.av_personal}/><br/>
+                    Beskrivning<input value={form.av_beskrivning}/><br/>
+                    </div>
+
+
                 </div>
             )).reverse()}    
+            </div>
             {laterButton()}
         </Fragment>
     );
