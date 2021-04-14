@@ -16,4 +16,21 @@ module.exports = function(app, pool){
             console.error(error.message);
         }
     });
+
+    app.get("/registration/:id", async(req, res)=> {
+
+        try {
+            const {id} = req.params;
+            const allRegistrations = await pool.query(
+            `SELECT protocolID, regdate :: text, reason 
+            FROM Registration WHERE protocolID = $1`, [id]
+            );
+                res.json(allRegistrations.rows);
+        } catch(e) {
+            console.error(e.message);
+        }
+
+
+    });
+
 }

@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState} from "react";
 
 const Registration = () => {
-    const [protokollIDinput, setProtokollID] = useState(0);
+    const [protocolIDinput, setProtocolID] = useState(0);
     const [regDate, setRegDate] = useState("");
     const [reason, setReason] = useState("");
     
@@ -11,7 +11,7 @@ const Registration = () => {
             method: 'POST',
             headers:{'Content-Type': 'application/json'},
             body: JSON.stringify({
-                protocolID: protokollIDinput,
+                protocolID: protocolIDinput,
                 regDate: regDate,
                 reason: reason
             })
@@ -25,6 +25,16 @@ const Registration = () => {
 
     }
 
+    const getRegistration = async(index) => {
+        try {
+            const response = await fetch(
+                "http://localhost:5000/registration/" + protocolIdinput);
+                const jsonData = await response.json();
+        } catch(err) {
+            console.error(err);
+        }
+    }
+
     return (
         <Fragment>
             <h1>Inskrivning </h1>
@@ -32,11 +42,11 @@ const Registration = () => {
             <form onSubmit={submitRegistation}>
             <label for="fname">ProtkollID:</label>
             <input type="number" 
-                value={protokollIDinput} 
+                value={protocolIDinput} 
                 id="protokollID" 
                 name="fname"
                 onChange={(e) => {
-                    setProtokollID(e.target.value)} }>
+                    setProtocolID(e.target.value)} }>
                 </input>
     
             <label for="lname">Registreringsdatum:</label>
