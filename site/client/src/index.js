@@ -7,6 +7,9 @@ import './index.css';
 import Home from './views/home/Home.js';
 import Patients from "./views/patients/Patients.js"
 import NavHembesok from "./views/navhembesok/NavHembesok.js"
+import Registrations from "./views/registrations/registrations.js";
+
+
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(
@@ -15,6 +18,7 @@ ReactDOM.render(
             <Route exact path="/" component={Home} />
             <Route exact path="/Patients" component={Patients} />
             <Route exact path="/Hembesok/:id" component={NavHembesok} />
+            <Route exact path="/Registration" component={Registrations} />
         </Switch>
     </BrowserRouter>,
     rootElement
