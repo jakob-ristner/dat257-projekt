@@ -6,7 +6,8 @@ const Registration = () => {
     const [reason, setReason] = useState("");
     
 
-    const submitRegistation = async() => {
+    const submitRegistation = async(e) => {
+        e.preventDefault();
         const submitForm = {
             method: 'POST',
             headers:{'Content-Type': 'application/json'},
@@ -28,7 +29,7 @@ const Registration = () => {
     const getRegistration = async(index) => {
         try {
             const response = await fetch(
-                "http://localhost:5000/registration/" + protocolIdinput);
+                "http://localhost:5000/registration/" + protocolIDinput);
                 const jsonData = await response.json();
         } catch(err) {
             console.error(err);
