@@ -9,7 +9,7 @@ CREATE TABLE Hembesok (
     from_family TIMESTAMP NOT NULL,
     performed_by TEXT NOT NULL,
 
-    amining_nutrition BOOLEAN NOT NULL DEFAULT FALSE,
+    amning_nutrition BOOLEAN NOT NULL DEFAULT FALSE,
     stodsamtal BOOLEAN NOT NULL DEFAULT FALSE,
     viktkontroll BOOLEAN NOT NULL DEFAULT FALSE,
     provtagning BOOLEAN NOT NULL DEFAULT FALSE,

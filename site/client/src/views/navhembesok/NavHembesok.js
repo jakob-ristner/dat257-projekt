@@ -92,6 +92,7 @@ const NavHembesok = (useParams) => {
                     </div>
 
                     <div class="atgard">
+                    Amning/nutrition<input type="checkbox" checked={form.amning_nutrition}/>
                     Stödsamtal<input type="checkbox" checked={form.stodsamtal}/>
                     Viktkontroll<input type="checkbox" checked={form.viktkontroll}/> <br/>
                     Provtagning<input type="checkbox" checked={form.provtagning}/>
@@ -118,7 +119,10 @@ const NavHembesok = (useParams) => {
             )).reverse()}    
             </div>
             {laterButton()}
-        </Fragment>
+
+            <button onClick={() => 
+            {window.location="/hembesok/add/" + id}}>Skapa nytt hembesök</button>
+        </Fragment> 
     );
 }
 

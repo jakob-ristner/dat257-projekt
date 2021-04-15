@@ -5,9 +5,9 @@ import './index.css';
 
 //views 
 import Home from './views/home/Home.js';
-import Patients from "./views/patients/Patients.js"
-
-import NavHembesok from "./views/navhembesok/NavHembesok.js"
+import Patients from "./views/patients/Patients.js";
+import NavHembesok from "./views/navhembesok/NavHembesok.js";
+import AddHembesok from "./views/addHembesok/AddHembesok";
 
 import TestView from "./views/testView/TestView.js"
 
@@ -25,6 +25,7 @@ ReactDOM.render(
 
 
 
+            <Route exact path="/Hembesok/add/:protokollnr" component={AddHembesok} />
         </Switch>
     </BrowserRouter>,
     rootElement
