@@ -80,6 +80,10 @@ const NavHembesok = (useParams) => {
         
 
             {earlierButton()}
+            <div class = "grid">
+
+
+            
             <div class="list">
 
             {showListHembesok.reverse().map((form, index) => (
@@ -119,8 +123,11 @@ const NavHembesok = (useParams) => {
                 </div>
             )).reverse()}    
             </div>
+            <div class = "three"><Navigation id={id}/></div>
+            </div>
             {laterButton()}
-            <Navigation id={id}/>
+            
+            
         </Fragment>
     );
 }

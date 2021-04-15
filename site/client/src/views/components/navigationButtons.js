@@ -101,9 +101,9 @@ const Navigation = (params) => {
             </div>
             <div class = "digitalVard">
             {getNavigationDigitalaVardmot()}
+            </div>
             <div class = "mottagningDiv">
             {getNavigationMottagningBesok()}
-            </div>
             </div>
             <div class = "aterlaggningDiv">
             {getNavigationAterlaggning()}
