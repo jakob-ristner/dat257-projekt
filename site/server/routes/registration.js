@@ -40,7 +40,12 @@ module.exports = function(app, pool){
         try {
             const {id} = req.params;
             const allRegistrations = await pool.query(
-            `SELECT protocolID, regdate :: text, reason 
+            `SELECT protocolID, regDate :: text, outDate :: text, reason, ifyllnadkollad, registrerad,
+            veckor, dagar, vikt_fodelse, langd_fodelse, 
+            huvudomfang_fodelse, vikt_inskrivning, langd_inskrivning,
+            huvudomfang_in, mamma_vill_amma, amning_inskrivning, v_sond_in,
+            infart_in, andningsstod_in, extraGas_in, riskpatient, 
+            bvcRapportering, bvcText
             FROM Registration WHERE protocolID = $1`, [id]
             );
                 res.json(allRegistrations.rows);
@@ -50,7 +55,8 @@ module.exports = function(app, pool){
 
 
     });
-
+//`SELECT protocolID, regdate :: text, reason 
+//  FROM Registration WHERE protocolID = $1`
     app.put("/registration/:id", async(req, res) => {
         try {
             const {id} = req.params;
