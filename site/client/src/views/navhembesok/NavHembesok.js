@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState} from "react";
 import {useParams} from "react-router-dom"; import "./navHembesok.css"
 import Navigation from "../components/navigationButtons";
+import HomeButton from "../components/HomeButton";
 const NavHembesok = (useParams) => {
     console.log(window.location.pathname.split("/"));
 
@@ -123,7 +124,8 @@ const NavHembesok = (useParams) => {
                 </div>
             )).reverse()}    
             </div>
-            <div class = "three"><Navigation id={id}/></div>
+            <div class = "navigation"><Navigation id={id}/></div>
+            <div id = "homeButton"><HomeButton/></div>
             </div>
             {laterButton()}
             

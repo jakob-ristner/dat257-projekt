@@ -13,13 +13,7 @@ const Navigation = (params) => {
         return false;
         
     }
-    const getNavigationHome = () => {
-        return (
-            <button class = "navigationButton"  onClick={() => {
-                window.location = "/home/";
-            }}> Home </button>
-        )
-    }
+    
     const getNavigationInskrivning = () => {
         if (isInPath("Inskrivning")) {
             return (

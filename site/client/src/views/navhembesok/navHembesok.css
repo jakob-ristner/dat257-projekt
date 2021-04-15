@@ -7,14 +7,20 @@ body {
   grid-template-columns: 70% 20%;
   grid-template-rows: 60% 60%;
 }
-.three {
+.navigation {
     grid-column: 3;
     grid-row: 1 / 2;
     left: 85%;
     top: 35%;
     position: absolute;
+
     
   }
+#homeButton {
+    left: 2%;
+    top: 2%;
+    position: absolute;
+}
 #root {
   grid-column-start: 2;
 }
