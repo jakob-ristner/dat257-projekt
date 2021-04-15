@@ -5,8 +5,8 @@ const AddHembesok = (useParams) => {
 
     const {protokollnr} = useParams.match.params;
     const [date_performed, set_date_performed] = useState("");
-    const [at_family, set_at_family] = useState("");
-    const [from_family, set_from_family] = useState("");
+    const [at_familyKl, set_at_family] = useState("");
+    const [from_familyKl, set_from_family] = useState("");
     const [performed_by, set_performed_by] = useState("");
     const [amning_nutrition, set_amning_nutrition] = useState(false);
     const [stodsamtal, set_stodsamtal] = useState(false);
@@ -23,15 +23,57 @@ const AddHembesok = (useParams) => {
     const [annan_resurs, set_annan_resurs] = useState("");
     const [av_beskrivning, set_av_beskrivning] = useState("");
 
+    const submit = async(e) => {
+        e.preventDefault();
+       const at_family = date_performed + " " + at_familyKl;
+       const from_family = date_performed + " " + from_familyKl;
+        try {
+            const body ={
+            at_family,
+            from_family,
+            performed_by,
+            amning_nutrition,
+            stodsamtal,
+            viktkontroll,
+            provtagning,
+            lakemedel,
+            lakare,
+            logoped,
+            dietist,
+            av_logistik,
+            av_barn_familj,
+            av_personal,
+            annan_at,
+            annan_resurs,
+            av_beskrivning}; 
+            
+            const response = await fetch("http://localhost:5000/hembesok/" + protokollnr, {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(body)
+            });
+
+            window.location="/hembesok/" + protokollnr;
+
+        } catch (err) {
+            console.error(err);
+            
+        }
+    }
+
     return(
         <Fragment>
         <h1>Lägg till hembesök för {protokollnr}</h1>  
+        <button onClick={() =>{window.location="/hembesok/" + protokollnr} }>Avbryt</button>
         <div class="hembesok">
-            <form><div class="info">
-                   Datum utfört: <input type="date" value={date_performed} onChange={(e) => {set_date_performed(e.target.value)}}></input><br/>
-                   Till familj:<input type="time" value={at_family} onChange={(e) => {set_at_family(e.target.value)}}></input><br/>
-                   Från familj:<input type="time" value={from_family} onChange={(e) => {set_from_family(e.target.value)}}></input><br/> 
-                   Utförd av: <input value={performed_by} onChange={(e) => {set_performed_by(e.target.value)}}></input><br/> 
+    
+            <form onSubmit={submit}>
+                
+                <div class="info">
+                   Datum utfört: <input required type="date" value={date_performed} onChange={(e) => {set_date_performed(e.target.value)}}></input><br/>
+                   Till familj:<input required type="time" value={at_familyKl} onChange={(e) => {set_at_family(e.target.value)}}></input><br/>
+                   Från familj:<input required type="time" value={from_familyKl} onChange={(e) => {set_from_family(e.target.value)}}></input><br/> 
+                   Utförd av: <input required value={performed_by} onChange={(e) => {set_performed_by(e.target.value)}}></input><br/> 
                     </div>
 
                     <div class="atgard">
@@ -44,7 +86,7 @@ const AddHembesok = (useParams) => {
                     </div>
 
                     <div class="resurs">
-                    Läkare: <input type="checkbox" checked={lakemedel} onChange={(e) => {set_lakemedel(e.target.checked)}}></input><br/>
+                    Läkare: <input type="checkbox" checked={lakare} onChange={(e) => {set_lakemedel(e.target.checked)}}></input><br/>
                     Logoped: <input type="checkbox" checked={logoped} onChange={(e) => {set_logoped(e.target.checked)}}></input><br/>
                     Dietist: <input type="checkbox" checked={dietist} onChange={(e) => {set_dietist(e.target.checked)}}></input><br/>
                     Annan resurs: <input type="checkbox" checked={annan_resurs} onChange={(e) => {set_annan_resurs(e.target.checked)}}></input><br/>
@@ -61,7 +103,7 @@ const AddHembesok = (useParams) => {
                         }
                         }}></input><br/>
                     </div>
-
+                    <button>Spara</button>
             </form>
             </div>      
         </Fragment>

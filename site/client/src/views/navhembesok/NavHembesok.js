@@ -122,7 +122,7 @@ const NavHembesok = (useParams) => {
 
             <button onClick={() => 
             {window.location="/hembesok/add/" + id}}>Skapa nytt hembesök</button>
-        </Fragment>
+        </Fragment> 
     );
 }
 
