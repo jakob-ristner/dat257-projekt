@@ -16,6 +16,7 @@ const EditRegistration = (useParams) => {
                 "http://localhost:5000/registration/" + id);
             const jsonData = await response.json();
             setRegistration(jsonData);
+          //  setIndividualReg();
         } catch (error) {
             console.error(error);
         }
@@ -24,6 +25,8 @@ const EditRegistration = (useParams) => {
     useEffect(() => {
         getRegistration();
     }, []);
+
+
 
     const updateRegistration = async(e) => {
         e.preventDefault();
@@ -38,7 +41,7 @@ const EditRegistration = (useParams) => {
                 })
             }
 
-            const response = await fetch('http://localhost:5000/registration' + id,
+            const response = await fetch('http://localhost:5000/registration/' + id,
             updateForm);
 
             const data = await response.jsonData();
@@ -54,6 +57,7 @@ return (
         <h1>Inskrivning </h1>
 
         {fullRegistration.map(form => (
+            
             <form  onSubmit={updateRegistration}>
             <label for="fname">ProtkollID:</label>
             <input type="number" 
@@ -70,6 +74,7 @@ return (
                 value={form.regdate} 
                 id="date" 
                 name="lname"
+                
                 >
                  </input>
     
@@ -79,6 +84,7 @@ return (
                 value={form.reason} 
                 id="reason" 
                 name="lname"
+              
                 
                 >
                  </input>
