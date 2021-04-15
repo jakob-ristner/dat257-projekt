@@ -3,7 +3,7 @@ module.exports = function(app, pool){
     app.post("/registration", async(req, res) => {
         try {
             console.log(req.body);
-            const {protocolID, regDate, reason, ifyllnadkollad, registrerad,
+            const {protocolID, regDate, outDate, reason, ifyllnadkollad, registrerad,
                 veckor, dagar, vikt_fodelse, langd_fodelse, 
                 huvudomfang_fodelse, vikt_inskrivning, langd_inskrivning,
                 huvudomfang_in, mamma_vill_amma, amning_inskrivning, v_sond_in,
@@ -12,7 +12,7 @@ module.exports = function(app, pool){
        
             
             const newReg = await pool.query(
-                `INSERT INTO registration (protocolID, regDate, reason, ifyllnadkollad, registrerad,
+                `INSERT INTO registration (protocolID, regDate, outDate, reason, ifyllnadkollad, registrerad,
                     veckor, dagar, vikt_fodelse, langd_fodelse, 
                     huvudomfang_fodelse, vikt_inskrivning, langd_inskrivning,
                     huvudomfang_in, mamma_vill_amma, amning_inskrivning, v_sond_in,
@@ -20,8 +20,8 @@ module.exports = function(app, pool){
                     bvcRapportering, bvcText) 
                     VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, 
                         $10, $11, $12, $13, $14, $15, $16, $17, 
-                        $18, $19, $20, $21, $22) RETURNING *`,
-                [protocolID, regDate, reason, ifyllnadkollad, registrerad,
+                        $18, $19, $20, $21, $22, $23) RETURNING *`,
+                [protocolID, regDate, outDate, reason, ifyllnadkollad, registrerad,
                     veckor, dagar, vikt_fodelse, langd_fodelse, 
                     huvudomfang_fodelse, vikt_inskrivning, langd_inskrivning,
                     huvudomfang_in, mamma_vill_amma, amning_inskrivning, v_sond_in,
