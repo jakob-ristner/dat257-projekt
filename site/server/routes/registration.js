@@ -33,4 +33,18 @@ module.exports = function(app, pool){
 
     });
 
+    app.put("/registration/:id", async(req, res) => {
+        try {
+            const {id} = req.params;
+            const updateReg = await pool.query(
+                //Write query here
+                "$1", [id]
+            );
+            res.json(updateReg, rows);
+
+        } catch (error) {
+            console.error(error);
+        }
+    })
+
 }
