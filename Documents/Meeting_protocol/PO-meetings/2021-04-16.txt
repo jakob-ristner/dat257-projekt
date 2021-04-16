@@ -1,0 +1,28 @@
+Ifyllnad kollad - bort
+Registrerad - bort
+
+Gestationsvecka vid start. 
+gestationsvecka vid inskrivning. (Alternativt födelsedag)
+Erhåller bröstmjölk - lägg till.
+
+Ha nån sorts dialogruta vid utskrivning för att man ska godkänna att allt är igenomkollat. 
+gestationsvecka - vilken födelsedag
+
+
+Avviktning beskrivning - ska fältet fyllas i endast om en avvikelse kryssats i. 
+Kalla hela för avvikelse:
+
+Amning - Annan åtgärd - Någon måste vara ifylld!
+
+Låta ifylld/icke ifylld anges som 1/0 i excel. 
+
+Annan resurs ska vara ett inputfield
+
+------------------------------------------
+Vad göra nästa vecka
+Fixa feedbacken från idag.
+
+Fixa utskrivningssida. 
+
+Redigering av hembesök och in-utskrivning
+
