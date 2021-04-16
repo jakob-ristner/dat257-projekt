@@ -86,7 +86,7 @@ const AddHembesok = (useParams) => {
                     </div>
 
                     <div class="resurs">
-                    Läkare: <input type="checkbox" checked={lakare} onChange={(e) => {set_lakemedel(e.target.checked)}}></input><br/>
+                    Läkare: <input type="checkbox" checked={lakare} onChange={(e) => {set_lakare(e.target.checked)}}></input><br/>
                     Logoped: <input type="checkbox" checked={logoped} onChange={(e) => {set_logoped(e.target.checked)}}></input><br/>
                     Dietist: <input type="checkbox" checked={dietist} onChange={(e) => {set_dietist(e.target.checked)}}></input><br/>
                     Annan resurs: <input type="checkbox" checked={annan_resurs} onChange={(e) => {set_annan_resurs(e.target.checked)}}></input><br/>
