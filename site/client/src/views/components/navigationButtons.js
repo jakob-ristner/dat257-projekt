@@ -18,13 +18,13 @@ const Navigation = (params) => {
         if (isInPath("Inskrivning")) {
             return (
             <button disabled class = "navigationButton"  onClick={() => {
-                window.location = "/inskrivning/" + id;
+                window.location = "/registration/" + id;
             }}> Inskrivning </button>
             )
         }
         return (
             <button class = "navigationButton"  onClick={() => {
-                window.location = "/inskrivning/" + id;
+                window.location = "/registration/" + id;
             }}> Inskrivning </button>
         )
     }
