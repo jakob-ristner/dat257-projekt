@@ -1,0 +1,16 @@
+Individual reflection 2021-04-16 13-51
+
+what do I want to learn or understand better?
+-After a week I still feel that I want to improve my understanding of react! I also would like to understand the PERN (postgres, express, react ,node) connection better!
+
+how can I help someone else, or the entire team, to learn something new?
+-As of now I can contribute with my skills in programming in react but I am yet not a master myself. Other than that I'm starting to understand CSS well now and therefore I can help with that.
+
+what is my contribution towards the team’s use of Scrum?
+-This week my contirbution has mostly been working with trello(userstory, tasks etc). Our userstories have been suboptimal this week which we will work on til next week. I have also worked in a development 
+team with a group member which has gone well. I still have the role of being the main contact with our customer.
+
+what is my contribution towards the team’s deliveries?
+-I had issues understanding react but now I am back on track, this week me and Nima have fixed all navigation buttons for our user which has been fun and challenging. Me and Nima has also worked with styling css.
+
+
