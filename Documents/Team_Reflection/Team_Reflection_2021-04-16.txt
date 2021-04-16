@@ -1,16 +1,16 @@
-Skribent Jakob Henriksson
+Sekreterare: Jakob Henriksson
 Customer value and scope:
 -Priority of features -> As it is we are trying to guide our customer which things should be prioritized.
 
 -User stories -> Vi behöver förbättra får tidsuppfattning för våra uppdrag. Vi måste göra tydligare och mer fokuserade userstories och tasks. 
- Vi ska även bli bättre på att jobba mer utifrån userstories.
+ Vi ska även bli bättre på att jobba mer utifrån trello då man lätt glömmer bort att den finns.
 
--KPI -> Saknar kopior men vi ska fixa det
+-KPI -> Saknar kopior men vi ska fixa det tills nästa reflection.
 -Successes criteria -> Målet är fortfarande att hinna bli färdigt med allt.
 
 Social Contract and Effort:
 -Social contract -> Följer det bra, uppdaterat det sedan mötet med handledare i måndags.
--Time estimation so far -> Det har gått bra! Vi är nöjda med tiden vi har lagt. 15-20h per person.
+-Time estimation so far -> Det har gått bra! Vi är nöjda med tiden vi har lagt och hur långt vi har kommit. Estimerad tid är runt 15-20h per person.
 
 Design decisions and product structure - Vi har inte gjort det än
 
@@ -20,8 +20,10 @@ Application of Scrum:
 - Arbeta gentemot kund -> Har gått bra! Vi har varit tvugna att vägleda dem lite i vilken ordning allt ska ske då de till en brjna ville ha i kronologisk ordning etc.
 - User stories -> som tidigare sagt behöver i förbättra detta till nästa vecka.
 - Sprint review -> Efter varje möte har vi fått nya direktiv för vad som ska göras, har gått jättebra! Vi försöker också vägleda dem då våran kund till en början ville ha
- allt enligt 'vattenfall' principen etc. Nu under vårt tredje möte har vi fått feedback som vi ska sitta med.
-- Git hub -> Har gått bra! Jakob R har varit till stor hjälp med guide för att sätta upp allt. Vi behöver bli duktigare med att jobba utifrån scrumboard
+ allt enligt 'vattenfall' principen etc. Nu under vårt tredje möte har vi fått feedback som vi ska ta tag i denna vecka.
+ 
+- Git hub -> Har gått bra! Jakob R har varit till stor hjälp med guide för att sätta upp allt (databas, server och client). 
+-Trello -> Vi behöver bli duktigare med att jobba utifrån scrumboard inför nästa sprint.
 
 
 
