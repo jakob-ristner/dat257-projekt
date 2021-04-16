@@ -1,31 +1,26 @@
-
 .navigation {
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: 20% 20% 20% 20% 20%;
-
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 15% 15% 15% 15% 15%;  
 }
 .inskrivningDiv {
-    grid-area: 1;
+  grid-area: 1;
 }
 .hembesokDiv {
-    grid-area: 2;
+  grid-area: 2;
 }
 .digitalVardDiv {
-    grid-area: 2;
+  grid-area: 2;
 }
-.mottagningDiv{
-    grid-area: 3;
+.mottagningDiv {
+  grid-area: 3;
 }
-.aterlaggningDiv{
-    grid-area: 4;
-    
+.aterlaggningDiv {
+  grid-area: 4;
 }
 
 .navigationButton {
-    min-width: fill;
-    margin: 5px; 
-
-  }
-
-
+  min-width: fill;
+  margin: 10px;
+  height: 40px;
+}

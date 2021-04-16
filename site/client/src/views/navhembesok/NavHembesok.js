@@ -1,6 +1,9 @@
 import React, { Fragment, useEffect, useState} from "react";
 import {useParams} from "react-router-dom"; import "./navHembesok.css"
+import Navigation from "../components/navigationButtons";
+import HomeButton from "../components/HomeButton";
 const NavHembesok = (useParams) => {
+    console.log(window.location.pathname.split("/"));
 
     const [showListHembesok, showHembesok] = useState([]);
     const [totHembesok, setHembesok] = useState([]);
@@ -78,6 +81,10 @@ const NavHembesok = (useParams) => {
         
 
             {earlierButton()}
+            <div class = "grid">
+
+
+            
             <div class="list">
 
             {showListHembesok.reverse().map((form, index) => (
@@ -118,7 +125,11 @@ const NavHembesok = (useParams) => {
                 </div>
             )).reverse()}    
             </div>
+            <div class = "navigation"><Navigation id={id}/></div>
+            <div id = "homeButton"><HomeButton/></div>
+            </div>
             {laterButton()}
+
 
             <button onClick={() => 
             {window.location="/hembesok/add/" + id}}>Skapa nytt hembesök</button>
