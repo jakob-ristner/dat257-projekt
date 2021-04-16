@@ -1,0 +1,19 @@
+Individual reflection - Haris Cehic
+Week 4 16/4
+
+What do I want to learn or understand better?
+
+This week I learned more about the actual programming language, react etc and how to integrate that with the database. Also learned how git works and setting up the environment. For next week I want to understand the tools even better but also perfecting the skills and use of Scrum. This will be done by using it more and learning from the team members.
+
+How can I help someone else, or the entire team, to learn something new?
+
+This week, going in to the project we all had different knowledge. For example I had an understanding of databases and postgres so I shared that knowledge with those who didn’t and vice versa. For next week I think we should continue on this path, to have mixed teams that can help and learn each other.
+
+What is my contribution towards the team’s use of Scrum?
+
+I’ve been participating in the sprint plannings and meetings as well as with the reflection and by that using Scrum to manage our project. Also I’ve been working with the user stories and task to keep moving the project forward. For next week we have learnt to better formulate the US and also the task which should accelerate our use of Scrum.
+
+What is my contribution towards the team’s deliveries?
+
+I’ve been actively participating in all the meetings but also in the coding. We coded in pairs which I think is a good idea since we are using different tools that the team members have different experience in and in that way we can learn from each other. For next week I think it is to just keep going on this path and putting in the hours and following the sprint plan.
+
