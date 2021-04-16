@@ -165,7 +165,7 @@ const EditRegistration = (useParams) => {
     Överrapportering till BVC i hemmet <input type="checkbox" checked={form.bvcrapportering} ></input> Om nej ange orsak:
     <input type="text" value={form.bvcText} ></input>
                     </div>
-                    <input type="submit" value="Submit">
+                    <input type="submit" value="Edit">
                     </input>
                 </form>
             ))}
