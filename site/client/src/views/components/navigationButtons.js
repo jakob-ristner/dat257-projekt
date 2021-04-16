@@ -47,7 +47,7 @@ const Navigation = (params) => {
             return (
             <button disabled class = "navigationButton"  onClick={() => {
                 window.location = "/digitalvardmote/" + id;
-            }}> Digital Vårdmöte </button>
+            }}> Digitalt Vårdmöte </button>
             )
         }
         return (
@@ -75,7 +75,7 @@ const Navigation = (params) => {
             return (
             <button disabled class = "navigationButton"  onClick={() => {
                 window.location = "/aterlaggning/" + id;
-            }}> Digital Vårdmöte </button>
+            }}> Återläggning </button>
             )
         }
         return (
