@@ -71,6 +71,8 @@ const Registration = () => {
                     body: JSON.stringify(body)
             });
 
+            window.location = "/registration/" + protocolID;
+
             console.log(respone);
         } catch (e) {
             console.error(e);

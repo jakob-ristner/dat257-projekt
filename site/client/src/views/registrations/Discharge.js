@@ -102,7 +102,7 @@ const Discharge = (useParams) => {
 
     return (
         <Fragment>
-             <div class = "navigation"><Navigation id={"111"}/></div>
+             <div class = "navigation"><Navigation id={id}/></div>
              <div id = "homeButton"><Home/></div>
 
             <h1>Inskrivning </h1>
@@ -168,10 +168,10 @@ const Discharge = (useParams) => {
                     <div class="riskpatient">
                         Riskpatient <input type="checkbox" checked={form.riskpatient} ></input><br></br>
                         Överrapportering till BVC i hemmet <input type="checkbox" checked={form.bvcrapportering} ></input> Om nej ange orsak:
-                <input type="text" value={form.bvcText} ></input>
+                <input type="text" value={form.bvcText} ></input> 
                     </div>
-                    <input type="submit" value="Edit">
-                    </input>
+                    <button onClick={() => {window.location = "/registration/edit/" + form.protocolid}}> Redigera </button>
+                    
                 </form>
             ))}
 

@@ -12,6 +12,7 @@ import Patients from "./views/patients/Patients.js"
 import NavHembesok from "./views/navhembesok/NavHembesok.js"
 import Registrations from "./views/registrations/registrations.js";
 import Discharge from "./views/registrations/Discharge.js";
+import EditRegistration from "./views/editRegistration/EditRegistration.js"
 
 
 const rootElement = document.getElementById("root");
@@ -24,6 +25,7 @@ ReactDOM.render(
             <Route exact path="/Hembesok/:id" component={NavHembesok} />
 
             <Route exact path ="/TestView" component ={TestView} />
+            <Route exact path ="/registration/edit/:id" component ={EditRegistration} />
 
 
 
