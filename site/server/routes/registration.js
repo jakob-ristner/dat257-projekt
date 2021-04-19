@@ -76,4 +76,54 @@ module.exports = function(app, pool){
         }
     });
 
+
+    //UTSKRIVNING
+    app.post("/discharge/:id", async(req, res) => {
+        try {
+            const {id} = req.params;
+            const {vikt_utskrivning, 
+                langd_utskrivning, 
+                huvudomfang_ut,
+                mamma_vill_amma_ut,
+                amning_utskrivning,
+                erhaller_bmjolk_ut, 
+                v_sond_ut, 
+                infart_ut, 
+                andningsstod_ut, 
+                extraGas_ut} = req.body;
+
+                const newDischarge = await pool.query(
+                    `INSERT INTO Discharge VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING *`, 
+                        [id,
+                        vikt_utskrivning, 
+                        langd_utskrivning, 
+                        huvudomfang_ut,
+                        mamma_vill_amma_ut,
+                        amning_utskrivning,
+                        erhaller_bmjolk_ut, 
+                        v_sond_ut, 
+                        infart_ut, 
+                        andningsstod_ut, 
+                        extraGas_ut]
+                );
+
+                res.json(newDischarge.rows[0]);
+
+        } catch (e) {
+            console.error(e);
+        }
+    });
 }
+
+/**
+ *  vikt_utskrivning INT CHECK (vikt_utskrivning >= 0),
+    langd_utskrivning FLOAT CHECK (langd_utskrivning >= 0),
+    huvudomfang_ut FLOAT CHECK (huvudomfang_ut >= 0),
+    mamma_vill_amma_ut BOOLEAN,
+    amning_utskrivning CHAR(2) CHECK (amning_utskrivning IN ('H', 'D', 'IA')),
+    erhaller_bmjolk_ut CHAR(2) CHECK (erhaller_bmjolk_ut IN ('H', 'D', 'IA')), 
+    v_sond_ut BOOLEAN,
+    infart_ut TEXT,
+    andningsstod_ut TEXT,
+    extraGas_ut BOOLEAN
+ */
