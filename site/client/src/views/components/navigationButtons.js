@@ -15,7 +15,7 @@ const Navigation = (params) => {
     }
     
     const getNavigationInskrivning = () => {
-        if (isInPath("Inskrivning")) {
+        if (isInPath("registration")) {
             return (
             <button disabled class = "navigationButton"  onClick={() => {
                 window.location = "/registration/" + id;
