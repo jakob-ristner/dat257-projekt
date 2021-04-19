@@ -1,0 +1,27 @@
+*   what do I want to learn or understand better?
+	As of now, I feel that I've understood much more about both react and postgresql. 
+	It has been a bit of a learning curve as I've never used postgres or react before. 
+
+	I want to understand more about web development and how to style forms and grids in
+	HTML and react so that the product that we are producing also looks nice and isn't
+	just input fields everywhere. I believe that during the next week I will learn a lot 
+	more about react and how to connect stuff. 
+
+*   how can I help someone else, or the entire team, to learn something new?
+	I still believe that my strenghts are on the programming side of things, however
+	I think that if I can teach about git, or react or JS, then I can get taught
+	how to do things in postgres. 
+
+*   what is my contribution towards the team’s use of Scrum?
+	I've been active in updating the team's Trello board. However there has been a few issues
+	with the user stories or more precisely the tasks that they weren't defined enough. This
+	has been addressed with everyone and I hope that I can make better user stories and tasks
+	for the coming week. The main problem was that nobody knew really how we were supposed to 
+	implement things and therefore the tasks were fairly vague. This will be better and I will 
+	try to write better stories. 
+
+*   what is my contribution towards the team’s deliveries?
+	I and Haris did the registration page of the website together. We did not quite finish
+	the whole page but we very nearly got there. Next week I have as of yet no idea what I will
+	be working on but I hope that I get to code a bit more on the website, and hopefully I can
+	finish the implementation of the registration page. 	

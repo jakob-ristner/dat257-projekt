@@ -1,0 +1,29 @@
+Individual Reflection Anton week 4 
+
+What do I want to learn or understand better?
+
+	I want to improve my ability to define user stories and relevant tasks that can bring more structure to our workflow and ease the development of our product.
+	I haven't programmed in JavaScript or HTML before but I'm understanding some of the basics and I want to gain the knowledge that I'll need in order to deliver.
+	This first week of actual coding and working agile has been fun and I see a lot of benefits that can be utilized when working in an agile way.   
+
+How can I help someone else, or the entire team, to learn something new?
+
+	I want to make sure that my teammates feel comfortable to ask for help and I'll share links to videos or websites if I find something that could be useful for everyone.
+	I will attend and be active on all meetings and sessions when we're programming to contribute to the team. 
+	I also want to get to know my teammates better because it boosts everyone's motivation to work together and makes the whole project more fun.
+	
+What is my contribution towards the team's use of scrum?
+	
+	I have discussed our use of scrum and how we can improve our agile workstyle with the rest of the team and made suggestions on how to move forward. 
+	We have shown our current work to the Stakeholder and gotten feedback on possible changes that could be made to match their expectations. We had a meeting at the end of the sprint where we reflected 
+	upon the first sprint and what we can take with us when we're entering the second one. There are several things that can be improved and I look forward to seeing how our 
+	way of working will have improved at the end of the project in relation to how we use scrum now. 
+ 	
+What is my contribution towards the team's deliveries?
+	
+	At the beginning of the sprint we split up into three groups to develop different parts of the website. I have been a part of the group which focused on hembesök.
+	We set up a database that stores the information, a form to add new information and displayed all the forms in a separate view. 
+	I have sat behind the keyboard and coded while sharing my screen as well as participated on the other side as an active viewer. 
+	I have also participated on all meetings with the whole team and been part of discussions and decisions. 
+    Jakob R has been really helpful and shared his knwoledge with the rest of the team. He explained the parts that I didn't understand at first 
+    which has truly eased my learning of the (to me) new programming languages. 
