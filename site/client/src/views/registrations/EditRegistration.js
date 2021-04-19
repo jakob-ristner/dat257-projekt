@@ -1,4 +1,7 @@
 import React, { Fragment, useEffect, useState} from "react";
+import Navigation from "../components/navigationButtons";
+import Home from "../components/HomeButton";
+import "./registrations.css";
 
 const EditRegistration = (useParams) => {
     //Constants for getting the registration form
@@ -99,6 +102,8 @@ const EditRegistration = (useParams) => {
 
     return (
         <Fragment>
+             <div class = "navigation"><Navigation id={"111"}/></div>
+             <div id = "homeButton"><Home/></div>
 
             <h1>Inskrivning </h1>
             {fullRegistration.map(form => (
