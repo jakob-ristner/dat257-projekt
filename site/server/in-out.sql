@@ -67,3 +67,6 @@ INSERT INTO registration (protocolID, regDate, reason, veckor, dagar,
     vikt_fodelse, langd_fodelse, huvudomfang_fodelse, amning_inskrivning) 
     VALUES ('112', '2021-01-01', 'oneonetwo', '1', '1', '3500', '83.2', '11.2', 'H');
 
+INSERT INTO Discharge VALUES ('111', 1200, 120, 120, TRUE , 'H', 'H',
+TRUE, 'yy','yy',TRUE);
+

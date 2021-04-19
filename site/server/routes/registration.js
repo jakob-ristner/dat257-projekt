@@ -55,26 +55,79 @@ module.exports = function(app, pool){
 
 
     });
+
+    app.get("/discharge/:id", async(req, res)=> {
+
+        try {
+            const {id} = req.params;
+            const allDischarges = await pool.query(
+            `SELECT * FROM Discharge WHERE protocolID = $1`, [id]
+            );
+                res.json(allDischarges.rows);
+        } catch(e) {
+            console.error(e.message);
+        }
+
+
+    });
 //`SELECT protocolID, regdate :: text, reason 
 //  FROM Registration WHERE protocolID = $1`
     app.put("/registration/:id", async(req, res) => {
         try {
             const {id} = req.params;
-            const {regDate, reason} = req.body;
-
+            const {regDate, reason, veckor,dagar,vikt_fodelse
+            ,langd_fodelse,huvudomfang_fodelse,vikt_inskrivning,langd_inskrivning,huvudomfang_in, mamma_vill_amma
+            ,amning_inskrivning,erhaller_bmjolk_ut,v_sond_in,andningsstod_in,extraGas_in
+            ,riskpatient,bvcRapportering,bvcText } = req.body;
+            /*
+            const {vikt_utskrivning, langd_utskrivning, huvudomfang_ut, mamma_vill_amma_ut
+            ,amning_utskrivning,erhaller_bmjolk_ut,v_sond_ut, infart_ut,andningsstod_ut,extraGas_ut} = req.body;
+            */
             const updateReg = await pool.query(
                 //Write query here
                 `UPDATE registration 
-                SET regdate = $1, reason = $2
-                WHERE protocolid = $3`
-                , [regDate, reason, id]
+                SET regdate = $2, reason = $3, veckor = $4 , dagar = $5, vikt_fodelse = $6, 
+                langd_fodelse = $7, huvudomfang_fodelse = $8, vikt_inskrivning = $9, langd_inskrivning = $10,
+                huvudomfang_in = $11, mamma_vill_amma = $12, amning_inskrivning = $13, erhaller_bmjolk_in = $14,
+                v_sond_in = $15, andningsstod_in = $16, extraGas_in = $17, riskpatient = $18, bvcRapportering = $19,
+                bvcText = $20
+                WHERE protocolid = $1`
+                , [id, regDate, reason, veckor,dagar,vikt_fodelse
+                    ,langd_fodelse,huvudomfang_fodelse,vikt_inskrivning,langd_inskrivning,huvudomfang_in, mamma_vill_amma
+                    ,amning_inskrivning,erhaller_bmjolk_ut,v_sond_in,andningsstod_in,extraGas_in
+                    ,riskpatient,bvcRapportering,bvcText]
             );
-            res.json(updateReg, rows);
+            res.json(updateReg);
 
         } catch (error) {
             console.error(error);
         }
     });
+    app.put("/discharge/:id", async(req, res) => {
+        try {
+            const {id} = req.params;
+           
+            const {vikt_utskrivning, langd_utskrivning, huvudomfang_ut, mamma_vill_amma_ut
+            ,amning_utskrivning,erhaller_bmjolk_ut,v_sond_ut, infart_ut,andningsstod_ut,extraGas_ut} = req.body;
+            
+            const updateReg = await pool.query(
+                //Write query here
+                `UPDATE Discharge 
+                SET vikt_utskrivning = $2, langd_utskrivning = $3,
+                huvudomfang_ut = $4, mamma_vill_amma_ut = $5, amning_utskrivning = $6, erhaller_bmjolk_ut = $7,
+                v_sond_ut = $8, andningsstod_ut = $9, extraGas_ut = $10, infart_ut = $11
+                WHERE protocolid = $1`
+                , [id, vikt_utskrivning, langd_utskrivning, huvudomfang_ut, mamma_vill_amma_ut
+                    ,amning_utskrivning,erhaller_bmjolk_ut,v_sond_ut,andningsstod_ut,extraGas_ut, infart_ut]
+            );
+            res.json(updateReg);
+
+        } catch (error) {
+            console.error(error);
+        }
+    });
+
+
 
 
     //UTSKRIVNING
