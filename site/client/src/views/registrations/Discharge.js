@@ -13,6 +13,24 @@ const Discharge = (useParams) => {
     const [regDate, setRegDate] = useState("");
     const [reason, setReason] = useState("");
 
+
+
+    //constants for setting discharge params
+    const [vikt_utskrivning, setViktUt] = useState();
+    const [langd_utskrivning, setLangdUt] = useState();
+    const [huvudomfang_ut, setHuvudomfangUt] = useState();
+    const [mamma_vill_amma_ut, setMammaAmmaUt] = useState();
+    const [amning_utskrivning, setAmningUt] = useState();
+    const [erhaller_bmjolk_ut, setErhallerBmjolkUt] = useState();
+    const [v_sond_ut, setVsondUt] = useState();
+    const [infart_ut, setInfartUt] = useState();
+    const [andningsstod_ut, setAndningsstodUt] = useState();
+    const [extraGas_ut, setExtraGasUt] = useState();
+    
+
+
+
+    //Method for  getting the registration form
     const getRegistration = async () => {
         try {
             const response = await fetch(
@@ -54,6 +72,40 @@ const Discharge = (useParams) => {
         }
        
     }
+
+    //Method for submitting the discharge form
+    const submitDischarge = async(e) => {
+        e.preventDefault();
+        
+        
+        try {
+            const body = {
+                vikt_utskrivning, 
+                langd_utskrivning, 
+                huvudomfang_ut,
+                mamma_vill_amma_ut,
+                amning_utskrivning,
+                erhaller_bmjolk_ut, 
+                v_sond_ut, 
+                infart_ut, 
+                andningsstod_ut, 
+                extraGas_ut
+            };
+    
+            const response = await fetch('http://localhost:5000/discharge/' + id, { 
+                    method: 'POST',
+                    headers:{'Content-Type': 'application/json'},
+                    body: JSON.stringify(body)
+            });
+
+            await console.log(response);
+        } catch (e) {
+            console.error(e);
+        }
+
+        
+    }
+
 
     /*
 
@@ -128,8 +180,8 @@ const Discharge = (useParams) => {
                         <label for="outDate">Utskrivningsdatum</label>
                         <input type="date" value={form.outdate}></input>
                         <br></br>
-        Ifyllnad kollad: <input type="checkbox" checked={form.ifyllnadkollad} ></input><br></br>
-        Registrerad: <input type="checkbox" checked={form.registrerad}></input><br></br>
+                        Ifyllnad kollad: <input type="checkbox" checked={form.ifyllnadkollad} ></input><br></br>
+                        Registrerad: <input type="checkbox" checked={form.registrerad}></input><br></br>
 
                     </div>
 
@@ -174,6 +226,23 @@ const Discharge = (useParams) => {
                     </input>
                 </form>
             ))}
+
+            <div class="discharge" >
+                <h1>Utskrivning</h1>
+                <form onSubmit={submitDischarge}>
+                        vikt (gram) <input type="number" value={vikt_utskrivning} onChange={(e) => {setViktUt(e.target.value)}} ></input><br/>
+                        längd (cm) <input type="number" value={langd_utskrivning} onChange={(e) => {setLangdUt(e.target.value)}}></input><br/>
+                        Huvudomfång (cm) <input type="number" value={huvudomfang_ut} onChange={(e) => {setHuvudomfangUt(e.target.value)}}></input><br />
+                        Mamma vill amma: <input type="checkbox" checked={mamma_vill_amma_ut} onChange={(e) => {setMammaAmmaUt(e.target.checked)}}></input><br></br>
+                        Amning: <input type="text" value={amning_utskrivning} onChange={(e) => {setAmningUt(e.target.value)}}></input><br></br>
+                        Erhåller bröstmjölk <input type="text" value={erhaller_bmjolk_ut} onChange={(e) => {setErhallerBmjolkUt(e.target.value)}}></input><br></br>
+                        Barnet har v-sond: <input type="checkbox" checked={v_sond_ut} onChange={(e) => {setVsondUt(e.target.checked)}}></input><br></br>
+                        Barnet har infart(Ange typ av infart) <input type="text" value={infart_ut} onChange={(e) => {setInfartUt(e.target.value)}}></input><br></br>
+                        Andningsstöd (ange form) <input type="text" value={andningsstod_ut} onChange={(e) => {setAndningsstodUt(e.target.value)}}></input><br></br>
+                        Extra syrgasbehov: <input type="checkbox" checked={extraGas_ut} onChange={(e) => {setExtraGasUt(e.target.checked)}}></input><br></br>
+                        <input type="submit" value="Spara utskrivning"></input>
+                    </form>
+            </div>
 
         </Fragment>
     );
