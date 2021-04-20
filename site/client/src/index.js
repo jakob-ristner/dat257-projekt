@@ -29,7 +29,7 @@ ReactDOM.render(
 
 
             <Route exact path="/Hembesok/add/:protokollnr" component={AddHembesok} />
-            <Route exact path="/Hembesok/edit/:protokollnr" component={EditHembesok} />
+            <Route exact path="/Hembesok/edit/:hembesokid" component={EditHembesok} />
             <Route exact path="/Registration" component={Registrations} />
             <Route exact path="/Registration/:id" component={Discharge} />
         </Switch>

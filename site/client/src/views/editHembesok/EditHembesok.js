@@ -2,7 +2,13 @@ import React, { Fragment, useEffect, useState} from "react";
 import {useParams} from "react-router-dom"; 
 
 const EditHembesok = (useParams) => {
-    const {protokollnr} = useParams.match.params;
+    const {hembesokid} = useParams.match.params;
+    console.log(useParams.match.params)
+
+    // detta protokollnr får ni ta ifrån fetch requesten ni skickar
+    // för att få in default data
+    const [protokollnr, setProtokollnr] = useState();
+
     const [date_performed, set_date_performed] = useState("");
     const [at_familyKl, set_at_family] = useState("");
     const [from_familyKl, set_from_family] = useState("");
@@ -25,8 +31,10 @@ const EditHembesok = (useParams) => {
 
     return (
         <Fragment>
-            <h1>Redigera hembesök nummer "?" för protokollnr {protokollnr}</h1> 
-            <button onClick={() =>{window.location="/hembesok/" + protokollnr} }>Avbryt</button>
+
+            <h1>Redigera hembesök med id {hembesokid}</h1> 
+
+            {/*<button onClick={() =>{window.location="/hembesok/" + protokollnr} }>Avbryt</button>*/}
             <div class="hembesok">
     
             <form>

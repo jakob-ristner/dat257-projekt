@@ -5,7 +5,6 @@ import HomeButton from "../components/HomeButton";
 //import EditHembesok from "../editHembesok/EditHembesok"; //Redigeringsknappen
 
 const NavHembesok = (useParams) => {
-    console.log(window.location.pathname.split("/"));
 
     const [showListHembesok, showHembesok] = useState([]);
     const [totHembesok, setHembesok] = useState([]);
@@ -55,8 +54,7 @@ const NavHembesok = (useParams) => {
         return (<button onClick={() => incHembIndex()}> Tidigare hembesök </button>);
     }
 
-    useEffect(() => {
-        getHembesok(hembIndex);
+    useEffect(() => { getHembesok(hembIndex);
     }, []);
 
     const getHeader = () => {
@@ -95,11 +93,12 @@ const NavHembesok = (useParams) => {
 
             
             <div class="list">
+                
         
             {showListHembesok.reverse().map((form, index) => (
                 <div class="hembesok">
                     <button class="edit" onClick={() => 
-                    {window.location="/hembesok/edit/" + id + "/" + idnr}}> Redigera </button> <br/>
+                    {window.location="/hembesok/edit/" + form.id}}> Redigera </button> <br/>
                     <div class="info">
                     Hembesöksnr: {totHembesok.length - (index + hembIndex)}<br/>
                     Datum utfört: {form.date} <br/>

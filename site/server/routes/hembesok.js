@@ -5,7 +5,7 @@ module.exports = function(app, pool) {
         try {
             const { id } = req.params;
             const allHembesok  = await pool.query(
-                `SELECT to_char(at_family, 'HH24:MI') AS at_family, 
+                `SELECT id, to_char(at_family, 'HH24:MI') AS at_family, 
                 to_char(from_family, 'HH24:MI') AS from_family, 
                 to_char(from_family, 'yyyy-mm-dd') AS date,
                 amning_nutrition,
