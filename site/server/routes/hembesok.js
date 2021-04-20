@@ -1,4 +1,6 @@
 module.exports = function(app, pool) {
+    
+    //get hembesok
     app.get("/hembesok/:id", async(req, res) => {
         try {
             const { id } = req.params;
@@ -30,7 +32,7 @@ module.exports = function(app, pool) {
         }
     })
 
-    //add 
+    //add hembesok
 	app.post("/hembesok/:protokollnr", async(req, res) => {
 		try {
 			
@@ -77,4 +79,42 @@ module.exports = function(app, pool) {
 			console.error(err.message);
 		}
 	});
+
+    //Edit hembesok
+    app.put("/hembesok/:idnr", async (req, res) => {
+
+        try {
+            const {idnr} = req.params;
+            console.log(idnr);
+            const {at_family, from_family, performed_by} = req.body;
+           // console.log(body);
+            const updateHembesok = await pool.query(
+            `UPDATE Hembesok 
+            SET at_family = $1, 
+            from_family = $3,
+            performed_by = $4 
+            WHERE idnr =$2`, [at_family, idnr, from_family, performed_by]);
+            
+            res.json("Updated"); // updateHembesok, rows
+
+        } catch (err) {
+            console.error(err.message);
+        } 
+    });
+
+        /*
+            const {
+             protokollnr, id, at_family, from_family, performed_by, 
+             amning_nutrition, stodsamtal, viktkontroll, provtagning, 
+             lakemedel,annan_at,lakare,logoped, dietist, annan_resurs,
+             av_logistik, av_barn_familj, av_personal, av_beskrivning} 
+             = req.body;
+
+            `UPDATE Hembesok 
+            SET at_family = $2,  
+            WHERE protokollnr =$2 AND id = $11`, [at_family, protokollnr, id]);
+
+
+
+    */
 }

@@ -1,13 +1,13 @@
 DROP TABLE IF EXISTS Hembesok;
 
 CREATE TABLE Hembesok (
-    id SERIAL PRIMARY KEY,
+    idnr SERIAL PRIMARY KEY,
     protokollnr TEXT NOT NULL,
 
     date_added DATE NOT NULL DEFAULT NOW(),
-    at_family TIMESTAMP NOT NULL,
-    from_family TIMESTAMP NOT NULL,
-    performed_by TEXT NOT NULL,
+    at_family TIMESTAMP,
+    from_family TIMESTAMP,
+    performed_by TEXT,
 
     amning_nutrition BOOLEAN NOT NULL DEFAULT FALSE,
     stodsamtal BOOLEAN NOT NULL DEFAULT FALSE,
@@ -54,6 +54,9 @@ INSERT INTO Hembesok (protokollnr, at_family, from_family, performed_by)
 
 INSERT INTO Hembesok (protokollnr, at_family, from_family, performed_by)
     VALUES ('111', '2021-03-12 15:00', '2021-03-12 16:00', 'Anton');
+
+INSERT INTO Hembesok (protokollnr, at_family, from_family, performed_by)
+    VALUES ('222', '2021-03-12 15:00', '2021-03-12 16:00', 'A');
 
 INSERT INTO Hembesok (protokollnr, at_family, from_family, performed_by, stodsamtal,
                         lakare, av_logistik, av_beskrivning)

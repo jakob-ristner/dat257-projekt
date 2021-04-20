@@ -2,6 +2,8 @@ import React, { Fragment, useEffect, useState} from "react";
 import {useParams} from "react-router-dom"; import "./navHembesok.css"
 import Navigation from "../components/navigationButtons";
 import HomeButton from "../components/HomeButton";
+//import EditHembesok from "../editHembesok/EditHembesok"; //Redigeringsknappen
+
 const NavHembesok = (useParams) => {
     console.log(window.location.pathname.split("/"));
 
@@ -9,6 +11,7 @@ const NavHembesok = (useParams) => {
     const [totHembesok, setHembesok] = useState([]);
     const [hembIndex, setHembIndex] = useState(0);
     const { id } = useParams.match.params;
+    const [idnr, setIdnr] = useState([]);
 
     const getHembesok = async (index) => {
         try {
@@ -72,6 +75,12 @@ const NavHembesok = (useParams) => {
         );
     }
     let value = false;
+    
+    /*
+    const hemId = async () => {
+        setIdnr(totHembesok.length - (index + hembIndex));
+    }
+    */
     return (
         <Fragment>
             <h1>protokollnr: {id} </h1>
@@ -86,12 +95,13 @@ const NavHembesok = (useParams) => {
 
             
             <div class="list">
-
+        
             {showListHembesok.reverse().map((form, index) => (
                 <div class="hembesok">
-                    <button class="edit"> Redigera </button> <br/>
+                    <button class="edit" onClick={() => 
+                    {window.location="/hembesok/edit/" + id + "/" + idnr}}> Redigera </button> <br/>
                     <div class="info">
-                    Hembesöknr: {totHembesok.length - (index + hembIndex)}<br/>
+                    Hembesöksnr: {totHembesok.length - (index + hembIndex)}<br/>
                     Datum utfört: {form.date} <br/>
                     Kl till familj: {form.at_family}<br/>
                     Kl från familj: {form.from_family}<br/>
