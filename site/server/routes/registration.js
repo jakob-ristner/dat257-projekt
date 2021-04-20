@@ -64,7 +64,7 @@ module.exports = function(app, pool){
             const {regDate, reason, veckor,dagar,vikt_fodelse
             ,langd_fodelse,huvudomfang_fodelse,vikt_in,langd_in,huvud_in, vill_amma_in
             ,amning_in, bmjolk_in, vsond_in, andning_in, syrgas_in
-            ,riskpatient,bvc_rap,bvcText } = req.body;
+            ,riskpatient,bvc_rap,bvc_text} = req.body;
             /*
             const {vikt_utskrivning, langd_utskrivning, huvudomfang_ut, mamma_vill_amma_ut
             ,amning_utskrivning,erhaller_bmjolk_ut,v_sond_ut, infart_ut,andningsstod_ut,extraGas_ut} = req.body;
@@ -80,7 +80,7 @@ module.exports = function(app, pool){
                 WHERE protocolid = $1`
                 ,[id, regDate, reason, veckor,dagar,vikt_fodelse
                 ,langd_fodelse,huvudomfang_fodelse,vikt_in,langd_in,huvud_in, vill_amma_in
-                ,amning_in, bmjolk_in, vsond_in, andning_in, syrgas_in,
+                ,amning_in, bmjolk_in, vsond_in, andning_in, syrgas_in
                 ,riskpatient,bvc_rap,bvc_text]
             );
             res.json(updateReg);

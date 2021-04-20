@@ -72,7 +72,6 @@ const EditRegistration = (useParams) => {
                     syrgas_ut
 
                 }
-                console.log(body);
                 
                 const response = await fetch("http://localhost:5000/discharge/" + id, 
                 {
@@ -85,6 +84,52 @@ const EditRegistration = (useParams) => {
                 console.error(err.message);
             }
         }
+
+        if (regExists) {
+            try {
+                const body = {
+                    regDate,
+                    reason,
+                    veckor,
+                    dagar,
+                    vikt_fodelse,
+                    langd_fodelse,
+                    huvudomfang_fodelse,
+                    vikt_in,
+                    vsond_in,
+                    langd_in,
+                    huvud_in,
+                    vill_amma_in,
+                    amning_in,
+                    bmjolk_in,
+                    andning_in,
+                    syrgas_in,
+                    riskpatient,
+                    bvc_rap,
+                    bvc_text
+                } 
+
+                const response = await fetch("http://localhost:5000/registration/" + id, 
+                {
+                    method: "PUT",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify(body)
+                })
+
+
+                    /*
+            const {regDate, reason, veckor,dagar,vikt_fodelse
+            ,langd_fodelse,huvudomfang_fodelse,vikt_in,langd_in,huvud_in, vill_amma_in
+            ,amning_in, bmjolk_in, vsond_in, andning_in, syrgas_in
+            ,riskpatient,bvc_rap,bvcText } = req.body;
+            */
+
+
+            } catch(err) {
+                console.error(err.message);
+            }
+        }
+
     }
 
 
