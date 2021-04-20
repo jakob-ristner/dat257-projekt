@@ -5,46 +5,83 @@ import "./navigationButtons.css";
 
 const Navigation = (params) => {
     const { id } = params;
-    const getNavigationHome = () => {
-        return (
-            <button class = "navigationButton"  onClick={() => {
-                window.location = "/home/";
-            }}> Home </button>
-        )
+
+    const isInPath = (path) => {
+        if(window.location.pathname.split("/")[1] == path){
+            return true;
+        }
+        return false;
+        
     }
+    
     const getNavigationInskrivning = () => {
+        if (isInPath("registration")) {
+            return (
+            <button disabled class = "navigationButton"  onClick={() => {
+                window.location = "/registration/" + id;
+            }}> Inskrivning </button>
+            )
+        }
         return (
             <button class = "navigationButton"  onClick={() => {
-                window.location = "/inskrivning/" + id;
+                window.location = "/registration/" + id;
             }}> Inskrivning </button>
         )
     }
     const getNavigationHembesok = () => {
+        if (isInPath("hembesok")) {
+            return (
+            <button disabled class = "navigationButton"  onClick={() => {
+                window.location = "/hembesok/" + id;
+            }}> Hembesök </button>
+            )
+        }
         return (
             <button class = "navigationButton"  onClick={() => {
                 window.location = "/hembesok/" + id;
-            }}> Hembesok </button>
+            }}> Hembesök </button>
         )
     }
     const getNavigationDigitalaVardmot = () => {
+        if (isInPath("digitalvardmote")) {
+            return (
+            <button disabled class = "navigationButton"  onClick={() => {
+                window.location = "/digitalvardmote/" + id;
+            }}> Digitalt Vårdmöte </button>
+            )
+        }
         return (
             <button class = "navigationButton"  onClick={() => {
                 window.location = "/digitalvardmote/" + id;
-            }}> Digitalvardmote </button>
+            }}> Digitalt Vårdmöte </button>
         )
     }
     const getNavigationMottagningBesok = () => {
+        if (isInPath("mottagningsbesok")) {
+            return (
+            <button disabled class = "navigationButton"  onClick={() => {
+                window.location = "/mottagningsbesok/" + id;
+            }}> Mottagningsbesök </button>
+            )
+        }
         return (
             <button class = "navigationButton" onClick={() => {
-                window.location = "/mottagnignsBesok/" + id;
-            }}> Mottagningsbesok </button>
+                window.location = "/mottagnignsbesok/" + id;
+            }}> Mottagningsbesök </button>
         )
     }
     const getNavigationAterlaggning = () => {
+        if (isInPath("aterlaggning")) {
+            return (
+            <button disabled class = "navigationButton"  onClick={() => {
+                window.location = "/aterlaggning/" + id;
+            }}> Återläggning </button>
+            )
+        }
         return (
             <button class = "navigationButton" onClick={() => {
                 window.location = "/aterlaggning/" + id;
-            }}> Aterlaggning </button>
+            }}> Återläggning </button>
         )
     }
         return(
@@ -58,9 +95,9 @@ const Navigation = (params) => {
             </div>
             <div class = "digitalVard">
             {getNavigationDigitalaVardmot()}
+            </div>
             <div class = "mottagningDiv">
             {getNavigationMottagningBesok()}
-            </div>
             </div>
             <div class = "aterlaggningDiv">
             {getNavigationAterlaggning()}

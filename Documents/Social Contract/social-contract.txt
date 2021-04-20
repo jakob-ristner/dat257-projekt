@@ -39,3 +39,8 @@ Konflikthantering - håller inte med varandra
 Delning av kunskap
 * Fråga på Discord
 * Kör screensharing
+
+KPI
+1. Teamets satisfaction/happiness skala - hur nöjda är vi med sprinten?
+2. Carry over user stories / "tillbaka skicklig av user stories" - I vilken grad blir vi klara med US för varje sprint. 
+3. Antalet färdiga tasks - I vilken grad blir vi klara med tasks per sprint

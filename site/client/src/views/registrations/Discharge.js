@@ -1,6 +1,9 @@
 import React, { Fragment, useEffect, useState} from "react";
+import Navigation from "../components/navigationButtons";
+import Home from "../components/HomeButton";
+import "./registrations.css";
 
-const EditRegistration = (useParams) => {
+const Discharge = (useParams) => {
     //Constants for getting the registration form
     const [fullRegistration, setRegistration] = useState([]);
     const { id } = useParams.match.params;
@@ -99,6 +102,8 @@ const EditRegistration = (useParams) => {
 
     return (
         <Fragment>
+             <div class = "navigation"><Navigation id={"111"}/></div>
+             <div id = "homeButton"><Home/></div>
 
             <h1>Inskrivning </h1>
             {fullRegistration.map(form => (
@@ -142,28 +147,28 @@ const EditRegistration = (useParams) => {
                     <div class="bakgrundsdata">
                         Barnets gestationsvecka: <input type="number" value={form.veckor} ></input>
                         <input type="number" value={form.dagar} ></input>Dagar<br></br>
-    Födelsevikt:  <input type="number" value={form.vikt_fodelse} ></input><br></br>
-    Födelselängd: <input type="number" value={form.langd_fodelse} ></input><br></br>
-    Födelsehuvudomfång: <input type="number" value={form.huvudomfang_fodelse} ></input><br></br>
+                        Födelsevikt:  <input type="number" value={form.vikt_fodelse} ></input><br></br>
+                        Födelselängd: <input type="number" value={form.langd_fodelse} ></input><br></br>
+                        Födelsehuvudomfång: <input type="number" value={form.huvudomfang_fodelse} ></input><br></br>
                     </div>
 
                     <div class="Inskrivning">
                         vikt (gram) <input type="number" value={form.vikt_inskrivning} ></input><br />
-    längd (cm) <input type="number" value={form.langd_inskrivning} ></input><br />
-    Huvudomfång (cm) <input type="number" value={form.huvudomfang_in} ></input><br />
-    Mamma vill amma: <input type="checkbox" checked={form.mamma_vill_amma} ></input><br></br>
-    Amning: <input type="text" value={form.amning_inskrivning} ></input><br></br>
-    Barnet har v-sond: <input type="checkbox" checked={form.v_sond_in} ></input><br></br>
-    Barnet har infart(Ange typ av infart) <input type="text" value={form.infart_in} ></input><br></br>
-    Andningsstöd (ange form) <input type="text" value={form.andningsstod_in} ></input><br></br>
-    Extra syrgasbehov: <input type="checkbox" checked={form.extragas_in} ></input><br></br>
+                        längd (cm) <input type="number" value={form.langd_inskrivning} ></input><br />
+                        Huvudomfång (cm) <input type="number" value={form.huvudomfang_in} ></input><br />
+                        Mamma vill amma: <input type="checkbox" checked={form.mamma_vill_amma} ></input><br></br>
+                        Amning: <input type="text" value={form.amning_inskrivning} ></input><br></br>
+                        Barnet har v-sond: <input type="checkbox" checked={form.v_sond_in} ></input><br></br>
+                        Barnet har infart(Ange typ av infart) <input type="text" value={form.infart_in} ></input><br></br>
+                        Andningsstöd (ange form) <input type="text" value={form.andningsstod_in} ></input><br></br>
+                        Extra syrgasbehov: <input type="checkbox" checked={form.extragas_in} ></input><br></br>
 
                     </div>
 
                     <div class="riskpatient">
                         Riskpatient <input type="checkbox" checked={form.riskpatient} ></input><br></br>
-    Överrapportering till BVC i hemmet <input type="checkbox" checked={form.bvcrapportering} ></input> Om nej ange orsak:
-    <input type="text" value={form.bvcText} ></input>
+                        Överrapportering till BVC i hemmet <input type="checkbox" checked={form.bvcrapportering} ></input> Om nej ange orsak:
+                <input type="text" value={form.bvcText} ></input>
                     </div>
                     <input type="submit" value="Edit">
                     </input>
@@ -186,4 +191,4 @@ const EditRegistration = (useParams) => {
 }
 
 
-export default EditRegistration;
+export default Discharge;

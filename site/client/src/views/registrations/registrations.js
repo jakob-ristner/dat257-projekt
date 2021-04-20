@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect, useState} from "react";
 
+
 const Registration = () => {
     const [protocolID, setProtocolID] = useState(0);
     const [regDate, setRegDate] = useState("");
@@ -154,15 +155,21 @@ const Registration = () => {
                 Extra syrgasbehov: <input type="checkbox" checked={extraGas_in} onChange={(e) => {setExtraGasIn(e.target.checked)}}></input><br></br>
     
             </div>
+            
     
             <div class="riskpatient">
                 Riskpatient <input type="checkbox" checked={riskpatient} onChange={(e) => {setRiskPatient(e.target.checked)}}></input><br></br>
                 Överrapportering till BVC i hemmet <input type="checkbox" checked={bvcRapportering} onChange={(e) => {setBvcRapportering(e.target.checked)}}></input> Om nej ange orsak:
                 <input type="text" value={bvcText} onChange={(e) => {setBvcText(e.target.value)}}></input>
             </div>
+            
              <input type="submit" value="Submit">
                   </input>
+                  
               </form>
+              
+
+
 
         </Fragment>
     );

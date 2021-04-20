@@ -1,0 +1,13 @@
+.navigation {
+    grid-column: 3;
+    grid-row: 1 / 2;
+    left: 85%;
+    top: 35%;
+    position: absolute;
+  
+  }
+  #homeButton {
+    left: 2%;
+    top: 2%;
+    position: absolute;
+}

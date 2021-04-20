@@ -5,7 +5,7 @@ CREATE SCHEMA public;
 GRANT ALL ON SCHEMA public TO postgres;
 \set QUIET false
 
-CREATE TABLE registration (
+CREATE TABLE Registration (
     --Ask PO how many protocols will be created in a year
     --Or how the id-number should be checked. 
     protocolID INT PRIMARY KEY,
@@ -28,6 +28,7 @@ CREATE TABLE registration (
     huvudomfang_in FLOAT CHECK (huvudomfang_in >= 0) DEFAULT 0,
     mamma_vill_amma BOOLEAN DEFAULT FALSE,
     amning_inskrivning CHAR(2) CHECK (amning_inskrivning IN ('H', 'D', 'IA')),
+    erhaller_bmjolk_in CHAR(2) CHECK (erhaller_bmjolk_in IN ('H', 'D', 'IA')), 
     v_sond_in BOOLEAN DEFAULT FALSE,
     infart_in TEXT,
     andningsstod_in TEXT,
@@ -39,6 +40,22 @@ CREATE TABLE registration (
     riskpatient BOOLEAN DEFAULT FALSE,
     bvcRapportering BOOLEAN DEFAULT TRUE,
     bvcText TEXT    
+);
+
+--utskrivning table
+CREATE TABLE Discharge (
+    protocolID INT PRIMARY KEY,
+    FOREIGN KEY (protocolID) REFERENCES Registration(protocolID),
+    vikt_utskrivning INT CHECK (vikt_utskrivning >= 0),
+    langd_utskrivning FLOAT CHECK (langd_utskrivning >= 0),
+    huvudomfang_ut FLOAT CHECK (huvudomfang_ut >= 0),
+    mamma_vill_amma_ut BOOLEAN,
+    amning_utskrivning CHAR(2) CHECK (amning_utskrivning IN ('H', 'D', 'IA')),
+    erhaller_bmjolk_ut CHAR(2) CHECK (erhaller_bmjolk_ut IN ('H', 'D', 'IA')), 
+    v_sond_ut BOOLEAN,
+    infart_ut TEXT,
+    andningsstod_ut TEXT,
+    extraGas_ut BOOLEAN
 );
 
 --test values
