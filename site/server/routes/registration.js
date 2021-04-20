@@ -67,8 +67,6 @@ module.exports = function(app, pool){
         } catch(e) {
             console.error(e.message);
         }
-
-
     });
 //`SELECT protocolID, regdate :: text, reason 
 //  FROM Registration WHERE protocolID = $1`
