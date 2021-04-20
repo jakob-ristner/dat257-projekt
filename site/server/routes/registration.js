@@ -3,7 +3,7 @@ module.exports = function(app, pool){
     app.post("/registration", async(req, res) => {
         try {
             console.log(req.body);
-            const {protocolID, regDate, outDate, reason, ifyllnadkollad, registrerad,
+            const {protocolID, regDate, reason, ifyllnadkollad, registrerad,
                 veckor, dagar, vikt_fodelse, langd_fodelse, 
                 huvudomfang_fodelse, vikt_inskrivning, langd_inskrivning,
                 huvudomfang_in, mamma_vill_amma, amning_inskrivning, v_sond_in,
@@ -12,7 +12,7 @@ module.exports = function(app, pool){
        
             
             const newReg = await pool.query(
-                `INSERT INTO registration (protocolID, regDate, outDate, reason, ifyllnadkollad, registrerad,
+                `INSERT INTO registration (protocolID, regDate, reason, ifyllnadkollad, registrerad,
                     veckor, dagar, vikt_fodelse, langd_fodelse, 
                     huvudomfang_fodelse, vikt_inskrivning, langd_inskrivning,
                     huvudomfang_in, mamma_vill_amma, amning_inskrivning, v_sond_in,
@@ -20,8 +20,8 @@ module.exports = function(app, pool){
                     bvcRapportering, bvcText) 
                     VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, 
                         $10, $11, $12, $13, $14, $15, $16, $17, 
-                        $18, $19, $20, $21, $22, $23) RETURNING *`,
-                [protocolID, regDate, outDate, reason, ifyllnadkollad, registrerad,
+                        $18, $19, $20, $21, $22) RETURNING *`,
+                [protocolID, regDate, reason, ifyllnadkollad, registrerad,
                     veckor, dagar, vikt_fodelse, langd_fodelse, 
                     huvudomfang_fodelse, vikt_inskrivning, langd_inskrivning,
                     huvudomfang_in, mamma_vill_amma, amning_inskrivning, v_sond_in,
@@ -40,7 +40,7 @@ module.exports = function(app, pool){
         try {
             const {id} = req.params;
             const allRegistrations = await pool.query(
-            `SELECT protocolID, regDate :: text, outDate :: text, reason, ifyllnadkollad, registrerad,
+            `SELECT protocolID, regDate :: text, reason, ifyllnadkollad, registrerad,
             veckor, dagar, vikt_fodelse, langd_fodelse, 
             huvudomfang_fodelse, vikt_inskrivning, langd_inskrivning,
             huvudomfang_in, mamma_vill_amma, amning_inskrivning, v_sond_in,
@@ -81,7 +81,8 @@ module.exports = function(app, pool){
     app.post("/discharge/:id", async(req, res) => {
         try {
             const {id} = req.params;
-            const {vikt_utskrivning, 
+            const {outDate,
+                vikt_utskrivning, 
                 langd_utskrivning, 
                 huvudomfang_ut,
                 mamma_vill_amma_ut,
@@ -93,8 +94,9 @@ module.exports = function(app, pool){
                 extraGas_ut} = req.body;
 
                 const newDischarge = await pool.query(
-                    `INSERT INTO Discharge VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING *`, 
+                    `INSERT INTO Discharge VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING *`, 
                         [id,
+                        outDate,
                         vikt_utskrivning, 
                         langd_utskrivning, 
                         huvudomfang_ut,
@@ -113,7 +115,27 @@ module.exports = function(app, pool){
             console.error(e);
         }
     });
+
+    app.get("/discharge/:id", async(req, res)=> {
+
+        try {
+            const {id} = req.params;
+            const allDischarge = await pool.query(
+            `SELECT protocolID, outDate :: text, vikt_utskrivning, langd_utskrivning, huvudomfang_ut,
+            mamma_vill_amma_ut, amning_utskrivning, erhaller_bmjolk_ut, v_sond_ut, 
+            infart_ut, andningsstod_ut, extraGas_ut
+            FROM Discharge WHERE protocolID = $1`, [id]
+            );
+                res.json(allDischarge.rows);
+        } catch(e) {
+            console.error(e.message);
+        }
+
+
+    });
 }
+
+
 
 /**
  *  vikt_utskrivning INT CHECK (vikt_utskrivning >= 0),

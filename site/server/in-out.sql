@@ -10,7 +10,6 @@ CREATE TABLE Registration (
     --Or how the id-number should be checked. 
     protocolID INT PRIMARY KEY,
     regDate DATE NOT NULL,
-    outDate DATE,
     reason TEXT,
     iFyllnadKollad BOOLEAN NOT NULL DEFAULT FALSE,
     registrerad BOOLEAN NOT NULL DEFAULT FALSE,
@@ -46,6 +45,7 @@ CREATE TABLE Registration (
 CREATE TABLE Discharge (
     protocolID INT PRIMARY KEY,
     FOREIGN KEY (protocolID) REFERENCES Registration(protocolID),
+    outDate DATE,
     vikt_utskrivning INT CHECK (vikt_utskrivning >= 0),
     langd_utskrivning FLOAT CHECK (langd_utskrivning >= 0),
     huvudomfang_ut FLOAT CHECK (huvudomfang_ut >= 0),

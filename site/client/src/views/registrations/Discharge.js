@@ -16,6 +16,7 @@ const Discharge = (useParams) => {
 
 
     //constants for setting discharge params
+    const [outDate, setOutDate] = useState();
     const [vikt_utskrivning, setViktUt] = useState();
     const [langd_utskrivning, setLangdUt] = useState();
     const [huvudomfang_ut, setHuvudomfangUt] = useState();
@@ -26,6 +27,9 @@ const Discharge = (useParams) => {
     const [infart_ut, setInfartUt] = useState();
     const [andningsstod_ut, setAndningsstodUt] = useState();
     const [extraGas_ut, setExtraGasUt] = useState();
+
+    // Data has been sent?
+    const [dataSent, setDataSent] = useState(true);
     
 
 
@@ -46,6 +50,46 @@ const Discharge = (useParams) => {
     useEffect(() => {
         getRegistration();
     }, []);
+
+    const getDischarge = async () => {
+        try {
+            const response = await fetch(
+                "http://localhost:5000/discharge/" + id);
+            const jsonData = await response.json();
+     
+            setOutDate(jsonData.outdate);
+            setViktUt(jsonData.vikt_utskrivning);
+            setLangdUt(jsonData.langd_utskrivning);
+            setHuvudomfangUt(jsonData.huvudomfang_ut);
+            setMammaAmmaUt(jsonData.mamma_vill_amma_ut);
+            setAmningUt(jsonData.amning_utskrivning);
+            setErhallerBmjolkUt(jsonData.erhaller_bmjolk_ut);
+            setVsondUt(jsonData.v_sond_ut);
+            setInfartUt(jsonData.infart_ut);
+            setAndningsstodUt(jsonData.andningsstod_ut);
+            setExtraGasUt(jsonData.extraGas_ut);
+
+            console.log(jsonData.outdate);
+            console.log(outDate);
+            console.log("hej");
+            return(<h1>hjs</h1>)
+
+
+          //  setIndividualReg();
+        } catch (error) {
+            console.error(error);
+        }
+    }
+/*
+    useEffect(() => {
+        getDischarge();
+    }, []); */
+
+    const getPreviousData =() => {
+        if (dataSent) {
+            return(getDischarge());
+        } 
+    }
 
 
 
@@ -80,6 +124,7 @@ const Discharge = (useParams) => {
         
         try {
             const body = {
+                outDate,
                 vikt_utskrivning, 
                 langd_utskrivning, 
                 huvudomfang_ut,
@@ -99,6 +144,8 @@ const Discharge = (useParams) => {
             });
 
             await console.log(response);
+
+            setDataSent(true);
         } catch (e) {
             console.error(e);
         }
@@ -106,54 +153,11 @@ const Discharge = (useParams) => {
         
     }
 
-
-    /*
-
-       <h1>Inskrivning </h1>
-
-        {fullRegistration.map(form => (
-            
-            <form  onSubmit={updateRegistration}>
-            <label for="fname">ProtkollID:</label>
-            <input type="number" 
-                value={form.protocolid} 
-                id="protokollID" 
-                name="fname"
-                readOnly
-           >
-                </input>
     
-            <label for="lname">Registreringsdatum:</label>
-             <input 
-                type="date" 
-                value={form.regdate} 
-                id="date" 
-                name="lname"
-                
-                >
-                 </input>
-    
-            <label for="lname">Anledning för inskrivning:</label>
-             <input 
-                type="text" 
-                value={form.reason} 
-                id="reason" 
-                name="lname"
-              
-                
-                >
-                 </input>
-    
-             <input type="submit" value="Edit">
-                  </input>
-              </form>
-        ))}
-       
-
-        */
 
     return (
         <Fragment>
+            {getPreviousData()}
              <div class = "navigation"><Navigation id={"111"}/></div>
              <div id = "homeButton"><Home/></div>
 
@@ -177,9 +181,7 @@ const Discharge = (useParams) => {
                         >
                         </input>
 
-                        <label for="outDate">Utskrivningsdatum</label>
-                        <input type="date" value={form.outdate}></input>
-                        <br></br>
+                    
                         Ifyllnad kollad: <input type="checkbox" checked={form.ifyllnadkollad} ></input><br></br>
                         Registrerad: <input type="checkbox" checked={form.registrerad}></input><br></br>
 
@@ -230,6 +232,9 @@ const Discharge = (useParams) => {
             <div class="discharge" >
                 <h1>Utskrivning</h1>
                 <form onSubmit={submitDischarge}>
+                <label for="outDate">Utskrivningsdatum</label>
+                        <input type="date" value={outDate} onChange={(e) => {setOutDate(e.target.value)}}></input>
+                        <br></br>
                         vikt (gram) <input type="number" value={vikt_utskrivning} onChange={(e) => {setViktUt(e.target.value)}} ></input><br/>
                         längd (cm) <input type="number" value={langd_utskrivning} onChange={(e) => {setLangdUt(e.target.value)}}></input><br/>
                         Huvudomfång (cm) <input type="number" value={huvudomfang_ut} onChange={(e) => {setHuvudomfangUt(e.target.value)}}></input><br />
