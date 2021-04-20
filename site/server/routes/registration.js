@@ -56,18 +56,6 @@ module.exports = function(app, pool){
 
     });
 
-    app.get("/discharge/:id", async(req, res)=> {
-
-        try {
-            const {id} = req.params;
-            const allDischarges = await pool.query(
-            `SELECT * FROM Discharge WHERE protocolID = $1`, [id]
-            );
-                res.json(allDischarges.rows);
-        } catch(e) {
-            console.error(e.message);
-        }
-    });
 //`SELECT protocolID, regdate :: text, reason 
 //  FROM Registration WHERE protocolID = $1`
     app.put("/registration/:id", async(req, res) => {

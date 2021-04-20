@@ -49,9 +49,12 @@ const EditRegistration = (useParams) => {
     }
 
     const getReg = async () => {
+
         const response = await fetch("http://localhost:5000/registration/" + id);
         const jsonData = await response.json();
         const reg = jsonData[0];
+
+
 
         if (reg != undefined) {
             setReg(true);
@@ -81,9 +84,11 @@ const EditRegistration = (useParams) => {
     } 
 
     const getDis = async () => {
+        
         const response = await fetch("http://localhost:5000/discharge/" + id);
         const jsonData = await response.json();
         const dis = jsonData[0];
+
 
         if (dis != undefined) {
             setDis(true);
