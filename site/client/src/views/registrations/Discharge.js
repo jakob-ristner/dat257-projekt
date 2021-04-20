@@ -56,23 +56,26 @@ const Discharge = (useParams) => {
             const response = await fetch(
                 "http://localhost:5000/discharge/" + id);
             const jsonData = await response.json();
-     
-            setOutDate(jsonData.outdate);
-            setViktUt(jsonData.vikt_utskrivning);
-            setLangdUt(jsonData.langd_utskrivning);
-            setHuvudomfangUt(jsonData.huvudomfang_ut);
-            setMammaAmmaUt(jsonData.mamma_vill_amma_ut);
-            setAmningUt(jsonData.amning_utskrivning);
-            setErhallerBmjolkUt(jsonData.erhaller_bmjolk_ut);
-            setVsondUt(jsonData.v_sond_ut);
-            setInfartUt(jsonData.infart_ut);
-            setAndningsstodUt(jsonData.andningsstod_ut);
-            setExtraGasUt(jsonData.extraGas_ut);
+            const dis = jsonData[0];
 
-            console.log(jsonData.outdate);
+            console.log(dis);
+            setOutDate(dis.outdate);
+            setViktUt(dis.vikt_utskrivning);
+            setLangdUt(dis.langd_utskrivning);
+            setHuvudomfangUt(dis.huvudomfang_ut);
+            setMammaAmmaUt(dis.mamma_vill_amma_ut);
+            setAmningUt(dis.amning_utskrivning);
+            setErhallerBmjolkUt(dis.erhaller_bmjolk_ut);
+            setVsondUt(dis.v_sond_ut);
+            setInfartUt(dis.infart_ut);
+            setAndningsstodUt(dis.andningsstod_ut);
+            setExtraGasUt(dis.extraGas_ut);
+
+            //console.log(jsonData.outdate);
             console.log(outDate);
-            console.log("hej");
-            return(<h1>hjs</h1>)
+            //console.log(jsonData);
+
+          //  return(<h1>hjs</h1>)
 
 
           //  setIndividualReg();
@@ -87,7 +90,8 @@ const Discharge = (useParams) => {
 
     const getPreviousData =() => {
         if (dataSent) {
-            return(getDischarge());
+            //return(getDischarge());
+            getDischarge();
         } 
     }
 
@@ -144,8 +148,8 @@ const Discharge = (useParams) => {
             });
 
             await console.log(response);
-
-            setDataSent(true);
+            await getDischarge();
+            //setDataSent(true);
         } catch (e) {
             console.error(e);
         }
@@ -157,7 +161,7 @@ const Discharge = (useParams) => {
 
     return (
         <Fragment>
-            {getPreviousData()}
+        
              <div class = "navigation"><Navigation id={"111"}/></div>
              <div id = "homeButton"><Home/></div>
 

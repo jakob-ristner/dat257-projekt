@@ -126,7 +126,7 @@ module.exports = function(app, pool){
             infart_ut, andningsstod_ut, extraGas_ut
             FROM Discharge WHERE protocolID = $1`, [id]
             );
-                res.json(allDischarge.rows);
+            res.json(allDischarge.rows);
         } catch(e) {
             console.error(e.message);
         }
