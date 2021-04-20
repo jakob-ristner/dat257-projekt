@@ -33,8 +33,6 @@ CREATE TABLE Registration (
     andningsstod_in TEXT,
     extraGas_in BOOLEAN DEFAULT FALSE,
 
-    --Utskrivning till Neo-HSV
-
     --Riskpatient
     riskpatient BOOLEAN DEFAULT FALSE,
     bvcRapportering BOOLEAN DEFAULT TRUE,

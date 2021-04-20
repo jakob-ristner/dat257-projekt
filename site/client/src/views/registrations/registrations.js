@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState} from "react";
 
 
 const Registration = () => {
+    //Background consts
     const [protocolID, setProtocolID] = useState(0);
     const [regDate, setRegDate] = useState("");
     const [reason, setReason] = useState(""); 
@@ -12,11 +13,15 @@ const Registration = () => {
     const [vikt_fodelse, setViktFodelse] = useState(1);
     const [langd_fodelse, setLangdFodelse] = useState(1);
     const [huvudomfang_fodelse, setHuvudomfangFodelse] = useState(1);
+
+
+    //Const for inskrivning
     const [vikt_inskrivning, setViktIn] = useState(0);
     const [langd_inskrivning, setLangdIn] = useState(0);
     const [huvudomfang_in, setHuvudIn] = useState(0);
     const [mamma_vill_amma, setMammaAmma] = useState(false);
     const [amning_inskrivning, setAmningIn] = useState();
+    const [erhaller_bmjolk_in, setErhallerBmjolkIn] = useState(null);
     const [v_sond_in, setVsondIn] = useState(false);
     const [infart_in, setInfartIn] = useState();
     const [andningsstod_in, setAndningsIn] = useState();
@@ -37,7 +42,6 @@ const Registration = () => {
     const submitRegistation = async(e) => {
         e.preventDefault();
         
-        
         try {
             const body = {
                 protocolID, 
@@ -54,7 +58,8 @@ const Registration = () => {
                 langd_inskrivning,
                 huvudomfang_in, 
                 mamma_vill_amma, 
-                amning_inskrivning, 
+                amning_inskrivning,
+                erhaller_bmjolk_in, 
                 v_sond_in,
                 infart_in, 
                 andningsstod_in, 
@@ -146,6 +151,7 @@ const Registration = () => {
                 Huvudomfång (cm) <input type="number" value={huvudomfang_in} onChange={(e) => {setHuvudIn(e.target.value)}}></input><br/>
                 Mamma vill amma: <input type="checkbox" checked={mamma_vill_amma} onChange={(e) => {setMammaAmma(e.target.checked)}}></input><br></br>
                 Amning: <input type="text" value={amning_inskrivning} onChange={(e) => {setAmningIn(e.target.value)}}></input><br></br>
+                Erhåller bröstmjölk <input type="text" value={erhaller_bmjolk_in} onChange={(e) => {setErhallerBmjolkIn(e.target.value)}}></input><br></br>
                 Barnet har v-sond: <input type="checkbox" checked={v_sond_in} onChange={(e) => {setVsondIn(e.target.checked)}}></input><br></br>
                 Barnet har infart(Ange typ av infart) <input type="text" value={infart_in} onChange={(e) => {setInfartIn(e.target.value)}}></input><br></br>
                 Andningsstöd (ange form) <input type="text" value={andningsstod_in} onChange={(e) => {setAndningsIn(e.target.value)}}></input><br></br>

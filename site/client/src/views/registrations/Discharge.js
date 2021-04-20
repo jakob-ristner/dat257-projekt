@@ -53,13 +53,17 @@ const Discharge = (useParams) => {
 
 
 
+    //GET for all discharge params for the given protocol
+    //Sets const dataSent to true. Used for knowing if discharge params
+    //are filled in or not. 
     const getDischarge = async () => {
         try {
             const response = await fetch(
                 "http://localhost:5000/discharge/" + id);
             const jsonData = await response.json();
-            if(jsonData != undefined){
-                const dis = jsonData[0];
+            const dis = jsonData[0];
+            if(dis != undefined){
+                setDataSent(true);
                 setOutDate(dis.outdate);
                 setViktUt(dis.vikt_utskrivning);
                 setLangdUt(dis.langd_utskrivning);
@@ -100,30 +104,6 @@ const Discharge = (useParams) => {
 
 
 
-    const updateRegistration = async(e) => {
-        e.preventDefault();
-        try {
-            const updateForm = {
-                method: 'PUT',
-                headers:{'Content-Type': 'application/json'},
-                body: JSON.stringify({
-                    protocolID: id,
-                    regDate: regDate,
-                    reason: reason
-                })
-            }
-
-            const response = await fetch('http://localhost:5000/registration/' + id,
-            updateForm);
-
-            const data = await response.jsonData();
-            console.log(data);
-        } catch (error) {
-            console.log(error.message);
-        }
-       
-    }
-
     //Method for submitting the discharge form
     const submitDischarge = async(e) => {
         e.preventDefault();
@@ -151,7 +131,6 @@ const Discharge = (useParams) => {
             });
 
             await console.log(response);
-           // await getDischarge();
             setDataSent(true);
         } catch (e) {
             console.error(e);
@@ -160,8 +139,19 @@ const Discharge = (useParams) => {
         
     }
 
-    
+    const submitEdit = () => {
+        if(dataSent) {
+            return(
+                <button onClick={() => {window.location = "/registration/edit/" + id}}>Redigera</button>
+            )
+        }else{
+            return(
+                <button onClick={submitDischarge}>Spara utskrivning</button>
+            )
+        }
+    }
 
+    //The HTML document returned to the browser
     return (
         <Fragment>
              <div class = "navigation"><Navigation id={id}/></div>
@@ -170,9 +160,9 @@ const Discharge = (useParams) => {
             <h1>Inskrivning </h1>
             {fullRegistration.map(form => (
 
-                <form onSubmit={updateRegistration}>
+                <form>
                     <div class="header">
-                        <label for="protocolID">ProtkollID:</label>
+                        <label for="protocolID">ProtokollID:</label>
                         <input type="number"
                             value={form.protocolid}
                             id="protokollID">
@@ -183,7 +173,6 @@ const Discharge = (useParams) => {
                             type="date"
                             value={form.regdate}
                             id="date"
-                    
                         >
                         </input>
 
@@ -199,7 +188,6 @@ const Discharge = (useParams) => {
                             type="text"
                             value={form.reason}
                             id="reason"
-                        
                         >
                         </input>
                     </div>
@@ -218,11 +206,11 @@ const Discharge = (useParams) => {
                         Huvudomfång (cm) <input type="number" value={form.huvudomfang_in} ></input><br />
                         Mamma vill amma: <input type="checkbox" checked={form.mamma_vill_amma} ></input><br></br>
                         Amning: <input type="text" value={form.amning_inskrivning} ></input><br></br>
+                        Erhåller bröstmjölk <input type="text" value={form.erhaller_bmjolk_in}></input><br></br>
                         Barnet har v-sond: <input type="checkbox" checked={form.v_sond_in} ></input><br></br>
                         Barnet har infart(Ange typ av infart) <input type="text" value={form.infart_in} ></input><br></br>
                         Andningsstöd (ange form) <input type="text" value={form.andningsstod_in} ></input><br></br>
                         Extra syrgasbehov: <input type="checkbox" checked={form.extragas_in} ></input><br></br>
-
                     </div>
 
                     <div class="riskpatient">
@@ -230,14 +218,17 @@ const Discharge = (useParams) => {
                         Överrapportering till BVC i hemmet <input type="checkbox" checked={form.bvcrapportering} ></input> Om nej ange orsak:
                 <input type="text" value={form.bvcText} ></input> 
                     </div>
-                    <button onClick={() => {window.location = "/registration/edit/" + form.protocolid}}> Redigera </button>
-                    
+                   
                 </form>
+
             ))}
+
+            <button onClick={() => {window.location = "/registration/edit/" + id}}> Redigera </button>
+                    
 
             <div class="discharge" >
                 <h1>Utskrivning</h1>
-                <form onSubmit={submitDischarge}>
+                <form >
                 <label for="outDate">Utskrivningsdatum</label>
                         <input type="date" value={outDate} onChange={(e) => {setOutDate(e.target.value)}}></input>
                         <br></br>
@@ -251,22 +242,12 @@ const Discharge = (useParams) => {
                         Barnet har infart(Ange typ av infart) <input type="text" value={infart_ut} onChange={(e) => {setInfartUt(e.target.value)}}></input><br></br>
                         Andningsstöd (ange form) <input type="text" value={andningsstod_ut} onChange={(e) => {setAndningsstodUt(e.target.value)}}></input><br></br>
                         Extra syrgasbehov: <input type="checkbox" checked={extraGas_ut} onChange={(e) => {setExtraGasUt(e.target.checked)}}></input><br></br>
-                        <input type="submit" value="Spara utskrivning"></input>
+                      
                     </form>
+                    {submitEdit()}
             </div>
-
         </Fragment>
     );
-
-
-/*
-<div class="fullRegistration">
-                protocolID: {form.protocolid}<br/>
-                regDate: {form.regdate}<br/>
-                reason: {form.reason}
-            </div>
-
-*/
 
 }
 
