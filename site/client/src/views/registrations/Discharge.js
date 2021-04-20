@@ -29,7 +29,7 @@ const Discharge = (useParams) => {
     const [extraGas_ut, setExtraGasUt] = useState();
 
     // Data has been sent?
-    const [dataSent, setDataSent] = useState(true);
+    const [dataSent, setDataSent] = useState(false);
     
 
 
@@ -51,28 +51,31 @@ const Discharge = (useParams) => {
         getRegistration();
     }, []);
 
+
+
     const getDischarge = async () => {
         try {
             const response = await fetch(
                 "http://localhost:5000/discharge/" + id);
             const jsonData = await response.json();
-            const dis = jsonData[0];
-
-            console.log(dis);
-            setOutDate(dis.outdate);
-            setViktUt(dis.vikt_utskrivning);
-            setLangdUt(dis.langd_utskrivning);
-            setHuvudomfangUt(dis.huvudomfang_ut);
-            setMammaAmmaUt(dis.mamma_vill_amma_ut);
-            setAmningUt(dis.amning_utskrivning);
-            setErhallerBmjolkUt(dis.erhaller_bmjolk_ut);
-            setVsondUt(dis.v_sond_ut);
-            setInfartUt(dis.infart_ut);
-            setAndningsstodUt(dis.andningsstod_ut);
-            setExtraGasUt(dis.extraGas_ut);
-
+            if(jsonData != undefined){
+                const dis = jsonData[0];
+                setOutDate(dis.outdate);
+                setViktUt(dis.vikt_utskrivning);
+                setLangdUt(dis.langd_utskrivning);
+                setHuvudomfangUt(dis.huvudomfang_ut);
+                setMammaAmmaUt(dis.mamma_vill_amma_ut);
+                setAmningUt(dis.amning_utskrivning);
+                setErhallerBmjolkUt(dis.erhaller_bmjolk_ut);
+                setVsondUt(dis.v_sond_ut);
+                setInfartUt(dis.infart_ut);
+                setAndningsstodUt(dis.andningsstod_ut);
+                setExtraGasUt(dis.extraGas_ut);
+            }
+           // console.log(dis);
+           
             //console.log(jsonData.outdate);
-            console.log(outDate);
+            //console.log(outDate);
             //console.log(jsonData);
 
           //  return(<h1>hjs</h1>)
@@ -83,17 +86,17 @@ const Discharge = (useParams) => {
             console.error(error);
         }
     }
-/*
+
     useEffect(() => {
         getDischarge();
-    }, []); */
+    }, []);
 
-    const getPreviousData =() => {
+    /*const getPreviousData =() => {
         if (dataSent) {
             //return(getDischarge());
             getDischarge();
         } 
-    }
+    }*/
 
 
 
@@ -148,8 +151,8 @@ const Discharge = (useParams) => {
             });
 
             await console.log(response);
-            await getDischarge();
-            //setDataSent(true);
+           // await getDischarge();
+            setDataSent(true);
         } catch (e) {
             console.error(e);
         }
