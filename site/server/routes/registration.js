@@ -160,7 +160,7 @@ module.exports = function(app, pool){
         try {
             const {id} = req.params;
             const allDischarge = await pool.query(
-            `SELECT protocolID, outDate :: text, vikt_utskrivning, langd_utskrivning, huvudomfang_ut,
+                `SELECT protocolID, outDate :: text, vikt_utskrivning, langd_utskrivning, huvudomfang_ut,
             mamma_vill_amma_ut, amning_utskrivning, erhaller_bmjolk_ut, v_sond_ut, 
             infart_ut, andningsstod_ut, extraGas_ut
             FROM Discharge WHERE protocolID = $1`, [id]

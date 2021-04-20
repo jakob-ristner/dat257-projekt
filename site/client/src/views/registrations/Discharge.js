@@ -100,30 +100,6 @@ const Discharge = (useParams) => {
 
 
 
-    const updateRegistration = async(e) => {
-        e.preventDefault();
-        try {
-            const updateForm = {
-                method: 'PUT',
-                headers:{'Content-Type': 'application/json'},
-                body: JSON.stringify({
-                    protocolID: id,
-                    regDate: regDate,
-                    reason: reason
-                })
-            }
-
-            const response = await fetch('http://localhost:5000/registration/' + id,
-            updateForm);
-
-            const data = await response.jsonData();
-            console.log(data);
-        } catch (error) {
-            console.log(error.message);
-        }
-       
-    }
-
     //Method for submitting the discharge form
     const submitDischarge = async(e) => {
         e.preventDefault();
@@ -170,7 +146,7 @@ const Discharge = (useParams) => {
             <h1>Inskrivning </h1>
             {fullRegistration.map(form => (
 
-                <form onSubmit={updateRegistration}>
+                <form>
                     <div class="header">
                         <label for="protocolID">ProtkollID:</label>
                         <input type="number"
@@ -230,10 +206,9 @@ const Discharge = (useParams) => {
                         Överrapportering till BVC i hemmet <input type="checkbox" checked={form.bvcrapportering} ></input> Om nej ange orsak:
                 <input type="text" value={form.bvcText} ></input> 
                     </div>
-                    <button onClick={() => {window.location = "/registration/edit/" + form.protocolid}}> Redigera </button>
-                    
                 </form>
             ))}
+                <button onClick={() => {window.location = "/registration/edit/" + id}}> Redigera </button>
 
             <div class="discharge" >
                 <h1>Utskrivning</h1>
