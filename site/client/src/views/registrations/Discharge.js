@@ -13,6 +13,28 @@ const Discharge = (useParams) => {
     const [regDate, setRegDate] = useState("");
     const [reason, setReason] = useState("");
 
+
+
+    //constants for setting discharge params
+    const [outDate, setOutDate] = useState();
+    const [vikt_utskrivning, setViktUt] = useState();
+    const [langd_utskrivning, setLangdUt] = useState();
+    const [huvudomfang_ut, setHuvudomfangUt] = useState();
+    const [mamma_vill_amma_ut, setMammaAmmaUt] = useState();
+    const [amning_utskrivning, setAmningUt] = useState();
+    const [erhaller_bmjolk_ut, setErhallerBmjolkUt] = useState();
+    const [v_sond_ut, setVsondUt] = useState();
+    const [infart_ut, setInfartUt] = useState();
+    const [andningsstod_ut, setAndningsstodUt] = useState();
+    const [extraGas_ut, setExtraGasUt] = useState();
+
+    // Data has been sent?
+    const [dataSent, setDataSent] = useState(false);
+    
+
+
+
+    //Method for  getting the registration form
     const getRegistration = async () => {
         try {
             const response = await fetch(
@@ -28,6 +50,53 @@ const Discharge = (useParams) => {
     useEffect(() => {
         getRegistration();
     }, []);
+
+
+
+    const getDischarge = async () => {
+        try {
+            const response = await fetch(
+                "http://localhost:5000/discharge/" + id);
+            const jsonData = await response.json();
+            if(jsonData != undefined){
+                const dis = jsonData[0];
+                setOutDate(dis.outdate);
+                setViktUt(dis.vikt_utskrivning);
+                setLangdUt(dis.langd_utskrivning);
+                setHuvudomfangUt(dis.huvudomfang_ut);
+                setMammaAmmaUt(dis.mamma_vill_amma_ut);
+                setAmningUt(dis.amning_utskrivning);
+                setErhallerBmjolkUt(dis.erhaller_bmjolk_ut);
+                setVsondUt(dis.v_sond_ut);
+                setInfartUt(dis.infart_ut);
+                setAndningsstodUt(dis.andningsstod_ut);
+                setExtraGasUt(dis.extraGas_ut);
+            }
+           // console.log(dis);
+           
+            //console.log(jsonData.outdate);
+            //console.log(outDate);
+            //console.log(jsonData);
+
+          //  return(<h1>hjs</h1>)
+
+
+          //  setIndividualReg();
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    useEffect(() => {
+        getDischarge();
+    }, []);
+
+    /*const getPreviousData =() => {
+        if (dataSent) {
+            //return(getDischarge());
+            getDischarge();
+        } 
+    }*/
 
 
 
@@ -55,50 +124,43 @@ const Discharge = (useParams) => {
        
     }
 
-    /*
-
-       <h1>Inskrivning </h1>
-
-        {fullRegistration.map(form => (
-            
-            <form  onSubmit={updateRegistration}>
-            <label for="fname">ProtkollID:</label>
-            <input type="number" 
-                value={form.protocolid} 
-                id="protokollID" 
-                name="fname"
-                readOnly
-           >
-                </input>
+    //Method for submitting the discharge form
+    const submitDischarge = async(e) => {
+        e.preventDefault();
+        
+        
+        try {
+            const body = {
+                outDate,
+                vikt_utskrivning, 
+                langd_utskrivning, 
+                huvudomfang_ut,
+                mamma_vill_amma_ut,
+                amning_utskrivning,
+                erhaller_bmjolk_ut, 
+                v_sond_ut, 
+                infart_ut, 
+                andningsstod_ut, 
+                extraGas_ut
+            };
     
-            <label for="lname">Registreringsdatum:</label>
-             <input 
-                type="date" 
-                value={form.regdate} 
-                id="date" 
-                name="lname"
-                
-                >
-                 </input>
-    
-            <label for="lname">Anledning för inskrivning:</label>
-             <input 
-                type="text" 
-                value={form.reason} 
-                id="reason" 
-                name="lname"
-              
-                
-                >
-                 </input>
-    
-             <input type="submit" value="Edit">
-                  </input>
-              </form>
-        ))}
-       
+            const response = await fetch('http://localhost:5000/discharge/' + id, { 
+                    method: 'POST',
+                    headers:{'Content-Type': 'application/json'},
+                    body: JSON.stringify(body)
+            });
 
-        */
+            await console.log(response);
+           // await getDischarge();
+            setDataSent(true);
+        } catch (e) {
+            console.error(e);
+        }
+
+        
+    }
+
+    
 
     return (
         <Fragment>
@@ -125,11 +187,9 @@ const Discharge = (useParams) => {
                         >
                         </input>
 
-                        <label for="outDate">Utskrivningsdatum</label>
-                        <input type="date" value={form.outdate}></input>
-                        <br></br>
-        Ifyllnad kollad: <input type="checkbox" checked={form.ifyllnadkollad} ></input><br></br>
-        Registrerad: <input type="checkbox" checked={form.registrerad}></input><br></br>
+                    
+                        Ifyllnad kollad: <input type="checkbox" checked={form.ifyllnadkollad} ></input><br></br>
+                        Registrerad: <input type="checkbox" checked={form.registrerad}></input><br></br>
 
                     </div>
 
@@ -174,6 +234,26 @@ const Discharge = (useParams) => {
                     
                 </form>
             ))}
+
+            <div class="discharge" >
+                <h1>Utskrivning</h1>
+                <form onSubmit={submitDischarge}>
+                <label for="outDate">Utskrivningsdatum</label>
+                        <input type="date" value={outDate} onChange={(e) => {setOutDate(e.target.value)}}></input>
+                        <br></br>
+                        vikt (gram) <input type="number" value={vikt_utskrivning} onChange={(e) => {setViktUt(e.target.value)}} ></input><br/>
+                        längd (cm) <input type="number" value={langd_utskrivning} onChange={(e) => {setLangdUt(e.target.value)}}></input><br/>
+                        Huvudomfång (cm) <input type="number" value={huvudomfang_ut} onChange={(e) => {setHuvudomfangUt(e.target.value)}}></input><br />
+                        Mamma vill amma: <input type="checkbox" checked={mamma_vill_amma_ut} onChange={(e) => {setMammaAmmaUt(e.target.checked)}}></input><br></br>
+                        Amning: <input type="text" value={amning_utskrivning} onChange={(e) => {setAmningUt(e.target.value)}}></input><br></br>
+                        Erhåller bröstmjölk <input type="text" value={erhaller_bmjolk_ut} onChange={(e) => {setErhallerBmjolkUt(e.target.value)}}></input><br></br>
+                        Barnet har v-sond: <input type="checkbox" checked={v_sond_ut} onChange={(e) => {setVsondUt(e.target.checked)}}></input><br></br>
+                        Barnet har infart(Ange typ av infart) <input type="text" value={infart_ut} onChange={(e) => {setInfartUt(e.target.value)}}></input><br></br>
+                        Andningsstöd (ange form) <input type="text" value={andningsstod_ut} onChange={(e) => {setAndningsstodUt(e.target.value)}}></input><br></br>
+                        Extra syrgasbehov: <input type="checkbox" checked={extraGas_ut} onChange={(e) => {setExtraGasUt(e.target.checked)}}></input><br></br>
+                        <input type="submit" value="Spara utskrivning"></input>
+                    </form>
+            </div>
 
         </Fragment>
     );

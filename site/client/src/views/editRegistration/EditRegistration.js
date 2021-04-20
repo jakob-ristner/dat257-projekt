@@ -5,7 +5,7 @@ const EditRegistration = (useParams) => {
     const { id } = useParams.match.params;
     
     //Header
-    const [regDate, setRegDate] = useState("");
+    const [regDate, setRegDate] = useState(null);
     const [reason, setReason] = useState(""); 
 
     // Födelse
@@ -27,7 +27,7 @@ const EditRegistration = (useParams) => {
     const [syrgas_in, set_syrgas_in] = useState(null);
 
     //Utskrivning
-    const [date_ut, set_date_ut] = useState("");
+    const [date_ut, set_date_ut] = useState(null);
     const [vikt_ut, set_vikt_ut] = useState(null);
     const [langd_ut, set_langd_ut] = useState(null);
     const [huvud_ut, set_huvud_ut] = useState(null);
@@ -37,7 +37,6 @@ const EditRegistration = (useParams) => {
     const [infart_ut, set_infart_ut] = useState("");
     const [andning_ut, set_andning_ut] = useState("");
     const [syrgas_ut, set_syrgas_ut] = useState(null);
-
     const [regExists, setReg] = useState(false);
     const [disExists, setDis] = useState(false);
 
@@ -69,7 +68,7 @@ const EditRegistration = (useParams) => {
             set_langd_in(reg.langd_inskrivning);
             set_huvud_in(reg.huvudomfang_in);
             set_vill_amma_in(reg.mamma_vill_amma);
-            set_bmjolk_in(false); // TODO merge then fix!!
+            set_bmjolk_in(reg.erhaller_bmjolk_in); // TODO merge then fix!!
             set_vsond_in(reg.v_sond_in);
             set_infart_in(reg.infart_in);
             set_andning_in(reg.andningsstod_in);
@@ -88,7 +87,7 @@ const EditRegistration = (useParams) => {
 
         if (dis != undefined) {
             setDis(true);
-
+            set_date_ut(dis.outdate);
             set_vikt_ut(dis.vikt_utskrivning);
             set_langd_ut(dis.vikt_utskrivning);
             set_huvud_ut(dis.huvudomfang_ut);

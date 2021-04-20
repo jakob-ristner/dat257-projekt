@@ -10,7 +10,6 @@ CREATE TABLE Registration (
     --Or how the id-number should be checked. 
     protocolID INT PRIMARY KEY,
     regDate DATE NOT NULL,
-    outDate DATE,
     reason TEXT,
     iFyllnadKollad BOOLEAN NOT NULL DEFAULT FALSE,
     registrerad BOOLEAN NOT NULL DEFAULT FALSE,
@@ -46,6 +45,7 @@ CREATE TABLE Registration (
 CREATE TABLE Discharge (
     protocolID INT PRIMARY KEY,
     FOREIGN KEY (protocolID) REFERENCES Registration(protocolID),
+    outDate DATE NOT NULL,
     vikt_utskrivning INT CHECK (vikt_utskrivning >= 0),
     langd_utskrivning FLOAT CHECK (langd_utskrivning >= 0),
     huvudomfang_ut FLOAT CHECK (huvudomfang_ut >= 0),
@@ -67,6 +67,6 @@ INSERT INTO registration (protocolID, regDate, reason, veckor, dagar,
     vikt_fodelse, langd_fodelse, huvudomfang_fodelse, amning_inskrivning) 
     VALUES ('112', '2021-01-01', 'oneonetwo', '1', '1', '3500', '83.2', '11.2', 'H');
 
-INSERT INTO Discharge VALUES ('111', 1200, 120, 120, TRUE , 'H', 'H',
+INSERT INTO Discharge VALUES ('111', '2021-02-04', 1200, 120, 120, TRUE , 'H', 'H',
 TRUE, 'yy','yy',TRUE);
 

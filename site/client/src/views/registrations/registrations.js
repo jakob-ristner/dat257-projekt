@@ -4,7 +4,6 @@ import React, { Fragment, useEffect, useState} from "react";
 const Registration = () => {
     const [protocolID, setProtocolID] = useState(0);
     const [regDate, setRegDate] = useState("");
-    const [outDate, setOutDate] = useState("");
     const [reason, setReason] = useState(""); 
     const [ifyllnadkollad, setIfyllnadKollad] = useState(false);
     const [registrerad, setRegistrerad] = useState(false);
@@ -114,11 +113,7 @@ const Registration = () => {
                     >
                     </input>
             
-                    <label for="outDate">Utskrivningsdatum</label>
-                    <input type="date" value={outDate} onChange={(e) => {
-                    setOutDate(e.target.value)
-                    }}></input>
-                    <br></br>
+                
                     Ifyllnad kollad: <input type="checkbox" checked={ifyllnadkollad} onChange={(e) => {setIfyllnadKollad(e.target.checked)}}></input><br></br>
                     Registrerad: <input type="checkbox" checked={registrerad} onChange={(e) => {setRegistrerad(e.target.checked)}}></input><br></br>
 
@@ -164,11 +159,32 @@ const Registration = () => {
                 Överrapportering till BVC i hemmet <input type="checkbox" checked={bvcRapportering} onChange={(e) => {setBvcRapportering(e.target.checked)}}></input> Om nej ange orsak:
                 <input type="text" value={bvcText} onChange={(e) => {setBvcText(e.target.value)}}></input>
             </div>
+        
             
              <input type="submit" value="Submit">
                   </input>
                   
               </form>
+
+              <div class="discharge" >
+                <h1>Utskrivning</h1>
+                <form>
+                <label for="outDate">Utskrivningsdatum</label>
+                    <input type="date" disabled></input>
+                    <br></br>
+                        vikt (gram) <input type="number" disabled ></input><br/>
+                        längd (cm) <input type="number" disabled></input><br/>
+                        Huvudomfång (cm) <input type="number" disabled></input><br />
+                        Mamma vill amma: <input type="checkbox" disabled></input><br></br>
+                        Amning: <input type="text" disabled></input><br></br>
+                        Erhåller bröstmjölk <input disabled></input><br></br>
+                        Barnet har v-sond: <input type="checkbox" disabled></input><br></br>
+                        Barnet har infart(Ange typ av infart) <input type="text" disabled></input><br></br>
+                        Andningsstöd (ange form) <input type="text" disabled></input><br></br>
+                        Extra syrgasbehov: <input type="checkbox" disabled></input><br></br>
+                    </form>
+            </div>
+
               
 
 
