@@ -100,7 +100,8 @@ const Registration = () => {
            
                 <form onSubmit={submitRegistation}>    
                 <div class="form">
-                    <div class="protokollID">
+                    <div class="protokollID" id="protokollID">
+                    <h1>Protokoll ID</h1>
                         <label for="protocolID">ProtkollID:</label>
                         <input type="number" value={protocolID} onChange={(e) => {setProtocolID(e.target.value)} }></input><br></br>
                         Ifyllnad kollad: <input type="checkbox" checked={ifyllnadkollad} onChange={(e) => {setIfyllnadKollad(e.target.checked)}}></input><br></br>
@@ -111,6 +112,7 @@ const Registration = () => {
            
             
                 <div class="bakgrundsdata" id="bakgrundsdata">
+                <h1>Födelsedata </h1>
                     Barnets gestationsvecka: <input type="number" value={veckor} onChange={(e) => {setVeckor(e.target.value)}}></input><br></br>
                     Dagar: <input type="number" value={dagar} onChange={(e) => {setDagar(e.target.value)}}></input><br></br>
                     Födelsevikt:  <input type="number" value={vikt_fodelse} onChange={(e) => {setViktFodelse(e.target.value)}}></input><br></br>
@@ -118,11 +120,11 @@ const Registration = () => {
                     Födelsehuvudomfång: <input type="number" value={huvudomfang_fodelse} onChange={(e) => {setHuvudomfangFodelse(e.target.value)}}></input><br></br>
                 </div>
             
-                <div class="inskrivning">
+                <div class="inskrivning" id="inskrivning">
                      <h1>Inskrivning </h1>
-                    inskrivningsdatum: <input type="date" value={regDate} onChange={(e) => {setRegDate(e.target.value)}}/><br/>
-                    vikt (gram) <input type="number" value={vikt_inskrivning} onChange={(e) => {setViktIn(e.target.value)}}></input><br/>
-                    längd (cm) <input type="number" value={langd_inskrivning} onChange={(e) => {setLangdIn(e.target.value)}}></input><br/>
+                    Inskrivningsdatum: <input type="date" value={regDate} onChange={(e) => {setRegDate(e.target.value)}}/><br/>
+                    Vikt (gram) <input type="number" value={vikt_inskrivning} onChange={(e) => {setViktIn(e.target.value)}}></input><br/>
+                    Längd (cm) <input type="number" value={langd_inskrivning} onChange={(e) => {setLangdIn(e.target.value)}}></input><br/>
                     Huvudomfång (cm) <input type="number" value={huvudomfang_in} onChange={(e) => {setHuvudIn(e.target.value)}}></input><br/>
                     Mamma vill amma: <input type="checkbox" checked={mamma_vill_amma} onChange={(e) => {setMammaAmma(e.target.checked)}}></input><br></br>
                     Amning: <input type="text" value={amning_inskrivning} onChange={(e) => {setAmningIn(e.target.value)}}></input><br></br>
@@ -134,25 +136,25 @@ const Registration = () => {
                 </div>
             
     
-                    <div class="bottom">
+                    <div class="bottom" id="bottom">
                         Riskpatient <input type="checkbox" checked={riskpatient} onChange={(e) => {setRiskPatient(e.target.checked)}}></input><br></br>
                         Överrapportering till BVC i hemmet <input type="checkbox" checked={bvcRapportering} onChange={(e) => {setBvcRapportering(e.target.checked)}}></input><br></br>
                          Om nej ange orsak:<input type="text" value={bvcText} onChange={(e) => {setBvcText(e.target.value)}}></input><br></br>
-                       <input type="submit" value="Submit"></input>
+                       <input class="button1" type="submit" value="Spara"></input>
                         
                     </div>
                
        
         
 
-            <div class="discharge" >
+            <div class="discharge" id="discharge" >
                 <h1>Utskrivning</h1>
                 <form>
                 <label for="outDate">Utskrivningsdatum</label>
                     <input type="date" disabled></input>
                     <br></br>
-                        vikt (gram) <input type="number" disabled ></input><br/>
-                        längd (cm) <input type="number" disabled></input><br/>
+                        Vikt (gram) <input type="number" disabled ></input><br/>
+                        Längd (cm) <input type="number" disabled></input><br/>
                         Huvudomfång (cm) <input type="number" disabled></input><br />
                         Mamma vill amma: <input type="checkbox" disabled></input><br></br>
                         Amning: <input type="text" disabled></input><br></br>

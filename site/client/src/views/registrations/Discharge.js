@@ -142,7 +142,7 @@ const Discharge = (useParams) => {
     const submitEdit = () => {
         if(dataSent) {
             return(
-                <button onClick={() => {window.location = "/registration/edit/" + id}}>Redigera</button>
+                <button class="button1" onClick={() => {window.location = "/registration/edit/" + id}}>Redigera</button>
             )
         }else{
             return(
@@ -162,7 +162,8 @@ const Discharge = (useParams) => {
 
                 <form>
                     <div class="formDischarge2">
-                    <div class="header">
+                    <div class="header" id="header">
+                    <h1>Protokoll ID </h1>
                         <label for="protocolID">ProtokollID:</label>
                         <input type="number"
                             value={form.protocolid}
@@ -176,7 +177,8 @@ const Discharge = (useParams) => {
                     </div>
           
 
-                    <div class="bakgrundsdata">
+                    <div class="bakgrundsdata" id="bakgrundsdata">
+                    <h1>Födelsedata </h1>
                         Barnets gestationsvecka: <input type="number" value={form.veckor} ></input><br></br>
                         Dagar:<input type="number" value={form.dagar} ></input><br></br>
                         Födelsevikt:  <input type="number" value={form.vikt_fodelse} ></input><br></br>
@@ -184,7 +186,7 @@ const Discharge = (useParams) => {
                         Födelsehuvudomfång: <input type="number" value={form.huvudomfang_fodelse} ></input><br></br>
                     </div>
 
-                    <div class="Inskrivning">
+                    <div class="Inskrivning" id="Inskrivning">
                     <h1>Inskrivning </h1>
                          <label for="regDate">Inskrivningsdatum:</label>
                         <input type="date" value={form.regdate} id="date" ></input><br></br>
@@ -200,11 +202,11 @@ const Discharge = (useParams) => {
                         Extra syrgasbehov: <input type="checkbox" checked={form.extragas_in} ></input><br></br>
                     </div>
 
-                    <div class="riskpatient">
+                    <div class="riskpatient" id="riskpatient">
                         Riskpatient <input type="checkbox" checked={form.riskpatient} ></input><br></br>
                         Överrapportering till BVC i hemmet <input type="checkbox" checked={form.bvcrapportering} ></input><br></br>
                         Om nej ange orsak<input type="text" value={form.bvcText} ></input><br></br>
-                        <button onClick={() => {window.location = "/registration/edit/" + id}}> Redigera </button> 
+                        <button class="button1" onClick={() => {window.location = "/registration/edit/" + id}}> Redigera </button> 
                     </div>
                     </div>
                 </form>
@@ -215,7 +217,7 @@ const Discharge = (useParams) => {
            
                     
 
-            <div class="discharge" >
+            <div class="discharge" id="discharge" >
                 <h1>Utskrivning</h1>
                 <form >
                 <label for="outDate">Utskrivningsdatum</label>
