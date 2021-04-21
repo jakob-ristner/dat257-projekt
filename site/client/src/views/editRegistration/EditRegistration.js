@@ -5,46 +5,46 @@ const EditRegistration = (useParams) => {
     const { id } = useParams.match.params;
     
     //Header
-    const [regDate, setRegDate] = useState(null);
-    const [reason, setReason] = useState(""); 
+    const [regDate, setRegDate] = useState();
+    const [reason, setReason] = useState(); 
 
     // Födelse
-    const [veckor, setVeckor] = useState(0);
-    const [dagar, setDagar] = useState(0);
-    const [vikt_fodelse, setViktFodelse] = useState(1);
-    const [langd_fodelse, setLangdFodelse] = useState(1);
-    const [huvudomfang_fodelse, setHuvudomfangFodelse] = useState(1);
+    const [veckor, setVeckor] = useState();
+    const [dagar, setDagar] = useState();
+    const [vikt_fodelse, setViktFodelse] = useState();
+    const [langd_fodelse, setLangdFodelse] = useState();
+    const [huvudomfang_fodelse, setHuvudomfangFodelse] = useState();
     
     // inskrivning
-    const [vikt_in, set_vikt_in] = useState(0);
-    const [langd_in, set_langd_in] = useState(0);
-    const [huvud_in, set_huvud_in] = useState(0);
-    const [vill_amma_in, set_vill_amma_in] = useState(null);
-    const [amning_in, set_amning_in] = useState(null);
-    const [bmjolk_in, set_bmjolk_in] = useState(null);
-    const [vsond_in, set_vsond_in] = useState(null);
-    const [infart_in, set_infart_in] = useState("");
-    const [andning_in, set_andning_in] = useState("");
-    const [syrgas_in, set_syrgas_in] = useState(null);
+    const [vikt_in, set_vikt_in] = useState();
+    const [langd_in, set_langd_in] = useState();
+    const [huvud_in, set_huvud_in] = useState();
+    const [vill_amma_in, set_vill_amma_in] = useState();
+    const [amning_in, set_amning_in] = useState();
+    const [bmjolk_in, set_bmjolk_in] = useState();
+    const [vsond_in, set_vsond_in] = useState();
+    const [infart_in, set_infart_in] = useState();
+    const [andning_in, set_andning_in] = useState();
+    const [syrgas_in, set_syrgas_in] = useState();
 
-    const [bvc_rap, set_bvc_rap] = useState(null);
-    const [bvc_text, set_bvc_text] = useState(null);
-    const [riskpatient, set_risk] = useState(null);
+    const [bvc_rap, set_bvc_rap] = useState();
+    const [bvc_text, set_bvc_text] = useState();
+    const [riskpatient, set_risk] = useState();
     //Utskrivning
-    const [date_ut, set_date_ut] = useState(null);
-    const [vikt_ut, set_vikt_ut] = useState(null);
-    const [langd_ut, set_langd_ut] = useState(null);
-    const [huvud_ut, set_huvud_ut] = useState(null);
-    const [vill_amma_ut, set_vill_amma_ut] = useState(null);
-    const [amning_ut, set_amning_ut] = useState(null);
-    const [bmjolk_ut, set_bmjolk_ut] = useState(null);
-    const [vsond_ut, set_vsond_ut] = useState(null);
-    const [infart_ut, set_infart_ut] = useState("");
-    const [andning_ut, set_andning_ut] = useState("");
-    const [syrgas_ut, set_syrgas_ut] = useState(null);
+    const [date_ut, set_date_ut] = useState();
+    const [vikt_ut, set_vikt_ut] = useState();
+    const [langd_ut, set_langd_ut] = useState();
+    const [huvud_ut, set_huvud_ut] = useState();
+    const [vill_amma_ut, set_vill_amma_ut] = useState();
+    const [amning_ut, set_amning_ut] = useState();
+    const [bmjolk_ut, set_bmjolk_ut] = useState();
+    const [vsond_ut, set_vsond_ut] = useState();
+    const [infart_ut, set_infart_ut] = useState();
+    const [andning_ut, set_andning_ut] = useState();
+    const [syrgas_ut, set_syrgas_ut] = useState();
 
-    const [regExists, setReg] = useState(false);
-    const [disExists, setDis] = useState(true);
+    const [regExists, setReg] = useState();
+    const [disExists, setDis] = useState();
 
 
     const threeCheck = (state, setState, value) => {
@@ -163,6 +163,10 @@ const EditRegistration = (useParams) => {
             set_infart_in(reg.infart_in);
             set_andning_in(reg.andningsstod_in);
             set_syrgas_in(reg.extragas_in);
+
+            set_risk(reg.riskpatient);
+            set_bvc_rap(reg.bvc_rap);
+            set_bvc_text(reg.bvc_text);
         } else {
             setReg(false);
 
@@ -179,6 +183,7 @@ const EditRegistration = (useParams) => {
         console.log(dis);
 
         if (dis != undefined) {
+            setDis(true);
             set_date_ut(dis.outdate);
             set_vikt_ut(dis.vikt_utskrivning);
             set_langd_ut(dis.vikt_utskrivning);
@@ -280,35 +285,6 @@ const EditRegistration = (useParams) => {
             </div>
             <br />
             
-            <div className="risk">
-                Riskpatient:
-                    ja <input type="checkbox" class="ja" checked={riskpatient == true} 
-                        onChange={() => threeCheck(riskpatient, set_risk, true)} /> 
-                    nej <input type="checkbox" class="nej" checked={riskpatient == false}
-                        onChange={() => threeCheck(riskpatient, set_risk, false)} /> <br />
-
-                Överraportering till bvc:
-                    ja <input type="checkbox" class="ja" checked={bvc_rap == true}
-                        onChange={(e) => {
-                            threeCheck(bvc_rap, set_bvc_rap, true)
-                            if (e.target.checked == true) {
-                                set_bvc_text("");
-                            }
-                        }} /> 
-                    nej <input type="checkbox" class="nej" checked={bvc_rap == false}
-                        onChange={(e) => {
-                            threeCheck(bvc_rap, set_bvc_rap, false)
-                            if (e.target.checked == false) {
-                                set_bvc_text("");
-                            }
-                        }} />
-                Om nej ange orsak: <input type="text" value={bvc_text} onChange={(e) => {
-                    if (bvc_rap == false) {
-                        set_bvc_text(e.target.value)
-                    }
-                }}/>
-
-            </div>
         </Fragment>
         );
     }
@@ -380,7 +356,39 @@ const EditRegistration = (useParams) => {
                             onChange={() => threeCheck(syrgas_in, set_syrgas_in, true)} /> 
                         nej <input type="checkbox" class="nej" checked={syrgas_in == false}
                             onChange={() => threeCheck(syrgas_in, set_syrgas_in, false)} /> <br />
-                </div>
+                </div> 
+                <br />
+                
+
+            <div className="risk">
+                Riskpatient:
+                    ja <input type="checkbox" class="ja" checked={riskpatient == true} 
+                        onChange={() => threeCheck(riskpatient, set_risk, true)} /> 
+                    nej <input type="checkbox" class="nej" checked={riskpatient == false}
+                        onChange={() => threeCheck(riskpatient, set_risk, false)} /> <br />
+
+                Överraportering till bvc:
+                    ja <input type="checkbox" class="ja" checked={bvc_rap == true}
+                        onChange={(e) => {
+                            threeCheck(bvc_rap, set_bvc_rap, true)
+                            if (e.target.checked == true) {
+                                set_bvc_text("");
+                            }
+                        }} /> 
+                    nej <input type="checkbox" class="nej" checked={bvc_rap == false}
+                        onChange={(e) => {
+                            threeCheck(bvc_rap, set_bvc_rap, false)
+                            if (e.target.checked == false) {
+                                set_bvc_text("");
+                            }
+                        }} />
+                Om nej ange orsak: <input type="text" value={bvc_text} onChange={(e) => {
+                    if (bvc_rap == false) {
+                        set_bvc_text(e.target.value)
+                    }
+                }}/>
+
+            </div>
             </form>
             </Fragment>
         );
