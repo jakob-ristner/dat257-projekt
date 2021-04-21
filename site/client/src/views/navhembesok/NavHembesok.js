@@ -10,7 +10,7 @@ const NavHembesok = (useParams) => {
     const [totHembesok, setHembesok] = useState([]);
     const [hembIndex, setHembIndex] = useState(0);
     const { id } = useParams.match.params;
-    const [idnr, setIdnr] = useState([]);
+    //const [idnr, setIdnr] = useState([]);
 
     const getHembesok = async (index) => {
         try {
@@ -19,6 +19,7 @@ const NavHembesok = (useParams) => {
             const jsonData = await response.json();
             setHembesok(jsonData.reverse());
             showHembesok(jsonData.slice(index, index + 3).reverse());
+            console.log(jsonData);
         } catch(err) {
             console.error(err);
         }

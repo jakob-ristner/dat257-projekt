@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS Hembesok;
 
 CREATE TABLE Hembesok (
-    idnr SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     protokollnr TEXT NOT NULL,
 
     date_added DATE NOT NULL DEFAULT NOW(),

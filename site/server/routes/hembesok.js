@@ -80,20 +80,82 @@ module.exports = function(app, pool) {
 		}
 	});
 
+
+    //get previous hembesok
+    app.get("/hembesok/edit/:id", async (req, res) => {
+        try {
+            const {id} = req.params;
+            console.log(id);
+            const {protokollnr} = req.body;
+            const getEHemb = await pool.query(
+                `SELECT protokollnr,
+                to_char(at_family, 'HH24:MI') AS at_family, 
+                to_char(from_family, 'HH24:MI') AS from_family, 
+                to_char(from_family, 'yyyy-mm-dd') AS date,
+                performed_by, 
+                amning_nutrition,
+                stodsamtal,
+                viktkontroll,
+                provtagning,
+                lakemedel,
+                annan_at,
+                lakare,
+                logoped,
+                dietist,
+                annan_resurs,
+                av_logistik,
+                av_barn_familj,
+                av_personal,
+                av_beskrivning,
+                performed_by
+                FROM Hembesok
+                WHERE id = $1`, [id] 
+            );
+            res.json(getEHemb.rows);
+        } catch (err) {
+            console.error(err.message);
+        }
+    });
+
+
     //Edit hembesok
-    app.put("/hembesok/:idnr", async (req, res) => {
+    app.put("/hembesok/edit/:id", async (req, res) => {
 
         try {
-            const {idnr} = req.params;
-            console.log(idnr);
-            const {at_family, from_family, performed_by} = req.body;
+            const {id} = req.params;
+            console.log(id);
+            const {at_family, from_family, performed_by, 
+                amning_nutrition, stodsamtal, viktkontroll, provtagning, 
+                lakemedel,annan_at,lakare,logoped, dietist, annan_resurs,
+                av_logistik, av_barn_familj, av_personal, av_beskrivning} = req.body;
            // console.log(body);
             const updateHembesok = await pool.query(
             `UPDATE Hembesok 
-            SET at_family = $1, 
+            SET at_family = $2, 
             from_family = $3,
-            performed_by = $4 
-            WHERE idnr =$2`, [at_family, idnr, from_family, performed_by]);
+            performed_by = $4,
+            amning_nutrition = $5, 
+            stodsamtal = $6,
+            viktkontroll = $7,
+            provtagning = $8, 
+            lakemedel = $9,
+            annan_at = $10,
+            lakare = $11,
+            logoped = $12,
+            dietist = $13,
+            annan_resurs = $14,
+            av_logistik = $15,
+            av_barn_familj = $16,
+            av_personal = $17,
+            av_beskrivning = $18
+            WHERE id =$1`, [id, at_family, from_family, performed_by, amning_nutrition, stodsamtal, viktkontroll, 
+                provtagning, lakemedel,annan_at,lakare,logoped,
+                dietist,
+                annan_resurs,
+                av_logistik, 
+                av_barn_familj,
+                av_personal,
+                av_beskrivning]);
             
             res.json("Updated"); // updateHembesok, rows
 
@@ -102,19 +164,4 @@ module.exports = function(app, pool) {
         } 
     });
 
-        /*
-            const {
-             protokollnr, id, at_family, from_family, performed_by, 
-             amning_nutrition, stodsamtal, viktkontroll, provtagning, 
-             lakemedel,annan_at,lakare,logoped, dietist, annan_resurs,
-             av_logistik, av_barn_familj, av_personal, av_beskrivning} 
-             = req.body;
-
-            `UPDATE Hembesok 
-            SET at_family = $2,  
-            WHERE protokollnr =$2 AND id = $11`, [at_family, protokollnr, id]);
-
-
-
-    */
 }

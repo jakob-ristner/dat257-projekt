@@ -8,17 +8,16 @@ body {
   grid-template-rows: 60% 60%;
 }
 .navigation {
-    grid-column: 3;
-    grid-row: 1 / 2;
-    left: 85%;
-    top: 35%;
-    position: absolute;
-  
-  }
+  grid-column: 3;
+  grid-row: 1 / 2;
+  left: 85%;
+  top: 35%;
+  position: absolute;
+}
 #homeButton {
-    left: 2%;
-    top: 2%;
-    position: absolute;
+  left: 2%;
+  top: 2%;
+  position: absolute;
 }
 #root {
   grid-column-start: 2;
@@ -66,4 +65,16 @@ body {
 
 .hembesok input {
   margin-right: 20px;
+}
+
+.edithembesok {
+  border-style: solid;
+
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-rows: 33% 33% auto;
+}
+
+.edithembesok input {
+  margin-right: 30px;
 }
