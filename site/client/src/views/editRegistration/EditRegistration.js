@@ -47,8 +47,7 @@ const EditRegistration = (useParams) => {
     const [regExists, setReg] = useState();
     const [disExists, setDis] = useState();
 
-    const [regError, setRegError] = useState(false);
-    const [disError, setDisError] = useState(false);
+   
 
     const checkNull = (obj) => {
         for (var key in obj) {
@@ -94,26 +93,7 @@ const EditRegistration = (useParams) => {
 
     const submit = async (e) => {
         e.preventDefault();
-        /*
-        var multi = e.target.getElementsByClassName("multi");
-            console.log(multi);
-        for (var i = 0; i < multi.length; i++) {
-            var inputs = multi.item(i).getElementsByTagName("input");
-            console.log(inputs);
-            var valid = false;
-            for (var k = 0; k < inputs.length; k++) {
-                if (inputs.item(k).checked) {
-                    valid = true;
-                }
-            }
-            if (!valid) {
-                inputs.item(0).setCustomValidity("asd");
-            } else {
-                inputs.item(0).setCustomValidity("");
-            }
-
-        }
-        */
+      
         var regnull = false;
         var disnull = false;
 
@@ -124,8 +104,8 @@ const EditRegistration = (useParams) => {
                 vill_amma_ut, amning_ut, bmjolk_ut, vsond_ut, infart_ut, 
                 andning_ut, syrgas_ut};
 
-            setDisError(checkNull(bodyDis));
-            disnull = checkNull(bodyDis);
+            
+      
         }
 
         if (regExists) {
@@ -135,12 +115,9 @@ const EditRegistration = (useParams) => {
                 amning_in, bmjolk_in, andning_in, syrgas_in, riskpatient,
                 bvc_rap, bvc_text
             };
-            setRegError(checkNull(bodyReg));
-            regnull = checkNull(bodyReg);
+           
         } 
 
-
-        if (!regnull && !disnull) {
             try {
                 if (disExists) {
                     const response = await fetch("http://localhost:5000/discharge/" + id, {
@@ -152,7 +129,6 @@ const EditRegistration = (useParams) => {
 
 
                 if (regExists) {
-                    console.log("sent");
                     const response = await fetch("http://localhost:5000/registration/" + id, {
                         method: "PUT",
                         headers: {"Content-Type": "application/json"},
@@ -163,9 +139,9 @@ const EditRegistration = (useParams) => {
             } catch (err) {
                 console.error(err.message);
             }
-            //window.location = "/registration/" + id;
+            window.location = "/registration/" + id;
         }
-    }
+    
 
 
 
@@ -326,11 +302,7 @@ const EditRegistration = (useParams) => {
                 </div>
             <br />
 
-            {disError ? (
-                <h3 id="disError">Alla fält i är inte ifyllda i utskrivning</h3>
-            ) : (
-                <h1></h1>
-            )}
+           
             </div>
             
         </Fragment>
@@ -462,11 +434,7 @@ const EditRegistration = (useParams) => {
                     }
                     validate(); // kinda ugly dont care bye bye
                 }}/>
-            {regError ? (
-                <h3 id="disError">Alla fält i är inte ifyllda i inskrivningsforumläret</h3>
-            ) : (
-                <h1></h1>
-            )}
+       
 
             </div>
                 </div> 
@@ -474,8 +442,6 @@ const EditRegistration = (useParams) => {
             </Fragment>
         );
     }
-
-    
     return(
         <Fragment>
             <div className="container">
