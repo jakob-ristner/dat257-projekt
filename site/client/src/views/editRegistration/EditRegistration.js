@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect, useState} from "react";
 
+
 const EditRegistration = (useParams) => {
 
     const { id } = useParams.match.params;
@@ -64,9 +65,58 @@ const EditRegistration = (useParams) => {
         } else {
             setState(value);
         }
+        validate();
     }
 
-    const submit = async () => {
+    const validate = () => {
+        var multi = document.getElementsByClassName("multi");
+        for (var i = 0; i < multi.length; i++) {
+            var inputs = multi.item(i).getElementsByTagName("input");
+            var valid = false;
+            for (var k = 0; k < inputs.length; k++) {
+                if (inputs.item(k).checked) {
+                    valid = true;
+                }
+            }
+            if (!valid) {
+                inputs.item(0).setCustomValidity("En av dessa måste klickas i! :-)");
+            } else {
+                inputs.item(0).setCustomValidity("");
+            }
+        }
+        if (document.getElementById("bvcnej").checked && document.getElementById("orsak").value == "") {
+            document.getElementById("orsak").setCustomValidity("Fyll i detta fält");
+        } else {
+            document.getElementById("orsak").setCustomValidity("");
+        }
+
+    }
+
+    const submit = async (e) => {
+        e.preventDefault();
+        /*
+        var multi = e.target.getElementsByClassName("multi");
+            console.log(multi);
+        for (var i = 0; i < multi.length; i++) {
+            var inputs = multi.item(i).getElementsByTagName("input");
+            console.log(inputs);
+            var valid = false;
+            for (var k = 0; k < inputs.length; k++) {
+                if (inputs.item(k).checked) {
+                    valid = true;
+                }
+            }
+            if (!valid) {
+                inputs.item(0).setCustomValidity("asd");
+            } else {
+                inputs.item(0).setCustomValidity("");
+            }
+
+        }
+        */
+        var regnull = false;
+        var disnull = false;
+
         var bodyReg = {};
         var bodyDis = {};
         if (disExists) {
@@ -75,6 +125,7 @@ const EditRegistration = (useParams) => {
                 andning_ut, syrgas_ut};
 
             setDisError(checkNull(bodyDis));
+            disnull = checkNull(bodyDis);
         }
 
         if (regExists) {
@@ -85,32 +136,34 @@ const EditRegistration = (useParams) => {
                 bvc_rap, bvc_text
             };
             setRegError(checkNull(bodyReg));
+            regnull = checkNull(bodyReg);
         } 
 
-        console.log(bodyReg);
-        console.log(bodyDis);
 
-        if (!regError && !disError) {
+        if (!regnull && !disnull) {
             try {
                 if (disExists) {
                     const response = await fetch("http://localhost:5000/discharge/" + id, {
                         method: "PUT",
                         headers: {"Content-Type": "application/json"},
-                        body: JSON.stringify(bodyReg)
+                        body: JSON.stringify(bodyDis)
                     }) 
                 } 
 
+
                 if (regExists) {
+                    console.log("sent");
                     const response = await fetch("http://localhost:5000/registration/" + id, {
                         method: "PUT",
                         headers: {"Content-Type": "application/json"},
-                        body: JSON.stringify(bodyDis)
+                        body: JSON.stringify(bodyReg)
                     })
                 }
                 
             } catch (err) {
                 console.error(err.message);
             }
+            //window.location = "/registration/" + id;
         }
     }
 
@@ -172,7 +225,7 @@ const EditRegistration = (useParams) => {
             set_vill_amma_ut(dis.mamma_vill_amma_ut);
             set_amning_ut(dis.amning_utskrivning);
             set_bmjolk_ut(dis.erhaller_bmjolk_ut);
-            set_vsond_ut(dis.vsond_ut);
+            set_vsond_ut(dis.v_sond_ut);
             set_infart_ut(dis.infart_ut)
             set_andning_ut(dis.andningsstod_ut);
             set_syrgas_ut(dis.extragas_ut);
@@ -214,56 +267,63 @@ const EditRegistration = (useParams) => {
         
         return (
         <Fragment>
-            <form class="discharge">
-            <h3>Vid utskrivning</h3>
-            <div className="header">
-                Utskrivningsdatum: <input type="date" value={date_ut} onChange={(e) => set_date_ut(e.target.value)} />  
-            </div>
-            </form>
             <div className="utskrivning">
-                Vikt (gram): <input value={vikt_ut} onChange={(e) => set_vikt_ut(e.target.value)} type="number" /> <br />
-                Längd (cm): <input type="number" value={langd_ut} onChange={(e) => set_langd_ut(e.target.value)}/> <br />
-                Huvudomfång (cm): <input type="number" value={huvud_ut} onChange={(e) => set_huvud_ut(e.target.value)}/> <br />
+            <h3>Vid utskrivning</h3>
+                Utskrivningsdatum: <input required  type="date" value={date_ut} onChange={(e) => set_date_ut(e.target.value)} />
+                <br />
+                
+                Vikt (gram): <input required  value={vikt_ut} onChange={(e) => set_vikt_ut(e.target.value)} type="number" /> <br />
+                Längd (cm): <input required  type="number" value={langd_ut} onChange={(e) => set_langd_ut(e.target.value)}/> <br />
+                Huvudomfång (cm): <input required  type="number" value={huvud_ut} onChange={(e) => set_huvud_ut(e.target.value)}/> <br />
+                <div className="multi">
                 Mamma vill amma: 
-                    ja <input type="checkbox" class="ja" checked={vill_amma_ut == true} 
+                    ja <input type="checkbox"  class="ja" checked={vill_amma_ut == true} 
                         onChange={() => threeCheck(vill_amma_ut, set_vill_amma_ut, true)} /> 
-                    nej <input type="checkbox" class="nej" checked={vill_amma_ut == false}
+                    nej <input type="checkbox"  class="nej" checked={vill_amma_ut == false}
                         onChange={() => threeCheck(vill_amma_ut, set_vill_amma_ut, false)} /> <br />
+                </div>
 
+                <div className="multi">
                 Amning: 
                     H<input checked={amning_ut == "H"}  
-                        type="checkbox" class="helt" onChange={() => {threeCheck(amning_ut, set_amning_ut, "H")}}/> 
+                        type="checkbox"  class="helt" onChange={() => {threeCheck(amning_ut, set_amning_ut, "H")}}/> 
 
                     D<input checked={amning_ut == "D"}  
-                        type="checkbox" class="delvis" onChange={() => {threeCheck(amning_ut, set_amning_ut, "D")}}/>
+                        type="checkbox"  class="delvis" onChange={() => {threeCheck(amning_ut, set_amning_ut, "D")}}/>
 
                     IA<input checked={amning_ut == "IA"}
-                        type="checkbox" class="inte" onChange={() => {threeCheck(amning_ut, set_amning_ut, "IA")}}/> <br />
+                        type="checkbox"  class="inte" onChange={() => {threeCheck(amning_ut, set_amning_ut, "IA")}}/> <br />
+                </div>
 
                 Erhåller Bröstmjölk: 
+                <div className="multi">
                     H<input checked={bmjolk_ut == "H"}  
-                        type="checkbox" class="helt" onChange={() => {threeCheck(bmjolk_ut, set_bmjolk_ut, "H")}}/> 
+                        type="checkbox"  class="helt" onChange={() => {threeCheck(bmjolk_ut, set_bmjolk_ut, "H")}}/> 
 
                     D<input checked={bmjolk_ut == "D"}  
-                        type="checkbox" class="delvis" onChange={() => {threeCheck(bmjolk_ut, set_bmjolk_ut, "D")}}/>
+                        type="checkbox"  class="delvis" onChange={() => {threeCheck(bmjolk_ut, set_bmjolk_ut, "D")}}/>
 
                     IA<input checked={bmjolk_ut == "IA"}
-                        type="checkbox" class="inte" onChange={() => {threeCheck(bmjolk_ut, set_bmjolk_ut, "IA")}}/> <br />
+                        type="checkbox"  class="inte" onChange={() => {threeCheck(bmjolk_ut, set_bmjolk_ut, "IA")}}/> <br />
+                </div>
 
+                <div className="multi">
                 Barnet har v-sond: 
-                    ja <input type="checkbox" class="ja" checked={vsond_ut == true} 
+                    ja <input type="checkbox"  class="ja" checked={vsond_ut == true} 
                         onChange={() => threeCheck(vsond_ut, set_vsond_ut, true)} /> 
-                    nej <input type="checkbox" class="nej" checked={vsond_ut == false}
+                    nej <input type="checkbox"  class="nej" checked={vsond_ut == false}
                         onChange={() => threeCheck(vsond_ut, set_vsond_ut, false)} /> <br />
+                </div>
 
                 Infart: <input type="text" value={infart_ut} onChange={(e) => set_infart_ut(e.target.value)}/><br />
                 Andningsstöd: <input type="text" value={andning_ut} onChange={(e) => set_andning_ut(e.target.value)}/> <br />
+                <div className="multi">
                 Extra syrgasbehov: 
-                    ja <input type="checkbox" class="ja" checked={syrgas_ut == true} 
+                    ja <input type="checkbox"  class="ja" checked={syrgas_ut == true} 
                         onChange={() => threeCheck(syrgas_ut, set_syrgas_ut, true)} /> 
-                    nej <input type="checkbox" class="nej" checked={syrgas_ut == false}
+                    nej <input type="checkbox"  class="nej" checked={syrgas_ut == false}
                         onChange={() => threeCheck(syrgas_ut, set_syrgas_ut, false)} /> <br />
-            </div>
+                </div>
             <br />
 
             {disError ? (
@@ -271,91 +331,112 @@ const EditRegistration = (useParams) => {
             ) : (
                 <h1></h1>
             )}
+            </div>
             
         </Fragment>
         );
     }
 
+    const setNumInput = (e, set) => {
+        if (!e.target.value == "") {
+            set(e.target.value);
+        }
+        
+    }
+
     const getRegistration = () => {
+        
         if (!regExists) {
             return <h1>Detta protokollnr existerar ej</h1>
         }
         return (
             <Fragment>
                 <button id="cancel" onClick={() => {window.location = "/registration/" + id }}>Avbryt</button>
-            <form class="registration">
+                <div className="top">
                 <div className="header">
                 Protokollnr: <input value={id} type="number"/><br />
-                Inskrivningsdatum: <input type="date" value={regDate} onChange={(e) => setRegDate(e.target.value)}/> <br />
-                Anledning for inskrivning: <input type="text" value={reason} onChange={(e) => setReason(e.target.value)}/>
+                Inskrivningsdatum: <input required type="date"  value={regDate} onChange={(e) => setRegDate(e.target.value)}/> <br />
+                Anledning for inskrivning: <input required type="text" value={reason} onChange={(e) => setReason(e.target.value)}/>
                 </div>
                 <div className="bakgrundsdata">
                 <h3>Vid Födelse:</h3>
-                Barnets gestationsvecka: <input type="number" value={veckor} onChange={(e) => setVeckor(e.target.value)}/> 
-                dagar: <input type="number" value={dagar} onChange={(e) => setDagar(e.target.value)}/> <br />
-                Födelsevikt (gram): <input type="number" value={vikt_fodelse} onChange={(e) => setViktFodelse(e.target.value)}/><br />
-                Födelselängd (cm): <input type="number" value={langd_fodelse} onChange={(e) => setLangdFodelse(e.target.value)}/> <br />
-                Födelsehuvudomfång (cm): <input type="number" 
+                Barnets gestationsvecka: <input required type="number" min="21" max="42" value={veckor} onChange={(e) => setVeckor(e.target.value)}/> 
+                    <br />
+                    
+                dagar: <input type="number" required value={dagar} onChange={(e) => setDagar(e.target.value)}/> <br />
+                Födelsevikt (gram): <input required type="number" value={vikt_fodelse} onChange={(e) => setViktFodelse(e.target.value)}/><br />
+                Födelselängd (cm): <input required type="number" value={langd_fodelse} onChange={(e) => setLangdFodelse(e.target.value)}/> <br />
+                Födelsehuvudomfång (cm): <input required type="number" 
                     value={huvudomfang_fodelse} onChange={(e) => setHuvudomfangFodelse(e.target.value)}/>
 
                 </div>
+                </div>
+            
                 <div className="inskrivning">
                 <h3>Vid inskrivning:</h3>
-                    Vikt (gram): <input value={vikt_in} type="number" onChange={(e) => set_vikt_in(e.target.value)}/> <br />
-                    Längd (cm): <input value={langd_in} type="number" onChange={(e) => set_langd_in(e.target.value)}/> <br />
-                    Huvudomfång (cm): <input value={huvud_in} type="number" onChange={(e) => set_huvud_in(e.target.value)}/> <br />
+                    Vikt (gram): <input required value={vikt_in} type="number" onChange={(e) => set_vikt_in(e.target.value)}/> <br />
+                    Längd (cm): <input required value={langd_in} type="number" onChange={(e) => set_langd_in(e.target.value)}/> <br />
+                    Huvudomfång (cm): <input required value={huvud_in} type="number" onChange={(e) => set_huvud_in(e.target.value)}/> <br />
+                    <div className="multi">
                     Mamma vill amma: 
-                        ja <input type="checkbox" class="ja" checked={vill_amma_in == true} 
+                        ja <input type="checkbox"  class="ja" checked={vill_amma_in == true} 
                             onChange={() => threeCheck(vill_amma_in, set_vill_amma_in, true)} /> 
-                        nej <input type="checkbox" class="nej" checked={vill_amma_in == false}
+                        nej <input type="checkbox"  class="nej" checked={vill_amma_in == false}
                             onChange={() => threeCheck(vill_amma_in, set_vill_amma_in, false)} /> <br />
-
+                    </div>
+                    <div className="multi">
                     Erhåller Bröstmjölk: 
                         H<input checked={bmjolk_in == "H"}  
-                            type="checkbox" class="helt" onChange={() => {threeCheck(bmjolk_in, set_bmjolk_in, "H")}}/> 
+                            type="checkbox"  class="helt" onChange={() => {threeCheck(bmjolk_in, set_bmjolk_in, "H")}}/> 
 
                         D<input checked={bmjolk_in == "D"}  
-                            type="checkbox" class="delvis" onChange={() => {threeCheck(bmjolk_in, set_bmjolk_in, "D")}}/>
+                            type="checkbox"  class="delvis" onChange={() => {threeCheck(bmjolk_in, set_bmjolk_in, "D")}}/>
 
                         IA<input checked={bmjolk_in == "IA"}
-                            type="checkbox" class="inte" onChange={() => {threeCheck(bmjolk_in, set_bmjolk_in, "IA")}}/> <br />
+                            type="checkbox"  class="inte" onChange={() => {threeCheck(bmjolk_in, set_bmjolk_in, "IA")}}/> <br />
+                    </div>
+                    <div className="multi">
                     Amning: 
                         H<input checked={amning_in == "H"}  
-                            type="checkbox" class="helt" onChange={() => {threeCheck(amning_in, set_amning_in, "H")}}/> 
+                            type="checkbox"  class="helt" onChange={() => {threeCheck(amning_in, set_amning_in, "H")}}/> 
 
                         D<input checked={amning_in == "D"}  
-                            type="checkbox" class="delvis" onChange={() => {threeCheck(amning_in, set_amning_in, "D")}}/>
+                            type="checkbox"  class="delvis" onChange={() => {threeCheck(amning_in, set_amning_in, "D")}}/>
 
                         IA<input checked={amning_in == "IA"}
-                            type="checkbox" class="inte" onChange={() => {threeCheck(amning_in, set_amning_in, "IA")}}/> <br />
-
+                            type="checkbox"  class="inte" onChange={() => {threeCheck(amning_in, set_amning_in, "IA")}}/> <br />
+                    </div>
+                    <div className="multi">
                     Barnet har v-sond: 
-                        ja <input type="checkbox" class="ja" checked={vsond_in == true} 
+                        ja <input type="checkbox"  class="ja" checked={vsond_in == true} 
                             onChange={() => threeCheck(vsond_in, set_vsond_in, true)} /> 
-                        nej <input type="checkbox" class="nej" checked={vsond_in == false}
+                        nej <input type="checkbox"  class="nej" checked={vsond_in == false}
                             onChange={() => threeCheck(vsond_in, set_vsond_in, false)} /> <br />
-
-
+                    </div>
+                        
                     Infart: <input value={infart_in} type="text" onChange={(e) => set_infart_in(e.target.value)}/><br />
                     Andningsstöd: <input value={andning_in} type="text" onChange={(e) => set_andning_in(e.target.value)}/> <br />
-                    Extra syrgasbehov: 
-                        ja <input type="checkbox" class="ja" checked={syrgas_in == true} 
+                    <div className="multi">
+                        Extra syrgasbehov: 
+                        ja <input type="checkbox"  class="ja" checked={syrgas_in == true} 
                             onChange={() => threeCheck(syrgas_in, set_syrgas_in, true)} /> 
-                        nej <input type="checkbox" class="nej" checked={syrgas_in == false}
+                        nej <input type="checkbox"  class="nej" checked={syrgas_in == false}
                             onChange={() => threeCheck(syrgas_in, set_syrgas_in, false)} /> <br />
-                </div> 
+                    </div>
                 <br />
                 
 
-            <div className="risk">
+            <div className="multi">
                 Riskpatient:
-                    ja <input type="checkbox" class="ja" checked={riskpatient == true} 
+                    ja <input type="checkbox"  class="ja" checked={riskpatient == true} 
                         onChange={() => threeCheck(riskpatient, set_risk, true)} /> 
-                    nej <input type="checkbox" class="nej" checked={riskpatient == false}
+                    nej <input type="checkbox"  class="nej" checked={riskpatient == false}
                         onChange={() => threeCheck(riskpatient, set_risk, false)} /> <br />
-
+            </div>
+            <div>
+                <div className="multi">
                 Överraportering till bvc:
-                    ja <input type="checkbox" class="ja" checked={bvc_rap == true}
+                    ja <input type="checkbox"  class="ja" checked={bvc_rap == true}
                         onChange={(e) => {
                             threeCheck(bvc_rap, set_bvc_rap, true)
                             if (e.target.checked == true) {
@@ -364,7 +445,7 @@ const EditRegistration = (useParams) => {
                                 set_bvc_text(null);
                             }
                         }} /> 
-                    nej <input type="checkbox" class="nej" checked={bvc_rap == false}
+                    nej <input id="bvcnej" type="checkbox"  class="nej" checked={bvc_rap == false}
                         onChange={(e) => {
                             threeCheck(bvc_rap, set_bvc_rap, false)
                             if (e.target.checked == false) {
@@ -373,29 +454,37 @@ const EditRegistration = (useParams) => {
                                 set_bvc_text(null);
                             }
                         }} />
-                Om nej ange orsak: <input type="text" value={bvc_text} onChange={(e) => {
+                </div>
+                
+                Om nej ange orsak: <input id="orsak" type="text" value={bvc_text} onChange={(e) => {
                     if (bvc_rap == false) {
                         set_bvc_text(e.target.value)
                     }
+                    validate(); // kinda ugly dont care bye bye
                 }}/>
-
-            </div>
-            </form>
-
             {regError ? (
                 <h3 id="disError">Alla fält i är inte ifyllda i inskrivningsforumläret</h3>
             ) : (
                 <h1></h1>
             )}
+
+            </div>
+                </div> 
+
             </Fragment>
         );
     }
+
     
     return(
         <Fragment>
-            {getRegistration()}
-            {getDischarge()}
-            <button id="save" onClick={() => submit()}> Spara Redigering</button>
+            <div className="container">
+            <form onSubmit={submit}>
+                {getRegistration()}
+                {getDischarge()}
+                <button type="submit" onCick={validate}> Spara </button>
+            </form>
+            </div>
         </Fragment>
 
     );
