@@ -3,7 +3,7 @@ module.exports = function(app, pool){
     app.post("/registration", async(req, res) => {
         try {
             console.log(req.body);
-            const {protocolID, regDate, outDate, reason, ifyllnadkollad, registrerad,
+            const {protocolID, regDate, reason, ifyllnadkollad, registrerad,
                 veckor, dagar, vikt_fodelse, langd_fodelse, 
                 huvudomfang_fodelse, vikt_inskrivning, langd_inskrivning,
                 huvudomfang_in, mamma_vill_amma, amning_inskrivning, v_sond_in,
@@ -12,7 +12,7 @@ module.exports = function(app, pool){
        
             
             const newReg = await pool.query(
-                `INSERT INTO registration (protocolID, regDate, outDate, reason, ifyllnadkollad, registrerad,
+                `INSERT INTO registration (protocolID, regDate, reason, ifyllnadkollad, registrerad,
                     veckor, dagar, vikt_fodelse, langd_fodelse, 
                     huvudomfang_fodelse, vikt_inskrivning, langd_inskrivning,
                     huvudomfang_in, mamma_vill_amma, amning_inskrivning, v_sond_in,
@@ -20,8 +20,8 @@ module.exports = function(app, pool){
                     bvcRapportering, bvcText) 
                     VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, 
                         $10, $11, $12, $13, $14, $15, $16, $17, 
-                        $18, $19, $20, $21, $22, $23) RETURNING *`,
-                [protocolID, regDate, outDate, reason, ifyllnadkollad, registrerad,
+                        $18, $19, $20, $21, $22) RETURNING *`,
+                [protocolID, regDate, reason, ifyllnadkollad, registrerad,
                     veckor, dagar, vikt_fodelse, langd_fodelse, 
                     huvudomfang_fodelse, vikt_inskrivning, langd_inskrivning,
                     huvudomfang_in, mamma_vill_amma, amning_inskrivning, v_sond_in,
@@ -40,7 +40,7 @@ module.exports = function(app, pool){
         try {
             const {id} = req.params;
             const allRegistrations = await pool.query(
-            `SELECT protocolID, regDate :: text, outDate :: text, reason, ifyllnadkollad, registrerad,
+            `SELECT protocolID, regDate :: text, reason, ifyllnadkollad, registrerad,
             veckor, dagar, vikt_fodelse, langd_fodelse, 
             huvudomfang_fodelse, vikt_inskrivning, langd_inskrivning,
             huvudomfang_in, mamma_vill_amma, amning_inskrivning, v_sond_in,
@@ -55,21 +55,58 @@ module.exports = function(app, pool){
 
 
     });
+
 //`SELECT protocolID, regdate :: text, reason 
 //  FROM Registration WHERE protocolID = $1`
     app.put("/registration/:id", async(req, res) => {
         try {
             const {id} = req.params;
-            const {regDate, reason} = req.body;
-
+            const {regDate, reason, veckor,dagar,vikt_fodelse
+            ,langd_fodelse,huvudomfang_fodelse,vikt_inskrivning,langd_inskrivning,huvudomfang_in, mamma_vill_amma
+            ,amning_inskrivning,erhaller_bmjolk_ut,v_sond_in,andningsstod_in,extraGas_in
+            ,riskpatient,bvcRapportering,bvcText } = req.body;
+            /*
+            const {vikt_utskrivning, langd_utskrivning, huvudomfang_ut, mamma_vill_amma_ut
+            ,amning_utskrivning,erhaller_bmjolk_ut,v_sond_ut, infart_ut,andningsstod_ut,extraGas_ut} = req.body;
+            */
             const updateReg = await pool.query(
                 //Write query here
                 `UPDATE registration 
-                SET regdate = $1, reason = $2
-                WHERE protocolid = $3`
-                , [regDate, reason, id]
+                SET regdate = $2, reason = $3, veckor = $4 , dagar = $5, vikt_fodelse = $6, 
+                langd_fodelse = $7, huvudomfang_fodelse = $8, vikt_inskrivning = $9, langd_inskrivning = $10,
+                huvudomfang_in = $11, mamma_vill_amma = $12, amning_inskrivning = $13, erhaller_bmjolk_in = $14,
+                v_sond_in = $15, andningsstod_in = $16, extraGas_in = $17, riskpatient = $18, bvcRapportering = $19,
+                bvcText = $20
+                WHERE protocolid = $1`
+                , [id, regDate, reason, veckor,dagar,vikt_fodelse
+                    ,langd_fodelse,huvudomfang_fodelse,vikt_inskrivning,langd_inskrivning,huvudomfang_in, mamma_vill_amma
+                    ,amning_inskrivning,erhaller_bmjolk_ut,v_sond_in,andningsstod_in,extraGas_in
+                    ,riskpatient,bvcRapportering,bvcText]
             );
-            res.json(updateReg, rows);
+            res.json(updateReg);
+
+        } catch (error) {
+            console.error(error);
+        }
+    });
+    app.put("/discharge/:id", async(req, res) => {
+        try {
+            const {id} = req.params;
+           
+            const {vikt_utskrivning, langd_utskrivning, huvudomfang_ut, mamma_vill_amma_ut
+            ,amning_utskrivning,erhaller_bmjolk_ut,v_sond_ut, infart_ut,andningsstod_ut,extraGas_ut} = req.body;
+            
+            const updateReg = await pool.query(
+                //Write query here
+                `UPDATE Discharge 
+                SET vikt_utskrivning = $2, langd_utskrivning = $3,
+                huvudomfang_ut = $4, mamma_vill_amma_ut = $5, amning_utskrivning = $6, erhaller_bmjolk_ut = $7,
+                v_sond_ut = $8, andningsstod_ut = $9, extraGas_ut = $10, infart_ut = $11
+                WHERE protocolid = $1`
+                , [id, vikt_utskrivning, langd_utskrivning, huvudomfang_ut, mamma_vill_amma_ut
+                    ,amning_utskrivning,erhaller_bmjolk_ut,v_sond_ut,andningsstod_ut,extraGas_ut, infart_ut]
+            );
+            res.json(updateReg);
 
         } catch (error) {
             console.error(error);
@@ -77,11 +114,14 @@ module.exports = function(app, pool){
     });
 
 
+
+
     //UTSKRIVNING
     app.post("/discharge/:id", async(req, res) => {
         try {
             const {id} = req.params;
-            const {vikt_utskrivning, 
+            const {outDate,
+                vikt_utskrivning, 
                 langd_utskrivning, 
                 huvudomfang_ut,
                 mamma_vill_amma_ut,
@@ -93,8 +133,9 @@ module.exports = function(app, pool){
                 extraGas_ut} = req.body;
 
                 const newDischarge = await pool.query(
-                    `INSERT INTO Discharge VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING *`, 
+                    `INSERT INTO Discharge VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING *`, 
                         [id,
+                        outDate,
                         vikt_utskrivning, 
                         langd_utskrivning, 
                         huvudomfang_ut,
@@ -113,7 +154,27 @@ module.exports = function(app, pool){
             console.error(e);
         }
     });
+
+    app.get("/discharge/:id", async(req, res)=> {
+
+        try {
+            const {id} = req.params;
+            const allDischarge = await pool.query(
+            `SELECT protocolID, outDate :: text, vikt_utskrivning, langd_utskrivning, huvudomfang_ut,
+            mamma_vill_amma_ut, amning_utskrivning, erhaller_bmjolk_ut, v_sond_ut, 
+            infart_ut, andningsstod_ut, extraGas_ut
+            FROM Discharge WHERE protocolID = $1`, [id]
+            );
+            res.json(allDischarge.rows);
+        } catch(e) {
+            console.error(e.message);
+        }
+
+
+    });
 }
+
+
 
 /**
  *  vikt_utskrivning INT CHECK (vikt_utskrivning >= 0),
