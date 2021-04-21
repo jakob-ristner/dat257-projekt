@@ -188,8 +188,6 @@ const Discharge = (useParams) => {
                         </input>
 
                     
-                        Ifyllnad kollad: <input type="checkbox" checked={form.ifyllnadkollad} ></input><br></br>
-                        Registrerad: <input type="checkbox" checked={form.registrerad}></input><br></br>
 
                     </div>
 
@@ -266,6 +264,9 @@ const Discharge = (useParams) => {
                 reason: {form.reason}
             </div>
 
+            
+                        Ifyllnad kollad: <input type="checkbox" checked={form.ifyllnadkollad} ></input><br></br>
+                        Registrerad: <input type="checkbox" checked={form.registrerad}></input><br></br>
 */
 
 }

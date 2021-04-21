@@ -43,8 +43,6 @@ const Registration = () => {
                 protocolID, 
                 regDate, 
                 reason, 
-                ifyllnadkollad, 
-                registrerad,
                 veckor, 
                 dagar,
                 vikt_fodelse, 
@@ -114,8 +112,7 @@ const Registration = () => {
                     </input>
             
                 
-                    Ifyllnad kollad: <input type="checkbox" checked={ifyllnadkollad} onChange={(e) => {setIfyllnadKollad(e.target.checked)}}></input><br></br>
-                    Registrerad: <input type="checkbox" checked={registrerad} onChange={(e) => {setRegistrerad(e.target.checked)}}></input><br></br>
+                   
 
                 </div>
             
@@ -193,5 +190,6 @@ const Registration = () => {
     );
 }
 
-
+// Ifyllnad kollad: <input type="checkbox" checked={ifyllnadkollad} onChange={(e) => {setIfyllnadKollad(e.target.checked)}}></input><br></br>
+//Registrerad: <input type="checkbox" checked={registrerad} onChange={(e) => {setRegistrerad(e.target.checked)}}></input><br></br>
 export default Registration;

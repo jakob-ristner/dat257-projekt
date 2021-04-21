@@ -11,8 +11,6 @@ CREATE TABLE Registration (
     protocolID INT PRIMARY KEY,
     regDate DATE NOT NULL,
     reason TEXT,
-    iFyllnadKollad BOOLEAN NOT NULL DEFAULT FALSE,
-    registrerad BOOLEAN NOT NULL DEFAULT FALSE,
 
     --Bakgrundsdata
     veckor INT CHECK (veckor < 53 AND veckor > 0) NOT NULL,
