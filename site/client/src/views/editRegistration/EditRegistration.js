@@ -46,6 +46,17 @@ const EditRegistration = (useParams) => {
     const [regExists, setReg] = useState();
     const [disExists, setDis] = useState();
 
+    const [regError, setRegError] = useState(false);
+    const [disError, setDisError] = useState(false);
+
+    const checkNull = (obj) => {
+        for (var key in obj) {
+            if (obj[key] == null)
+                return true;
+        }
+        return false;
+    }
+
 
     const threeCheck = (state, setState, value) => {
         if (state == value) {
@@ -56,80 +67,51 @@ const EditRegistration = (useParams) => {
     }
 
     const submit = async () => {
+        var bodyReg = {};
+        var bodyDis = {};
         if (disExists) {
-            try {
-                const body = {
-                    date_ut,
-                    vikt_ut,
-                    langd_ut,
-                    huvud_ut,
-                    vill_amma_ut,
-                    amning_ut,
-                    bmjolk_ut,
-                    vsond_ut,
-                    infart_ut,
-                    andning_ut,
-                    syrgas_ut
+            bodyDis = { date_ut, vikt_ut, langd_ut, huvud_ut,
+                vill_amma_ut, amning_ut, bmjolk_ut, vsond_ut, infart_ut, 
+                andning_ut, syrgas_ut};
 
-                }
-                
-                const response = await fetch("http://localhost:5000/discharge/" + id, 
-                {
-                    method: "PUT",
-                    headers: {"Content-Type": "application/json"},
-                    body: JSON.stringify(body)
-                })
-                
-            } catch(err) {
-                console.error(err.message);
-            }
+            setDisError(checkNull(bodyDis));
         }
 
         if (regExists) {
+            bodyReg = {regDate, reason, veckor, dagar,
+                vikt_fodelse, langd_fodelse, huvudomfang_fodelse,
+                vikt_in, vsond_in, langd_in, huvud_in, vill_amma_in,
+                amning_in, bmjolk_in, andning_in, syrgas_in, riskpatient,
+                bvc_rap, bvc_text
+            };
+            setRegError(checkNull(bodyReg));
+        } 
+
+        console.log(bodyReg);
+        console.log(bodyDis);
+
+        if (!regError && !disError) {
             try {
-                const body = {
-                    regDate,
-                    reason,
-                    veckor,
-                    dagar,
-                    vikt_fodelse,
-                    langd_fodelse,
-                    huvudomfang_fodelse,
-                    vikt_in,
-                    vsond_in,
-                    langd_in,
-                    huvud_in,
-                    vill_amma_in,
-                    amning_in,
-                    bmjolk_in,
-                    andning_in,
-                    syrgas_in,
-                    riskpatient,
-                    bvc_rap,
-                    bvc_text
+                if (disExists) {
+                    const response = await fetch("http://localhost:5000/discharge/" + id, {
+                        method: "PUT",
+                        headers: {"Content-Type": "application/json"},
+                        body: JSON.stringify(bodyReg)
+                    }) 
                 } 
 
-                const response = await fetch("http://localhost:5000/registration/" + id, 
-                {
-                    method: "PUT",
-                    headers: {"Content-Type": "application/json"},
-                    body: JSON.stringify(body)
-                })
-
-
-                    /*
-            const {regDate, reason, veckor,dagar,vikt_fodelse
-            ,langd_fodelse,huvudomfang_fodelse,vikt_in,langd_in,huvud_in, vill_amma_in
-            ,amning_in, bmjolk_in, vsond_in, andning_in, syrgas_in
-            ,riskpatient,bvc_rap,bvcText } = req.body;
-            */
-
-
-            } catch(err) {
+                if (regExists) {
+                    const response = await fetch("http://localhost:5000/registration/" + id, {
+                        method: "PUT",
+                        headers: {"Content-Type": "application/json"},
+                        body: JSON.stringify(bodyDis)
+                    })
+                }
+                
+            } catch (err) {
                 console.error(err.message);
             }
         }
-
     }
 
 
@@ -165,8 +147,8 @@ const EditRegistration = (useParams) => {
             set_syrgas_in(reg.extragas_in);
 
             set_risk(reg.riskpatient);
-            set_bvc_rap(reg.bvc_rap);
-            set_bvc_text(reg.bvc_text);
+            set_bvc_rap(reg.bvcrapportering);
+            set_bvc_text(reg.bvctext);
         } else {
             setReg(false);
 
@@ -180,7 +162,6 @@ const EditRegistration = (useParams) => {
         const jsonData = await response.json();
         const dis = jsonData[0];
 
-        console.log(dis);
 
         if (dis != undefined) {
             setDis(true);
@@ -284,6 +265,12 @@ const EditRegistration = (useParams) => {
                         onChange={() => threeCheck(syrgas_ut, set_syrgas_ut, false)} /> <br />
             </div>
             <br />
+
+            {disError ? (
+                <h3 id="disError">Alla fält i är inte ifyllda i utskrivning</h3>
+            ) : (
+                <h1></h1>
+            )}
             
         </Fragment>
         );
@@ -373,6 +360,8 @@ const EditRegistration = (useParams) => {
                             threeCheck(bvc_rap, set_bvc_rap, true)
                             if (e.target.checked == true) {
                                 set_bvc_text("");
+                            } else {
+                                set_bvc_text(null);
                             }
                         }} /> 
                     nej <input type="checkbox" class="nej" checked={bvc_rap == false}
@@ -380,6 +369,8 @@ const EditRegistration = (useParams) => {
                             threeCheck(bvc_rap, set_bvc_rap, false)
                             if (e.target.checked == false) {
                                 set_bvc_text("");
+                            } else {
+                                set_bvc_text(null);
                             }
                         }} />
                 Om nej ange orsak: <input type="text" value={bvc_text} onChange={(e) => {
@@ -390,6 +381,12 @@ const EditRegistration = (useParams) => {
 
             </div>
             </form>
+
+            {regError ? (
+                <h3 id="disError">Alla fält i är inte ifyllda i inskrivningsforumläret</h3>
+            ) : (
+                <h1></h1>
+            )}
             </Fragment>
         );
     }
