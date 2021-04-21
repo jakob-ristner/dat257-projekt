@@ -157,50 +157,37 @@ const Discharge = (useParams) => {
              <div class = "navigation"><Navigation id={id}/></div>
              <div id = "homeButton"><Home/></div>
 
-            <h1>Inskrivning </h1>
-            {fullRegistration.map(form => (
+             <div class="formDischarge">
+             {fullRegistration.map(form => (
 
                 <form>
+                    <div class="formDischarge2">
                     <div class="header">
                         <label for="protocolID">ProtokollID:</label>
                         <input type="number"
                             value={form.protocolid}
                             id="protokollID">
-                        </input>
-
-                        <label for="regDate">Inskrivningsdatum:</label>
-                        <input
-                            type="date"
-                            value={form.regdate}
-                            id="date"
-                        >
-                        </input>
-
-                    
+                        </input><br></br>
                         Ifyllnad kollad: <input type="checkbox" checked={form.ifyllnadkollad} ></input><br></br>
                         Registrerad: <input type="checkbox" checked={form.registrerad}></input><br></br>
-
-                    </div>
-
-                    <div class="Reason">
+                
                         <label for="reason">Anledning för inskrivning:</label>
-                        <input
-                            type="text"
-                            value={form.reason}
-                            id="reason"
-                        >
-                        </input>
+                        <input type="text" value={form.reason} id="reason"></input>
                     </div>
+          
 
                     <div class="bakgrundsdata">
-                        Barnets gestationsvecka: <input type="number" value={form.veckor} ></input>
-                        <input type="number" value={form.dagar} ></input>Dagar<br></br>
+                        Barnets gestationsvecka: <input type="number" value={form.veckor} ></input><br></br>
+                        Dagar:<input type="number" value={form.dagar} ></input><br></br>
                         Födelsevikt:  <input type="number" value={form.vikt_fodelse} ></input><br></br>
                         Födelselängd: <input type="number" value={form.langd_fodelse} ></input><br></br>
                         Födelsehuvudomfång: <input type="number" value={form.huvudomfang_fodelse} ></input><br></br>
                     </div>
 
                     <div class="Inskrivning">
+                    <h1>Inskrivning </h1>
+                         <label for="regDate">Inskrivningsdatum:</label>
+                        <input type="date" value={form.regdate} id="date" ></input><br></br>
                         vikt (gram) <input type="number" value={form.vikt_inskrivning} ></input><br />
                         längd (cm) <input type="number" value={form.langd_inskrivning} ></input><br />
                         Huvudomfång (cm) <input type="number" value={form.huvudomfang_in} ></input><br />
@@ -215,15 +202,17 @@ const Discharge = (useParams) => {
 
                     <div class="riskpatient">
                         Riskpatient <input type="checkbox" checked={form.riskpatient} ></input><br></br>
-                        Överrapportering till BVC i hemmet <input type="checkbox" checked={form.bvcrapportering} ></input> Om nej ange orsak:
-                <input type="text" value={form.bvcText} ></input> 
+                        Överrapportering till BVC i hemmet <input type="checkbox" checked={form.bvcrapportering} ></input><br></br>
+                        Om nej ange orsak<input type="text" value={form.bvcText} ></input><br></br>
+                        <button onClick={() => {window.location = "/registration/edit/" + id}}> Redigera </button> 
                     </div>
-                   
+                    </div>
                 </form>
+                
 
             ))}
 
-            <button onClick={() => {window.location = "/registration/edit/" + id}}> Redigera </button>
+           
                     
 
             <div class="discharge" >
@@ -246,6 +235,7 @@ const Discharge = (useParams) => {
                     </form>
                     {submitEdit()}
             </div>
+        </div>
         </Fragment>
     );
 

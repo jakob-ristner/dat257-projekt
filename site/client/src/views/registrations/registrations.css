@@ -66,52 +66,105 @@
 
 .form {
   display: grid;
-  grid-template-columns:  auto 30% 30%;
-  grid-template-rows: 25% auto auto;
+  grid-template-columns:  auto auto auto;
+  grid-template-rows: auto auto auto;
 }
 
 .form .protokollID{
   grid-column-start: 1;
   grid-column-end: 1;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  background-color: coral;
 }
 
 .form .bakgrundsdata{
   grid-column-start: 1;
   grid-column-end: 1;
   grid-row-start: 2;
-  grid-row-end: 2;
+  grid-row-end: 3;
+  background-color: blue;
 }
 
 .form .inskrivning{
   grid-column-start: 2;
   grid-column-end: 2;
   grid-row-start: 1;
+  grid-row-end: 3;
+  background-color: red;
 }
 
 .form .bottom  {
-  grid-column-start: 2;
-  grid-column-end: 2;
-  grid-row-start: 4;
-  grid-row-end: 4;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 3;
+  background-color: yellow;
  }
 
  .form .discharge{
   grid-column-start: 3;
   grid-column-end: 3;
   grid-row-start: 1;
-  grid-row-end: 1;
+  grid-row-end: 4;
+  background-color: green;
 }
-/*
 
+/* DISCHARGE.JS */
 
+.formDischarge {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
 
-.form .bakgrundsdata{
-  grid-column-start: 1;  
+.formDischarge {
+  display: grid;
+  grid-template-columns:  auto auto auto;
+  grid-template-rows: auto auto auto;
+}
+.formDischarge2 {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto auto;
+}
+
+.formDischarge2 .header{
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  background-color: coral;
+}
+
+.formDischarge2 .bakgrundsdata{
+  grid-column-start: 1;
   grid-column-end: 1;
   grid-row-start: 2;
-  grid-row-end: 2;
+  grid-row-end: 3;
+  background-color: blue;
 }
 
-*/
-/*
-*/
+.formDischarge2 .Inskrivning{
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  background-color: red;
+}
+
+.formDischarge2 .riskpatient  {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 3;
+  background-color: yellow;
+ }
+
+ .formDischarge .discharge{
+  grid-column-start: 3;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  background-color: green;
+}
+
