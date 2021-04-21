@@ -95,13 +95,14 @@ const Registration = () => {
 
     return (
         <Fragment>
-            <div class="form">
+           
             
            
                 <form onSubmit={submitRegistation}>    
+                <div class="form">
                     <div class="protokollID">
                         <label for="protocolID">ProtkollID:</label>
-                        <input type="number" value={protocolID} onChange={(e) => {setProtocolID(e.target.value)} }></input>
+                        <input type="number" value={protocolID} onChange={(e) => {setProtocolID(e.target.value)} }></input><br></br>
                         Ifyllnad kollad: <input type="checkbox" checked={ifyllnadkollad} onChange={(e) => {setIfyllnadKollad(e.target.checked)}}></input><br></br>
                         Registrerad: <input type="checkbox" checked={registrerad} onChange={(e) => {setRegistrerad(e.target.checked)}}></input><br></br>
                         Anledning för inskrivning:<input type="text" value={reason} id="reason" onChange={(e) => {setReason(e.target.value)}}></input>
@@ -110,7 +111,7 @@ const Registration = () => {
            
             
                 <div class="bakgrundsdata" id="bakgrundsdata">
-                    Barnets gestationsvecka: <input type="number" value={veckor} onChange={(e) => {setVeckor(e.target.value)}}></input>
+                    Barnets gestationsvecka: <input type="number" value={veckor} onChange={(e) => {setVeckor(e.target.value)}}></input><br></br>
                     Dagar: <input type="number" value={dagar} onChange={(e) => {setDagar(e.target.value)}}></input><br></br>
                     Födelsevikt:  <input type="number" value={vikt_fodelse} onChange={(e) => {setViktFodelse(e.target.value)}}></input><br></br>
                     Födelselängd: <input type="number" value={langd_fodelse} onChange={(e) => {setLangdFodelse(e.target.value)}}></input><br></br>
@@ -134,13 +135,15 @@ const Registration = () => {
             
     
                     <div class="bottom">
-                        Riskpatient <input type="checkbox" checked={riskpatient} onChange={(e) => {setRiskPatient(e.target.checked)}}></input>
-                        Överrapportering till BVC i hemmet <input type="checkbox" checked={bvcRapportering} onChange={(e) => {setBvcRapportering(e.target.checked)}}></input> Om nej ange orsak:
-                        <input type="text" value={bvcText} onChange={(e) => {setBvcText(e.target.value)}}></input><br></br>
-                        <input type="submit" value="Submit"></input>
-                    </div>      
-                </form>
+                        Riskpatient <input type="checkbox" checked={riskpatient} onChange={(e) => {setRiskPatient(e.target.checked)}}></input><br></br>
+                        Överrapportering till BVC i hemmet <input type="checkbox" checked={bvcRapportering} onChange={(e) => {setBvcRapportering(e.target.checked)}}></input><br></br>
+                         Om nej ange orsak:<input type="text" value={bvcText} onChange={(e) => {setBvcText(e.target.value)}}></input><br></br>
+                       <input type="submit" value="Submit"></input>
+                        
+                    </div>
+               
        
+        
 
             <div class="discharge" >
                 <h1>Utskrivning</h1>
@@ -160,7 +163,10 @@ const Registration = () => {
                         Extra syrgasbehov: <input type="checkbox" disabled></input><br></br>
                 </form>
             </div>
-        </div>
+
+                 </div>      
+                </form>
+      
               
 
 

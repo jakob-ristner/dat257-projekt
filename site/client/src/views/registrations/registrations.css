@@ -17,14 +17,11 @@
  
 }
 */
-.form {
-  display: grid;
-  grid-template-columns:  30% 30% 30%;
-  grid-template-rows: auto auto auto;
+
  /* grid-template-areas: 'registration registration discharge'
                        'registration registration discharge'
                        'registration registration discharge';*/
-}
+
 
 /*
 .form .header{
@@ -55,19 +52,58 @@
 /*.form .bakgrundsdata{
   grid-column-start: 2;
 }*/
-
+/*
 #bakgrundsdata{
   grid-column-start: 2;
 }
-/*
+*/
+
+.form {
+  margin-top: 5%;
+  margin-bottom: 5%;
+
+}
+
+.form {
+  display: grid;
+  grid-template-columns:  auto 30% 30%;
+  grid-template-rows: 25% auto auto;
+}
+
 .form .protokollID{
-  grid-row-start: 1;
+  grid-column-start: 1;
+  grid-column-end: 1;
+}
+
+.form .bakgrundsdata{
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 2;
+  grid-row-end: 2;
 }
 
 .form .inskrivning{
   grid-column-start: 2;
-  
+  grid-column-end: 2;
+  grid-row-start: 1;
 }
+
+.form .bottom  {
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 4;
+  grid-row-end: 4;
+ }
+
+ .form .discharge{
+  grid-column-start: 3;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
+/*
+
+
 
 .form .bakgrundsdata{
   grid-column-start: 1;  
@@ -76,14 +112,6 @@
   grid-row-end: 2;
 }
 
-.form .bottom  {
- grid-row-start: 3;
- grid-row-end: 3;
-
- grid-column: 0/ span 2;
-}*/
-
-.form .discharge{
-  grid-column-start: 3;
-  grid-row-start: 1;
-}
+*/
+/*
+*/
