@@ -5,9 +5,9 @@ CREATE TABLE Hembesok (
     protokollnr TEXT NOT NULL,
 
     date_added DATE NOT NULL DEFAULT NOW(),
-    at_family TIMESTAMP,
-    from_family TIMESTAMP,
-    performed_by TEXT,
+    at_family TIMESTAMP NOT NULL,
+    from_family TIMESTAMP NOT NULL,
+    performed_by TEXT NOT NULL,
 
     amning_nutrition BOOLEAN NOT NULL DEFAULT FALSE,
     stodsamtal BOOLEAN NOT NULL DEFAULT FALSE,
