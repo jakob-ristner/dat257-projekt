@@ -203,6 +203,7 @@ const Discharge = (useParams) => {
                         Huvudomfång (cm) <input type="number" value={form.huvudomfang_in} ></input><br />
                         Mamma vill amma: <input type="checkbox" checked={form.mamma_vill_amma} ></input><br></br>
                         Amning: <input type="text" value={form.amning_inskrivning} ></input><br></br>
+                        Erhåller bröstmjölk: <input type="text" value={form.erhaller_bmjolk_in} ></input><br></br>
                         Barnet har v-sond: <input type="checkbox" checked={form.v_sond_in} ></input><br></br>
                         Barnet har infart(Ange typ av infart) <input type="text" value={form.infart_in} ></input><br></br>
                         Andningsstöd (ange form) <input type="text" value={form.andningsstod_in} ></input><br></br>

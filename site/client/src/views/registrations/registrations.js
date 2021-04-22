@@ -59,6 +59,7 @@ const Registration = () => {
                 huvudomfang_in, 
                 mamma_vill_amma, 
                 amning_inskrivning, 
+                erhaller_bmjolk_in,
                 v_sond_in,
                 infart_in, 
                 andningsstod_in, 

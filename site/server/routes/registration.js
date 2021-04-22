@@ -6,7 +6,7 @@ module.exports = function(app, pool){
             const {protocolID, regDate, reason,
                 veckor, dagar, vikt_fodelse, langd_fodelse, 
                 huvudomfang_fodelse, vikt_inskrivning, langd_inskrivning,
-                huvudomfang_in, mamma_vill_amma, amning_inskrivning, v_sond_in,
+                huvudomfang_in, mamma_vill_amma, amning_inskrivning, erhaller_bmjolk_in, v_sond_in,
                 infart_in, andningsstod_in, extraGas_in, riskpatient, bvcRapportering, bvcText
                 } = req.body;
        
@@ -15,16 +15,16 @@ module.exports = function(app, pool){
                 `INSERT INTO registration (protocolID, regDate, reason,
                     veckor, dagar, vikt_fodelse, langd_fodelse, 
                     huvudomfang_fodelse, vikt_inskrivning, langd_inskrivning,
-                    huvudomfang_in, mamma_vill_amma, amning_inskrivning, v_sond_in,
+                    huvudomfang_in, mamma_vill_amma, amning_inskrivning, erhaller_bmjolk_in, v_sond_in,
                     infart_in, andningsstod_in, extraGas_in, riskpatient, 
                     bvcRapportering, bvcText) 
                     VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, 
                         $10, $11, $12, $13, $14, $15, $16, $17, 
-                        $18, $19, $20) RETURNING *`,
+                        $18, $19, $20, $21) RETURNING *`,
                 [protocolID, regDate, reason, veckor, 
                     dagar, vikt_fodelse, langd_fodelse, 
                     huvudomfang_fodelse, vikt_inskrivning, langd_inskrivning,
-                    huvudomfang_in, mamma_vill_amma, amning_inskrivning, v_sond_in,
+                    huvudomfang_in, mamma_vill_amma, amning_inskrivning, erhaller_bmjolk_in, v_sond_in,
                     infart_in, andningsstod_in, extraGas_in, riskpatient, 
                     bvcRapportering, bvcText] //regDate,
             );
