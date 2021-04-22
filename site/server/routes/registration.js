@@ -43,9 +43,9 @@ module.exports = function(app, pool){
             `SELECT protocolID, regDate :: text, reason,
             veckor, dagar, vikt_fodelse, langd_fodelse, 
             huvudomfang_fodelse, vikt_inskrivning, langd_inskrivning,
-            huvudomfang_in, mamma_vill_amma, amning_inskrivning, v_sond_in,
-            infart_in, andningsstod_in, extraGas_in, riskpatient, 
-            bvcRapportering, bvcText, erhaller_bmjolk_in
+            huvudomfang_in, mamma_vill_amma, amning_inskrivning, erhaller_bmjolk_in, 
+            v_sond_in, infart_in, andningsstod_in, extraGas_in, riskpatient, 
+            bvcRapportering, bvcText
             FROM Registration WHERE protocolID = $1`, [id]
             );
                 res.json(allRegistrations.rows);
