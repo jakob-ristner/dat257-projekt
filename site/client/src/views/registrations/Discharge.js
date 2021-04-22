@@ -34,6 +34,17 @@ const Discharge = (useParams) => {
 
 
 
+       
+    //Method for ensuring that only one tickbox can be ticked at once
+    const threeCheck = (state, setState, value) => {
+        if (state == value) {
+            setState(null);
+        } else {
+            setState(value);
+        }
+    }
+    
+
     //Method for  getting the registration form
     const getRegistration = async () => {
         try {
@@ -164,8 +175,6 @@ const Discharge = (useParams) => {
                         </input>
 
                     
-                        Ifyllnad kollad: <input type="checkbox" checked={form.ifyllnadkollad} ></input><br></br>
-                        Registrerad: <input type="checkbox" checked={form.registrerad}></input><br></br>
 
                     </div>
 
@@ -220,12 +229,24 @@ const Discharge = (useParams) => {
                         längd (cm) <input type="number" value={langd_utskrivning} onChange={(e) => {setLangdUt(e.target.value)}}></input><br/>
                         Huvudomfång (cm) <input type="number" value={huvudomfang_ut} onChange={(e) => {setHuvudomfangUt(e.target.value)}}></input><br />
                         Mamma vill amma: <input type="checkbox" checked={mamma_vill_amma_ut} onChange={(e) => {setMammaAmmaUt(e.target.checked)}}></input><br></br>
-                        Amning: <input type="text" value={amning_utskrivning} onChange={(e) => {setAmningUt(e.target.value)}}></input><br></br>
-                        Erhåller bröstmjölk <input type="text" value={erhaller_bmjolk_ut} onChange={(e) => {setErhallerBmjolkUt(e.target.value)}}></input><br></br>
-                        Barnet har v-sond: <input type="checkbox" checked={v_sond_ut} onChange={(e) => {setVsondUt(e.target.checked)}}></input><br></br>
+                        Amning: 
+                            H<input type="checkbox" checked={amning_utskrivning == "H"} class="helt" onChange={() => {threeCheck(amning_utskrivning, setAmningUt, "H")}}></input>
+                            D<input type="checkbox" checked={amning_utskrivning == "D"} class="delvis" onChange={() => {threeCheck(amning_utskrivning, setAmningUt, "D")}}></input>
+                            IA<input type="checkbox" checked={amning_utskrivning == "IA"} class="inte alls" onChange={() => {threeCheck(amning_utskrivning, setAmningUt, "IA")}}></input>
+                            <br></br>
+                        Erhåller bröstmjölk :
+                            H<input type="checkbox" checked={erhaller_bmjolk_ut == "H"} class="helt" onChange={() => {threeCheck(erhaller_bmjolk_ut, setErhallerBmjolkUt, "H")}}></input>
+                            D<input type="checkbox" checked={erhaller_bmjolk_ut == "D"} class="delvis" onChange={() => {threeCheck(erhaller_bmjolk_ut, setErhallerBmjolkUt, "D")}}></input>
+                            IA<input type="checkbox" checked={erhaller_bmjolk_ut == "IA"} class="inte alls" onChange={() => {threeCheck(erhaller_bmjolk_ut, setErhallerBmjolkUt, "IA")}}></input>
+                    <br></br>
+                        Barnet har v-sond: 
+                            Ja <input type="checkbox" class="ja" checked={v_sond_ut == true} onChange={() => threeCheck(v_sond_ut, setVsondUt, true)} /> 
+                            Nej <input type="checkbox" class="nej" checked={v_sond_ut == false} onChange={() => threeCheck(v_sond_ut, setVsondUt, false)} /> <br />
                         Barnet har infart(Ange typ av infart) <input type="text" value={infart_ut} onChange={(e) => {setInfartUt(e.target.value)}}></input><br></br>
                         Andningsstöd (ange form) <input type="text" value={andningsstod_ut} onChange={(e) => {setAndningsstodUt(e.target.value)}}></input><br></br>
-                        Extra syrgasbehov: <input type="checkbox" checked={extraGas_ut} onChange={(e) => {setExtraGasUt(e.target.checked)}}></input><br></br>
+                        Extra syrgasbehov: 
+                            Ja <input type="checkbox" class="ja" checked={extraGas_ut == true} onChange={() => threeCheck(extraGas_ut, setExtraGasUt, true)} /> 
+                            Nej <input type="checkbox" class="nej" checked={extraGas_ut == false} onChange={() => threeCheck(extraGas_ut, setExtraGasUt, false)} /> <br />
                         <input type="submit" value="Spara utskrivning"></input>
                     </form>
             </div>
@@ -241,6 +262,9 @@ const Discharge = (useParams) => {
                 reason: {form.reason}
             </div>
 
+            
+                        Ifyllnad kollad: <input type="checkbox" checked={form.ifyllnadkollad} ></input><br></br>
+                        Registrerad: <input type="checkbox" checked={form.registrerad}></input><br></br>
 */
 
 }

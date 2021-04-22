@@ -5,8 +5,6 @@ const Registration = () => {
     const [protocolID, setProtocolID] = useState(0);
     const [regDate, setRegDate] = useState("");
     const [reason, setReason] = useState(""); 
-    const [ifyllnadkollad, setIfyllnadKollad] = useState(false);
-    const [registrerad, setRegistrerad] = useState(false);
     const [veckor, setVeckor] = useState(0);
     const [dagar, setDagar] = useState(0);
     const [vikt_fodelse, setViktFodelse] = useState(1);
@@ -15,14 +13,15 @@ const Registration = () => {
     const [vikt_inskrivning, setViktIn] = useState(0);
     const [langd_inskrivning, setLangdIn] = useState(0);
     const [huvudomfang_in, setHuvudIn] = useState(0);
-    const [mamma_vill_amma, setMammaAmma] = useState(false);
-    const [amning_inskrivning, setAmningIn] = useState();
-    const [v_sond_in, setVsondIn] = useState(false);
+    const [mamma_vill_amma, setMammaAmma] = useState(null);
+    const [amning_inskrivning, setAmningIn] = useState(null);
+    const [erhaller_bmjolk_in, setBmjolkIn] = useState(null);
+    const [v_sond_in, setVsondIn] = useState(null);
     const [infart_in, setInfartIn] = useState();
     const [andningsstod_in, setAndningsIn] = useState();
-    const [extraGas_in, setExtraGasIn] = useState(false);
-    const [riskpatient, setRiskPatient] = useState(false);
-    const [bvcRapportering, setBvcRapportering] = useState(true);
+    const [extraGas_in, setExtraGasIn] = useState(null);
+    const [riskpatient, setRiskPatient] = useState(null);
+    const [bvcRapportering, setBvcRapportering] = useState(null);
     const [bvcText, setBvcText] = useState();
     //protocolID, regDate, reason, ifyllnadkollad, registrerad,
     //veckor, dagar, vikt_fodelse, langd_fodelse, 
@@ -31,7 +30,14 @@ const Registration = () => {
     //infart_in, andningsstod_in, extraGas_in
     
     
-    
+    //Method for ensuring that only one tickbox can be ticked at once
+    const threeCheck = (state, setState, value) => {
+        if (state == value) {
+            setState(null);
+        } else {
+            setState(value);
+        }
+    }
     
 
     const submitRegistation = async(e) => {
@@ -43,8 +49,6 @@ const Registration = () => {
                 protocolID, 
                 regDate, 
                 reason, 
-                ifyllnadkollad, 
-                registrerad,
                 veckor, 
                 dagar,
                 vikt_fodelse, 
@@ -114,8 +118,7 @@ const Registration = () => {
                     </input>
             
                 
-                    Ifyllnad kollad: <input type="checkbox" checked={ifyllnadkollad} onChange={(e) => {setIfyllnadKollad(e.target.checked)}}></input><br></br>
-                    Registrerad: <input type="checkbox" checked={registrerad} onChange={(e) => {setRegistrerad(e.target.checked)}}></input><br></br>
+                   
 
                 </div>
             
@@ -141,22 +144,39 @@ const Registration = () => {
             </div>
             
             <div class="Inskrivning">
-                vikt (gram) <input type="number" value={vikt_inskrivning} onChange={(e) => {setViktIn(e.target.value)}}></input><br/>
+                vikt (gram) <input type="number" value={vikt_inskrivning} onChange={(e) => {setViktIn(e.target.value)}}/><br/>
                 längd (cm) <input type="number" value={langd_inskrivning} onChange={(e) => {setLangdIn(e.target.value)}}></input><br/>
                 Huvudomfång (cm) <input type="number" value={huvudomfang_in} onChange={(e) => {setHuvudIn(e.target.value)}}></input><br/>
-                Mamma vill amma: <input type="checkbox" checked={mamma_vill_amma} onChange={(e) => {setMammaAmma(e.target.checked)}}></input><br></br>
-                Amning: <input type="text" value={amning_inskrivning} onChange={(e) => {setAmningIn(e.target.value)}}></input><br></br>
-                Barnet har v-sond: <input type="checkbox" checked={v_sond_in} onChange={(e) => {setVsondIn(e.target.checked)}}></input><br></br>
+                Mamma vill amma: 
+                    ja <input type="checkbox" class="ja" checked={mamma_vill_amma == true} onChange={() => threeCheck(mamma_vill_amma, setMammaAmma, true)} /> 
+                    nej <input type="checkbox" class="nej" checked={mamma_vill_amma == false} onChange={() => threeCheck(mamma_vill_amma, setMammaAmma, false)}/> <br/>
+                Amning: 
+                    H<input type="checkbox" checked={amning_inskrivning == "H"} class="helt" onChange={() => {threeCheck(amning_inskrivning, setAmningIn, "H")}}></input>
+                    D<input type="checkbox" checked={amning_inskrivning == "D"} class="delvis" onChange={() => {threeCheck(amning_inskrivning, setAmningIn, "D")}}></input>
+                    IA<input type="checkbox" checked={amning_inskrivning == "IA"} class="inte alls" onChange={() => {threeCheck(amning_inskrivning, setAmningIn, "IA")}}></input>
+                    <br></br>
+                Erhåller bröstmjölk:
+                    H<input type="checkbox" checked={erhaller_bmjolk_in== "H"} class="helt" onChange={() => {threeCheck(erhaller_bmjolk_in, setBmjolkIn, "H")}}></input>
+                    D<input type="checkbox" checked={erhaller_bmjolk_in == "D"} class="delvis" onChange={() => {threeCheck(erhaller_bmjolk_in, setBmjolkIn, "D")}}></input>
+                    IA<input type="checkbox" checked={erhaller_bmjolk_in == "IA"} class="inte alls" onChange={() => {threeCheck(erhaller_bmjolk_in, setBmjolkIn, "IA")}}></input>
+                    <br></br>
+                Barnet har v-sond: ja <input type="checkbox" class="ja" checked={v_sond_in == true} onChange={() => threeCheck(v_sond_in, setVsondIn, true)} /> 
+                        nej <input type="checkbox" class="nej" checked={v_sond_in == false} onChange={() => threeCheck(v_sond_in, setVsondIn, false)} /> <br />
                 Barnet har infart(Ange typ av infart) <input type="text" value={infart_in} onChange={(e) => {setInfartIn(e.target.value)}}></input><br></br>
                 Andningsstöd (ange form) <input type="text" value={andningsstod_in} onChange={(e) => {setAndningsIn(e.target.value)}}></input><br></br>
-                Extra syrgasbehov: <input type="checkbox" checked={extraGas_in} onChange={(e) => {setExtraGasIn(e.target.checked)}}></input><br></br>
+                Extra syrgasbehov: 
+                    ja <input type="checkbox" class="ja" checked={extraGas_in == true} onChange={() => threeCheck(extraGas_in, setExtraGasIn, true)} /> 
+                    nej <input type="checkbox" class="nej" checked={extraGas_in == false} onChange={() => threeCheck(extraGas_in, setExtraGasIn, false)} /> <br />
     
             </div>
             
     
             <div class="riskpatient">
-                Riskpatient <input type="checkbox" checked={riskpatient} onChange={(e) => {setRiskPatient(e.target.checked)}}></input><br></br>
-                Överrapportering till BVC i hemmet <input type="checkbox" checked={bvcRapportering} onChange={(e) => {setBvcRapportering(e.target.checked)}}></input> Om nej ange orsak:
+                Riskpatient  :
+                    ja <input type="checkbox" class="ja" checked={riskpatient == true} onChange={() => threeCheck(riskpatient, setRiskPatient, true)} /> 
+                    nej <input type="checkbox" class="nej" checked={riskpatient == false} onChange={() => threeCheck(riskpatient, setRiskPatient, false)} /> <br />
+                Överrapportering till BVC i hemmet  ja <input type="checkbox" class="ja" checked={bvcRapportering == true} onChange={() => threeCheck(bvcRapportering, setBvcRapportering, true)} /> 
+                    nej <input type="checkbox" class="nej" checked={bvcRapportering == false} onChange={() => threeCheck(bvcRapportering, setBvcRapportering, false)} /> Om nej ange orsak:
                 <input type="text" value={bvcText} onChange={(e) => {setBvcText(e.target.value)}}></input>
             </div>
         
@@ -175,13 +195,25 @@ const Registration = () => {
                         vikt (gram) <input type="number" disabled ></input><br/>
                         längd (cm) <input type="number" disabled></input><br/>
                         Huvudomfång (cm) <input type="number" disabled></input><br />
-                        Mamma vill amma: <input type="checkbox" disabled></input><br></br>
-                        Amning: <input type="text" disabled></input><br></br>
-                        Erhåller bröstmjölk <input disabled></input><br></br>
-                        Barnet har v-sond: <input type="checkbox" disabled></input><br></br>
+                        Mamma vill amma: 
+                            ja <input type="checkbox" disabled /> 
+                            nej <input type="checkbox" disabled/> <br />
+                        Amning: 
+                            H <input type="checkbox" disabled /> 
+                            D <input type="checkbox" disabled/> 
+                            IA <input type="checkbox" disabled/><br />
+                        Erhåller bröstmjölk  
+                            H <input type="checkbox" disabled /> 
+                            D <input type="checkbox" disabled/> 
+                            IA <input type="checkbox" disabled/><br />
+                        Barnet har v-sond: 
+                            ja <input type="checkbox" disabled /> 
+                            nej <input type="checkbox" disabled/> <br />
                         Barnet har infart(Ange typ av infart) <input type="text" disabled></input><br></br>
                         Andningsstöd (ange form) <input type="text" disabled></input><br></br>
-                        Extra syrgasbehov: <input type="checkbox" disabled></input><br></br>
+                        Extra syrgasbehov: 
+                            ja <input type="checkbox" disabled /> 
+                            nej <input type="checkbox" disabled/> <br />
                     </form>
             </div>
 
@@ -193,5 +225,6 @@ const Registration = () => {
     );
 }
 
-
+// Ifyllnad kollad: <input type="checkbox" checked={ifyllnadkollad} onChange={(e) => {setIfyllnadKollad(e.target.checked)}}></input><br></br>
+//Registrerad: <input type="checkbox" checked={registrerad} onChange={(e) => {setRegistrerad(e.target.checked)}}></input><br></br>
 export default Registration;
