@@ -49,7 +49,7 @@ const EditRegistration = (useParams) => {
 
    
 
-    const checkNull = (obj) => {
+    const checkNull = (obj) => { // Checks for a null value in a json object
         for (var key in obj) {
             if (obj[key] == null)
                 return true;
@@ -58,16 +58,16 @@ const EditRegistration = (useParams) => {
     }
 
 
-    const threeCheck = (state, setState, value) => {
+    const threeCheck = (state, setState, value) => { 
         if (state == value) {
             setState(null);
         } else {
             setState(value);
         }
-        validate();
+        validateMulti();
     }
 
-    const validate = () => {
+    const validateMulti = () => {
         var multi = document.getElementsByClassName("multi");
         for (var i = 0; i < multi.length; i++) {
             var inputs = multi.item(i).getElementsByTagName("input");
@@ -83,12 +83,15 @@ const EditRegistration = (useParams) => {
                 inputs.item(0).setCustomValidity("");
             }
         }
-        if (document.getElementById("bvcnej").checked && document.getElementById("orsak").value == "") {
+    }
+
+    const validateBvc = (checked) => {
+        console.log(checked);
+        if (checked && document.getElementById("orsak").value == "") {
             document.getElementById("orsak").setCustomValidity("Fyll i detta fält");
         } else {
             document.getElementById("orsak").setCustomValidity("");
         }
-
     }
 
     const submit = async (e) => {
@@ -229,7 +232,6 @@ const EditRegistration = (useParams) => {
     useEffect(() => {
         getReg();
         getDis();
-        
     }, [])
 
     const getDischarge = () => {
@@ -412,8 +414,10 @@ const EditRegistration = (useParams) => {
                         onChange={(e) => {
                             threeCheck(bvc_rap, set_bvc_rap, true)
                             if (e.target.checked == true) {
+                                validateBvc(false);
                                 set_bvc_text("");
                             } else {
+                                validateBvc(false);
                                 set_bvc_text(null);
                             }
                         }} /> 
@@ -421,8 +425,10 @@ const EditRegistration = (useParams) => {
                         onChange={(e) => {
                             threeCheck(bvc_rap, set_bvc_rap, false)
                             if (e.target.checked == false) {
+                                validateBvc(false);
                                 set_bvc_text("");
                             } else {
+                                validateBvc(true);
                                 set_bvc_text(null);
                             }
                         }} />
@@ -430,9 +436,12 @@ const EditRegistration = (useParams) => {
                 
                 Om nej ange orsak: <input id="orsak" type="text" value={bvc_text} onChange={(e) => {
                     if (bvc_rap == false) {
+                        validateBvc(true); // kinda ugly dont care bye bye
                         set_bvc_text(e.target.value)
+                    } else {
+                        validateBvc(false);
                     }
-                    validate(); // kinda ugly dont care bye bye
+
                 }}/>
        
 
@@ -448,7 +457,7 @@ const EditRegistration = (useParams) => {
             <form onSubmit={submit}>
                 {getRegistration()}
                 {getDischarge()}
-                <button type="submit" onCick={validate}> Spara </button>
+                <button type="submit" onCick={validateMulti}> Spara </button>
             </form>
             </div>
         </Fragment>
