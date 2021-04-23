@@ -82,7 +82,7 @@ const NavHembesok = (useParams) => {
     */
     return (
         <Fragment>
-            <h1>protokollnr: {id} </h1>
+            <h1>Protokollnummer: {id} </h1>
 
             {getHeader()}
 

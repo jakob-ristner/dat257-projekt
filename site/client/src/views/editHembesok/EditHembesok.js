@@ -106,11 +106,11 @@ const getHembData = () => {
     return (
         <Fragment>
             <h1>Redigera hembesök med id {hembesokid}</h1>
-            <button onClick={() =>{window.location="/hembesok/" + protokollnr} }>Avbryt</button>
-            <div class="edithembesok">
+            <button class="editHembesok" onClick={() =>{window.location="/hembesok/" + protokollnr} }>Avbryt</button>
+            <div class="hembesok">
         <form onSubmit={updateHemb}> 
              <div class="info">
-                   <h2>Protokollnr: {protokollnr}</h2> 
+                   <h2>Protokollnummer: {protokollnr}</h2> 
                    Datum utfört: <input required type="date" value={date_performed} onChange={(e) => {set_date_performed(e.target.value)}}></input><br/>
                    Till familj:<input required type="time" value={at_familyKl} onChange={(e) => {set_at_family(e.target.value)}}></input><br/>
                    Från familj:<input required type="time" value={from_familyKl} onChange={(e) => {set_from_family(e.target.value)}}></input><br/> 
@@ -144,7 +144,7 @@ const getHembData = () => {
                         }
                         }}></input><br/>
                     </div>
-                    <button>Spara</button>
+                    <button class="editSave">Spara</button>
         </form>
         </div> 
         </Fragment>

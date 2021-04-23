@@ -37,6 +37,7 @@ body {
 
 .hembesok .edit {
   grid-column-start: 5;
+  font-size: 16px;
 }
 
 .hembesok .info {
@@ -65,16 +66,27 @@ body {
 
 .hembesok input {
   margin-right: 20px;
+  color: black;
 }
 
-.edithembesok {
-  border-style: solid;
-
-  display: grid;
-  grid-template-columns: 20% 20% 20% 20% 20%;
-  grid-template-rows: 33% 33% auto;
+.editHembesok {
+  grid-column-start: 5;
+  padding: 4px 16px;
+  transition: all 2s;
 }
 
-.edithembesok input {
-  margin-right: 30px;
+.editHembesok:hover {
+  background-color: rgb(241, 241, 121);
+}
+.hembesok input:hover {
+  background-color: rgb(224, 232, 240);
+}
+
+.editSave {
+  padding: 4px 16px;
+  transition: all 2s;
+}
+
+.editSave:hover {
+  background-color: rgb(96, 230, 96);
 }
