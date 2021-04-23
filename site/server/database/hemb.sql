@@ -55,6 +55,9 @@ INSERT INTO Hembesok (protokollnr, at_family, from_family, performed_by)
 INSERT INTO Hembesok (protokollnr, at_family, from_family, performed_by)
     VALUES ('111', '2021-03-12 15:00', '2021-03-12 16:00', 'Anton');
 
+INSERT INTO Hembesok (protokollnr, at_family, from_family, performed_by)
+    VALUES ('222', '2021-03-12 15:00', '2021-03-12 16:00', 'A');
+
 INSERT INTO Hembesok (protokollnr, at_family, from_family, performed_by, stodsamtal,
                         lakare, av_logistik, av_beskrivning)
     VALUES ('111', '2021-03-12 15:00', '2021-03-12 16:00', 'John', true, true, 
