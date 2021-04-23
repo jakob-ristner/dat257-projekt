@@ -1,0 +1,30 @@
+Individual Reflection Anton week 5 
+
+What do I want to learn or understand better?
+
+    I feel like a have a much broader understanding regarding the coding related parts this week compared the prior sprint. 
+    I want to improve my ability to handle error messages and other hinders that occurs during the sprints
+    as well as understand why they occur. In other words I want to improve my debugging skills.
+
+    My ambition is to get a better understanding of how all parts of the project connect and how to make it userfriendly. 
+    In order to create the most value for our stakeholders we should be able to remove all ambigiousness.
+
+How can I help someone else, or the entire team, to learn something new?
+
+    I can try to help out when something isn't working as it should.
+    I try to explain what the code I have, or someone else has written does to make them and myself more knowledgable on the subject.
+    I make sure to be active when we're programming in pairs to contribute and understand as much as possible.
+	
+What is my contribution towards the team's use of scrum?
+	
+    I have been a part in the discussions regarding our use of scrum and helped to ensure that we work more agile that the previous sprint. 
+    It's easy to forget the workflow sometimes when you're coding since it's a new way of thinking and working to all of us but I and my 
+    teammates try to remind each other to have it 
+    close in mind. But I'm confident that we'll continue to improve!
+ 	
+What is my contribution towards the team's deliveries?
+	
+    This week I've worked in the group that focused on making sure it's possible to edit "hembesök". I have coded a lot and 
+    feel that my understanding of the programming languages we use is multiple times better than last week which is nice. 
+    We managed to fulfill the tasks that we were responsible for during the sprint. 
+    Setting up better definitions of each task was helpful as well as asking other members of the team for help besides the ones I coded with.
