@@ -1,0 +1,84 @@
+TEAM REFLECTION week 5
+Secretary: Erik Berg
+
+CUSTOMER VALUE and SCOPE
+* Chosen scope of the application under development
+including the priority of features and for whom you
+are creating value:
+
+
+*User Stories
+	- This week we have been focused on breaking down 
+	user stories into smaller and more clear defined tasks.
+	We might need to work on acceptance criteria and DoD. 
+	
+	- We are using the Trello in the right way - by taking 
+	tasks and doing them, instead of just coding and then looking
+	at tasks. What could be better is how we are following the 
+	DoD, more perticularily the testing aspect which we haven't done
+	so much of. 
+
+	- We will get better and better at creating tasks when we 
+	know more how to code in react and how the code works. 
+
+	- We made an effort estimation this week which is an improvement
+	from last week when we didn't do one. However it felt like it wasn't
+	quite the best estimation so hopefully in future weeks we will be able
+	to make better effort estimations which are more accurate. 
+
+* Acceptance Tests
+	- We haven't done much testing or reaffirming of the acceptance
+	criteria. We need to make sure that we are following the DoD
+	and letting another person test the application. The goal for next
+	week is that all finished tasks has been tested. 
+
+* KPIs we use for monitoring the progress:
+	- We haven't really thought about the KPIs since we set them up
+	during the monday meeting. We need to actually adhere to the KPIs
+	and as such need to track them more clearly. In the future we should
+	go through all KPIs during the friday meeting to ensure that we are 
+	tracking them. Another thing we should do is to mention them during 
+	the monday meeting so that we are aware of them. 
+
+
+-------------------------------------------------------------------------------------
+
+SOCIAL CONTRACT and EFFORT
+* We skip this one this week since it hasn't changed
+much since the last week. 
+
+-------------------------------------------------------------------------------------
+
+DESIGN DECISIONS and PRODUCT STRUCTURE
+* Design decisions
+	- We use a database and a web portal which makes it easy for the 
+	customer to use the application on different OS:s and different
+	devices. We feel that this might in the future help in the 
+	integration into their oranisation since they can just host 
+	the application on their intraNET. To reach this we try to 
+	develop in a way that makes it easy to setup. 
+
+* Technical Documentation
+	- We do currently not use any technical documentation. This will make it
+	very hard if we try to export the project. We should have some sort of 
+	documentation. As a start during the next week we should begin commenting 
+	the code everywhere.
+
+	- We should probably also have some sort of structural diagram and a good 
+	documentation in form of javaDocs or some other thing. 
+
+
+* How we use the documentation
+	- As we haven't documented very much we feel that we must skip this question.
+
+* How to ensure code quality and enforce coding standards
+	- As of now we do the programming in pairs which should help with 
+	code quality. We should be better at enforcing coding standards and 
+	ensuring the code quality. A way of doing this is to have code review
+	as part of every sprint during the same time we test the code. 
+
+-----------------------------------------------------------------------------------------
+
+APPLICATION OF SCRUM
+* We skip this one this week since we want a little more things to happen before we reflect
+on our application of scrum. 
