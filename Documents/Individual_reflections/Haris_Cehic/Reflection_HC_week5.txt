@@ -1,0 +1,15 @@
+Individual reflection - Haris Cehic
+Week 5 23/4
+
+What do I want to learn or understand better?
+
+This week has been a lot smoother when coding, both because of the learning curve of the language but also the better understanding of the application and its parts. Until now a lot of focus has been on backend and function. For the coming weeks I would like to learn frontend (UI/UX) even more. To do this I need to understand css even more but also work with the PO to understand what creates value to them in a UI-way. But also take help from the ones in the team that has experience from this.
+
+How can I help someone else, or the entire team, to learn something new?
+This week we worked in teams again and that really helped the knowledge sharing. I tried to help my team as much I can when someone is stuck on a problem that I’ve solved before or likewise. Also continuously explaining why I’ve written a part of code helps everyone understand the application and its parts even more. 
+
+What is my contribution towards the team’s use of Scrum?
+I’ve participated in all of the sprint planning, reflection and meetings. Also this week we really focused to let the Scrum board guide our work and the tasks that should be done. This helped tremendously and I feel we really advanced in that part. The result was a better workflow with less stress and more quality code. For next week I and the team will continue to work in this but focus even more in the planning and estimation of tasks and US.
+
+What is my contribution towards the team’s deliveries?
+This week we again coded in teams where I was active in doing our teams planned tasks and US. I think that worked really well and we managed to finish our part with a nice workflow throughout the week. For next week I think we should keep working in a team as that makes the coding more effective and I will continue to do my part of the job in the team and participate actively. 
