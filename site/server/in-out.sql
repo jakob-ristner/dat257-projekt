@@ -11,8 +11,6 @@ CREATE TABLE Registration (
     protocolID INT PRIMARY KEY,
     regDate DATE NOT NULL,
     reason TEXT,
-    iFyllnadKollad BOOLEAN NOT NULL DEFAULT FALSE,
-    registrerad BOOLEAN NOT NULL DEFAULT FALSE,
 
     --Bakgrundsdata
     veckor INT CHECK (veckor < 53 AND veckor > 0) NOT NULL,
@@ -26,14 +24,12 @@ CREATE TABLE Registration (
     langd_inskrivning FLOAT CHECK (langd_inskrivning >= 0) DEFAULT 0,
     huvudomfang_in FLOAT CHECK (huvudomfang_in >= 0) DEFAULT 0,
     mamma_vill_amma BOOLEAN DEFAULT FALSE,
-    amning_inskrivning CHAR(2) CHECK (amning_inskrivning IN ('H', 'D', 'IA')),
-    erhaller_bmjolk_in CHAR(2) CHECK (erhaller_bmjolk_in IN ('H', 'D', 'IA')), 
+    amning_inskrivning VARCHAR(2) CHECK (amning_inskrivning IN ('H', 'D', 'IA')),
+    erhaller_bmjolk_in VARCHAR(2) CHECK (erhaller_bmjolk_in IN ('H', 'D', 'IA')), 
     v_sond_in BOOLEAN DEFAULT FALSE,
     infart_in TEXT,
     andningsstod_in TEXT,
     extraGas_in BOOLEAN DEFAULT FALSE,
-
-    --Utskrivning till Neo-HSV
 
     --Riskpatient
     riskpatient BOOLEAN DEFAULT FALSE,
@@ -50,8 +46,8 @@ CREATE TABLE Discharge (
     langd_utskrivning FLOAT CHECK (langd_utskrivning >= 0),
     huvudomfang_ut FLOAT CHECK (huvudomfang_ut >= 0),
     mamma_vill_amma_ut BOOLEAN,
-    amning_utskrivning CHAR(2) CHECK (amning_utskrivning IN ('H', 'D', 'IA')),
-    erhaller_bmjolk_ut CHAR(2) CHECK (erhaller_bmjolk_ut IN ('H', 'D', 'IA')), 
+    amning_utskrivning VARCHAR(2) CHECK (amning_utskrivning IN ('H', 'D', 'IA')),
+    erhaller_bmjolk_ut VARCHAR(2) CHECK (erhaller_bmjolk_ut IN ('H', 'D', 'IA')), 
     v_sond_ut BOOLEAN,
     infart_ut TEXT,
     andningsstod_ut TEXT,
