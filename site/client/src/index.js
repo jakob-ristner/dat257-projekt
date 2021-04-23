@@ -6,6 +6,7 @@ import './index.css';
 //views 
 import Home from './views/home/Home.js';
 import AddHembesok from "./views/addHembesok/AddHembesok";
+import EditHembesok from "./views/editHembesok/EditHembesok";
 
 import TestView from "./views/testView/TestView.js"
 import Patients from "./views/patients/Patients.js"
@@ -30,6 +31,7 @@ ReactDOM.render(
 
 
             <Route exact path="/Hembesok/add/:protokollnr" component={AddHembesok} />
+            <Route exact path="/Hembesok/edit/:hembesokid" component={EditHembesok} />
             <Route exact path="/Registration" component={Registrations} />
             <Route exact path="/Registration/:id" component={Discharge} />
         </Switch>

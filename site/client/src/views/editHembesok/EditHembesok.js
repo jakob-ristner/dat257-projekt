@@ -1,75 +1,116 @@
 import React, { Fragment, useEffect, useState} from "react";
 import {useParams} from "react-router-dom"; 
 
-const AddHembesok = (useParams) => {
+const EditHembesok = (useParams) => {
+    const {hembesokid} = useParams.match.params;
+    console.log(useParams.match.params)
 
-    const {protokollnr} = useParams.match.params;
-    const [date_performed, set_date_performed] = useState("");
+    const [protokollnr, setProtokollnr] = useState();
+    const [date_performed, set_date_performed] = useState(null);
     const [at_familyKl, set_at_family] = useState("");
     const [from_familyKl, set_from_family] = useState("");
     const [performed_by, set_performed_by] = useState("");
+    
     const [amning_nutrition, set_amning_nutrition] = useState(false);
     const [stodsamtal, set_stodsamtal] = useState(false);
     const [viktkontroll, set_viktkontroll] = useState(false);
     const [provtagning, set_provtagning] = useState(false);
     const [lakemedel, set_lakemedel] = useState(false);
+    const [annan_at, set_annan_at] = useState("");
+
     const [lakare, set_lakare] = useState(false);
     const [logoped, set_logoped] = useState(false);
     const [dietist, set_dietist] = useState(false);
     const [av_logistik, set_av_logistik] = useState(false);
+    const [annan_resurs, set_annan_resurs] = useState("");
+
     const [av_barn_familj, set_av_barn_familj] = useState(false);
     const [av_personal, set_av_personal] = useState(false);
-    const [annan_at, set_annan_at] = useState("");
-    const [annan_resurs, set_annan_resurs] = useState("");
     const [av_beskrivning, set_av_beskrivning] = useState("");
+    const [hemb_exists, set_hemb] = useState(false);
 
-    const submit = async(e) => {
+    const getHemb = async() => {
+            const response = await fetch(
+            "http://localhost:5000/hembesok/edit/" + hembesokid);
+            const jsonData = await response.json();
+            const ehemb = jsonData[0];
+            if (ehemb != undefined){
+                set_hemb(true);
+                setProtokollnr(ehemb.protokollnr);
+                set_date_performed(ehemb.date);
+                set_at_family(ehemb.at_family);
+                set_from_family(ehemb.from_family);
+                set_performed_by(ehemb.performed_by);
+                set_stodsamtal(ehemb.stodsamtal);
+                set_viktkontroll(ehemb.viktkontroll);
+                set_provtagning(ehemb.provtagning);
+                set_lakemedel(ehemb.lakemedel);
+                set_lakemedel(ehemb.lakare);
+                set_logoped(ehemb.logoped);
+                set_dietist(ehemb.dietist);
+                set_av_logistik(ehemb.av_logistik);
+                set_av_barn_familj(ehemb.av_barn_familj);
+                set_av_personal(ehemb.av_personal);
+                set_annan_at(ehemb.annan_at);
+                set_annan_resurs(ehemb.annan_resurs);
+                set_av_beskrivning(ehemb.av_beskrivning);
+            }
+            else{
+                set_hemb(false);
+            }
+    }
+
+    useEffect(() => {
+        getHemb();
+    }, [])
+
+    const updateHemb = async(e) => {
         e.preventDefault();
-       const at_family = date_performed + " " + at_familyKl;
-       const from_family = date_performed + " " + from_familyKl;
-        try {
-            const body ={
-            at_family,
-            from_family,
-            performed_by,
-            amning_nutrition,
-            stodsamtal,
-            viktkontroll,
-            provtagning,
-            lakemedel,
-            lakare,
-            logoped,
-            dietist,
-            av_logistik,
-            av_barn_familj,
-            av_personal,
-            annan_at,
-            annan_resurs,
-            av_beskrivning}; 
-            
-            const response = await fetch("http://localhost:5000/hembesok/" + protokollnr, {
-                method: "POST",
+        const at_family = date_performed + " " + at_familyKl;
+        const from_family = date_performed + " " + from_familyKl;
+         try {
+             const body ={
+             at_family,
+             from_family,
+             performed_by,
+             amning_nutrition,
+             stodsamtal,
+             viktkontroll,
+             provtagning,
+             lakemedel,
+             lakare,
+             logoped,
+             dietist,
+             av_logistik,
+             av_barn_familj,
+             av_personal,
+             annan_at,
+             annan_resurs,
+             av_beskrivning}; 
+
+            const response = await fetch('http://localhost:5000/hembesok/edit/' + hembesokid,{
+                method: "PUT",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(body)
             });
-
             window.location="/hembesok/" + protokollnr;
-
-        } catch (err) {
-            console.error(err);
-            
+        } catch (error) {
+            console.log(error.message);
         }
+       
     }
 
-    return(
-        <Fragment>
-        <h1>Lägg till hembesök för {protokollnr}</h1>  
-        <button onClick={() =>{window.location="/hembesok/" + protokollnr} }>Avbryt</button>
-        <div class="hembesok">
+
+const getHembData = () => {
     
-            <form onSubmit={submit}>
-                
-                <div class="info">
+    return (
+        <Fragment>
+            <h1>Redigera hembesök med id {hembesokid}</h1>
+            <button class="editHembesok" onClick={() =>{window.location="/hembesok/" + protokollnr} }>Avbryt</button>
+            <div class="hembesok">
+        <form onSubmit={updateHemb}> 
+             <div class="info">
+                   <h2>Protokollnummer: {protokollnr}</h2> 
                    Datum utfört: <input required type="date" value={date_performed} onChange={(e) => {set_date_performed(e.target.value)}}></input><br/>
                    Till familj:<input required type="time" value={at_familyKl} onChange={(e) => {set_at_family(e.target.value)}}></input><br/>
                    Från familj:<input required type="time" value={from_familyKl} onChange={(e) => {set_from_family(e.target.value)}}></input><br/> 
@@ -103,11 +144,18 @@ const AddHembesok = (useParams) => {
                         }
                         }}></input><br/>
                     </div>
-                    <button>Spara</button>
-            </form>
-            </div>      
+                    <button class="editSave">Spara</button>
+        </form>
+        </div> 
         </Fragment>
     );
-}
+    }
 
-export default AddHembesok;
+    return (
+        <Fragment>
+            {getHembData()}
+        </Fragment>
+    )
+};    
+
+export default EditHembesok;

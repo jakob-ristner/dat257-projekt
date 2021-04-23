@@ -8,17 +8,16 @@ body {
   grid-template-rows: 60% 60%;
 }
 .navigation {
-    grid-column: 3;
-    grid-row: 1 / 2;
-    left: 85%;
-    top: 35%;
-    position: absolute;
-  
-  }
+  grid-column: 3;
+  grid-row: 1 / 2;
+  left: 85%;
+  top: 35%;
+  position: absolute;
+}
 #homeButton {
-    left: 2%;
-    top: 2%;
-    position: absolute;
+  left: 2%;
+  top: 2%;
+  position: absolute;
 }
 #root {
   grid-column-start: 2;
@@ -38,6 +37,7 @@ body {
 
 .hembesok .edit {
   grid-column-start: 5;
+  font-size: 16px;
 }
 
 .hembesok .info {
@@ -66,4 +66,27 @@ body {
 
 .hembesok input {
   margin-right: 20px;
+  color: black;
+}
+
+.editHembesok {
+  grid-column-start: 5;
+  padding: 4px 16px;
+  transition: all 2s;
+}
+
+.editHembesok:hover {
+  background-color: rgb(241, 241, 121);
+}
+.hembesok input:hover {
+  background-color: rgb(224, 232, 240);
+}
+
+.editSave {
+  padding: 4px 16px;
+  transition: all 2s;
+}
+
+.editSave:hover {
+  background-color: rgb(96, 230, 96);
 }
