@@ -1,0 +1,41 @@
+Fredagsmöte 23 April
+Sekreterare: Haris Cehic
+
+Punkter:
+*Team Reflection diskussion
+- Gått bra
+- Lättare med scrumboard
+
+KPIs
+*Teamets satisfaction/happiness
+-Overall 6-7-8, tasks har hjälp mycket. Tidsmässigt legat till bra, mindre stressigt. Även enklare då man kommit bättre underfund med programmeringsspråket. 
+
+*Carry over user stories
+
+Två av fem som behöver flytta tillbaks. Samtidigt inget jättestort att lägga till i de som flyttas tillbaka.
+
+*Antal färdiga tasks
+21 färdiga tasks av 27 st. 
+
+Definition of done
+Följer runnable code on your own machine bra 
+Testing av andra kan förbättras
+En som programmerat visar och en visar
+Bestämma på måndag vilka grupper som testar etc.
+
+Möte måndag 11 med Håkan
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+	
