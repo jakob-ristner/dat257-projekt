@@ -1,0 +1,17 @@
+Individual reflection 2021-04-23
+
+what do I want to learn or understand better?
+This week I want to focus on understanding html better inside the browser. I will learn this in the next week by working with the console.log more.
+
+how can I help someone else, or the entire team, to learn something new?
+-Right now I can help with react and trello but I wish to be able to help with html aswell. Therefore learning html in combination with the browser will be my goal for next week.
+
+what is my contribution towards the team’s use of Scrum?
+-I've been adding and working with the userstories and tasks on our trello. This week we realized that we should have some userstories for us as programmers aswell, for documentation and such. 
+Other than that I still am the main contact with the product owner. I wish to be able to create good userstories from a programmers perspective and therefore that will be my goal for the next week.
+
+what is my contribution towards the team’s deliveries?
+-This week me and Jakob R worked on edit in-utskrivning which was challenging and really fun! This userstory included work in the database where we made tables, put requests and get requests for the server and
+frontend for all textfields and checks. We also made errorhandeling with realistic values, for example no baby can weigh 0g.
+
+
