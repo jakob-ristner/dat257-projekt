@@ -1,0 +1,31 @@
+INDIVIDUAL REFLECTION 
+Erik Berg 
+week5
+
+* What do I want to learn or understand better?
+This week I have learned a lot about how React works and also a bit about how to 
+do some css. I also feel like I've been much better at following the agile processes.
+However I still feel like I can improve in that regard. Next week I would like to 
+understand the code that everyone else has written, and simoultaniously comment
+the code so that everyone can understand what we have written. 
+
+* how can I help someone else, or the entire team, to learn something new?
+I believe that I was helpful this week with git things. Things like merging and branches. 
+My belief is that during the next week I can be helpful in getting the team up to speed
+with the code that me and my coding partner has written, and also I think that 
+me and my coding partner will continue to have a good exchange of information and coding 
+practises. 
+
+* what is my contribution towards the team's use of Scrum?
+My contribution towards the team's use of Scrum consists mostly this week of writing tasks
+and making sure that we we're working based on the tasks and not the other way around. 
+I would like to help in  the testing aspect of the code next week since that is something
+we've missed up until now and it's a big thing in Scrum to always review the things we've
+done. I hope I also can help motivate the team on the testing side of things. 
+
+* What is my contribution towards the team's deliveries?
+This week I've written code for the discharge side of the registration page. I've also done
+some of the minor tasks and feedback that we got from our last customer meeting. Next week I
+would like to do some deliveries that are more focused on the developer side of things. Things
+like code cleanup and code commenting and things like that. This to ensure that what we've 
+written is understandable and easy to get into. 
