@@ -12,6 +12,7 @@ app.use(express.json());
 
 require("./routes/registration.js")(app,pool);
 require("./routes/hembesok.js")(app, pool);
+require("./routes/dvard.js")(app,pool);
 
 // ROUTES
 app.get("/patients", async(req, res) => {

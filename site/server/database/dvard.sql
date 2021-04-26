@@ -8,15 +8,15 @@ CREATE TABLE Dvard (
     end_time TIME NOT NULL, 
     performed_by TEXT NOT NULL,
 
-    amning_nutrition BOOLEAN NOT NULL DEFAULT FALSE,
-    stodsamtal BOOLEAN NOT NULL DEFAULT FALSE,
-    viktkontroll BOOLEAN NOT NULL DEFAULT FALSE,
+    amning_nutrition BOOLEAN NOT NULL DEFAULT false,
+    stodsamtal BOOLEAN NOT NULL DEFAULT false,
+    viktkontroll BOOLEAN NOT NULL DEFAULT false,
     annat_mote TEXT NOT NULL DEFAULT '',
 
-    lakare BOOLEAN NOT NULL DEFAULT FALSE,
-    logoped BOOLEAN NOT NULL DEFAULT FALSE,
-    dietist BOOLEAN NOT NULL DEFAULT FALSE,
-    kurator BOOLEAN NOT NULL DEFAULT FALSE,
+    lakare BOOLEAN NOT NULL DEFAULT false,
+    logoped BOOLEAN NOT NULL DEFAULT false,
+    dietist BOOLEAN NOT NULL DEFAULT false,
+    kurator BOOLEAN NOT NULL DEFAULT false,
     annan_resurs TEXT NOT NULL DEFAULT '',
 
     avvikelse TEXT NOT NULL DEFAULT ''
