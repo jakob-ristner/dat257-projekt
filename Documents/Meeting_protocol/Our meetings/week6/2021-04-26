@@ -1,0 +1,17 @@
+1)	Dela upp oss i grupper
+2)	Userstories och tasks för dessa
+3)	Userstories för buggfixar (strunta i tasks och använd acceptans criterias). 
+4)	Hembesök checkboxes (en incheckad, eller flera men minst en)
+5)	Vi behöver fixa inskrivning submission, nullvärden bör inte tillåtas någonstans.
+6)	Räcker med att sätta constraints i html, behöver inte ha samma vid databasen som html. Not Null bör dock ALLTID finnas i databasen men övriga constraints (> < = ) behövs inte. Det viktigaste är att default värden på alla strängar är citat tecken…, alla checkboxes kan ha default värden null. 
+7)	Effort estimation (1-10)
+-	Hembesök submission form = 3/10
+-	Add digitalt vårdmöte = 7/10
+-	Navigate digitalt vårmöte = 10/10
+-	Null values in HTML and Database = 4/10
+-	Database Management = 1/10
+
+Gruppering för sprint (3?) 
+Jakob och Nima
+Haris, Jakob Ristner och mohammad
+Anton och Erik.
