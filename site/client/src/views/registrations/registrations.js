@@ -21,12 +21,12 @@ const Registration = () => {
     const [amning_inskrivning, setAmningIn] = useState(null);
     const [erhaller_bmjolk_in, setBmjolkIn] = useState(null);
     const [v_sond_in, setVsondIn] = useState(null);
-    const [infart_in, setInfartIn] = useState();
-    const [andningsstod_in, setAndningsIn] = useState();
+    const [infart_in, setInfartIn] = useState("");
+    const [andningsstod_in, setAndningsIn] = useState("");
     const [extraGas_in, setExtraGasIn] = useState(null);
     const [riskpatient, setRiskPatient] = useState(null);
     const [bvcRapportering, setBvcRapportering] = useState(null);
-    const [bvcText, setBvcText] = useState();
+    const [bvcText, setBvcText] = useState("");
     //protocolID, regDate, reason, ifyllnadkollad, registrerad,
     //veckor, dagar, vikt_fodelse, langd_fodelse, 
     //huvudomfang_fodelse, vikt_inskrivning, langd_inskrivning,
@@ -106,29 +106,29 @@ const Registration = () => {
                     <div class="protokollID" id="protokollID">
                     <h1>Protokoll ID</h1>
                         <label for="protocolID">ProtkollID:</label>
-                        <input type="number" value={protocolID} onChange={(e) => {setProtocolID(e.target.value)} }></input><br></br>
+                        <input type="number" required value={protocolID} onChange={(e) => {setProtocolID(e.target.value)} }></input><br></br>
 
-                        Anledning för inskrivning:<input type="text" value={reason} id="reason" onChange={(e) => {setReason(e.target.value)}}></input>
+                        Anledning för inskrivning:<input type="text" required value={reason} id="reason" onChange={(e) => {setReason(e.target.value)}}></input>
                     </div>
             
            
             
                 <div class="bakgrundsdata" id="bakgrundsdata">
                 <h1>Födelsedata </h1>
-                    Barnets gestationsvecka: <input type="number" value={veckor} onChange={(e) => {setVeckor(e.target.value)}}></input><br></br>
-                    Dagar: <input type="number" value={dagar} onChange={(e) => {setDagar(e.target.value)}}></input><br></br>
-                    Födelsevikt:  <input type="number" value={vikt_fodelse} onChange={(e) => {setViktFodelse(e.target.value)}}></input><br></br>
-                    Födelselängd: <input type="number" value={langd_fodelse} onChange={(e) => {setLangdFodelse(e.target.value)}}></input><br></br>
-                    Födelsehuvudomfång: <input type="number" value={huvudomfang_fodelse} onChange={(e) => {setHuvudomfangFodelse(e.target.value)}}></input><br></br>
+                    Barnets gestationsvecka: <input type="number" required value={veckor} onChange={(e) => {setVeckor(e.target.value)}}></input><br></br>
+                    Dagar: <input type="number" required value={dagar} onChange={(e) => {setDagar(e.target.value)}}></input><br></br>
+                    Födelsevikt:  <input type="number" required value={vikt_fodelse} onChange={(e) => {setViktFodelse(e.target.value)}}></input><br></br>
+                    Födelselängd: <input type="number" required value={langd_fodelse} onChange={(e) => {setLangdFodelse(e.target.value)}}></input><br></br>
+                    Födelsehuvudomfång: <input type="number" required value={huvudomfang_fodelse} onChange={(e) => {setHuvudomfangFodelse(e.target.value)}}></input><br></br>
                 </div>
             
             <div class="inskrivning"  id="inskrivning">
                    <h1>Inskrivning </h1>
                    <label for="regDate">Inskrivningsdatum:</label>
-                        <input type="date" value={regDate} id="date" onChange={(e) => setRegDate(e.target.value)} ></input><br></br>
-                vikt (gram) <input type="number" value={vikt_inskrivning} onChange={(e) => {setViktIn(e.target.value)}}/><br/>
-                längd (cm) <input type="number" value={langd_inskrivning} onChange={(e) => {setLangdIn(e.target.value)}}></input><br/>
-                Huvudomfång (cm) <input type="number" value={huvudomfang_in} onChange={(e) => {setHuvudIn(e.target.value)}}></input><br/>
+                        <input type="date" required value={regDate} id="date" onChange={(e) => setRegDate(e.target.value)} ></input><br></br>
+                vikt (gram) <input type="number" required value={vikt_inskrivning} onChange={(e) => {setViktIn(e.target.value)}}/><br/>
+                längd (cm) <input type="number" required value={langd_inskrivning} onChange={(e) => {setLangdIn(e.target.value)}}></input><br/>
+                Huvudomfång (cm) <input type="number" required value={huvudomfang_in} onChange={(e) => {setHuvudIn(e.target.value)}}></input><br/>
                 Mamma vill amma: 
                     ja <input type="checkbox" class="ja" checked={mamma_vill_amma == true} onChange={() => threeCheck(mamma_vill_amma, setMammaAmma, true)} /> 
                     nej <input type="checkbox" class="nej" checked={mamma_vill_amma == false} onChange={() => threeCheck(mamma_vill_amma, setMammaAmma, false)}/> <br/>
