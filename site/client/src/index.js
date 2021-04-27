@@ -14,7 +14,7 @@ import NavHembesok from "./views/navhembesok/NavHembesok.js"
 import Registrations from "./views/registrations/registrations.js";
 import Discharge from "./views/registrations/Discharge.js";
 import EditRegistration from "./views/editRegistration/EditRegistration.js"
-
+import AddDigitaltVard from "./views/digitalt-vardmote/AddDigitaltVard.js";
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(
@@ -28,7 +28,7 @@ ReactDOM.render(
             <Route exact path ="/TestView" component ={TestView} />
             <Route exact path ="/registration/edit/:id" component ={EditRegistration} />
 
-
+            <Route exact path="/digitalt-vardmote/add/:protocolID" component={AddDigitaltVard} />
 
             <Route exact path="/Hembesok/add/:protokollnr" component={AddHembesok} />
             <Route exact path="/Hembesok/edit/:hembesokid" component={EditHembesok} />
