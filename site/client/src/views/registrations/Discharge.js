@@ -189,20 +189,20 @@ const Discharge = (useParams) => {
 
                     <div class="bakgrundsdata" id="bakgrundsdata">
                     <h1>Födelsedata </h1>
-                        Barnets gestationsvecka: <input type="number" value={form.veckor} ></input><br></br>
-                        Dagar:<input type="number" value={form.dagar} ></input><br></br>
-                        Födelsevikt:  <input type="number" value={form.vikt_fodelse} ></input><br></br>
-                        Födelselängd: <input type="number" value={form.langd_fodelse} ></input><br></br>
-                        Födelsehuvudomfång: <input type="number" value={form.huvudomfang_fodelse} ></input><br></br>
+                        Barnets gestationsvecka: <input type="number" required value={form.veckor} ></input><br></br>
+                        Dagar:<input type="number" required value={form.dagar} ></input><br></br>
+                        Födelsevikt:  <input type="number" required value={form.vikt_fodelse} ></input><br></br>
+                        Födelselängd: <input type="number" required value={form.langd_fodelse} ></input><br></br>
+                        Födelsehuvudomfång: <input type="number" required value={form.huvudomfang_fodelse} ></input><br></br>
                     </div>
 
                     <div class="Inskrivning" id="Inskrivning">
                     <h1>Inskrivning </h1>
                          <label for="regDate">Inskrivningsdatum:</label>
-                        <input type="date" value={form.regdate} id="date" ></input><br></br>
-                        vikt (gram) <input type="number" value={form.vikt_inskrivning} ></input><br />
-                        längd (cm) <input type="number" value={form.langd_inskrivning} ></input><br />
-                        Huvudomfång (cm) <input type="number" value={form.huvudomfang_in} ></input><br />
+                        <input type="date" required value={form.regdate} id="date" ></input><br></br>
+                        vikt (gram) <input type="number" required value={form.vikt_inskrivning} ></input><br />
+                        längd (cm) <input type="number" required value={form.langd_inskrivning} ></input><br />
+                        Huvudomfång (cm) <input type="number" required value={form.huvudomfang_in} ></input><br />
                         Mamma vill amma: <input type="checkbox" checked={form.mamma_vill_amma} ></input><br></br>
                         Amning: <input type="text" value={form.amning_inskrivning} ></input><br></br>
                         Erhåller bröstmjölk: <input type="text" value={form.erhaller_bmjolk_in} ></input><br></br>
@@ -233,9 +233,9 @@ const Discharge = (useParams) => {
                 <label for="outDate">Utskrivningsdatum</label>
                         <input type="date" value={outDate} onChange={(e) => {setOutDate(e.target.value)}}></input>
                         <br></br>
-                        vikt (gram) <input type="number" value={vikt_utskrivning} onChange={(e) => {setViktUt(e.target.value)}} ></input><br/>
-                        längd (cm) <input type="number" value={langd_utskrivning} onChange={(e) => {setLangdUt(e.target.value)}}></input><br/>
-                        Huvudomfång (cm) <input type="number" value={huvudomfang_ut} onChange={(e) => {setHuvudomfangUt(e.target.value)}}></input><br />
+                        vikt (gram) <input type="number" required value={vikt_utskrivning} onChange={(e) => {setViktUt(e.target.value)}} ></input><br/>
+                        längd (cm) <input type="number" required value={langd_utskrivning} onChange={(e) => {setLangdUt(e.target.value)}}></input><br/>
+                        Huvudomfång (cm) <input type="number" required value={huvudomfang_ut} onChange={(e) => {setHuvudomfangUt(e.target.value)}}></input><br />
                         Mamma vill amma: <input type="checkbox" checked={mamma_vill_amma_ut} onChange={(e) => {setMammaAmmaUt(e.target.checked)}}></input><br></br>
                         Amning: 
                             H<input type="checkbox" checked={amning_utskrivning == "H"} class="helt" onChange={() => {threeCheck(amning_utskrivning, setAmningUt, "H")}}></input>
