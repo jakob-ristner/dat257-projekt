@@ -21,12 +21,12 @@ const Registration = () => {
     const [amning_inskrivning, setAmningIn] = useState(null);
     const [erhaller_bmjolk_in, setBmjolkIn] = useState(null);
     const [v_sond_in, setVsondIn] = useState(null);
-    const [infart_in, setInfartIn] = useState();
-    const [andningsstod_in, setAndningsIn] = useState();
+    const [infart_in, setInfartIn] = useState("");
+    const [andningsstod_in, setAndningsIn] = useState("");
     const [extraGas_in, setExtraGasIn] = useState(null);
     const [riskpatient, setRiskPatient] = useState(null);
     const [bvcRapportering, setBvcRapportering] = useState(null);
-    const [bvcText, setBvcText] = useState();
+    const [bvcText, setBvcText] = useState("");
     //protocolID, regDate, reason, ifyllnadkollad, registrerad,
     //veckor, dagar, vikt_fodelse, langd_fodelse, 
     //huvudomfang_fodelse, vikt_inskrivning, langd_inskrivning,

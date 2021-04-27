@@ -16,16 +16,16 @@ const Discharge = (useParams) => {
 
 
     //constants for setting discharge params
-    const [outDate, setOutDate] = useState();
-    const [vikt_utskrivning, setViktUt] = useState();
-    const [langd_utskrivning, setLangdUt] = useState();
-    const [huvudomfang_ut, setHuvudomfangUt] = useState();
+    const [outDate, setOutDate] = useState("");
+    const [vikt_utskrivning, setViktUt] = useState(0);
+    const [langd_utskrivning, setLangdUt] = useState(0);
+    const [huvudomfang_ut, setHuvudomfangUt] = useState(0);
     const [mamma_vill_amma_ut, setMammaAmmaUt] = useState();
     const [amning_utskrivning, setAmningUt] = useState();
     const [erhaller_bmjolk_ut, setErhallerBmjolkUt] = useState();
     const [v_sond_ut, setVsondUt] = useState();
-    const [infart_ut, setInfartUt] = useState();
-    const [andningsstod_ut, setAndningsstodUt] = useState();
+    const [infart_ut, setInfartUt] = useState("");
+    const [andningsstod_ut, setAndningsstodUt] = useState("");
     const [extraGas_ut, setExtraGasUt] = useState();
 
     // Data has been sent?
