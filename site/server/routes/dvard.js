@@ -1,5 +1,5 @@
 module.exports = function(app, pool) {
-    app.post("/digital-vardmote/add/:protocolID", async(req,res) => {
+    app.post("/digitalt-vardmote/add/:protocolID", async(req,res) => {
         try {
             const{protocolID} = req.params;
 
