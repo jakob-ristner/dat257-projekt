@@ -10,7 +10,7 @@ CREATE TABLE Registration (
     --Or how the id-number should be checked. 
     protocolID INT PRIMARY KEY,
     regDate DATE NOT NULL,
-    reason TEXT,
+    reason TEXT NOT NULL,
 
     --Bakgrundsdata
     veckor INT CHECK (veckor < 53 AND veckor > 0) NOT NULL,
@@ -20,21 +20,21 @@ CREATE TABLE Registration (
     huvudomfang_fodelse FLOAT CHECK (huvudomfang_fodelse > 0) NOT NULL,
 
     --Inskrivning till Neo-HSV
-    vikt_inskrivning INT CHECK (vikt_inskrivning >= 0) DEFAULT 0,
-    langd_inskrivning FLOAT CHECK (langd_inskrivning >= 0) DEFAULT 0,
-    huvudomfang_in FLOAT CHECK (huvudomfang_in >= 0) DEFAULT 0,
-    mamma_vill_amma BOOLEAN DEFAULT FALSE,
-    amning_inskrivning VARCHAR(2) CHECK (amning_inskrivning IN ('H', 'D', 'IA')),
-    erhaller_bmjolk_in VARCHAR(2) CHECK (erhaller_bmjolk_in IN ('H', 'D', 'IA')), 
-    v_sond_in BOOLEAN DEFAULT FALSE,
-    infart_in TEXT,
-    andningsstod_in TEXT,
-    extraGas_in BOOLEAN DEFAULT FALSE,
+    vikt_inskrivning INT CHECK (vikt_inskrivning >= 0) DEFAULT 0 NOT NULL,
+    langd_inskrivning FLOAT CHECK (langd_inskrivning >= 0) DEFAULT 0 NOT NULL,
+    huvudomfang_in FLOAT CHECK (huvudomfang_in >= 0) DEFAULT 0 NOT NULL,
+    mamma_vill_amma BOOLEAN DEFAULT FALSE NOT NULL,
+    amning_inskrivning VARCHAR(2) CHECK (amning_inskrivning IN ('H', 'D', 'IA')) NOT NULL,
+    erhaller_bmjolk_in VARCHAR(2) CHECK (erhaller_bmjolk_in IN ('H', 'D', 'IA')) NOT NULL, 
+    v_sond_in BOOLEAN DEFAULT FALSE NOT NULL,
+    infart_in TEXT NOT NULL,
+    andningsstod_in TEXT NOT NULL,
+    extraGas_in BOOLEAN DEFAULT FALSE NOT NULL,
 
     --Riskpatient
-    riskpatient BOOLEAN DEFAULT FALSE,
-    bvcRapportering BOOLEAN DEFAULT TRUE,
-    bvcText TEXT    
+    riskpatient BOOLEAN DEFAULT FALSE NOT NULL,
+    bvcRapportering BOOLEAN DEFAULT TRUE NOT NULL,
+    bvcText TEXT NOT NULL   
 );
 
 --utskrivning table
@@ -42,16 +42,16 @@ CREATE TABLE Discharge (
     protocolID INT PRIMARY KEY,
     FOREIGN KEY (protocolID) REFERENCES Registration(protocolID),
     outDate DATE NOT NULL,
-    vikt_utskrivning INT CHECK (vikt_utskrivning >= 0),
-    langd_utskrivning FLOAT CHECK (langd_utskrivning >= 0),
-    huvudomfang_ut FLOAT CHECK (huvudomfang_ut >= 0),
-    mamma_vill_amma_ut BOOLEAN,
-    amning_utskrivning VARCHAR(2) CHECK (amning_utskrivning IN ('H', 'D', 'IA')),
-    erhaller_bmjolk_ut VARCHAR(2) CHECK (erhaller_bmjolk_ut IN ('H', 'D', 'IA')), 
-    v_sond_ut BOOLEAN,
-    infart_ut TEXT,
-    andningsstod_ut TEXT,
-    extraGas_ut BOOLEAN
+    vikt_utskrivning INT CHECK (vikt_utskrivning >= 0) NOT NULL,
+    langd_utskrivning FLOAT CHECK (langd_utskrivning >= 0) NOT NULL,
+    huvudomfang_ut FLOAT CHECK (huvudomfang_ut >= 0) NOT NULL,
+    mamma_vill_amma_ut BOOLEAN NOT NULL,
+    amning_utskrivning VARCHAR(2) CHECK (amning_utskrivning IN ('H', 'D', 'IA')) NOT NULL,
+    erhaller_bmjolk_ut VARCHAR(2) CHECK (erhaller_bmjolk_ut IN ('H', 'D', 'IA')) NOT NULL, 
+    v_sond_ut BOOLEAN NOT NULL,
+    infart_ut TEXT NOT NULL,
+    andningsstod_ut TEXT NOT NULL,
+    extraGas_ut BOOLEAN NOT NULL
 );
 
 --test values
