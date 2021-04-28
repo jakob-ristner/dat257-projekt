@@ -30,6 +30,12 @@ INSERT INTO Dvard (protocolID, date_start_time, end_time, performed_by)
 INSERT INTO Dvard (protocolID, date_start_time, end_time, performed_by)
     VALUES ('111', '2020-02-27 00:30', '11:05', 'Olle');
 INSERT INTO Dvard (protocolID, date_start_time, end_time, performed_by)
+    VALUES ('111', '2021-03-26 17:00', '12:00', 'Hugo');
+INSERT INTO Dvard (protocolID, date_start_time, end_time, performed_by)
+    VALUES ('111', '2021-08-26 13:37', '23:59', 'Karl');
+INSERT INTO Dvard (protocolID, date_start_time, end_time, performed_by)
+    VALUES ('111', '2020-09-27 00:30', '11:05', 'Olof');
+INSERT INTO Dvard (protocolID, date_start_time, end_time, performed_by)
     VALUES ('112', '2021-03-02 15:00', '16:01', 'Åsa');
 INSERT INTO Dvard (protocolID, date_start_time, end_time, performed_by)
     VALUES ('112', '2021-01-01 17:25', '18:00', 'Erik');

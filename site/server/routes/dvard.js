@@ -73,7 +73,7 @@ module.exports = function(app, pool) {
                 to_char(end_time, 'HH24:MI') AS end_time, performed_by, amning_nutrition, stodsamtal, 
                 viktkontroll, annat_mote, lakare, logoped, dietist, kurator, annan_resurs, avvikelse
                 FROM Dvard
-                WHERE protocolID = $1
+                WHERE protocolID = $1 ORDER BY date_start_time DESC
             `, [protocolID]);
 
             res.json(allNavdigvard.rows);

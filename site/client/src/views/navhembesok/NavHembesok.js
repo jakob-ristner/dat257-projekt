@@ -97,8 +97,8 @@ const NavHembesok = (useParams) => {
                 
         
             {showListHembesok.reverse().map((form, index) => (
-                <div class="hembesok">
-                    <button class="edit" onClick={() => 
+                <div class="container">
+                    <button id="edit" onClick={() => 
                     {window.location="/hembesok/edit/" + form.id}}> Redigera </button> <br/>
                     <div class="info">
                     Hembesöksnr: {totHembesok.length - (index + hembIndex)}<br/>
