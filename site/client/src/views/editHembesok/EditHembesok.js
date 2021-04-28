@@ -22,6 +22,7 @@ const EditHembesok = (useParams) => {
     const [logoped, set_logoped] = useState(false);
     const [dietist, set_dietist] = useState(false);
     const [av_logistik, set_av_logistik] = useState(false);
+    const [kurator, set_kurator] = useState(false);
     const [annan_resurs, set_annan_resurs] = useState("");
 
     const [av_barn_familj, set_av_barn_familj] = useState(false);
@@ -48,6 +49,7 @@ const EditHembesok = (useParams) => {
                 set_lakemedel(ehemb.lakare);
                 set_logoped(ehemb.logoped);
                 set_dietist(ehemb.dietist);
+                set_kurator(ehemb.kurator);
                 set_av_logistik(ehemb.av_logistik);
                 set_av_barn_familj(ehemb.av_barn_familj);
                 set_av_personal(ehemb.av_personal);
@@ -81,6 +83,7 @@ const EditHembesok = (useParams) => {
              lakare,
              logoped,
              dietist,
+             kurator,
              av_logistik,
              av_barn_familj,
              av_personal,
@@ -130,6 +133,7 @@ const getHembData = () => {
                     Läkare: <input type="checkbox" checked={lakare} onChange={(e) => {set_lakare(e.target.checked)}}></input><br/>
                     Logoped: <input type="checkbox" checked={logoped} onChange={(e) => {set_logoped(e.target.checked)}}></input><br/>
                     Dietist: <input type="checkbox" checked={dietist} onChange={(e) => {set_dietist(e.target.checked)}}></input><br/>
+                    Kurator: <input type="checkbox" checked={kurator} onChange={(e) => {set_kurator(e.target.checked)}}></input><br/>
                     Annan resurs: <input value={annan_resurs} onChange={(e) => {set_annan_resurs(e.target.value)}}></input><br/>
                     </div>
 

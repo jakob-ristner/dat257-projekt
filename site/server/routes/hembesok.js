@@ -17,6 +17,7 @@ module.exports = function(app, pool) {
                 lakare,
                 logoped,
                 dietist,
+                kurator,
                 annan_resurs,
                 av_logistik,
                 av_barn_familj,
@@ -40,6 +41,7 @@ module.exports = function(app, pool) {
             console.log(protokollnr);
             const {at_family, from_family, performed_by, amning_nutrition, stodsamtal, viktkontroll, provtagning, lakemedel,annan_at,lakare,logoped,
                 dietist,
+                kurator,
                 annan_resurs,
                 av_logistik, 
                 av_barn_familj,
@@ -59,15 +61,17 @@ module.exports = function(app, pool) {
                 lakare,
                 logoped,
                 dietist,
+                kurator,
                 annan_resurs,
                 av_logistik, 
                 av_barn_familj,
                 av_personal,
                 av_beskrivning
                 ) 
-			VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18)`, [protokollnr, 
+			VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19)`, [protokollnr, 
                 at_family, from_family, performed_by, amning_nutrition, stodsamtal, viktkontroll, provtagning, lakemedel,annan_at,lakare,logoped,
                 dietist,
+                kurator,
                 annan_resurs,
                 av_logistik, 
                 av_barn_familj,
@@ -102,6 +106,7 @@ module.exports = function(app, pool) {
                 lakare,
                 logoped,
                 dietist,
+                kurator,
                 annan_resurs,
                 av_logistik,
                 av_barn_familj,
@@ -127,7 +132,7 @@ module.exports = function(app, pool) {
             const {at_family, from_family, performed_by, 
                 amning_nutrition, stodsamtal, viktkontroll, provtagning, 
                 lakemedel,annan_at,lakare,logoped, dietist, annan_resurs,
-                av_logistik, av_barn_familj, av_personal, av_beskrivning} = req.body;
+                av_logistik, av_barn_familj, av_personal, av_beskrivning, kurator} = req.body;
            // console.log(body);
             const updateHembesok = await pool.query(
             `UPDATE Hembesok 
@@ -147,7 +152,8 @@ module.exports = function(app, pool) {
             av_logistik = $15,
             av_barn_familj = $16,
             av_personal = $17,
-            av_beskrivning = $18
+            av_beskrivning = $18,
+            kurator = $19
             WHERE id =$1`, [id, at_family, from_family, performed_by, amning_nutrition, stodsamtal, viktkontroll, 
                 provtagning, lakemedel,annan_at,lakare,logoped,
                 dietist,
@@ -155,7 +161,7 @@ module.exports = function(app, pool) {
                 av_logistik, 
                 av_barn_familj,
                 av_personal,
-                av_beskrivning]);
+                av_beskrivning, kurator]);
             
             res.json("Updated"); // updateHembesok, rows
 

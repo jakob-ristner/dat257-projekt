@@ -16,6 +16,7 @@ const AddHembesok = (useParams) => {
     const [lakare, set_lakare] = useState(false);
     const [logoped, set_logoped] = useState(false);
     const [dietist, set_dietist] = useState(false);
+    const [kurator, set_kurator] = useState(false);
     const [av_logistik, set_av_logistik] = useState(false);
     const [av_barn_familj, set_av_barn_familj] = useState(false);
     const [av_personal, set_av_personal] = useState(false);
@@ -40,6 +41,7 @@ const AddHembesok = (useParams) => {
             lakare,
             logoped,
             dietist,
+            kurator,
             av_logistik,
             av_barn_familj,
             av_personal,
@@ -89,6 +91,7 @@ const AddHembesok = (useParams) => {
                     Läkare: <input type="checkbox" checked={lakare} onChange={(e) => {set_lakare(e.target.checked)}}></input><br/>
                     Logoped: <input type="checkbox" checked={logoped} onChange={(e) => {set_logoped(e.target.checked)}}></input><br/>
                     Dietist: <input type="checkbox" checked={dietist} onChange={(e) => {set_dietist(e.target.checked)}}></input><br/>
+                    Kurator: <input type="checkbox" checked={kurator} onChange={(e) => {set_kurator(e.target.checked)}}></input><br/>
                     Annan resurs: <input value={annan_resurs} onChange={(e) => {set_annan_resurs(e.target.value)}}></input><br/>
                     </div>
 
