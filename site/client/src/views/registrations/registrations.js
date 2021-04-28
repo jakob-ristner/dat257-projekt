@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useState} from "react";
+import {getTriple, getInput, getYesNo, threeCheck, validateMulti} from "../../utils/inputs.js"
 
 
 const Registration = () => {
@@ -46,7 +47,6 @@ const Registration = () => {
 
     const submitRegistation = async(e) => {
         e.preventDefault();
-        
         try {
             const body = {
                 protocolID, 
@@ -99,8 +99,6 @@ const Registration = () => {
     return (
         <Fragment>
            
-            
-           
                 <form onSubmit={submitRegistation}>    
                 <div class="form">
                     <div class="protokollID" id="protokollID">
@@ -111,15 +109,15 @@ const Registration = () => {
                         Anledning för inskrivning:<input type="text" required value={reason} id="reason" onChange={(e) => {setReason(e.target.value)}}></input>
                     </div>
             
-           
-            
                 <div class="bakgrundsdata" id="bakgrundsdata">
                 <h1>Födelsedata </h1>
-                    Barnets gestationsvecka: <input type="number" required value={veckor} onChange={(e) => {setVeckor(e.target.value)}}></input><br></br>
-                    Dagar: <input type="number" required value={dagar} onChange={(e) => {setDagar(e.target.value)}}></input><br></br>
-                    Födelsevikt:  <input type="number" required value={vikt_fodelse} onChange={(e) => {setViktFodelse(e.target.value)}}></input><br></br>
-                    Födelselängd: <input type="number" required value={langd_fodelse} onChange={(e) => {setLangdFodelse(e.target.value)}}></input><br></br>
-                    Födelsehuvudomfång: <input type="number" required value={huvudomfang_fodelse} onChange={(e) => {setHuvudomfangFodelse(e.target.value)}}></input><br></br>
+                {getInput("InskrivningsDatum", "date", true, regDate, setRegDate)}
+                {getInput("Anledning för inskrivning", "text", true, reason, setReason)}
+                {getInput("Barnets gestationsvecka", "number", true, veckor, setVeckor, 22, 44)}
+                {getInput("dagar", "number", true, dagar, setDagar,0,6)} <br/>
+                {getInput("Födelsevikt (gram)", "number", true, vikt_fodelse, setViktFodelse, 250, 6000)}
+                {getInput("Födelselängd (cm)", "number", true, langd_fodelse, setLangdFodelse, 15, 60)}
+                {getInput("Födelsehuvudomfång", "number", true, huvudomfang_fodelse, setHuvudomfangFodelse, 15, 50)}
                 </div>
             
             <div class="inskrivning"  id="inskrivning">
@@ -129,37 +127,24 @@ const Registration = () => {
                 vikt (gram) <input type="number" required value={vikt_inskrivning} onChange={(e) => {setViktIn(e.target.value)}}/><br/>
                 längd (cm) <input type="number" required value={langd_inskrivning} onChange={(e) => {setLangdIn(e.target.value)}}></input><br/>
                 Huvudomfång (cm) <input type="number" required value={huvudomfang_in} onChange={(e) => {setHuvudIn(e.target.value)}}></input><br/>
-                Mamma vill amma: 
-                    ja <input type="checkbox" class="ja" checked={mamma_vill_amma == true} onChange={() => threeCheck(mamma_vill_amma, setMammaAmma, true)} /> 
-                    nej <input type="checkbox" class="nej" checked={mamma_vill_amma == false} onChange={() => threeCheck(mamma_vill_amma, setMammaAmma, false)}/> <br/>
-                Amning: 
-                    H<input type="checkbox" checked={amning_inskrivning == "H"} class="helt" onChange={() => {threeCheck(amning_inskrivning, setAmningIn, "H")}}></input>
-                    D<input type="checkbox" checked={amning_inskrivning == "D"} class="delvis" onChange={() => {threeCheck(amning_inskrivning, setAmningIn, "D")}}></input>
-                    IA<input type="checkbox" checked={amning_inskrivning == "IA"} class="inte alls" onChange={() => {threeCheck(amning_inskrivning, setAmningIn, "IA")}}></input>
-                    <br></br>
-                Erhåller bröstmjölk:
-                    H<input type="checkbox" checked={erhaller_bmjolk_in== "H"} class="helt" onChange={() => {threeCheck(erhaller_bmjolk_in, setBmjolkIn, "H")}}></input>
-                    D<input type="checkbox" checked={erhaller_bmjolk_in == "D"} class="delvis" onChange={() => {threeCheck(erhaller_bmjolk_in, setBmjolkIn, "D")}}></input>
-                    IA<input type="checkbox" checked={erhaller_bmjolk_in == "IA"} class="inte alls" onChange={() => {threeCheck(erhaller_bmjolk_in, setBmjolkIn, "IA")}}></input>
-                    <br></br>
-                Barnet har v-sond: ja <input type="checkbox" class="ja" checked={v_sond_in == true} onChange={() => threeCheck(v_sond_in, setVsondIn, true)} /> 
-                        nej <input type="checkbox" class="nej" checked={v_sond_in == false} onChange={() => threeCheck(v_sond_in, setVsondIn, false)} /> <br />
+                {getYesNo("Mamma vill amma", mamma_vill_amma, setMammaAmma)}    
+                {getTriple("Amning", amning_inskrivning, setAmningIn)}
+                {getTriple("Erhåller bröstmjölk", erhaller_bmjolk_in, setBmjolkIn)} 
+
+                {getYesNo("Barnet har v-sond", v_sond_in, setVsondIn)} 
                 Barnet har infart(Ange typ av infart) <input type="text" value={infart_in} onChange={(e) => {setInfartIn(e.target.value)}}></input><br></br>
                 Andningsstöd (ange form) <input type="text" value={andningsstod_in} onChange={(e) => {setAndningsIn(e.target.value)}}></input><br></br>
-                Extra syrgasbehov: 
-                    ja <input type="checkbox" class="ja" checked={extraGas_in == true} onChange={() => threeCheck(extraGas_in, setExtraGasIn, true)} /> 
-                    nej <input type="checkbox" class="nej" checked={extraGas_in == false} onChange={() => threeCheck(extraGas_in, setExtraGasIn, false)} /> <br />
+                {getYesNo("Extra syrgasbehov", extraGas_in, setExtraGasIn)}
             </div>
             
     
             <div class="bottom" id="bottom">
-                Riskpatient  :
-                    ja <input type="checkbox" class="ja" checked={riskpatient == true} onChange={() => threeCheck(riskpatient, setRiskPatient, true)} /> 
-                    nej <input type="checkbox" class="nej" checked={riskpatient == false} onChange={() => threeCheck(riskpatient, setRiskPatient, false)} /> <br />
-                Överrapportering till BVC i hemmet  ja <input type="checkbox" class="ja" checked={bvcRapportering == true} onChange={() => threeCheck(bvcRapportering, setBvcRapportering, true)} /> 
-                    nej <input type="checkbox" class="nej" checked={bvcRapportering == false} onChange={() => threeCheck(bvcRapportering, setBvcRapportering, false)} /> Om nej ange orsak:
+                {getYesNo("RiskPatient", riskpatient, setRiskPatient)}
+                {getYesNo("Överraportering till BVC i Hemmet", bvcRapportering, setBvcRapportering)}
+                Om nej ange orsak:
+                
                 <input type="text" value={bvcText} onChange={(e) => {setBvcText(e.target.value)}}></input>
-                <input type="submit" class="button1" ></input>
+                <input type="submit" class="button1" onClick = {validateMulti()}></input>
             </div>
         
 
