@@ -1,12 +1,12 @@
 module.exports = function(app, pool) {
     
-    //get hembesok
+    //get ALL hembesok as an array
     app.get("/hembesok/:id", async(req, res) => {
         try {
             const { id } = req.params;
             const allHembesok  = await pool.query(
                 `SELECT id, to_char(at_family, 'HH24:MI') AS at_family, 
-                to_char(from_family, 'HH24:MI') AS from_family, 
+                to_char(from_family, 'HH24:MI') AS end_time, 
                 to_char(from_family, 'yyyy-mm-dd') AS date,
                 amning_nutrition,
                 stodsamtal,
@@ -85,7 +85,7 @@ module.exports = function(app, pool) {
 	});
 
 
-    //get previous hembesok
+    //get a specific hembesok
     app.get("/hembesok/edit/:id", async (req, res) => {
         try {
             const {id} = req.params;
@@ -123,7 +123,7 @@ module.exports = function(app, pool) {
     });
 
 
-    //Edit hembesok
+    //Update a hembesok entry in DB
     app.put("/hembesok/edit/:id", async (req, res) => {
 
         try {

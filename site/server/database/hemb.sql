@@ -39,22 +39,22 @@ INSERT INTO Hembesok (protokollnr, at_family, from_family, performed_by)
     VALUES ('111', '2021-04-12 13:00', '2021-04-12 16:00', 'Mary');
 
 INSERT INTO Hembesok (protokollnr, at_family, from_family, performed_by)
-    VALUES ('111', '2021-03-12 15:00', '2021-03-12 16:00', 'Jane');
+    VALUES ('111', '2021-03-12 15:00', '2021-03-12 17:00', 'Jane');
 
 INSERT INTO Hembesok (protokollnr, at_family, from_family, performed_by)
     VALUES ('111', '2021-03-12 15:00', '2021-03-12 16:00', 'Jane');
 
 INSERT INTO Hembesok (protokollnr, at_family, from_family, performed_by)
-    VALUES ('111', '2021-03-12 15:00', '2021-03-12 16:00', 'Jane');
+    VALUES ('111', '2021-03-12 15:00', '2021-03-12 18:00', 'Jane');
 
 INSERT INTO Hembesok (protokollnr, at_family, from_family, performed_by)
-    VALUES ('111', '2021-03-12 15:00', '2021-03-12 16:00', 'Jane');
+    VALUES ('111', '2021-03-12 15:00', '2021-03-12 20:00', 'Jane');
 
 INSERT INTO Hembesok (protokollnr, at_family, from_family, performed_by)
-    VALUES ('111', '2021-03-12 15:00', '2021-03-12 16:00', 'John');
+    VALUES ('111', '2021-03-12 15:00', '2021-03-12 15:30', 'John');
 
 INSERT INTO Hembesok (protokollnr, at_family, from_family, performed_by)
-    VALUES ('111', '2021-03-12 15:00', '2021-03-12 16:00', 'Anton');
+    VALUES ('111', '2021-03-12 15:00', '2021-03-12 19:00', 'Anton');
 
 INSERT INTO Hembesok (protokollnr, at_family, from_family, performed_by)
     VALUES ('222', '2021-03-12 15:00', '2021-03-12 16:00', 'A');

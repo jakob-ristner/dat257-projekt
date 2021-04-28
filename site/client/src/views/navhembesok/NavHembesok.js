@@ -104,7 +104,7 @@ const NavHembesok = (useParams) => {
                     Hembesöksnr: {totHembesok.length - (index + hembIndex)}<br/>
                     Datum utfört: {form.date} <br/>
                     Kl till familj: {form.at_family}<br/>
-                    Kl från familj: {form.from_family}<br/>
+                    Kl från familj: {form.end_time}<br/>
                     Utförd av: {form.performed_by}<br/><br/>
                     </div>
 
