@@ -51,7 +51,7 @@ const Discharge = (useParams) => {
             const response = await fetch(
                 "http://localhost:5000/registration/" + id);
             const jsonData = await response.json();
-            setRegistration(jsonData);
+            setRegistration(jsonData[0]);
           //  setIndividualReg();
         } catch (error) {
             console.error(error);
@@ -162,6 +162,12 @@ const Discharge = (useParams) => {
         }
     }
 
+    const editButton = () => {
+        return(
+            <button class="button1" id="editButton" onClick={() => {window.location = "/registration/edit/" + id}}>Redigera</button>
+        )
+    }
+
     //The HTML document returned to the browser
     return (
         <Fragment>
@@ -169,65 +175,63 @@ const Discharge = (useParams) => {
              <div id = "homeButton"><Home/></div>
 
              <div class="formDischarge">
-             {fullRegistration.map(form => (
+             
 
                 <form>
                     <div class="formDischarge2">
                     <div class="header" id="header">
-                    <h1>Protokoll ID </h1>
+                         <h1>Protokoll ID </h1>
                         <label for="protocolID">ProtokollID:</label>
                         <input type="number"
-                            value={form.protocolid}
+                            value={fullRegistration.protocolid}
                             id="protokollID">
                         </input><br></br>
                 
                 
                         <label for="reason">Anledning för inskrivning:</label>
-                        <input type="text" value={form.reason} id="reason"></input>
+                        <input type="text" value={fullRegistration.reason} id="reason"></input>
                     </div>
           
 
                     <div class="bakgrundsdata" id="bakgrundsdata">
                     <h1>Födelsedata </h1>
-                        Barnets gestationsvecka: <input type="number" required value={form.veckor} ></input><br></br>
-                        Dagar:<input type="number" required value={form.dagar} ></input><br></br>
-                        Födelsevikt:  <input type="number" required value={form.vikt_fodelse} ></input><br></br>
-                        Födelselängd: <input type="number" required value={form.langd_fodelse} ></input><br></br>
-                        Födelsehuvudomfång: <input type="number" required value={form.huvudomfang_fodelse} ></input><br></br>
+                        Barnets gestationsvecka: <input type="number" required value={fullRegistration.veckor} ></input><br></br>
+                        Dagar:<input type="number" required value={fullRegistration.dagar} ></input><br></br>
+                        Födelsevikt:  <input type="number" required value={fullRegistration.vikt_fodelse} ></input><br></br>
+                        Födelselängd: <input type="number" required value={fullRegistration.langd_fodelse} ></input><br></br>
+                        Födelsehuvudomfång: <input type="number" required value={fullRegistration.huvudomfang_fodelse} ></input><br></br>
                     </div>
 
                     <div class="Inskrivning" id="Inskrivning">
                     <h1>Inskrivning </h1>
                          <label for="regDate">Inskrivningsdatum:</label>
 
-                        <input type="date" required value={form.regdate} id="date" ></input><br></br>
-                        vikt (gram) <input type="number" required value={form.vikt_inskrivning} ></input><br />
-                        längd (cm) <input type="number" required value={form.langd_inskrivning} ></input><br />
-                        Huvudomfång (cm) <input type="number" required value={form.huvudomfang_in} ></input><br />
-                        Mamma vill amma: <input type="checkbox" checked={form.mamma_vill_amma} ></input><br></br>
+                        <input type="date" required value={fullRegistration.regdate} id="date" ></input><br></br>
+                        vikt (gram) <input type="number" required value={fullRegistration.vikt_inskrivning} ></input><br />
+                        längd (cm) <input type="number" required value={fullRegistration.langd_inskrivning} ></input><br />
+                        Huvudomfång (cm) <input type="number" required value={fullRegistration.huvudomfang_in} ></input><br />
+                        Mamma vill amma: <input type="checkbox" checked={fullRegistration.mamma_vill_amma} ></input><br></br>
                         
-                        Amning: <input type="text" value={form.amning_inskrivning} ></input><br></br>
-                        Erhåller bröstmjölk: <input type="text" value={form.erhaller_bmjolk_in} ></input><br></br>
-                        Barnet har v-sond: <input type="checkbox" checked={form.v_sond_in} ></input><br></br>
-                        Barnet har infart(Ange typ av infart) <input type="text" value={form.infart_in} ></input><br></br>
-                        Andningsstöd (ange form) <input type="text" value={form.andningsstod_in} ></input><br></br>
-                        Extra syrgasbehov: <input type="checkbox" checked={form.extragas_in} ></input><br></br>
+                        Amning: <input type="text" value={fullRegistration.amning_inskrivning} ></input><br></br>
+                        Erhåller bröstmjölk: <input type="text" value={fullRegistration.erhaller_bmjolk_in} ></input><br></br>
+                        Barnet har v-sond: <input type="checkbox" checked={fullRegistration.v_sond_in} ></input><br></br>
+                        Barnet har infart(Ange typ av infart) <input type="text" value={fullRegistration.infart_in} ></input><br></br>
+                        Andningsstöd (ange form) <input type="text" value={fullRegistration.andningsstod_in} ></input><br></br>
+                        Extra syrgasbehov: <input type="checkbox" checked={fullRegistration.extragas_in} ></input><br></br>
                     </div>
 
                     <div class="riskpatient" id="riskpatient">
-                        Riskpatient <input type="checkbox" checked={form.riskpatient} ></input><br></br>
-                        Överrapportering till BVC i hemmet <input type="checkbox" checked={form.bvcrapportering} ></input><br></br>
-                        Om nej ange orsak<input type="text" value={form.bvcText} ></input><br></br>
-                        <button class="button1" onClick={() => {window.location = "/registration/edit/" + id}}> Redigera </button> 
+                        Riskpatient <input type="checkbox" checked={fullRegistration.riskpatient} ></input><br></br>
+                        Överrapportering till BVC i hemmet <input type="checkbox" checked={fullRegistration.bvcrapportering} ></input><br></br>
+                        Om nej ange orsak<input type="text" value={fullRegistration.bvcText} ></input><br></br>
                     </div>
                     </div>
                 </form>
                 
-
-            ))}
+            {editButton()}
                
            
-                    
+ 
 
             <div class="discharge" id="discharge" >
                 <h1>Utskrivning</h1>
@@ -238,7 +242,9 @@ const Discharge = (useParams) => {
                         vikt (gram) <input type="number" required value={vikt_utskrivning} onChange={(e) => {setViktUt(e.target.value)}} ></input><br/>
                         längd (cm) <input type="number" required value={langd_utskrivning} onChange={(e) => {setLangdUt(e.target.value)}}></input><br/>
                         Huvudomfång (cm) <input type="number" required value={huvudomfang_ut} onChange={(e) => {setHuvudomfangUt(e.target.value)}}></input><br />
-                        Mamma vill amma: <input type="checkbox" checked={mamma_vill_amma_ut} onChange={(e) => {setMammaAmmaUt(e.target.checked)}}></input><br></br>
+                        Mamma vill amma:  
+                            Ja <input type="checkbox" class="ja" checked={mamma_vill_amma_ut == true} onChange={() => threeCheck(mamma_vill_amma_ut, setMammaAmmaUt, true)} /> 
+                            Nej <input type="checkbox" class="nej" checked={mamma_vill_amma_ut == false} onChange={() => threeCheck(mamma_vill_amma_ut, setMammaAmmaUt, false)} /> <br />
                         Amning: 
                             H<input type="checkbox" checked={amning_utskrivning == "H"} class="helt" onChange={() => {threeCheck(amning_utskrivning, setAmningUt, "H")}}></input>
                             D<input type="checkbox" checked={amning_utskrivning == "D"} class="delvis" onChange={() => {threeCheck(amning_utskrivning, setAmningUt, "D")}}></input>
@@ -261,7 +267,7 @@ const Discharge = (useParams) => {
                     </form>
                     {submitEdit()}
             </div>
-        </div>
+        </div>       
         </Fragment>
     );
 

@@ -158,8 +158,8 @@ const Registration = () => {
                     nej <input type="checkbox" class="nej" checked={riskpatient == false} onChange={() => threeCheck(riskpatient, setRiskPatient, false)} /> <br />
                 Överrapportering till BVC i hemmet  ja <input type="checkbox" class="ja" checked={bvcRapportering == true} onChange={() => threeCheck(bvcRapportering, setBvcRapportering, true)} /> 
                     nej <input type="checkbox" class="nej" checked={bvcRapportering == false} onChange={() => threeCheck(bvcRapportering, setBvcRapportering, false)} /> Om nej ange orsak:
-                <input type="text" value={bvcText} onChange={(e) => {setBvcText(e.target.value)}}></input>
-                <input type="submit" class="button1" ></input>
+                <input type="text" value={bvcText} onChange={(e) => {setBvcText(e.target.value)}}></input><br></br>
+                <button type="submit" class="button1" >Spara</button>
             </div>
         
 
