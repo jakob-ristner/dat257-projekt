@@ -85,7 +85,7 @@ const Discharge = (useParams) => {
                 setVsondUt(dis.v_sond_ut);
                 setInfartUt(dis.infart_ut);
                 setAndningsstodUt(dis.andningsstod_ut);
-                setExtraGasUt(dis.extraGas_ut);
+                setExtraGasUt(dis.extragas_ut);
             }
            // console.log(dis);
            
