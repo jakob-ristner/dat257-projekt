@@ -20,9 +20,10 @@ class NavDigVard extends React.Component {
     }
 
     incIndex() {
+        var offset = Math.min(this.state.data.length, 3);
         this.setState({
             data: this.state.data,
-            index: Math.min(this.state.index + 1, this.state.data.length - 3)
+            index: Math.min(this.state.index + 1, this.state.data.length - offset)
         })
     } 
 
@@ -45,10 +46,11 @@ class NavDigVard extends React.Component {
     }
 
     earlierButton() {
+        var offset = Math.min(this.state.data.length, 3);
         if (this.state.data.length === 0) {
             return;
         }
-        if (this.state.index === this.state.data.length - 3) {
+        if (this.state.index === this.state.data.length - offset) {
             return (<button onClick={() => this.incIndex()} disabled="true"> Tidigare digitala vårdmöten </button>);
         } 
         return (<button onClick={() => this.incIndex()}> Tidigare digitala vårdmöten</button>);
