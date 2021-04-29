@@ -123,13 +123,12 @@ const Registration = () => {
             <div class="inskrivning"  id="inskrivning">
                    <h1>Inskrivning </h1>
                 {getInput("InskrivningsDatum", "date", true, regDate, setRegDate)}
-                vikt (gram) <input type="number" required value={vikt_inskrivning} onChange={(e) => {setViktIn(e.target.value)}}/><br/>
-                längd (cm) <input type="number" required value={langd_inskrivning} onChange={(e) => {setLangdIn(e.target.value)}}></input><br/>
-                Huvudomfång (cm) <input type="number" required value={huvudomfang_in} onChange={(e) => {setHuvudIn(e.target.value)}}></input><br/>
+                {getInput("Vikt (g)", "number", true, vikt_inskrivning, setViktIn)}
+                {getInput("Längd (cm)", "number", true, langd_inskrivning, setLangdIn)}
+                {getInput("Huvudomfång (cm)", "number", true, huvudomfang_in, setHuvudIn)}
                 {getYesNo("Mamma vill amma", mamma_vill_amma, setMammaAmma)}    
                 {getTriple("Amning", amning_inskrivning, setAmningIn)}
                 {getTriple("Erhåller bröstmjölk", erhaller_bmjolk_in, setBmjolkIn)} 
-
                 {getYesNo("Barnet har v-sond", v_sond_in, setVsondIn)} 
                 Barnet har infart(Ange typ av infart) <input type="text" value={infart_in} onChange={(e) => {setInfartIn(e.target.value)}}></input><br></br>
                 Andningsstöd (ange form) <input type="text" value={andningsstod_in} onChange={(e) => {setAndningsIn(e.target.value)}}></input><br></br>
