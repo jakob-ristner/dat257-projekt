@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState} from "react";
 import Navigation from "../components/navigationButtons";
 import Home from "../components/HomeButton";
 import "./registrations.css";
+import {getTriple, getInput, getYesNo, threeCheck, validateMulti} from "../../utils/inputs.js"
 
 const Discharge = (useParams) => {
     //Constants for getting the registration form
@@ -118,7 +119,7 @@ const Discharge = (useParams) => {
     //Method for submitting the discharge form
     const submitDischarge = async(e) => {
         e.preventDefault();
-        
+
         
         try {
             const body = {
@@ -151,7 +152,9 @@ const Discharge = (useParams) => {
     }
 
     const submitEdit = () => {
+
         if(dataSent) {
+        
             return(
                 <button class="button1" onClick={() => {window.location = "/registration/edit/" + id}}>Redigera</button>
             )
@@ -257,7 +260,6 @@ const Discharge = (useParams) => {
                         Extra syrgasbehov: 
                             Ja <input type="checkbox" class="ja" checked={extraGas_ut == true} onChange={() => threeCheck(extraGas_ut, setExtraGasUt, true)} /> 
                             Nej <input type="checkbox" class="nej" checked={extraGas_ut == false} onChange={() => threeCheck(extraGas_ut, setExtraGasUt, false)} /> <br />
-                        
                     </form>
                     {submitEdit()}
             </div>

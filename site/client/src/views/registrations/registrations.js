@@ -36,11 +36,14 @@ const Registration = () => {
     
     
     //Method for ensuring that only one tickbox can be ticked at once
-    const threeCheck = (state, setState, value) => {
-        if (state == value) {
-            setState(null);
+
+    
+    const validateBvc = (checked) => {
+        console.log(checked);
+        if (checked && document.getElementById("orsak").value == "") {
+            document.getElementById("orsak").setCustomValidity("Fyll i detta fält");
         } else {
-            setState(value);
+            document.getElementById("orsak").setCustomValidity("");
         }
     }
     
@@ -105,16 +108,13 @@ const Registration = () => {
                     <h1>Protokoll ID</h1>
                         <label for="protocolID">ProtkollID:</label>
                         <input type="number" required value={protocolID} onChange={(e) => {setProtocolID(e.target.value)} }></input><br></br>
-
-                        Anledning för inskrivning:<input type="text" required value={reason} id="reason" onChange={(e) => {setReason(e.target.value)}}></input>
+                        {getInput("Anledning för inskrivning", "text", true, reason, setReason)}
                     </div>
             
                 <div class="bakgrundsdata" id="bakgrundsdata">
                 <h1>Födelsedata </h1>
-                {getInput("InskrivningsDatum", "date", true, regDate, setRegDate)}
-                {getInput("Anledning för inskrivning", "text", true, reason, setReason)}
                 {getInput("Barnets gestationsvecka", "number", true, veckor, setVeckor, 22, 44)}
-                {getInput("dagar", "number", true, dagar, setDagar,0,6)} <br/>
+                {getInput("dagar", "number", true, dagar, setDagar,0,6)}
                 {getInput("Födelsevikt (gram)", "number", true, vikt_fodelse, setViktFodelse, 250, 6000)}
                 {getInput("Födelselängd (cm)", "number", true, langd_fodelse, setLangdFodelse, 15, 60)}
                 {getInput("Födelsehuvudomfång", "number", true, huvudomfang_fodelse, setHuvudomfangFodelse, 15, 50)}
@@ -122,8 +122,7 @@ const Registration = () => {
             
             <div class="inskrivning"  id="inskrivning">
                    <h1>Inskrivning </h1>
-                   <label for="regDate">Inskrivningsdatum:</label>
-                        <input type="date" required value={regDate} id="date" onChange={(e) => setRegDate(e.target.value)} ></input><br></br>
+                {getInput("InskrivningsDatum", "date", true, regDate, setRegDate)}
                 vikt (gram) <input type="number" required value={vikt_inskrivning} onChange={(e) => {setViktIn(e.target.value)}}/><br/>
                 längd (cm) <input type="number" required value={langd_inskrivning} onChange={(e) => {setLangdIn(e.target.value)}}></input><br/>
                 Huvudomfång (cm) <input type="number" required value={huvudomfang_in} onChange={(e) => {setHuvudIn(e.target.value)}}></input><br/>
@@ -140,10 +139,41 @@ const Registration = () => {
     
             <div class="bottom" id="bottom">
                 {getYesNo("RiskPatient", riskpatient, setRiskPatient)}
-                {getYesNo("Överraportering till BVC i Hemmet", bvcRapportering, setBvcRapportering)}
-                Om nej ange orsak:
+                <div className="multi">
+                Överraportering till bvc:
+                    ja <input type="checkbox"  class="ja" checked={bvcRapportering == true}
+                        onChange={(e) => {
+                            threeCheck(bvcRapportering, setBvcText, true)
+                            if (e.target.checked == true) {
+                                validateBvc(false);
+                                setBvcText("");
+                            } else {
+                                validateBvc(false);
+                                setBvcText(null);
+                            }
+                        }} /> 
+                    nej <input id="bvcnej" type="checkbox"  class="nej" checked={bvcRapportering == false}
+                        onChange={(e) => {
+                            threeCheck(bvcRapportering, setBvcRapportering, false)
+                            if (e.target.checked == false) {
+                                validateBvc(false);
+                                setBvcText("");
+                            } else {
+                                validateBvc(true);
+                                setBvcText(null);
+                            }
+                        }} />
+                </div>
                 
-                <input type="text" value={bvcText} onChange={(e) => {setBvcText(e.target.value)}}></input>
+                Om nej ange orsak: <input id="orsak" type="text" value={bvcText} onChange={(e) => {
+                    if (bvcRapportering == false) {
+                        validateBvc(true); // kinda ugly dont care bye bye
+                        setBvcText(e.target.value)
+                    } else {
+                        validateBvc(false);
+                    }
+
+                }}/>
                 <input type="submit" class="button1" onClick = {validateMulti()}></input>
             </div>
         
