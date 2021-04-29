@@ -80,6 +80,7 @@ const NavHembesok = (useParams) => {
         setIdnr(totHembesok.length - (index + hembIndex));
     }
     */
+    var offset = showListHembesok.length - 1;
     return (
         <Fragment>
             <h1>Protokollnummer: {id} </h1>
@@ -97,7 +98,7 @@ const NavHembesok = (useParams) => {
                 
         
             {showListHembesok.reverse().map((form, index) => (
-                <div class="container">
+                <div class="container" id={"item" + (offset-index)}>
                     <button id="edit" onClick={() => 
                     {window.location="/hembesok/edit/" + form.id}}> Redigera </button> <br/>
                     <div class="info">

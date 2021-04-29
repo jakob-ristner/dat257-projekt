@@ -64,7 +64,7 @@ class NavDigVard extends React.Component {
         <div class = "grid">
         <div class="list">
         {sliced.map((form, i) => { return(
-            <div className="container">
+            <div className="container" id={"item" + i}>
                 <button id="edit" onClick={() =>
                 {window.location = "/digital-vardmote/edit/" + form.id}
                 }> Redigera </button>

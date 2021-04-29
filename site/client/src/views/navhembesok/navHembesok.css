@@ -29,6 +29,7 @@ body {
   display: grid;
   grid-template-columns: 20% 20% 20% 20% 20%;
   grid-template-rows: 33% 33% auto;
+
 }
 
 .container input {
@@ -90,3 +91,4 @@ body {
 .editSave:hover {
   background-color: rgb(96, 230, 96);
 }
+
