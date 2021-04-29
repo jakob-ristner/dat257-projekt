@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect, useState} from "react";
-import {useParams} from "react-router-dom"; 
+import {useParams} from "react-router-dom";
+import "./editHembesok.css";
 
 const EditHembesok = (useParams) => {
     const {hembesokid} = useParams.match.params;
@@ -110,8 +111,8 @@ const getHembData = () => {
         <Fragment>
             <h1>Redigera hembesök med id {hembesokid}</h1>
             <button class="editHembesok" onClick={() =>{window.location="/hembesok/" + protokollnr} }>Avbryt</button>
-            <div class="hembesok">
         <form onSubmit={updateHemb}> 
+        <div class="gridHembesok">
              <div class="info">
                    <h2>Protokollnummer: {protokollnr}</h2> 
                    Datum utfört: <input required type="date" value={date_performed} onChange={(e) => {set_date_performed(e.target.value)}}></input><br/>
@@ -149,8 +150,8 @@ const getHembData = () => {
                         }}></input><br/>
                     </div>
                     <button class="editSave">Spara</button>
+                    </div>
         </form>
-        </div> 
         </Fragment>
     );
     }
