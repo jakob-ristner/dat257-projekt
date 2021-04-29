@@ -47,13 +47,11 @@ class NavDigVard extends React.Component {
 
     earlierButton() {
         var offset = Math.min(this.state.data.length, 3);
+        var disabled = this.state.index === this.state.data.length - offset;
         if (this.state.data.length === 0) {
             return;
         }
-        if (this.state.index === this.state.data.length - offset) {
-            return (<button onClick={() => this.incIndex()} disabled="true"> Tidigare digitala vårdmöten </button>);
-        } 
-        return (<button onClick={() => this.incIndex()}> Tidigare digitala vårdmöten</button>);
+        return (<button onClick={() => this.incIndex()} disabled={disabled}> Tidigare digitala vårdmöten </button>);
     }
     
 
