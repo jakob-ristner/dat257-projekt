@@ -25,11 +25,9 @@ body {
 }
 
 .container {
-  border: solid;
   display: grid;
   grid-template-columns: 20% 20% 20% 20% 20%;
   grid-template-rows: 33% 33% auto;
-
 }
 
 .container input {
@@ -39,6 +37,29 @@ body {
 .container #edit {
   grid-column-start: 5;
   font-size: 16px;
+  border: none;
+  color: white;
+  padding: 12px 26px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 15px;
+  background-color: #314a94;
+  border-style: solid;
+  border-color: #131f42;
+  border-width: 2px;
+  }
+
+
+ #edit:hover {
+    background-color: #0f2154;
+  }
+  
+  #edit:active {
+    background-color: #0f2154;
+    box-shadow: 0 0 5px 3px #666;
+    transform: translateY(4px);
   }
 
 .container .info {
@@ -92,3 +113,27 @@ body {
   background-color: rgb(96, 230, 96);
 }
 
+#item0.container {
+  box-shadow:  0 -6px 10px -5px rgba(0,0,0,0.7);
+  background-color: #d9ddec;
+  padding: 12px 7px 7px 7px;
+  border-left: 5px solid royalblue;
+  margin-top: 10px;
+  border-bottom: 2px solid slategray;
+  
+}
+
+#item1.container {
+  background-color: #e9ebf1;
+  padding: 7px;
+  border-left: 5px solid #2c4dad;
+  border-bottom: 2px solid slategray;
+}
+
+#item2.container {
+  background-color: #d9ddec;
+  padding: 7px 7px 12px 7px;
+  border-left: 5px solid royalblue;
+  margin-bottom: 10px;
+  box-shadow:  0 6px 10px -5px rgba(0,0,0,0.7);
+}

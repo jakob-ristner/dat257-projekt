@@ -65,9 +65,9 @@ class NavDigVard extends React.Component {
         <div class="list">
         {sliced.map((form, i) => { return(
             <div className="container" id={"item" + i}>
-                <button id="edit" onClick={() =>
+                <button  id="edit" onClick={() =>
                 {window.location = "/digital-vardmote/edit/" + form.id}
-                }> Redigera </button>
+                }> Redigera </button >
                 
             <div className="info">
                 Digitalt Vårdmöte nr: {i + this.state.data.length - this.state.index + offset} <br/>
@@ -81,7 +81,7 @@ class NavDigVard extends React.Component {
             Amning: <input type="checkbox" checked={form.amning_nutrition}/> <br/>
             Stödsamtal: <input type="checkbox" checked={form.stodsamtal}/> <br/>
             Viktkontroll: <input type="checkbox" checked={form.viktkontroll}/> <br/>
-            Annat: {form.annat_mote} <br/>
+            Annat: <input value = {form.annat_mote}></input> <br/>
             </div>
 
             <div className="resurs">
@@ -89,10 +89,10 @@ class NavDigVard extends React.Component {
             Logoped: <input type="checkbox" checked={form.logoped}/> <br/>
             Dietist: <input type="checkbox" checked={form.dietist}/> <br/>
             Kurator: <input type="checkbox" checked={form.kurator}/> <br/>
-            Annan resurs: {form.annan_resurs} <br/>
+            Annan resurs: <input value = {form.annan_resurs}></input> <br/>
             </div>
             <div className="avvik">
-            Avvikelser: {form.avvikelse} <br/>
+            Avvikelser: <input value = {form.avvikelse}></input> <br/>
             </div>
             </div>
         )})}
