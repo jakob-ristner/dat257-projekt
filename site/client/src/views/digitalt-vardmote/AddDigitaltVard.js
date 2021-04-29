@@ -74,13 +74,13 @@ const AddDigitaltVard = (useParams) => {
                 Datum utfört: <input required type="date" value={date} onChange={(e) => {set_date(e.target.value)}}></input><br/>
                 Start klockan: <input required type="time" value={start_time} onChange={(e) => {set_start_time(e.target.value)}}></input><br/>
                 Avslutad klockan: <input required type="time" value={end_time} onChange={(e) => {set_end_time(e.target.value)}}></input><br/>
-                Utförd av: <input required type="text" value={performed_by} onChange={(e) => {set_performed_by(e.target.value)}}></input><br/><br/>
+                Utförd av: <input required placeholder="Sköterske-ID" type="text" value={performed_by} onChange={(e) => {set_performed_by(e.target.value)}}></input><br/><br/>
             </div>
 
             <div class="checkboxes">
                 <div className="multi">
                 Amning-/nutrionssamtal: <input class="distance" type="checkbox" checked={amning_nutrition} onChange={(e) => {set_amning_nutrition(e.target.checked)}}></input>
-                Stödsamtal: <input class="distance" type="checkbox" checked={stodsamtal} onChange={(e) => {set_stodsamtal(e.target.checked)}}></input>
+                Stödsamtal: <input class="distance"  type="checkbox" checked={stodsamtal} onChange={(e) => {set_stodsamtal(e.target.checked)}}></input>
                 Viktkontroll: <input class="distance" type="checkbox" checked={viktkontroll} onChange={(e) => {set_viktkontroll(e.target.checked)}}></input><br/> 
                 
                 Annat möte: Ja<input class="distance" type="checkbox" checked={annat_motes} onChange={(e) => {
@@ -89,7 +89,7 @@ const AddDigitaltVard = (useParams) => {
                         set_annat_mote("")
                     }}}></input>
                 Om Ja: <input type="text" value={annat_mote} onChange={(e) => {
-                     if (annat_motes == true){
+                    if (annat_motes == true){
                         set_annat_mote(e.target.value)
                     }}}></input><br/><br/>
                 </div>
