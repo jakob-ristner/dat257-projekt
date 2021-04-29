@@ -1,4 +1,6 @@
 import React, { Fragment } from "react";
+import Navigation from "../components/navigationButtons";
+import HomeButton from "../components/HomeButton";
 
 class NavDigVard extends React.Component {
     
@@ -54,17 +56,21 @@ class NavDigVard extends React.Component {
     
 
     render() {
+        var sliced = this.state.data.slice(this.state.index, this.state.index + 3).reverse();
+        var offset = 1 - sliced.length;
         return ( <Fragment>
-        {this.earlierButton()}
         <h1>Protkollnummer: {this.protocolID}</h1>
-        {this.state.data.slice(this.state.index, this.state.index + 3).reverse().map((form, i) => { return(
+        {this.earlierButton()}
+        <div class = "grid">
+        <div class="list">
+        {sliced.map((form, i) => { return(
             <div className="container">
                 <button id="edit" onClick={() =>
                 {window.location = "/digital-vardmote/edit/" + form.id}
                 }> Redigera </button>
                 
             <div className="info">
-                Digitalt Vårdmöte nr: {i + this.state.data.length - this.state.index - 2} <br/>
+                Digitalt Vårdmöte nr: {i + this.state.data.length - this.state.index + offset} <br/>
                 Datum: {form.date} <br/>
                 Starttid: {form.start_time} <br/>
                 Sluttid: {form.end_time} <br/>
@@ -90,7 +96,14 @@ class NavDigVard extends React.Component {
             </div>
             </div>
         )})}
+         </div>
+         <div class = "navigation"><Navigation id={this.protocolID}/></div>
+         <div id = "homeButton"><HomeButton/></div>
+         </div>
     {this.laterButton()}
+         <button onClick={() => 
+        {window.location="/digital-vardmote/add/" + this.protocolID}}>Skapa nytt digitalt vårdmöte</button>
+
     </Fragment>);
     }
 }

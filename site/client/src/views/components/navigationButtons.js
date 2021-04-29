@@ -43,16 +43,16 @@ const Navigation = (params) => {
         )
     }
     const getNavigationDigitalaVardmot = () => {
-        if (isInPath("digitalvardmote")) {
+        if (isInPath("digital-vardmote")) {
             return (
             <button disabled class = "navigationButton"  onClick={() => {
-                window.location = "/digitalvardmote/" + id;
+                window.location = "/digital-vardmote/" + id;
             }}> Digitalt Vårdmöte </button>
             )
         }
         return (
             <button class = "navigationButton"  onClick={() => {
-                window.location = "/digitalvardmote/" + id;
+                window.location = "/digital-vardmote/" + id;
             }}> Digitalt Vårdmöte </button>
         )
     }

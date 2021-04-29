@@ -5,7 +5,7 @@ body {
 .grid {
   display: grid;
   grid-template-columns: 70% 20%;
-  grid-template-rows: 60% 60%;
+
 }
 .navigation {
   grid-column: 3;
@@ -21,11 +21,11 @@ body {
 }
 #root {
   grid-column-start: 2;
+
 }
 
 .container {
-  border-style: solid;
-
+  border: solid;
   display: grid;
   grid-template-columns: 20% 20% 20% 20% 20%;
   grid-template-rows: 33% 33% auto;
@@ -38,7 +38,7 @@ body {
 .container #edit {
   grid-column-start: 5;
   font-size: 16px;
-}
+  }
 
 .container .info {
   grid-column-start: 1;
