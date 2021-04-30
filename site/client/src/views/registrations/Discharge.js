@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState} from "react";
 import Navigation from "../components/navigationButtons";
 import Home from "../components/HomeButton";
 import "./registrations.css";
+import {getTriple, getInput, getYesNo, threeCheck, validateMulti} from "../../utils/inputs.js"
 
 const Discharge = (useParams) => {
     //Constants for getting the registration form
@@ -31,18 +32,6 @@ const Discharge = (useParams) => {
     // Data has been sent?
     const [dataSent, setDataSent] = useState(false);
     
-
-
-
-       
-    //Method for ensuring that only one tickbox can be ticked at once
-    const threeCheck = (state, setState, value) => {
-        if (state == value) {
-            setState(null);
-        } else {
-            setState(value);
-        }
-    }
     
 
     //Method for  getting the registration form
@@ -87,7 +76,8 @@ const Discharge = (useParams) => {
                 setAndningsstodUt(dis.andningsstod_ut);
                 setExtraGasUt(dis.extragas_ut);
             }
-           // console.log(dis);
+            
+           console.log(dis);
            
             //console.log(jsonData.outdate);
             //console.log(outDate);
@@ -118,7 +108,7 @@ const Discharge = (useParams) => {
     //Method for submitting the discharge form
     const submitDischarge = async(e) => {
         e.preventDefault();
-        
+
         
         try {
             const body = {
@@ -134,6 +124,7 @@ const Discharge = (useParams) => {
                 andningsstod_ut, 
                 extraGas_ut
             };
+
     
             const response = await fetch('http://localhost:5000/discharge/' + id, { 
                     method: 'POST',
@@ -157,7 +148,7 @@ const Discharge = (useParams) => {
             )
         }else{
             return(
-                <button class="button1" onClick={submitDischarge}>Spara utskrivning</button>
+                <button type = "submit" class="button1" onClick={validateMulti()}>Spara utskrivning</button>
             )
         }
     }
@@ -231,41 +222,23 @@ const Discharge = (useParams) => {
             {editButton()}
                
            
- 
-
-            <div class="discharge" id="discharge" >
+               <div class="discharge" id="discharge" >r
                 <h1>Utskrivning</h1>
-                <form >
-                <label for="outDate">Utskrivningsdatum</label>
-                        <input type="date" value={outDate} onChange={(e) => {setOutDate(e.target.value)}}></input>
-                        <br></br>
-                        vikt (gram) <input type="number" required value={vikt_utskrivning} onChange={(e) => {setViktUt(e.target.value)}} ></input><br/>
-                        längd (cm) <input type="number" required value={langd_utskrivning} onChange={(e) => {setLangdUt(e.target.value)}}></input><br/>
-                        Huvudomfång (cm) <input type="number" required value={huvudomfang_ut} onChange={(e) => {setHuvudomfangUt(e.target.value)}}></input><br />
-                        Mamma vill amma:  
-                            Ja <input type="checkbox" class="ja" checked={mamma_vill_amma_ut == true} onChange={() => threeCheck(mamma_vill_amma_ut, setMammaAmmaUt, true)} /> 
-                            Nej <input type="checkbox" class="nej" checked={mamma_vill_amma_ut == false} onChange={() => threeCheck(mamma_vill_amma_ut, setMammaAmmaUt, false)} /> <br />
-                        Amning: 
-                            H<input type="checkbox" checked={amning_utskrivning == "H"} class="helt" onChange={() => {threeCheck(amning_utskrivning, setAmningUt, "H")}}></input>
-                            D<input type="checkbox" checked={amning_utskrivning == "D"} class="delvis" onChange={() => {threeCheck(amning_utskrivning, setAmningUt, "D")}}></input>
-                            IA<input type="checkbox" checked={amning_utskrivning == "IA"} class="inte alls" onChange={() => {threeCheck(amning_utskrivning, setAmningUt, "IA")}}></input>
-                            <br></br>
-                        Erhåller bröstmjölk :
-                            H<input type="checkbox" checked={erhaller_bmjolk_ut == "H"} class="helt" onChange={() => {threeCheck(erhaller_bmjolk_ut, setErhallerBmjolkUt, "H")}}></input>
-                            D<input type="checkbox" checked={erhaller_bmjolk_ut == "D"} class="delvis" onChange={() => {threeCheck(erhaller_bmjolk_ut, setErhallerBmjolkUt, "D")}}></input>
-                            IA<input type="checkbox" checked={erhaller_bmjolk_ut == "IA"} class="inte alls" onChange={() => {threeCheck(erhaller_bmjolk_ut, setErhallerBmjolkUt, "IA")}}></input>
-                    <br></br>
-                        Barnet har v-sond: 
-                            Ja <input type="checkbox" class="ja" checked={v_sond_ut == true} onChange={() => threeCheck(v_sond_ut, setVsondUt, true)} /> 
-                            Nej <input type="checkbox" class="nej" checked={v_sond_ut == false} onChange={() => threeCheck(v_sond_ut, setVsondUt, false)} /> <br />
-                        Barnet har infart(Ange typ av infart) <input type="text" value={infart_ut} onChange={(e) => {setInfartUt(e.target.value)}}></input><br></br>
-                        Andningsstöd (ange form) <input type="text" value={andningsstod_ut} onChange={(e) => {setAndningsstodUt(e.target.value)}}></input><br></br>
-                        Extra syrgasbehov: 
-                            Ja <input type="checkbox" class="ja" checked={extraGas_ut == true} onChange={() => threeCheck(extraGas_ut, setExtraGasUt, true)} /> 
-                            Nej <input type="checkbox" class="nej" checked={extraGas_ut == false} onChange={() => threeCheck(extraGas_ut, setExtraGasUt, false)} /> <br />
-                        
+                <form onSubmit={submitDischarge}>
+                        {getInput("Utskrivningsdatum", "date", true, outDate, setOutDate)}
+                        {getInput("Vikt (g)", "number", true, vikt_utskrivning, setViktUt)}
+                        {getInput("Längd (cm)", "number", true, langd_utskrivning, setLangdUt)}
+                        {getInput("Huvudomfång (cm)", "number", true, huvudomfang_ut, setHuvudomfangUt)}
+                        {getYesNo("Mamma vill amma", mamma_vill_amma_ut, setMammaAmmaUt)}    
+                        {getTriple("Amning", amning_utskrivning, setAmningUt)}
+                        {getTriple("Erhåller bröstmjölk", erhaller_bmjolk_ut, setErhallerBmjolkUt)} 
+                        {getYesNo("Barnet har v-sond", v_sond_ut, setVsondUt)}
+                        {getInput("Barnet har infart", "text",false, infart_ut, setInfartUt)} 
+                        {getInput("Andningsstöd","text",false, andningsstod_ut, setAndningsstodUt)}
+                        {getYesNo("Extra syrgasbehov", extraGas_ut, setExtraGasUt)}
+                        {submitEdit()}
                     </form>
-                    {submitEdit()}
+                    
             </div>
         </div>       
         </Fragment>
