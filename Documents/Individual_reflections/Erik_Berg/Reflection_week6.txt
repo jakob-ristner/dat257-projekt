@@ -1,0 +1,27 @@
+INDIVIDUAL REFLECTION
+Erik Berg
+week 6
+
+* What do I want to learn or understand better?
+There hasn't been a lot of learning this week since the tasks I was assigned to 
+was more in line with things I had done before. However what I did learn was 
+about how to structure react code and more specifically how good react is at 
+combining javascript and HTML. Next week I would like to learn more about how
+our css and about how css in general works. To do this I will try to get assigned
+to tasks that consists of css work. 
+
+* How can I help someone else, or the entire team, to learn something new?
+I believe that still programming is my strongest suit and therefore that 
+that is the area in which i can help my teammembers best. I hope that I've
+been helpful in the team-programming with Anton, and I hope that I can continue
+with this in future weeks. 
+
+* What is my contribution towards the team's use of Scrum?
+My contribution this week towards Scrum has been taking part in
+testing and code review, and following the trello board. I think this
+is a good strategy and I will continue doing this in the future. 
+
+* What is my contribution towards the team's deliveries?
+This week I've been working on the add digitalt vårdmöte page. We completed
+all tasks that we we're assigned to and thus have done a good contribution
+to the deliveries this week. 

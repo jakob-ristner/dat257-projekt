@@ -1,0 +1,24 @@
+MEETING WITH PO
+Secretary: Erik Berg
+
+* Tobias Lindberg is infosec at neonatal hemsjukvård.
+
+* We show what we've done this week. They seem very happy. 
+    - want to continue with the next part of the project now. 
+    - Are talking about a new document that they might want to 
+    add to this project. We will think about this to future meetings. 
+
+* Talking about personal integrity and about what data we can store and 
+not. Tobias will give us a document that detailes laws and rules in 
+Sweden. 
+    - If we want to store personal data we need to have strong authentication
+    for the patients (parents in this case). 
+
+* What do we want to do next week:
+    - Get a part done, layout. 
+    - Complete digitalt vårdmöte. 
+    - Do the layout on the whole site.
+
+* Next meeting:
+    - 7/5 kl. 11.00.
+    - If 7/5 does not work out: 6/5 11.00
