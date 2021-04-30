@@ -6,7 +6,7 @@
     grid-template-columns:  auto auto auto;
     grid-template-rows: auto auto auto; 
   }
-
+/*TODO kanske ha protokollnumret utanför, kanske ta bort ID iom att id är det från.  */
   .gridHembesok {
     border-style: solid;
   
