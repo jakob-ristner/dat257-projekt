@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState} from "react";
 import {useParams} from "react-router-dom"; 
 import "./Digitalt-vardmote.css";
-import {validateMulti} from "../../utils/inputs.js";
+import {validateMulti} from "../../../utils/inputs.js";
 
 
 

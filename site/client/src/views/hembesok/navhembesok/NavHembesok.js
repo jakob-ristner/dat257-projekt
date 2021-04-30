@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState} from "react";
 import {useParams} from "react-router-dom"; import "./navHembesok.css"
-import Navigation from "../components/navigationButtons";
-import HomeButton from "../components/HomeButton";
+import Navigation from "../../components/navigationButtons";
+import HomeButton from "../../components/HomeButton";
 //import EditHembesok from "../editHembesok/EditHembesok"; //Redigeringsknappen
 
 const NavHembesok = (useParams) => {

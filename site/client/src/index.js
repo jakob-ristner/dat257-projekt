@@ -4,30 +4,25 @@ import { BrowserRouter, Route, Switch, useParams} from "react-router-dom";
 import './index.css';
 
 //views 
-import Home from './views/home/Home.js';
-import AddHembesok from "./views/addHembesok/AddHembesok";
-import EditHembesok from "./views/editHembesok/EditHembesok";
+import AddHembesok from "./views/hembesok/addHembesok/AddHembesok";
+import EditHembesok from "./views/hembesok/editHembesok/EditHembesok";
 
 import TestView from "./views/testView/TestView.js"
-import Patients from "./views/patients/Patients.js"
-import NavHembesok from "./views/navhembesok/NavHembesok.js"
+import NavHembesok from "./views/hembesok/navhembesok/NavHembesok.js"
 import Registrations from "./views/registrations/registrations.js";
 import Discharge from "./views/registrations/Discharge.js";
-import EditRegistration from "./views/editRegistration/EditRegistration.js"
-import AddDigitaltVard from "./views/digitalt-vardmote/AddDigitaltVard.js";
-import NavDigVard from "./views/navDigvard/navDigvard.js"
+import EditRegistration from "./views/registrations/editRegistration/EditRegistration.js"
+import AddDigitaltVard from "./views/digitalt-vardmote/add-dig-vard/AddDigitaltVard.js";
+import NavDigVard from "./views/digitalt-vardmote/navDigvard/navDigvard.js"
 
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(
      <BrowserRouter>
         <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/Patients" component={Patients} />
-
             <Route exact path="/Hembesok/:id" component={NavHembesok} />
 
-            <Route exact path ="/TestView" component ={TestView} />
+            <Route exact path ="/" component ={TestView} />
             <Route exact path ="/registration/edit/:id" component ={EditRegistration} />
 
             <Route exact path="/digitalt-vardmote/add/:protocolID" component={AddDigitaltVard} />

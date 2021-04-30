@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState} from "react";
-import {getTriple, getInput, getYesNo, threeCheck, validateMulti} from "../../utils/inputs.js"
+import {getTriple, getInput, getYesNo, threeCheck, validateMulti} from "../../../utils/inputs.js"
 
 
 const EditRegistration = (useParams) => {
