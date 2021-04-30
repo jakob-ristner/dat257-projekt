@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS Dvard;
 
+
 CREATE TABLE Dvard (
     id SERIAL PRIMARY KEY,
     protocolID INT NOT NULL,
@@ -19,7 +20,8 @@ CREATE TABLE Dvard (
     kurator BOOLEAN NOT NULL DEFAULT false,
     annan_resurs TEXT NOT NULL DEFAULT '',
 
-    avvikelse TEXT NOT NULL DEFAULT ''
+    avvikelse TEXT NOT NULL DEFAULT '',
+    UNIQUE(protocolID, date_start_time)
 );
 
 -- Test values

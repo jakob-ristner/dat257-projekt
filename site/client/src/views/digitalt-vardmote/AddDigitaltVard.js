@@ -19,9 +19,7 @@ const AddDigitaltVard = (useParams) => {
     const [amning_nutrition, set_amning_nutrition] = useState(false);
     const [stodsamtal, set_stodsamtal] = useState(false);
     const [viktkontroll, set_viktkontroll] = useState(false);
-    const [annat_ja, set_annat_ja] = useState(false);
     const [annat_motes, set_annat_motes] = useState(false);
-    const [annat_nej, set_annat_nej] = useState(true);
     const [annat_mote, set_annat_mote] = useState("");
     const [lakare, set_lakare] = useState(false);
     const [logoped, set_logoped] = useState(false);
@@ -103,7 +101,9 @@ const AddDigitaltVard = (useParams) => {
             </div>
 
         <div class="saveButton">
-        <button id="spara" type="submit" onClick={validateMulti}>Spara</button>
+        
+        <button id="spara" type="submit" onClick={//TODO link to the nav-site
+            validateMulti()}>Spara</button>
         </div>
         </div>
         </form>
