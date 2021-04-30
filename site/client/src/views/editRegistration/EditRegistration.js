@@ -229,7 +229,6 @@ const EditRegistration = (useParams) => {
 
             {getInput("InskrivningsDatum", "date", true, regDate, setRegDate)}
             {getInput("Anledning för inskrivning", "text", true, reason, setReason)}
-
             <h3>Vid Födelse:</h3>
 
             {getInput("Barnets gestationsvecka", "number", true, veckor, setVeckor, 21, 42)}
