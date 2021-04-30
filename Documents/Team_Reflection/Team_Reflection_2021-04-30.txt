@@ -1,0 +1,91 @@
+TEAM REFLECTION week 6
+Secretary: Anton Hansson
+
+------------------------------------------------------------------------------------------------------------
+CUSTOMER VALUE and SCOPE
+
+* Chosen scope of the application under development
+including the priority of features and for whom you
+are creating value:
+
+    Focus this week has been general clean_up and two added features. This was discussed and decided together with the PO 
+    during our last meeting.
+
+    The PO was satisfied with our work this sprint. Next sprint we will develop the edit view for digitalt vårdmöte and 
+    and the layout of hembesök and in-/utskrivning. They want the layout to be performed next week so that they can give their 
+    feedback early which enables us to iterate the process and provide a good end-result.
+
+*Success criteria
+    We changed our definition of done and worked more actively with testing. This had a big impact on our workflow
+    and will surely keep making a difference in the up-coming sprint.
+
+    The goal is to keep working the same way as we did this sprint but upscale the workload/efficiency in the coming sprints.
+
+*User Stories
+    Our estimation process was better this week. We should keep 
+
+    Tasks and acceptance-criteria have improved this sprint. It facilitates our development and coding as well as the
+    testing and reviewing process.
+
+    We're feeling that we are working more and more agile which is great!
+
+* Acceptance test
+
+    We split up our into testing-groups with one from each team where you showed your code and the deliveries you've worked on this week
+    This ensured that everything worked as it was supposed to do and that the code was understandable and feasible. This is also a way 
+    to spread knowledge with the entire group and make sure everyone understands all codelines even if they haven't developed or 
+    written it themselves. 
+
+    To next sprint: Create a template for testing so that it goes smooth and that every pair perform the testing in the same order. 
+
+    Comment: We have a new chat-channel for "known bugs" which makes all members aware of the bugs that someone stumbles upon and
+    makes it easier to fix for anyone. 
+
+* KPIs
+    Team satisfaction/happiness: Average 8.5
+
+    Userstories: 4/6 completed (done) 
+
+    Tasks: 19/22 completed (done)
+
+    Comments: Make sure to discuss the KPI:s on monday-meetings
+        On monday meetings we archive previous done tasks from the last sprint
+
+------------------------------------------------------------------------------------------------------------------
+
+SOCIAL CONTRACT and EFFORT
+* We skip this one this week since it hasn't changed
+much since last week. 
+
+--------------------------------------------------------------------------------------------------------------------
+DESIGN DECISIONS and PRODUCT STRUCTURE
+
+* Design decisions
+    We have changed the checkboxes to be more comprehensible and intuitive for the Stakeholders since they will use this 
+    product on a daily basis.
+
+* Technical Documentation
+    We have started documenting some of our code this week but need to do more as well as document code from previous sprints. 
+
+* How to ensure code quality and enforce coding standards
+   This week we tested and did code reviews which hopefully will lead to higher code quality and a better product.
+   This also improves all members' work since we can learn from each other and mimic ways to structure and such. 
+
+-------------------------------------------------------------------------------------------------------------------------
+APPLICATION OF SCRUM 
+
+*Roles
+    As of now we have decided to only have two designated roles.
+    Our Scrum master is Jakob R and Haris is our newly elected head of design. These roles help us work agile and
+    do prioritize according to the Stakeholders opinions and feedback.
+
+* Agile practices
+    We do more code review and testing which improves our use of "DoD".
+
+*Best practices for learning
+    We usually split into pairs where I- and IT-students work together which enables knowledge sharing across program borders
+    in the team and it's easier to get to know the members of the team that you haven't worked with before. 
+    It makes it easier to discuss and ask for help but also makes the meetings and coding-sessions more fun.
+
+
+

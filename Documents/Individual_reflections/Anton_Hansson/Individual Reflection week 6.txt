@@ -1,0 +1,26 @@
+Individual Reflection Anton week 5 
+
+What do I want to learn or understand better?
+
+    This week I've worked on a view similar to the first sprint. This made it much easier to develop and without any big
+    issues. I have done some css grid for the first time which was interesting. Next week we'll work more with the layout part so 
+    I feel that I need to learn more css in order to understand all parts that are needed to complete the next userstories. 
+    I will use google, youtube and ask my teammates to understand css better and contribute to our team deliveries next sprint.
+
+How can I help someone else, or the entire team, to learn something new?
+
+    I can help my teammates by coding together and discuss suitable soultions on our tasks.
+    I feel that code reviewing is a great way to help each other out. As well as discussions when the whole group is present
+    during monday meetings or the sprint reflection on fridays. 
+
+What is my contribution towards the team's use of scrum?
+	
+    This week we've added code review to our definition of done and together with testing this makes us work more agile.
+    I am part of all the effort estimations and when we reflect upon the last sprint in order to improve next sprint. 
+    I like the agile workstrategy and feel like I'm starting to understand it on a deeper level compared to the first week of the course. 
+ 	
+What is my contribution towards the team's deliveries?
+	
+    I coded together with Erik this week and we worked on add digitalt vårdmöte. The cooperation worked well and we 
+    completed all of our tasks. We also discussed and identified bugs from previous sprints which is an important part of 
+    ensuring code quality.  
