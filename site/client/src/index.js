@@ -31,7 +31,7 @@ ReactDOM.render(
             <Route exact path="/Hembesok/edit/:hembesokid" component={EditHembesok} />
             <Route exact path="/Registration" component={Registrations} />
             <Route exact path="/Registration/:id" component={Discharge} />
-            <Route exact path="/digital-vardmote/:protocolID" component={NavDigVard} />
+            <Route exact path="/digitalt-vardmote/:protocolID" component={NavDigVard} />
         </Switch>
     </BrowserRouter>,
     rootElement

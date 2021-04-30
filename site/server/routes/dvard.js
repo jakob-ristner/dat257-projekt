@@ -63,7 +63,7 @@ module.exports = function(app, pool) {
     })
 
 
-    app.get("/digital-vardmote/:protocolID", async(req, res) => {
+    app.get("/digitalt-vardmote/:protocolID", async(req, res) => {
         try {
             const {protocolID} = req.params;
             const allNavdigvard = await pool.query(

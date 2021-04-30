@@ -13,7 +13,7 @@ class NavDigVard extends React.Component {
             index: 0
         };
  
-        fetch('http://localhost:5000/digital-vardmote/' + this.protocolID)
+        fetch('http://localhost:5000/digitalt-vardmote/' + this.protocolID)
             .then(response => response.json())
             .then(data => this.setState({ data }));
            // .then(() => this.render());
@@ -66,7 +66,7 @@ class NavDigVard extends React.Component {
         {sliced.map((form, i) => { return(
             <div className="container" id={"item" + i}>
                 <button  id="edit" onClick={() =>
-                {window.location = "/digital-vardmote/edit/" + form.id}
+                {window.location = "/digitalt-vardmote/edit/" + form.id}
                 }> Redigera </button >
                 
             <div className="info">
@@ -102,7 +102,7 @@ class NavDigVard extends React.Component {
          </div>
     {this.laterButton()}
          <button onClick={() => 
-        {window.location="/digital-vardmote/add/" + this.protocolID}}>Skapa nytt digitalt vårdmöte</button>
+        {window.location="/digitalt-vardmote/add/" + this.protocolID}}>Skapa nytt digitalt vårdmöte</button>
 
     </Fragment>);
     }
