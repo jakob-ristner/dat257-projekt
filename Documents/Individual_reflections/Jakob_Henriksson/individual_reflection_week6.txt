@@ -1,0 +1,17 @@
+Individual reflection 2021-04-30
+
+what do I want to learn or understand better?
+-For this week we have decided to focus on the website layout, therefore my goal is getting better at that. I also want to learn how to do module-css.
+
+how can I help someone else, or the entire team, to learn something new?
+-Right now I can help people understand css better since I've gotten a hang of it, in the future I want to get even better at css. Other than  that I can contribute with my
+programming skills per usual.
+
+what is my contribution towards the team’s use of Scrum?
+-This week my contirbution has been making tasks and userstories on mondays, worked on them during the week and evaluated how it went. I still have the main role of 
+communicating with out product owner. In the future I want to become better att making userstories and tasks.
+
+what is my contribution towards the team’s deliveries?
+-This week me and Nima firstly worked on fixing our handling on null values in our database. We also made a setup file for all our sql files. We also worked on html constraints
+in registration and discharge which was needed, using Jakob Ristners util functions. Lastly we started working on css in edit hembesok.
+
