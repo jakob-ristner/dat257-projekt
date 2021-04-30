@@ -1,0 +1,18 @@
+Individual reflection - Haris Cehic
+Week 6 30/4
+
+What do I want to learn or understand better?
+
+This week I worked on a different side of the project that helped me learn some new stuff, both coding wise but also new insights into the project. Next week we will be focusing more on the design and format based on stakeholder inputs. Therefore I would like to learn more about CSS and HTML so we can deliver the best possible product for the end user. I will learn this mainly by digging into how it works even more but also learn by doing and the situations that need to be addressed.
+
+How can I help someone else, or the entire team, to learn something new?
+
+By always explaining the code I’ve written or the ideas we ensure in the group that everybody in the group understands and possibly even learns something new. I think we have been very good at doing this and the recipe going forward is to continue on this path. Also, it is important to take the initiative and ask if something is unclear so that someone can explain etc. 
+
+What is my contribution towards the team’s use of Scrum?
+
+I think we have evolved in our Scrum process. Mainly because this week we resolved some team issues and everybody has been participating on a more accepting level. Also we did testing and code reviews more thoroughly so that we can increase the quality of the code but also understand better what others have done and possibly learn something new. I’ve contributed in all of the meetings etc and had inputs so that we for each week can as a team enhance our use of Scrum.
+
+What is my contribution towards the team’s deliveries?
+
+This week as the others we worked in teams. As mentioned before it worked better and everybody was active this week which is good. Furthermore me and my team managed to finish our deliveries and I have also been participating and active in the sprint planning, review and meetings. 
