@@ -1,21 +1,3 @@
-.navigation {
-    grid-column: 3;
-    grid-row: 1 / 2;
-    left: 85%;
-    top: 35%;
-    position: absolute;
-  
-  }
-  #homeButton {
-    left: 2%;
-    top: 2%;
-    position: absolute;
-}
-
-body {
-  background-color: #f5f7ff;
-}
-
 .button1 {
   border: none;
   color: white;
@@ -31,7 +13,6 @@ body {
   border-style: solid;
   border-color: #131f42;
   border-width: 2px;
-  
 }
 
 .button1:hover {
@@ -44,22 +25,15 @@ body {
   transform: translateY(4px);
 }
 
-
-
-
-
-
-
 /*
 .header {
  
 }
 */
 
- /* grid-template-areas: 'registration registration discharge'
+/* grid-template-areas: 'registration registration discharge'
                        'registration registration discharge'
                        'registration registration discharge';*/
-
 
 /*
 .form .header{
@@ -84,9 +58,6 @@ body {
                        'bottom        bottom';
 }*/
 
-
-
-
 /*.form .bakgrundsdata{
   grid-column-start: 2;
 }*/
@@ -107,58 +78,58 @@ body {
   display: grid;
   grid-gap: 20px;
   font-family: Verdana, sans-serif;
-  grid-template-columns:  auto auto auto;
+  grid-template-columns: auto auto auto;
   grid-template-rows: auto auto auto;
 }
 
-.form .protokollID{
+.form .protokollID {
   grid-column-start: 1;
   grid-column-end: 1;
   grid-row-start: 1;
   grid-row-end: 1;
   background-color: #c2d1ff;
   border-radius: 15px;
-  box-shadow:0px 0px 30px 1px #a6a6a6;
+  box-shadow: 0px 0px 30px 1px #a6a6a6;
 }
 
-.form .bakgrundsdata{
+.form .bakgrundsdata {
   grid-column-start: 1;
   grid-column-end: 1;
   grid-row-start: 2;
   grid-row-end: 3;
   background-color: #c2d1ff;
   border-radius: 15px;
-  box-shadow:0px 0px 30px 1px #a6a6a6;
+  box-shadow: 0px 0px 30px 1px #a6a6a6;
 }
 
-.form .inskrivning{
+.form .inskrivning {
   grid-column-start: 2;
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 3;
   background-color: #c2d1ff;
   border-radius: 15px;
-  box-shadow:0px 0px 30px 1px #a6a6a6;
+  box-shadow: 0px 0px 30px 1px #a6a6a6;
 }
 
-.form .bottom  {
+.form .bottom {
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 3;
   grid-row-end: 3;
   background-color: #c2d1ff;
   border-radius: 15px;
-  box-shadow:0px 0px 30px 1px #a6a6a6;
- }
+  box-shadow: 0px 0px 30px 1px #a6a6a6;
+}
 
- .form .discharge{
+.form .discharge {
   grid-column-start: 3;
   grid-column-end: 3;
   grid-row-start: 1;
   grid-row-end: 4;
   background-color: #c2d1ff;
   border-radius: 15px;
-  box-shadow:0px 0px 30px 1px #a6a6a6;
+  box-shadow: 0px 0px 30px 1px #a6a6a6;
 }
 
 /* DISCHARGE.JS */
@@ -173,68 +144,68 @@ body {
 .formDischarge {
   display: grid;
   grid-gap: 10px;
-  grid-template-columns:  auto auto;
+  grid-template-columns: auto auto;
   grid-template-rows: auto auto auto;
 }
 .formDischarge2 {
   display: grid;
   grid-gap: 20px;
- 
+
   grid-template-columns: auto auto;
   grid-template-rows: auto auto auto;
 }
 
-.formDischarge2 .header{
+.formDischarge2 .header {
   grid-column-start: 1;
   grid-column-end: 1;
   grid-row-start: 1;
   grid-row-end: 1;
   background-color: #c2d1ff;
   border-radius: 15px;
-  box-shadow:0px 0px 30px 1px #a6a6a6;
+  box-shadow: 0px 0px 30px 1px #a6a6a6;
 }
 
-.formDischarge2 .bakgrundsdata{
+.formDischarge2 .bakgrundsdata {
   grid-column-start: 1;
   grid-column-end: 1;
   grid-row-start: 2;
   grid-row-end: 3;
   background-color: #c2d1ff;
   border-radius: 15px;
-  box-shadow:0px 0px 30px 1px #a6a6a6;
+  box-shadow: 0px 0px 30px 1px #a6a6a6;
 }
 
-.formDischarge2 .Inskrivning{
+.formDischarge2 .Inskrivning {
   grid-column-start: 2;
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 3;
   background-color: #c2d1ff;
   border-radius: 15px;
-  box-shadow:0px 0px 30px 1px #a6a6a6;
+  box-shadow: 0px 0px 30px 1px #a6a6a6;
 }
 
-.formDischarge2 .riskpatient  {
+.formDischarge2 .riskpatient {
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 3;
   grid-row-end: 3;
   background-color: #c2d1ff;
   border-radius: 15px;
-  box-shadow:0px 0px 30px 1px #a6a6a6;
- }
+  box-shadow: 0px 0px 30px 1px #a6a6a6;
+}
 
-#editButton{
+#editButton {
   grid-row: 2/3;
 }
- .formDischarge .discharge{
+.formDischarge .discharge {
   grid-column-start: 3;
   grid-column-end: 3;
   grid-row-start: 1;
   grid-row-end: 1;
   background-color: #c2d1ff;
   border-radius: 15px;
-  box-shadow:0px 0px 30px 1px #a6a6a6;
+  box-shadow: 0px 0px 30px 1px #a6a6a6;
 }
 
 #Inskrivning {
@@ -274,7 +245,6 @@ body {
 }
 
 h1 {
-  color:  #2e4380;
+  color: #2e4380;
   font-size: 140%;
 }
-

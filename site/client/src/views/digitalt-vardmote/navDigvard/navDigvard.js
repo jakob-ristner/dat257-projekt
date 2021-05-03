@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import Navigation from "../../components/navigationButtons";
 import HomeButton from "../../components/HomeButton";
+import layout from "../../cssModules/NavLayout.module.css";
 
 class NavDigVard extends React.Component {
     

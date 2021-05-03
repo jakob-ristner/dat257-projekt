@@ -1,7 +1,15 @@
+.test {
+  background-color: blue;
+}
+
 .grid {
   display: grid;
   grid-template-columns: 70% 20%;
 }
+/*
+#root {
+  grid-column-start: 2;
+}*/
 
 .container {
   display: grid;

@@ -3,3 +3,8 @@
   margin: 10px;
   height: 30px;
 }
+#homeButton {
+  left: 2%;
+  top: 2%;
+  position: absolute;
+}
