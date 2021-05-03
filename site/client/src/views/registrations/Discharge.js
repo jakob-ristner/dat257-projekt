@@ -159,6 +159,8 @@ const Discharge = (useParams) => {
         )
     }
 
+    console.log(fullRegistration);
+
     //The HTML document returned to the browser
     return (
         <Fragment>
@@ -201,20 +203,20 @@ const Discharge = (useParams) => {
                         vikt (gram) <input type="number" required value={fullRegistration.vikt_inskrivning} ></input><br />
                         längd (cm) <input type="number" required value={fullRegistration.langd_inskrivning} ></input><br />
                         Huvudomfång (cm) <input type="number" required value={fullRegistration.huvudomfang_in} ></input><br />
-                        Mamma vill amma: <input type="checkbox" checked={fullRegistration.mamma_vill_amma} ></input><br></br>
+                        {getYesNo("Mamma vill amma", fullRegistration.mamma_vill_amma, () => {})}
                         
-                        Amning: <input type="text" value={fullRegistration.amning_inskrivning} ></input><br></br>
-                        Erhåller bröstmjölk: <input type="text" value={fullRegistration.erhaller_bmjolk_in} ></input><br></br>
-                        Barnet har v-sond: <input type="checkbox" checked={fullRegistration.v_sond_in} ></input><br></br>
+                        {getTriple("Amning", fullRegistration.amning_inskrivning, () => {})}
+                        {getTriple("Amning", fullRegistration.erhaller_bmjolk_in, () => {})}
+                        {getYesNo("Barnet har ventrikelsond", fullRegistration.v_sond_in, () => {})}
                         Barnet har infart(Ange typ av infart) <input type="text" value={fullRegistration.infart_in} ></input><br></br>
                         Andningsstöd (ange form) <input type="text" value={fullRegistration.andningsstod_in} ></input><br></br>
-                        Extra syrgasbehov: <input type="checkbox" checked={fullRegistration.extragas_in} ></input><br></br>
+                        {getYesNo("Extra syrgasbehov", fullRegistration.extragas_in, () => {})}
                     </div>
 
                     <div class="riskpatient" id="riskpatient">
                         Riskpatient <input type="checkbox" checked={fullRegistration.riskpatient} ></input><br></br>
-                        Överrapportering till BVC i hemmet <input type="checkbox" checked={fullRegistration.bvcrapportering} ></input><br></br>
-                        Om nej ange orsak<input type="text" value={fullRegistration.bvcText} ></input><br></br>
+                        {getYesNo("Överrapportering till BVC i hemmet", fullRegistration.bvcrapportering, () => {})}
+                        Om nej ange orsak<input type="text" value={fullRegistration.bvctext} ></input><br></br>
                     </div>
                     </div>
                 </form>
