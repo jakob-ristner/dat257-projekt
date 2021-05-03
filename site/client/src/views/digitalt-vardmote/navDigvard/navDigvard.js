@@ -23,14 +23,14 @@ class NavDigVard extends React.Component {
         var offset = Math.min(this.state.data.length, 3);
         this.setState({
             data: this.state.data,
-            index: Math.min(this.state.index + 1, this.state.data.length - offset)
+            index: Math.min(this.state.index + 3, this.state.data.length - offset)
         })
     } 
 
     decIndex() {
         this.setState({
             data: this.state.data,
-            index: Math.max(this.state.index - 1, 0)
+            index: Math.max(this.state.index - 3, 0)
         })
     }
     
