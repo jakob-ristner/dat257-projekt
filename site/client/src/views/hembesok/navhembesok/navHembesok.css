@@ -5,7 +5,6 @@ body {
 .grid {
   display: grid;
   grid-template-columns: 70% 20%;
-
 }
 .navigation {
   grid-column: 3;
@@ -21,7 +20,6 @@ body {
 }
 #root {
   grid-column-start: 2;
-
 }
 
 .container {
@@ -49,18 +47,17 @@ body {
   border-style: solid;
   border-color: #131f42;
   border-width: 2px;
-  }
+}
 
+#edit:hover {
+  background-color: #0f2154;
+}
 
- #edit:hover {
-    background-color: #0f2154;
-  }
-  
-  #edit:active {
-    background-color: #0f2154;
-    box-shadow: 0 0 5px 3px #666;
-    transform: translateY(4px);
-  }
+#edit:active {
+  background-color: #0f2154;
+  box-shadow: 0 0 5px 3px #666;
+  transform: translateY(4px);
+}
 
 .container .info {
   grid-column-start: 1;
@@ -100,9 +97,6 @@ body {
 .editHembesok:hover {
   background-color: rgb(241, 241, 121);
 }
-.container input:hover {
-  background-color: rgb(224, 232, 240);
-}
 
 .editSave {
   padding: 4px 16px;
@@ -114,13 +108,12 @@ body {
 }
 
 #item0.container {
-  box-shadow:  0 -6px 10px -5px rgba(0,0,0,0.7);
+  box-shadow: 0 -6px 10px -5px rgba(0, 0, 0, 0.7);
   background-color: #d9ddec;
   padding: 12px 7px 7px 7px;
   border-left: 5px solid royalblue;
   margin-top: 10px;
   border-bottom: 2px solid slategray;
-  
 }
 
 #item1.container {
@@ -135,5 +128,5 @@ body {
   padding: 7px 7px 12px 7px;
   border-left: 5px solid royalblue;
   margin-bottom: 10px;
-  box-shadow:  0 6px 10px -5px rgba(0,0,0,0.7);
+  box-shadow: 0 6px 10px -5px rgba(0, 0, 0, 0.7);
 }
