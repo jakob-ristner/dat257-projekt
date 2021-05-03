@@ -6,10 +6,6 @@
   display: grid;
   grid-template-columns: 70% 20%;
 }
-/*
-#root {
-  grid-column-start: 2;
-}*/
 
 .container {
   display: grid;
@@ -96,7 +92,7 @@
   background-color: rgb(96, 230, 96);
 }
 
-#item0.container {
+#item0 {
   box-shadow: 0 -6px 10px -5px rgba(0, 0, 0, 0.7);
   background-color: #d9ddec;
   padding: 12px 7px 7px 7px;
@@ -105,14 +101,14 @@
   border-bottom: 2px solid slategray;
 }
 
-#item1.container {
+#item1 {
   background-color: #e9ebf1;
   padding: 7px;
   border-left: 5px solid #2c4dad;
   border-bottom: 2px solid slategray;
 }
 
-#item2.container {
+#item2 {
   background-color: #d9ddec;
   padding: 7px 7px 12px 7px;
   border-left: 5px solid royalblue;

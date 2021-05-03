@@ -1,94 +1,4 @@
-.grid {
-  display: grid;
-  grid-template-columns: 70% 20%;
-}
-
-.container {
-  display: grid;
-  grid-template-columns: 20% 20% 20% 20% 20%;
-  grid-template-rows: 33% 33% auto;
-}
-
-.container input {
-  max-width: 150px;
-}
-
-.container #edit {
-  grid-column-start: 5;
-  font-size: 16px;
-  border: none;
-  color: white;
-  padding: 12px 26px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  cursor: pointer;
-  border-radius: 15px;
-  background-color: #314a94;
-  border-style: solid;
-  border-color: #131f42;
-  border-width: 2px;
-}
-
-#edit:hover {
-  background-color: #0f2154;
-}
-
-#edit:active {
-  background-color: #0f2154;
-  box-shadow: 0 0 5px 3px #666;
-  transform: translateY(4px);
-}
-
-.container .info {
-  grid-column-start: 1;
-  grid-row-start: 1;
-  grid-row-end: 3;
-}
-
-.container .atgard {
-  grid-column-start: 2;
-  grid-row-start: 1;
-  grid-row-end: 3;
-}
-
-.container .resurs {
-  grid-column-start: 3;
-  grid-row-start: 1;
-  grid-row-end: 3;
-}
-
-.container .avvikning {
-  grid-column-start: 4;
-  grid-row-start: 1;
-  grid-row-end: 3;
-}
-
-.container input {
-  margin-right: 20px;
-  color: black;
-}
-
-.editHembesok {
-  grid-column-start: 5;
-  padding: 4px 16px;
-  transition: all 2s;
-}
-
-.editHembesok:hover {
-  background-color: rgb(241, 241, 121);
-}
-
-.editSave {
-  padding: 4px 16px;
-  transition: all 2s;
-}
-
-.editSave:hover {
-  background-color: rgb(96, 230, 96);
-}
-
-#item0.container {
+#item0 {
   box-shadow: 0 -6px 10px -5px rgba(0, 0, 0, 0.7);
   background-color: #d9ddec;
   padding: 12px 7px 7px 7px;
@@ -97,14 +7,14 @@
   border-bottom: 2px solid slategray;
 }
 
-#item1.container {
+#item1 {
   background-color: #e9ebf1;
   padding: 7px;
   border-left: 5px solid #2c4dad;
   border-bottom: 2px solid slategray;
 }
 
-#item2.container {
+#item2 {
   background-color: #d9ddec;
   padding: 7px 7px 12px 7px;
   border-left: 5px solid royalblue;

@@ -3,6 +3,7 @@ import {useParams} from "react-router-dom"; import "./navHembesok.css"
 import Navigation from "../../components/navigationButtons";
 import HomeButton from "../../components/HomeButton";
 //import EditHembesok from "../editHembesok/EditHembesok"; //Redigeringsknappen
+import layout from "../../cssModules/NavLayout.module.css";
 
 const NavHembesok = (useParams) => {
 
@@ -90,7 +91,7 @@ const NavHembesok = (useParams) => {
         
 
             {earlierButton()}
-            <div class = "grid">
+            <div class = {layout.grid}>
 
 
             
@@ -98,10 +99,10 @@ const NavHembesok = (useParams) => {
                 
         
             {showListHembesok.reverse().map((form, index) => (
-                <div class="container" id={"item" + (offset-index)}>
-                    <button id="edit" onClick={() => 
+                <div class={layout.container} id={"item" + (offset-index)}>
+                    <button id={layout.edit} onClick={() => 
                     {window.location="/hembesok/edit/" + form.id}}> Redigera </button> <br/>
-                    <div class="info">
+                    <div class={layout.info}>
                     Hembesöksnr: {totHembesok.length - (index + hembIndex)}<br/>
                     Datum utfört: {form.date} <br/>
                     Kl till familj: {form.at_family}<br/>
@@ -109,7 +110,7 @@ const NavHembesok = (useParams) => {
                     Utförd av: {form.performed_by}<br/><br/>
                     </div>
 
-                    <div class="atgard">
+                    <div class={layout.atgard}>
                     Amning/nutrition<input type="checkbox" checked={form.amning_nutrition}/>
                     Stödsamtal<input type="checkbox" checked={form.stodsamtal}/>
                     Viktkontroll<input type="checkbox" checked={form.viktkontroll}/> <br/>
@@ -118,7 +119,7 @@ const NavHembesok = (useParams) => {
                     Annan Åtgärd<input value={form.annan_at}/><br/><br/>
                     </div>
 
-                    <div class="resurs">
+                    <div class={layout.resurs}>
                     Läkare<input type="checkbox" checked={form.lakare}/>
                     Logoped<input type="checkbox" checked={form.logoped}/><br/>
                     Dietist<input type="checkbox" checked={form.dietist}/>
@@ -126,7 +127,7 @@ const NavHembesok = (useParams) => {
                     Annan Resurs<input value={form.annan_resurs}/> <br/><br/>
                     </div>
 
-                    <div class="avvikning">
+                    <div class={layout.avvikning}>
                     Avvikning Logistik<input type="checkbox" checked={form.av_logistik}/>
                     Avvikning Barn/Familj<input type="checkbox" checked={form.av_barn_familj}/><br/>
                     Avvikning Personal<input type="checkbox" checked={form.av_personal}/><br/>

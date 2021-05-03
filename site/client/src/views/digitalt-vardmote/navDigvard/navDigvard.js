@@ -62,15 +62,22 @@ class NavDigVard extends React.Component {
         return ( <Fragment>
         <h1>Protkollnummer: {this.protocolID}</h1>
         {this.earlierButton()}
-        <div class = "grid">
+        <div class = {layout.grid}>
         <div class="list">
         {sliced.map((form, i) => { return(
-            <div className="container" id={"item" + i}>
-                <button  id="edit" onClick={() =>
+            <div className={layout.container} id={"item" +i
+            /*switch (i){
+                case 0: 
+                    id={layout.item0};
+                    break;
+                default: 
+                    id={layout.item1};
+            }*/}>
+                <button  id={layout.edit} onClick={() =>
                 {window.location = "/digitalt-vardmote/edit/" + form.id}
                 }> Redigera </button >
                 
-            <div className="info">
+            <div className={layout.info}>
                 Digitalt Vårdmöte nr: {i + this.state.data.length - this.state.index + offset} <br/>
                 Datum: {form.date} <br/>
                 Starttid: {form.start_time} <br/>
@@ -78,21 +85,21 @@ class NavDigVard extends React.Component {
                 Utförd av: {form.performed_by} <br/>
             </div>
 
-            <div className="atgard">
+            <div className={layout.atgard}>
             Amning: <input type="checkbox" checked={form.amning_nutrition}/> <br/>
             Stödsamtal: <input type="checkbox" checked={form.stodsamtal}/> <br/>
             Viktkontroll: <input type="checkbox" checked={form.viktkontroll}/> <br/>
             Annat: <input value = {form.annat_mote}></input> <br/>
             </div>
 
-            <div className="resurs">
+            <div className={layout.resurs}>
             Läkare: <input type="checkbox" checked={form.lakare}/> <br/>
             Logoped: <input type="checkbox" checked={form.logoped}/> <br/>
             Dietist: <input type="checkbox" checked={form.dietist}/> <br/>
             Kurator: <input type="checkbox" checked={form.kurator}/> <br/>
             Annan resurs: <input value = {form.annan_resurs}></input> <br/>
             </div>
-            <div className="avvik">
+            <div className={layout.avvik}>
             Avvikelser: <input value = {form.avvikelse}></input> <br/>
             </div>
             </div>
