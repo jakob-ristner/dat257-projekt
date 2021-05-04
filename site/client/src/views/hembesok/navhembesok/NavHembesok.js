@@ -1,9 +1,9 @@
 import React, { Fragment, useEffect, useState} from "react";
-import {useParams} from "react-router-dom"; import "./navHembesok.css"
+import {useParams} from "react-router-dom"; 
 import Navigation from "../../components/navigationButtons";
 import HomeButton from "../../components/HomeButton";
-//import EditHembesok from "../editHembesok/EditHembesok"; //Redigeringsknappen
 import layout from "../../cssModules/NavLayout.module.css";
+import e from "cors";
 
 const NavHembesok = (useParams) => {
 
@@ -14,13 +14,16 @@ const NavHembesok = (useParams) => {
     //const [idnr, setIdnr] = useState([]);
 
     const getHembesok = async (index) => {
+        
         try {
             const response = await fetch(
             "http://localhost:5000/hembesok/" + id);
             const jsonData = await response.json();
-            setHembesok(jsonData.reverse());
-            showHembesok(jsonData.slice(index, index + 3).reverse());
+            const show = jsonData[0];
+            setHembesok(jsonData);
+            showHembesok(jsonData.slice(index, index + 3));
             console.log(jsonData);
+            console.log(show);
         } catch(err) {
             console.error(err);
         }
@@ -32,17 +35,21 @@ const NavHembesok = (useParams) => {
     }
     
     const decHembIndex = async () => {
-        setHembIndex(Math.max(hembIndex - 3, 0), getHembesok());
+        //setHembIndex(Math.max(hembIndex - 3, 0), getHembesok());
+        setHembIndex(Math.max(hembIndex - 3, 0));
         getHembesok(Math.max(hembIndex - 3, 0));
     }
 
     const laterButton = () => {
         if (totHembesok.length === 0) {
+            console.log("AAAAAAAAAAAAAH")
             return;
         }
         if (hembIndex === 0) {
+            console.log("Second if statement!")
             return (<button onClick={() => decHembIndex()} disabled="true">Senare hembesök </button>);
         }
+        console.log("no if statement")
         return (<button onClick={() => decHembIndex()}>Senare hembesök </button>);
     }
 
@@ -62,12 +69,12 @@ const NavHembesok = (useParams) => {
     const getHeader = () => {
         if (totHembesok.length > 0) {
             return (
-                <h2>Visar hembesök {totHembesok.length -
-                    Math.min(totHembesok.length, hembIndex + 2 )}
+                <h2>Visar hembesök {totHembesok.length - 
+                    Math.min(totHembesok.length, hembIndex)}
                     - 
-                    {totHembesok.length - 
-                    Math.min(totHembesok.length, hembIndex)} ut 
-                    av totalt {totHembesok.length} st hembesök</h2>
+                    {totHembesok.length -
+                Math.min(totHembesok.length, hembIndex + 2 )} utav 
+                    totalt {totHembesok.length} st hembesök</h2>
             );
         }
         return (
@@ -81,16 +88,33 @@ const NavHembesok = (useParams) => {
         setIdnr(totHembesok.length - (index + hembIndex));
     }
     */
+
+
+    const getItemID = (index) => {
+        switch (index) {
+            case 0: 
+                return layout.item0;
+            case 1:
+                return layout.item1;
+            case 2: 
+                return layout.item2;
+        }
+    }
+
     var offset = showListHembesok.length - 1;
     return (
         <Fragment>
-            <h1>Protokollnummer: {id} </h1>
 
+            <div className={layout.protID}>
+                <h2>Protokollnummer: {id} </h2>
+            </div>
+
+            <h1>Hembesök</h1>
             {getHeader()}
 
         
-
-            {earlierButton()}
+            {laterButton()}
+         
             <div class = {layout.grid}>
 
 
@@ -98,8 +122,8 @@ const NavHembesok = (useParams) => {
             <div class="list">
                 
         
-            {showListHembesok.reverse().map((form, index) => (
-                <div class={layout.container} id={"item" + (offset-index)}>
+            {showListHembesok.map((form, index) => (
+                <div class={layout.container} id={getItemID(offset-index)}>
                     <button id={layout.edit} onClick={() => 
                     {window.location="/hembesok/edit/" + form.id}}> Redigera </button> <br/>
                     <div class={layout.info}>
@@ -136,13 +160,13 @@ const NavHembesok = (useParams) => {
 
 
                 </div>
-            )).reverse()}    
+            ))}    
             </div>
             <div class = "navigation"><Navigation id={id}/></div>
             <div id = "homeButton"><HomeButton/></div>
             </div>
-            {laterButton()}
-
+          
+            {earlierButton()}
 
             <button onClick={() => 
             {window.location="/hembesok/add/" + id}}>Skapa nytt hembesök</button>
