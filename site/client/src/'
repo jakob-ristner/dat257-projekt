@@ -21,7 +21,7 @@ const EditDigvard = (useParams) => {
     const [avvikelse, setAvvikelse] = useState();
 
     const getInfo = async () => {
-        const response = await fetch("http://localhost:5000/digitalt-vardmote/edit/" + id);
+        const response = await fetch("http://digitalt-vardmote/edit/" + id);
         const jsonData = await response.json();
 
         setDate(jsonData.date);
