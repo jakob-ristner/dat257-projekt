@@ -139,8 +139,8 @@ const NavHembesok = (useParams) => {
                     Stödsamtal<input type="checkbox" checked={form.stodsamtal}/>
                     Viktkontroll<input type="checkbox" checked={form.viktkontroll}/> <br/>
                     Provtagning<input type="checkbox" checked={form.provtagning}/>
-                        Läkemedel<input type="checkbox" checked={form.lakemedel}/><br/>
-                    Annan Åtgärd<input value={form.annan_at}/><br/><br/>
+                    Läkemedel<input type="checkbox" checked={form.lakemedel}/><br/>
+                    Annan Åtgärd:<input value={form.annan_at}/><br/><br/>
                     </div>
 
                     <div class={layout.resurs}>
@@ -148,14 +148,14 @@ const NavHembesok = (useParams) => {
                     Logoped<input type="checkbox" checked={form.logoped}/><br/>
                     Dietist<input type="checkbox" checked={form.dietist}/>
                     Kurator<input type="checkbox" checked={form.kurator}/>
-                    Annan Resurs<input value={form.annan_resurs}/> <br/><br/>
+                    Annan resurs:<input value={form.annan_resurs}/> <br/><br/>
                     </div>
 
                     <div class={layout.avvikning}>
                     Avvikning Logistik<input type="checkbox" checked={form.av_logistik}/>
                     Avvikning Barn/Familj<input type="checkbox" checked={form.av_barn_familj}/><br/>
                     Avvikning Personal<input type="checkbox" checked={form.av_personal}/><br/>
-                    Beskrivning<input value={form.av_beskrivning}/><br/>
+                    Beskrivning:<input value={form.av_beskrivning}/><br/>
                     </div>
 
 
