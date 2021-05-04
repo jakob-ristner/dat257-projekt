@@ -14,6 +14,7 @@ import Discharge from "./views/registrations/Discharge.js";
 import EditRegistration from "./views/registrations/editRegistration/EditRegistration.js"
 import AddDigitaltVard from "./views/digitalt-vardmote/add-dig-vard/AddDigitaltVard.js";
 import NavDigVard from "./views/digitalt-vardmote/navDigvard/navDigvard.js"
+import EditDigvard from "./views/digitalt-vardmote/edit-digvard/editDigvard.js"
 
 
 const rootElement = document.getElementById("root");
@@ -31,7 +32,9 @@ ReactDOM.render(
             <Route exact path="/Hembesok/edit/:hembesokid" component={EditHembesok} />
             <Route exact path="/Registration" component={Registrations} />
             <Route exact path="/Registration/:id" component={Discharge} />
+
             <Route exact path="/digitalt-vardmote/:protocolID" component={NavDigVard} />
+            <Route exact path="/digitalt-vardmote/edit/:id" component={EditDigvard} />
         </Switch>
     </BrowserRouter>,
     rootElement
