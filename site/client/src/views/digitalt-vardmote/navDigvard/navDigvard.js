@@ -2,6 +2,10 @@ import React, { Fragment } from "react";
 import Navigation from "../../components/navigationButtons";
 import HomeButton from "../../components/HomeButton";
 import layout from "../../cssModules/NavLayout.module.css";
+import IconButton from '@material-ui/core/IconButton';
+//import {ArrowDropUpIcon, ArrowDropDownIcon} from '@material-ui/icons';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 
 class NavDigVard extends React.Component {
     
@@ -42,9 +46,9 @@ class NavDigVard extends React.Component {
             return;
         }
         if (this.state.index === 0) {
-            return (<button onClick={() => this.decIndex()} disabled="true">Senare digitala vårdmöten </button>);
+            return (<IconButton disabled="true"><ArrowDropUpIcon style={{fontSize:50}} onClick={() => this.decIndex()}/> </IconButton>);
         }
-        return (<button onClick={() => this.decIndex()}>Senare digitala vårdmöten</button>);
+        return (<IconButton><ArrowDropUpIcon style={{fontSize:50}} onClick={() => this.decIndex()}/> </IconButton>);
     }
 
     earlierButton() {
@@ -53,10 +57,9 @@ class NavDigVard extends React.Component {
         if (this.state.data.length === 0) {
             return;
         }
-        return (<button onClick={() => this.incIndex()} disabled={disabled}> Tidigare digitala vårdmöten </button>);
+        return (<IconButton disabled={disabled}><ArrowDropDownIcon style={{fontSize:50}} onClick={() => this.incIndex()}/> </IconButton>);
     }
     
-
     getItemID(index) {
         switch (index) {
             case 0: 
@@ -67,16 +70,15 @@ class NavDigVard extends React.Component {
                 return layout.item2;
         }
     }
-
     render() {
-        var sliced = this.state.data.slice(this.state.index, this.state.index + 3).reverse();
+        var sliced = this.state.data.slice(this.state.index, this.state.index + 3);
         var offset = 1 - sliced.length;
         return ( <Fragment>
         <h1>Digitala vårdmöten</h1>
         <div className={layout.protID}>
             <h2>Protokollnummer: {this.protocolID}</h2>
         </div>
-        {this.earlierButton()}
+        {this.laterButton()}
         <div class = {layout.grid}>
             <div class="list">
             {sliced.map((form, i) => { return(
@@ -86,7 +88,7 @@ class NavDigVard extends React.Component {
                     }> Redigera </button >
                 
                 <div className={layout.info}>
-                    Digitalt Vårdmöte nr: {i + this.state.data.length - this.state.index + offset} <br/>
+                    Digitalt Vårdmöte nr: {this.state.data.length - (this.state.index + i)} <br/> 
                     Datum: {form.date} <br/>
                     Starttid: {form.start_time} <br/>
                     Sluttid: {form.end_time} <br/>
@@ -116,11 +118,11 @@ class NavDigVard extends React.Component {
             <div class = "navigation"><Navigation id={this.protocolID}/></div>
             <div id = "homeButton"><HomeButton/></div>
         </div>
-        {this.laterButton()}
+        {this.earlierButton()}
         <button onClick={() => 
         {window.location="/digitalt-vardmote/add/" + this.protocolID}}>Skapa nytt digitalt vårdmöte</button>
-
-    </Fragment>);
+    
+     </Fragment>);
     }
 }
 

@@ -4,6 +4,9 @@ import Navigation from "../../components/navigationButtons";
 import HomeButton from "../../components/HomeButton";
 import layout from "../../cssModules/NavLayout.module.css";
 import e from "cors";
+import IconButton from '@material-ui/core/IconButton';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 
 const NavHembesok = (useParams) => {
 
@@ -42,15 +45,12 @@ const NavHembesok = (useParams) => {
 
     const laterButton = () => {
         if (totHembesok.length === 0) {
-            console.log("AAAAAAAAAAAAAH")
             return;
         }
         if (hembIndex === 0) {
-            console.log("Second if statement!")
-            return (<button onClick={() => decHembIndex()} disabled="true">Senare hembesök </button>);
+            return (<IconButton disabled="true"><ArrowDropUpIcon style={{fontSize:50}} onClick={() => decHembIndex()} /> </IconButton>);
         }
-        console.log("no if statement")
-        return (<button onClick={() => decHembIndex()}>Senare hembesök </button>);
+        return (<IconButton><ArrowDropUpIcon style={{fontSize:50}} onClick={() => decHembIndex()}/></IconButton>);
     }
 
     const earlierButton = () => {
@@ -58,9 +58,9 @@ const NavHembesok = (useParams) => {
             return;
         }
         if (hembIndex === totHembesok.length - 3) {
-            return (<button onClick={() => incHembIndex()} disabled="true"> Tidigare hembesök </button>);
+            return (<IconButton disabled="true"><ArrowDropDownIcon style={{fontSize:50}} onClick={() => incHembIndex()} /> </IconButton>);
         } 
-        return (<button onClick={() => incHembIndex()}> Tidigare hembesök </button>);
+        return (<IconButton><ArrowDropDownIcon style={{fontSize:50}} onClick={() => incHembIndex()}/></IconButton>);
     }
 
     useEffect(() => { getHembesok(hembIndex);
@@ -101,7 +101,7 @@ const NavHembesok = (useParams) => {
         }
     }
 
-    var offset = showListHembesok.length - 1;
+    //var offset = showListHembesok.length - 1;
     return (
         <Fragment>
 
@@ -123,7 +123,7 @@ const NavHembesok = (useParams) => {
                 
         
             {showListHembesok.map((form, index) => (
-                <div class={layout.container} id={getItemID(offset-index)}>
+                <div class={layout.container} id={getItemID(index)}>
                     <button id={layout.edit} onClick={() => 
                     {window.location="/hembesok/edit/" + form.id}}> Redigera </button> <br/>
                     <div class={layout.info}>
