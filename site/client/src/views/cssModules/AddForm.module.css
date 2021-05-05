@@ -1,0 +1,53 @@
+.test {
+    background-color: blue;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: 70% 20%;
+  }
+
+  .container .info {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+  .container .gridInfo{
+      display: grid;
+      grid-template-columns: 20% 14% 16% 15%;
+  }
+  .container .gridResurs{
+    display: grid;
+    grid-template-columns:13% 10% 10% 10% 10% 30%;
+}
+  .gridInfo .textFields{
+      display: grid;
+      grid-template-columns: 40% 50%;
+      align-items: 1px;
+  }
+  .gridInfo .checkBox{
+    display: grid;
+    grid-template-columns: 40% 50%;
+}
+
+  .container .atgard {
+    grid-column-start: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
+  
+  .container .resurs {
+    grid-column-start: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+   
+
+  }
+  
+  .container .avvikning {
+    grid-column-start: 4;
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
+  
