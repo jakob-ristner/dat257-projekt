@@ -42,11 +42,12 @@ const EditHembesok = (useParams) => {
                 set_at_family(ehemb.at_family);
                 set_from_family(ehemb.from_family);
                 set_performed_by(ehemb.performed_by);
+                set_amning_nutrition(ehemb.amning_nutrition);
                 set_stodsamtal(ehemb.stodsamtal);
                 set_viktkontroll(ehemb.viktkontroll);
                 set_provtagning(ehemb.provtagning);
                 set_lakemedel(ehemb.lakemedel);
-                set_lakemedel(ehemb.lakare);
+                set_lakare(ehemb.lakare);
                 set_logoped(ehemb.logoped);
                 set_dietist(ehemb.dietist);
                 set_kurator(ehemb.kurator);
