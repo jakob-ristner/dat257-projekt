@@ -95,6 +95,7 @@ const AddHembesok = (useParams) => {
                     <div class = {layout.checkBox}>Läkemedel: <input type="checkbox" checked={lakemedel} onChange={(e) => {set_lakemedel(e.target.checked)}}></input></div> 
                     </div>
                     <div class = {layout.checkBox}>Annan Åtgärd: <input value={annan_at} onChange={(e) => {set_annan_at(e.target.value)}}></input></div>
+                    <hr class= {layout.line}></hr>
                     </div>
                     <div class = {layout.resurs}>
                     <h1>Resurs </h1>
@@ -108,19 +109,22 @@ const AddHembesok = (useParams) => {
                     <div class = {layout.checkBox}>Annan resurs: <input value={annan_resurs} onChange={(e) => {set_annan_resurs(e.target.value)}}></input></div>
                     </div>
 
-                    <div class="avvikning">
+                    <div class= {layout.avvikning}>
                     <h1>Avvikning </h1>
                     Välj avvikning:
-                    Logistik: <input type="checkbox" checked={av_logistik} onChange={(e) => {set_av_logistik(e.target.checked)}}></input>
-                    Barn/familj: <input type="checkbox" checked={av_barn_familj} onChange={(e) => {set_av_barn_familj(e.target.checked)}}></input>
-                    Personal: <input type="checkbox" checked={av_personal} onChange={(e) => {set_av_personal(e.target.checked)}}></input>
-                    Avvikning beskrivning: <input value={av_beskrivning} 
+                    <div class = {layout.gridAvvikning}>
+                    <div class = {layout.checkBox}>Logistik: <input type="checkbox" checked={av_logistik} onChange={(e) => {set_av_logistik(e.target.checked)}}></input></div>
+                    <div class = {layout.checkBox}>Barn/familj: <input type="checkbox" checked={av_barn_familj} onChange={(e) => {set_av_barn_familj(e.target.checked)}}></input></div>
+                    <div class = {layout.checkBox}>Personal: <input type="checkbox" checked={av_personal} onChange={(e) => {set_av_personal(e.target.checked)}}></input></div>
+                    </div>
+                    <div class = {layout.checkBox}>Avvikning beskrivning: <input value={av_beskrivning}
                     onChange={(e) => {
                         if (av_logistik == true || av_barn_familj == true || av_personal == true){
                             set_av_beskrivning(e.target.value)
                         }
-                        }}></input><br/>
+                        }}></input></div>
                     </div>
+            
                     <button>Spara</button>
             </form>
             </div>      
