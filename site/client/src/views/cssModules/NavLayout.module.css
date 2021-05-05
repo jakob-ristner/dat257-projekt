@@ -5,9 +5,21 @@
 .grid {
   display: grid;
   grid-template-columns: 70% 20%;
+  grid-template-rows: 20% 60% 20%;
+  grid-template-areas: 'list upbutton'
+                       'list .'
+                       'list downbutton';
+
+}
+
+.list{
+  grid-area: list;
 }
 
 .container {
+ /* grid-column: 1/2;
+ grid-row: 2/3;
+  grid-row: 2/3;*/
   display: grid;
   grid-template-columns: 20% 20% 20% 20% 20%;
   grid-template-rows: 33% 33% auto;
@@ -19,7 +31,7 @@
 }
 
 .container #edit {
-  grid-column-start: 5;
+  /*grid-column-start: 5;*/
   font-size: 16px;
   border: none;
   color: white;
@@ -69,16 +81,123 @@
   grid-row-end: 3;
 }
 
-/*
-.editSave {
-  padding: 4px 16px;
-  transition: all 2s;
+
+
+/*TESTING FOR HEMBESOK SITE
+JUST FOR SHOWING PO*/
+.containerTest {
+   display: grid;
+   grid-template-columns: 20% 20% 20% 20% 20%;
+   grid-template-rows: 33% 33% auto;
+   grid-row-gap: 10px;
+ }
+ 
+.containerTest input {
+  max-width: 150px;
+ 
 }
 
-.editSave:hover {
-  background-color: rgb(96, 230, 96);
+.containerTest #editTest {
+  grid-column-start: 5;
+  font-size: 16px;
+  border: none;
+  color: white;
+  padding: 12px 26px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 15px;
+  background-color: #314a94;
+  border-style: solid;
+  border-color: #131f42;
+  border-width: 2px;
 }
-*/
+
+#editTest:hover {
+  background-color: #0f2154;
+}
+
+#editTest:active {
+  background-color: #0f2154;
+  box-shadow: 0 0 5px 3px #666;
+  transform: translateY(4px);
+}
+.containerTest .infoTest {
+  grid-column-start: 1;
+  grid-row-start: 1;
+  grid-row-end: 3;
+
+ 
+}
+
+.containerTest .atgardTest {
+ /* grid-column-start: 2;*/
+  grid-row: 1/2;
+  grid-column: 2/5;
+
+  display: grid;
+  grid-row-gap: 10px;
+  grid-template-columns: 30% 25% 25% 25%;
+  grid-template-rows: 50% 50%;
+
+  padding-bottom: 6%;
+}
+
+.containerTest .resursTest {
+  /*grid-column-start: 3;*/
+  grid-row: 2/3;
+  grid-column: 2/5;
+
+  display: grid;
+  grid-row-gap: 10px;
+  grid-template-columns: 30% 25% 25% 25%;
+  grid-template-rows: 30% 70%;
+
+  padding-bottom: 3%;
+}
+
+.containerTest .avvikningTest {
+  /*grid-column-start: 4;*/
+  grid-row: 3/4;
+  grid-column: 2/5;
+
+  display: grid;
+  grid-row-gap: 10px;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: 50% 50%;
+
+  padding-bottom: 2%;
+}
+
+.field{
+  grid-row: 2/3;
+  grid-column: 2/4;
+}
+/*END OF TESTING VALUES*/
+
+
+
+
+
+/*
+.button{
+  display: grid;
+  grid-template-rows: auto auto auto;
+}*/
+
+.upButton{
+ padding-top: 12px;
+ grid-area: upbutton;
+}
+
+#arrowButton{
+  font-size: 100px;
+}
+.downButton{
+  grid-area: downbutton;
+}
+
 #item0 {
   box-shadow: 0 -6px 10px -5px rgba(0, 0, 0, 0.7);
   background-color: #d9ddec;

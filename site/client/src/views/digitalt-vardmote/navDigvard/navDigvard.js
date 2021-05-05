@@ -46,9 +46,9 @@ class NavDigVard extends React.Component {
             return;
         }
         if (this.state.index === 0) {
-            return (<IconButton disabled="true"><ArrowDropUpIcon style={{fontSize:50}} onClick={() => this.decIndex()}/> </IconButton>);
+            return (<IconButton disabled="true"><ArrowDropUpIcon id={layout.arrowButton} onClick={() => this.decIndex()}/> </IconButton>);
         }
-        return (<IconButton><ArrowDropUpIcon style={{fontSize:50}} onClick={() => this.decIndex()}/> </IconButton>);
+        return (<IconButton><ArrowDropUpIcon id={layout.arrowButton} onClick={() => this.decIndex()}/> </IconButton>);
     }
 
     earlierButton() {
@@ -57,7 +57,7 @@ class NavDigVard extends React.Component {
         if (this.state.data.length === 0) {
             return;
         }
-        return (<IconButton disabled={disabled}><ArrowDropDownIcon style={{fontSize:50}} onClick={() => this.incIndex()}/> </IconButton>);
+        return (<IconButton disabled={disabled}><ArrowDropDownIcon id={layout.arrowButton} onClick={() => this.incIndex()}/> </IconButton>);
     }
     
     getItemID(index) {
@@ -78,9 +78,16 @@ class NavDigVard extends React.Component {
         <div className={layout.protID}>
             <h2>Protokollnummer: {this.protocolID}</h2>
         </div>
-        {this.laterButton()}
+
+     
         <div class = {layout.grid}>
-            <div class="list">
+        <div className={layout.upButton}>
+            {this.laterButton()}
+        </div>
+    
+            <div className={layout.list}>
+
+
             {sliced.map((form, i) => { return(
             <div className={layout.container} id={this.getItemID(i)}>
                     <button id={layout.edit} onClick={() =>
@@ -117,8 +124,12 @@ class NavDigVard extends React.Component {
             </div>
             <div class = "navigation"><Navigation id={this.protocolID}/></div>
             <div id = "homeButton"><HomeButton/></div>
+
+            <div className={layout.downButton}>
+                {this.earlierButton()}
+            </div>
         </div>
-        {this.earlierButton()}
+      
         <button onClick={() => 
         {window.location="/digitalt-vardmote/add/" + this.protocolID}}>Skapa nytt digitalt vårdmöte</button>
     

@@ -7,6 +7,7 @@ import e from "cors";
 import IconButton from '@material-ui/core/IconButton';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
+import { brown } from "@material-ui/core/colors";
 
 const NavHembesok = (useParams) => {
 
@@ -48,9 +49,9 @@ const NavHembesok = (useParams) => {
             return;
         }
         if (hembIndex === 0) {
-            return (<IconButton disabled="true"><ArrowDropUpIcon style={{fontSize:50}} onClick={() => decHembIndex()} /> </IconButton>);
+            return (<IconButton disabled="true" ><ArrowDropUpIcon id={layout.arrowButton} onClick={() => decHembIndex()} /> </IconButton>);
         }
-        return (<IconButton><ArrowDropUpIcon style={{fontSize:50}} onClick={() => decHembIndex()}/></IconButton>);
+        return (<IconButton><ArrowDropUpIcon id={layout.arrowButton} onClick={() => decHembIndex()}/></IconButton>);
     }
 
     const earlierButton = () => {
@@ -58,9 +59,9 @@ const NavHembesok = (useParams) => {
             return;
         }
         if (hembIndex === totHembesok.length - 3) {
-            return (<IconButton disabled="true"><ArrowDropDownIcon style={{fontSize:50}} onClick={() => incHembIndex()} /> </IconButton>);
+            return (<IconButton disabled="true" ><ArrowDropDownIcon id={layout.arrowButton} onClick={() => incHembIndex()} /> </IconButton>);
         } 
-        return (<IconButton><ArrowDropDownIcon style={{fontSize:50}} onClick={() => incHembIndex()}/></IconButton>);
+        return (<IconButton ><ArrowDropDownIcon id={layout.arrowButton} onClick={() => incHembIndex()}/></IconButton>);
     }
 
     useEffect(() => { getHembesok(hembIndex);
@@ -111,22 +112,21 @@ const NavHembesok = (useParams) => {
 
             <h1>Hembesök</h1>
             {getHeader()}
+            <div className={layout.grid}>
 
-        
-            {laterButton()}
-         
-            <div class = {layout.grid}>
-
+           <div className={layout.upButton}>
+           {laterButton()}
+           </div>
 
             
-            <div class="list">
+            <div className={layout.list}>
                 
-        
+
             {showListHembesok.map((form, index) => (
-                <div class={layout.container} id={getItemID(index)}>
-                    <button id={layout.edit} onClick={() => 
+                <div class={layout.containerTest} id={getItemID(index)}>
+                    <button id={layout.editTest} onClick={() => 
                     {window.location="/hembesok/edit/" + form.id}}> Redigera </button> <br/>
-                    <div class={layout.info}>
+                    <div class={layout.infoTest}>
                     Hembesöksnr: {totHembesok.length - (index + hembIndex)}<br/>
                     Datum utfört: {form.date} <br/>
                     Kl till familj: {form.at_family}<br/>
@@ -134,39 +134,47 @@ const NavHembesok = (useParams) => {
                     Utförd av: {form.performed_by}<br/><br/>
                     </div>
 
-                    <div class={layout.atgard}>
-                    Amning/nutrition<input type="checkbox" checked={form.amning_nutrition}/>
-                    Stödsamtal<input type="checkbox" checked={form.stodsamtal}/>
-                    Viktkontroll<input type="checkbox" checked={form.viktkontroll}/> <br/>
-                    Provtagning<input type="checkbox" checked={form.provtagning}/>
-                    Läkemedel<input type="checkbox" checked={form.lakemedel}/><br/>
-                    Annan Åtgärd:<input value={form.annan_at}/><br/><br/>
+                    <div class={layout.atgardTest}>
+                    
+                    <label >Amning/nutrition<input type="checkbox" checked={form.amning_nutrition}/></label>
+                    <label >Stödsamtal<input type="checkbox" checked={form.stodsamtal}/></label>
+                    <label >Viktkontroll<input type="checkbox" checked={form.viktkontroll}/> </label>
+                    <label >Provtagning<input type="checkbox" checked={form.provtagning}/></label>
+                    <label >Läkemedel<input type="checkbox" checked={form.lakemedel}/></label>
+                    <label className={layout.field}>Annan Åtgärd:<input value={form.annan_at}/></label>
                     </div>
 
-                    <div class={layout.resurs}>
-                    Läkare<input type="checkbox" checked={form.lakare}/>
-                    Logoped<input type="checkbox" checked={form.logoped}/><br/>
-                    Dietist<input type="checkbox" checked={form.dietist}/>
-                    Kurator<input type="checkbox" checked={form.kurator}/>
-                    Annan resurs:<input value={form.annan_resurs}/> <br/><br/>
+                    <div class={layout.resursTest}>
+                    <label >Läkare<input type="checkbox" checked={form.lakare}/></label>
+                    <label >Logoped<input type="checkbox" checked={form.logoped}/></label>
+                    <label >Dietist<input type="checkbox" checked={form.dietist}/></label>
+                    <label > Kurator<input type="checkbox" checked={form.kurator}/></label>
+                    <label className={layout.field}>Annan resurs:<input value={form.annan_resurs}/></label>
                     </div>
 
-                    <div class={layout.avvikning}>
-                    Avvikning Logistik<input type="checkbox" checked={form.av_logistik}/>
-                    Avvikning Barn/Familj<input type="checkbox" checked={form.av_barn_familj}/><br/>
-                    Avvikning Personal<input type="checkbox" checked={form.av_personal}/><br/>
-                    Beskrivning:<input value={form.av_beskrivning}/><br/>
+                    <div class={layout.avvikningTest}>
+                    <label >Avvikning Logistik<input type="checkbox" checked={form.av_logistik}/></label>
+                    <label >Avvikning Barn/Familj<input type="checkbox" checked={form.av_barn_familj}/></label>
+                    <label >Avvikning Personal<input type="checkbox" checked={form.av_personal}/></label>
+                    <label className={layout.field}>Beskrivning:<input value={form.av_beskrivning}/></label>
                     </div>
 
 
                 </div>
             ))}    
             </div>
+            <div className={layout.downButton}>
+                {earlierButton()}
+            </div>
+            </div>
+
             <div class = "navigation"><Navigation id={id}/></div>
             <div id = "homeButton"><HomeButton/></div>
-            </div>
+           
+         
+
           
-            {earlierButton()}
+       
 
             <button onClick={() => 
             {window.location="/hembesok/add/" + id}}>Skapa nytt hembesök</button>
