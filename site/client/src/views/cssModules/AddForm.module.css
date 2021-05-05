@@ -1,5 +1,5 @@
 .test {
-    background-color: blue;
+    background-color: #add8e6;
   }
   
   .grid {
@@ -8,19 +8,51 @@
   }
 
   .container .info {
+    display: grid;
+    grid-row-gap: 3;
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 1;
   }
+  .container .atgard {
+    display: grid;
+    grid-row-gap: 3%;
+    grid-column-start: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
+  
+  .container .resurs {
+    display: grid;
+    grid-row-gap: 3%;
+    grid-column-start: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
+  
+  .container .avvikning {
+    display: grid;
+    grid-row-gap: 3%;
+    grid-column-start: 4;
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
+
   .container .gridInfo{
       display: grid;
       grid-template-columns: 20% 14% 16% 15%;
+      
   }
-  .container .gridResurs{
+  .container .gridAtgard{
     display: grid;
     grid-template-columns:13% 10% 10% 10% 10% 30%;
 }
+  .container .gridResurs{
+    display: grid;
+    grid-template-columns: 7% 8% 7% 7% 23%
+  }
+
   .gridInfo .textFields{
       display: grid;
       grid-template-columns: 40% 50%;
@@ -30,24 +62,5 @@
     display: grid;
     grid-template-columns: 40% 50%;
 }
-
-  .container .atgard {
-    grid-column-start: 2;
-    grid-row-start: 1;
-    grid-row-end: 3;
-  }
-  
-  .container .resurs {
-    grid-column-start: 3;
-    grid-row-start: 1;
-    grid-row-end: 3;
-   
-
-  }
-  
-  .container .avvikning {
-    grid-column-start: 4;
-    grid-row-start: 1;
-    grid-row-end: 3;
-  }
+ 
   
