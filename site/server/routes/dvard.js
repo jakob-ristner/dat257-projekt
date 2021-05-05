@@ -104,6 +104,7 @@ module.exports = function(app, pool) {
     })
 
     app.put("/digitalt-vardmote/:id", async(req, res) => {
+        
         try {
             const { id } = req.params;
             const{
@@ -121,7 +122,7 @@ module.exports = function(app, pool) {
                 annan_resurs,
                 avvikelse
             } = req.body;
-            const updated = pool.query(
+            const updated = await pool.query(
                 `UPDATE Dvard SET date_start_time = $2, end_time = $3, 
                 performed_by = $4, amning_nutrition = $5, stodsamtal = $6,
                 viktkontroll = $7, annat_mote = $8, lakare = $9, logoped = $10,
@@ -130,6 +131,8 @@ module.exports = function(app, pool) {
                 amning_nutrition, stodsamtal, viktkontroll, annat_mote, lakare,
                 logoped, dietist, kurator, annan_resurs, avvikelse]
             );
+            res.status(200).send('updated');
+            console.log(updated);
 
         } catch (err) {
             console.error(err);

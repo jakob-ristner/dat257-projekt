@@ -19,6 +19,7 @@ const EditDigvard = (useParams) => {
     const [kurator, setKurator] = useState();
     const [annan_resurs, setAnnanResurs] = useState();
     const [avvikelse, setAvvikelse] = useState();
+    const [protokollnr, setProtokollnr] = useState();
 
     const getInfo = async () => {
         const response = await fetch("http://localhost:5000/digitalt-vardmote/edit/" + id);
@@ -38,6 +39,7 @@ const EditDigvard = (useParams) => {
         setKurator(jsonData.kurator);
         setAnnanResurs(jsonData.annan_resurs);
         setAvvikelse(jsonData.avvikelse);
+        setProtokollnr(jsonData.protocolid);
     }
 
     useEffect(() => {
@@ -47,9 +49,9 @@ const EditDigvard = (useParams) => {
     
     const submit = async (e) => {  
         e.preventDefault();
-        const body = {
-            date,
-            start_time, 
+        const date_start_time = date + " " + start_time;
+        try {
+        const body = { 
             end_time,
             performed_by,
             amning_nutrition,
@@ -61,25 +63,37 @@ const EditDigvard = (useParams) => {
             dietist,
             kurator,
             annan_resurs,
-            avvikelse
-        } 
+            avvikelse,
+            date_start_time
+        }
         console.log(body);
+        const response = await fetch('http://localhost:5000/digitalt-vardmote/' + id,{
+            method: "PUT",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(body)
+        });
+        console.log(response);
+        window.location = "/digitalt-vardmote/" + protokollnr;
+
+    } catch (error) {
+        console.error(error.message);
+    }
     }
         
     return (<Fragment>
 
         <h1>Id: {id}</h1>
         <form onSubmit={submit}>
-            Datum: <input type="date" value={ date } 
+            Datum: <input required type="date" value={ date } 
                 onChange={(e) => {setDate(e.target.value)}}/> <br/>
 
-            Starttid: <input type="time" value={ start_time } 
+            Starttid: <input required type="time" value={ start_time } 
                 onChange={(e) => {setStartTime(e.target.value)}}/> <br/>
 
-            Sluttid: <input type="time" value={ end_time } 
+            Sluttid: <input required type="time" value={ end_time } 
                 onChange={(e) => {setEndTime(e.target.value)}}/> <br/>
 
-            Utförd av: <input type="text" value={ performed_by } 
+            Utförd av: <input required type="text" value={ performed_by } 
                 onChange={(e) => {setPerformedBy(e.target.value)}}/> <br/>
 
             Amning: <input type="checkbox" checked={ amning_nutrition } 
