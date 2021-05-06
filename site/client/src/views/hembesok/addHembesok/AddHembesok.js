@@ -87,10 +87,10 @@ const AddHembesok = (useParams) => {
                <div class={layout.gridAdd}>
                 <div class={layout.info}> 
                     <div class ={layout.gridInfo}>
-                    <div>Datum utfört <input required type="date" value={date_performed} onChange={(e) => {set_date_performed(e.target.value)}}></input></div>
-                    <div>Till familj<input required type="time" value={at_familyKl} onChange={(e) => {set_at_family(e.target.value)}}></input></div>
-                    <div>Från familj<input required type="time" value={from_familyKl} onChange={(e) => {set_from_family(e.target.value)}}></input></div>
-                    <div>Utförd av <input required value={performed_by} onChange={(e) => {set_performed_by(e.target.value)}}></input> </div>
+                    <div>Datum utfört: <input required type="date" value={date_performed} onChange={(e) => {set_date_performed(e.target.value)}}></input></div>
+                    <div>Till familj:<input required type="time" value={at_familyKl} onChange={(e) => {set_at_family(e.target.value)}}></input></div>
+                    <div>Från familj:<input required type="time" value={from_familyKl} onChange={(e) => {set_from_family(e.target.value)}}></input></div>
+                    <div>Utförd av: <input required value={performed_by} onChange={(e) => {set_performed_by(e.target.value)}}></input> </div>
                   </div>
                 </div>
                 

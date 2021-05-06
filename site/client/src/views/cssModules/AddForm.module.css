@@ -59,7 +59,7 @@
       display: grid;
       grid-template-rows: 10% 10% 10% 10%;
       grid-row-gap: 10px;
-      
+    
   }
   .gridAdd .gridAtgard{
     display: grid;
@@ -96,14 +96,11 @@ hr.line1{
     height: 165px; 
     
 }
+.gridInfo input {
+  clear: both;
+  text-align: left;
+  width: 100px;
+}
 
-.gridAdd .v2 {
-  border-left: 6px solid green;
-  height: 500px;
-}
-.gridAdd .v3 {
-  border-left: 6px solid green;
-  height: 500px;
-}
  
   
