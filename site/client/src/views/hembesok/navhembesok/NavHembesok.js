@@ -123,10 +123,10 @@ const NavHembesok = (useParams) => {
                 
 
             {showListHembesok.map((form, index) => (
-                <div class={layout.containerTest} id={getItemID(index)}>
-                    <button id={layout.editTest} onClick={() => 
+                <div class={layout.container} id={getItemID(index)}>
+                    <button id={layout.edit} onClick={() => 
                     {window.location="/hembesok/edit/" + form.id}}> Redigera </button> <br/>
-                    <div class={layout.infoTest}>
+                    <div class={layout.info}>
                     Hembesöksnr: {totHembesok.length - (index + hembIndex)}<br/>
                     Datum utfört: {form.date} <br/>
                     Kl till familj: {form.at_family}<br/>
@@ -134,29 +134,29 @@ const NavHembesok = (useParams) => {
                     Utförd av: {form.performed_by}<br/><br/>
                     </div>
 
-                    <div class={layout.atgardTest}>
+                    <div class={layout.atgard}>
                     
                     <label >Amning/nutrition<input type="checkbox" checked={form.amning_nutrition}/></label>
                     <label >Stödsamtal<input type="checkbox" checked={form.stodsamtal}/></label>
                     <label >Viktkontroll<input type="checkbox" checked={form.viktkontroll}/> </label>
                     <label >Provtagning<input type="checkbox" checked={form.provtagning}/></label>
                     <label >Läkemedel<input type="checkbox" checked={form.lakemedel}/></label>
-                    <label className={layout.field}>Annan Åtgärd:<input value={form.annan_at}/></label>
+                    <label >Annan Åtgärd:<input value={form.annan_at}/></label>
                     </div>
 
-                    <div class={layout.resursTest}>
+                    <div class={layout.resurs}>
                     <label >Läkare<input type="checkbox" checked={form.lakare}/></label>
                     <label >Logoped<input type="checkbox" checked={form.logoped}/></label>
                     <label >Dietist<input type="checkbox" checked={form.dietist}/></label>
                     <label > Kurator<input type="checkbox" checked={form.kurator}/></label>
-                    <label className={layout.field}>Annan resurs:<input value={form.annan_resurs}/></label>
+                    <label >Annan resurs:<input value={form.annan_resurs}/></label>
                     </div>
 
-                    <div class={layout.avvikningTest}>
+                    <div class={layout.avvikning}>
                     <label >Avvikning Logistik<input type="checkbox" checked={form.av_logistik}/></label>
                     <label >Avvikning Barn/Familj<input type="checkbox" checked={form.av_barn_familj}/></label>
                     <label >Avvikning Personal<input type="checkbox" checked={form.av_personal}/></label>
-                    <label className={layout.field}>Beskrivning:<input value={form.av_beskrivning}/></label>
+                    <label >Beskrivning:<input value={form.av_beskrivning}/></label>
                     </div>
 
 
