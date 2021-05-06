@@ -139,7 +139,7 @@ const Registration = () => {
             <div class="bottom" id="bottom">
                 {getYesNo("RiskPatient", riskpatient, setRiskPatient)}
                 <div className="multi">
-                Överraportering till bvc:
+                Överraportering till Barnavårdscentral:
                     ja <input type="checkbox"  class="ja" checked={bvcRapportering == true}
                         onChange={(e) => {
                             threeCheck(bvcRapportering, setBvcText, true)

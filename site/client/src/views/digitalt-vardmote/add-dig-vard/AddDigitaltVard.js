@@ -28,6 +28,15 @@ const AddDigitaltVard = (useParams) => {
     const [annan_resurs, set_annan_resurs] = useState("");
     const [avvikelse, set_avvikelse] = useState("");
 
+    const validateMote = (checked) => {
+        console.log(checked);
+        if (checked && document.getElementById("motessort").value == "") {
+            document.getElementById("motessort").setCustomValidity("Fyll i detta fält");
+        } else {
+            document.getElementById("motessort").setCustomValidity("");
+        }
+    }
+
     //Method for submitting the new Digitalt vårdmöte and saving it in the Postgres Database 
     const submit = async(e) => {
         e.preventDefault();
@@ -86,10 +95,14 @@ const AddDigitaltVard = (useParams) => {
                     if(annat_motes){
                         set_annat_mote("")
                     }}}></input>
-                Om Ja: <input type="text" value={annat_mote} onChange={(e) => {
+                Om Ja: <input id="motessort" type="text" value={annat_mote} onChange={(e) => {
                     if (annat_motes == true){
+                        validateMote(true);
                         set_annat_mote(e.target.value)
-                    }}}></input><br/><br/>
+                    } else {
+                        validateMote(false);
+                    }
+                    }}></input><br/><br/>
                 </div>
                 Läkare: <input class="distance" type="checkbox" checked={lakare} onChange={(e) => {set_lakare(e.target.checked)}}></input>
                 Logoped: <input class="distance" type="checkbox" checked={logoped} onChange={(e) => {set_logoped(e.target.checked)}}></input>
