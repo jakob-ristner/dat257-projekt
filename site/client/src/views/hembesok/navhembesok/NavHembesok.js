@@ -127,7 +127,7 @@ const NavHembesok = (useParams) => {
                     <button id={layout.edit} onClick={() => 
                     {window.location="/hembesok/edit/" + form.id}}> Redigera </button> <br/>
                     <div class={layout.info}>
-                    Hembesöksnr: {totHembesok.length - (index + hembIndex)}<br/>
+                    <label>Hembesöksnr: </label> <text> {totHembesok.length - (index + hembIndex)}</text><br/>
                     Datum utfört: {form.date} <br/>
                     Kl till familj: {form.at_family}<br/>
                     Kl från familj: {form.end_time}<br/>
