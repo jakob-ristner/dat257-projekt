@@ -215,7 +215,7 @@ const Discharge = (useParams) => {
 
                     <div class="riskpatient" id="riskpatient">
                         Riskpatient <input type="checkbox" checked={fullRegistration.riskpatient} ></input><br></br>
-                        {getYesNo("Överrapportering till BVC i hemmet", fullRegistration.bvcrapportering, () => {})}
+                        {getYesNo("Överrapportering till Barnavårdscentralen i hemmet", fullRegistration.bvcrapportering, () => {})}
                         Om nej ange orsak<input type="text" value={fullRegistration.bvctext} ></input><br></br>
                     </div>
                     </div>
@@ -224,7 +224,7 @@ const Discharge = (useParams) => {
             {editButton()}
                
            
-               <div class="discharge" id="discharge" >r
+               <div class="discharge" id="discharge" >
                 <h1>Utskrivning</h1>
                 <form onSubmit={submitDischarge}>
                         {getInput("Utskrivningsdatum", "date", true, outDate, setOutDate)}
