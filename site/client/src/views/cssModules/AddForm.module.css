@@ -1,7 +1,21 @@
-.test {
+.gridHalleluja{
+  display:grid;
+  grid-template-rows: 10% 136px;
+}
+.gridHalleluja .test {
     background-color: #add8e6;
-  }
-  
+    border-top: #000000;
+}
+.gridHalleluja .smallerBox{
+    background-color:#0080ff;
+   
+}
+.gridHeaders{
+  display:grid;
+  grid-template-columns: 24% 1% 24% 1% 24% 1% 20%;
+
+}
+
   .gridAdd {
     display: grid;
   
@@ -44,7 +58,7 @@
   .gridAdd .gridInfo{
       display: grid;
       grid-template-rows: 10% 10% 10% 10%;
-      grid-row-gap: 5px;
+      grid-row-gap: 10px;
       
   }
   .gridAdd .gridAtgard{
@@ -68,14 +82,26 @@
 .saveButton{
   position: absolute;
   left: 1332px;
-  top: 640px;
+  top: 256px;
 }
 .avbrytButton{
   position: absolute;
   left: 152px;
-  top: 640px;
+  top: 256px;
 }
-.vl {
+hr.line1{
+  position: relative;
+  margin-top: 0px;
+    width: 0px;
+    height: 165px; 
+    
+}
+
+.gridAdd .v2 {
+  border-left: 6px solid green;
+  height: 500px;
+}
+.gridAdd .v3 {
   border-left: 6px solid green;
   height: 500px;
 }
