@@ -25,53 +25,53 @@
   transform: translateY(4px);
 }
 
-/*
-.header {
- 
-}
-*/
-
-/* grid-template-areas: 'registration registration discharge'
-                       'registration registration discharge'
-                       'registration registration discharge';*/
-
-/*
-.form .header{
-  display: grid;
-  grid-template-columns: 15% 30% 15% 30%;
-  grid-column-gap: 1%;
-  grid-row-start: 1;
-
-}
-*/
-
-/*
-.form .registration{
-  grid-column-start: 1;
-  grid-row-start: 2;
-
-  display: grid;
-  grid-template-rows: 20% 40% 40%;
-  grid-template-columns: 50% 50%;
-  /*grid-template-areas: 'protokollID   inskrivning'
-                       'bakgrundsdata inskrivning'
-                       'bottom        bottom';
-}*/
-
-/*.form .bakgrundsdata{
-  grid-column-start: 2;
-}*/
-/*
-#bakgrundsdata{
-  grid-column-start: 2;
-}
-*/
 
 .form {
   margin-top: 5%;
   margin-bottom: 5%;
   font-family: Verdana, sans-serif;
-  line-height: 150%;
+  line-height: 170%;
+
+}
+.form .protokollID input {
+  float: right;
+  clear: both;
+  text-align: left;
+  width: 100px;
+}
+.form .bakgrundsdata input {
+  float: right;
+  clear: both;
+  text-align: left;
+  width: 30px;
+}
+
+.form .inskrivning input[type=number] {
+  float: right;
+  clear: both;
+  text-align: left;
+  width: 30px;
+}
+
+.form .inskrivning input[type=date] {
+  float: right;
+  clear: both;
+  text-align: left;
+  width: 130px;
+}
+
+.form .discharge input[type=number] {
+  float: right;
+  clear: both;
+  text-align: left;
+  width: 30px;
+}
+
+.form .discharge input[type=date] {
+  float: right;
+  clear: both;
+  text-align: left;
+  width: 130px;
 }
 
 .form {
@@ -90,6 +90,7 @@
   background-color: #c2d1ff;
   border-radius: 15px;
   box-shadow: 0px 0px 30px 1px #a6a6a6;
+  border: 2px solid rgb(104, 104, 104);
 }
 
 .form .bakgrundsdata {
@@ -100,6 +101,8 @@
   background-color: #c2d1ff;
   border-radius: 15px;
   box-shadow: 0px 0px 30px 1px #a6a6a6;
+  box-shadow: 0px 0px 30px 1px #a6a6a6;
+  border: 2px solid rgb(104, 104, 104);
 }
 
 .form .inskrivning {
@@ -110,6 +113,8 @@
   background-color: #c2d1ff;
   border-radius: 15px;
   box-shadow: 0px 0px 30px 1px #a6a6a6;
+  box-shadow: 0px 0px 30px 1px #a6a6a6;
+  border: 2px solid rgb(104, 104, 104);
 }
 
 .form .bottom {
@@ -120,6 +125,8 @@
   background-color: #c2d1ff;
   border-radius: 15px;
   box-shadow: 0px 0px 30px 1px #a6a6a6;
+  box-shadow: 0px 0px 30px 1px #a6a6a6;
+  border: 2px solid rgb(104, 104, 104);
 }
 
 .form .discharge {
@@ -130,6 +137,8 @@
   background-color: #c2d1ff;
   border-radius: 15px;
   box-shadow: 0px 0px 30px 1px #a6a6a6;
+  box-shadow: 0px 0px 30px 1px #a6a6a6;
+  border: 2px solid rgb(104, 104, 104);
 }
 
 /* DISCHARGE.JS */
@@ -138,7 +147,7 @@
   margin-top: 5%;
   margin-bottom: 5%;
   font-family: Verdana, sans-serif;
-  line-height: 150%;
+  line-height: 170%;
 }
 
 .formDischarge {
@@ -150,7 +159,6 @@
 .formDischarge2 {
   display: grid;
   grid-gap: 20px;
-
   grid-template-columns: auto auto;
   grid-template-rows: auto auto auto;
 }
@@ -163,6 +171,7 @@
   background-color: #c2d1ff;
   border-radius: 15px;
   box-shadow: 0px 0px 30px 1px #a6a6a6;
+  border: 2px solid rgb(104, 104, 104);
 }
 
 .formDischarge2 .bakgrundsdata {
@@ -173,6 +182,7 @@
   background-color: #c2d1ff;
   border-radius: 15px;
   box-shadow: 0px 0px 30px 1px #a6a6a6;
+  border: 2px solid rgb(104, 104, 104);
 }
 
 .formDischarge2 .Inskrivning {
@@ -183,6 +193,7 @@
   background-color: #c2d1ff;
   border-radius: 15px;
   box-shadow: 0px 0px 30px 1px #a6a6a6;
+  border: 2px solid rgb(104, 104, 104);
 }
 
 .formDischarge2 .riskpatient {
@@ -193,11 +204,10 @@
   background-color: #c2d1ff;
   border-radius: 15px;
   box-shadow: 0px 0px 30px 1px #a6a6a6;
+  border: 2px solid rgb(104, 104, 104);
 }
 
-#editButton {
-  grid-row: 2/3;
-}
+
 .formDischarge .discharge {
   grid-column-start: 3;
   grid-column-end: 3;
@@ -206,6 +216,52 @@
   background-color: #c2d1ff;
   border-radius: 15px;
   box-shadow: 0px 0px 30px 1px #a6a6a6;
+  border: 2px solid rgb(104, 104, 104);
+}
+
+.formDischarge .header input {
+  float: right;
+  clear: both;
+  text-align: left;
+  width: 100px;
+}
+.formDischarge2 .bakgrundsdata input {
+  float: right;
+  clear: both;
+  text-align: left;
+  width: 30px;
+}
+
+.formDischarge2 .Inskrivning input[type=number] {
+  float: right;
+  clear: both;
+  text-align: left;
+  width: 30px;
+}
+
+.formDischarge2 .Inskrivning input[type=date] {
+  float: right;
+  clear: both;
+  text-align: left;
+  width: 130px;
+}
+
+.formDischarge .discharge input[type=number] {
+  float: right;
+  clear: both;
+  text-align: left;
+  width: 30px;
+}
+
+.formDischarge .discharge input[type=date] {
+  float: right;
+  clear: both;
+  text-align: left;
+  width: 130px;
+}
+
+#protokollID {
+  padding: 10px 10px 10px 10px;
 }
 
 #Inskrivning {

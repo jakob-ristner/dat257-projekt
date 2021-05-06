@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState} from "react";
 import Navigation from "../components/navigationButtons";
 import Home from "../components/HomeButton";
-import "./registrations.css";
+import layouts from "./registrations.module.css";
 import {getTriple, getInput, getYesNo, threeCheck, validateMulti} from "../../utils/inputs.js"
 
 const Discharge = (useParams) => {
@@ -144,18 +144,18 @@ const Discharge = (useParams) => {
     const submitEdit = () => {
         if(dataSent) {
             return(
-                <button class="button1" onClick={() => {window.location = "/registration/edit/" + id}}>Redigera</button>
+                <button class={layouts.button1} onClick={() => {window.location = "/registration/edit/" + id}}>Redigera</button>
             )
         }else{
             return(
-                <button type = "submit" class="button1" onClick={validateMulti()}>Spara utskrivning</button>
+                <button type = "submit" class={layouts.button1} onClick={validateMulti()}>Spara utskrivning</button>
             )
         }
     }
 
     const editButton = () => {
         return(
-            <button class="button1" id="editButton" onClick={() => {window.location = "/registration/edit/" + id}}>Redigera</button>
+            <button class={layouts.button1} id={layouts.editButton} onClick={() => {window.location = "/registration/edit/" + id}}>Redigera</button>
         )
     }
 
@@ -166,13 +166,13 @@ const Discharge = (useParams) => {
         <Fragment>
              <div class = "navigation"><Navigation id={id}/></div>
              <div id = "homeButton"><Home/></div>
-
-             <div class="formDischarge">
+         <h1>Visar Protokoll: {id}</h1>
+             <div class={layouts.formDischarge}>
              
 
                 <form>
-                    <div class="formDischarge2">
-                    <div class="header" id="header">
+                    <div class={layouts.formDischarge2}>
+                    <div class={layouts.header} id={layouts.header}>
                          <h1>Protokoll ID </h1>
                         <label for="protocolID">ProtokollID:</label>
                         <input type="number"
@@ -186,7 +186,7 @@ const Discharge = (useParams) => {
                     </div>
           
 
-                    <div class="bakgrundsdata" id="bakgrundsdata">
+                    <div class={layouts.bakgrundsdata} id={layouts.bakgrundsdata}>
                     <h1>Födelsedata </h1>
                         Barnets gestationsvecka: <input type="number" required value={fullRegistration.veckor} ></input><br></br>
                         Dagar:<input type="number" required value={fullRegistration.dagar} ></input><br></br>
@@ -195,13 +195,13 @@ const Discharge = (useParams) => {
                         Födelsehuvudomfång: <input type="number" required value={fullRegistration.huvudomfang_fodelse} ></input><br></br>
                     </div>
 
-                    <div class="Inskrivning" id="Inskrivning">
+                    <div class={layouts.Inskrivning} id={layouts.Inskrivning}>
                     <h1>Inskrivning </h1>
                          <label for="regDate">Inskrivningsdatum:</label>
 
                         <input type="date" required value={fullRegistration.regdate} id="date" ></input><br></br>
-                        vikt (gram) <input type="number" required value={fullRegistration.vikt_inskrivning} ></input><br />
-                        längd (cm) <input type="number" required value={fullRegistration.langd_inskrivning} ></input><br />
+                        Vikt (gram) <input type="number" required value={fullRegistration.vikt_inskrivning} ></input><br />
+                        Längd (cm) <input type="number" required value={fullRegistration.langd_inskrivning} ></input><br />
                         Huvudomfång (cm) <input type="number" required value={fullRegistration.huvudomfang_in} ></input><br />
                         {getYesNo("Mamma vill amma", fullRegistration.mamma_vill_amma, () => {})}
                         
@@ -213,18 +213,18 @@ const Discharge = (useParams) => {
                         {getYesNo("Extra syrgasbehov", fullRegistration.extragas_in, () => {})}
                     </div>
 
-                    <div class="riskpatient" id="riskpatient">
+                    <div class={layouts.riskpatient} id={layouts.riskpatient}>
                         Riskpatient <input type="checkbox" checked={fullRegistration.riskpatient} ></input><br></br>
                         {getYesNo("Överrapportering till BVC i hemmet", fullRegistration.bvcrapportering, () => {})}
                         Om nej ange orsak<input type="text" value={fullRegistration.bvctext} ></input><br></br>
+                        {editButton()}
                     </div>
                     </div>
                 </form>
                 
-            {editButton()}
-               
            
-               <div class="discharge" id="discharge" >r
+           
+               <div class={layouts.discharge} id={layouts.discharge} >
                 <h1>Utskrivning</h1>
                 <form onSubmit={submitDischarge}>
                         {getInput("Utskrivningsdatum", "date", true, outDate, setOutDate)}
@@ -234,7 +234,7 @@ const Discharge = (useParams) => {
                         {getYesNo("Mamma vill amma", mamma_vill_amma_ut, setMammaAmmaUt)}    
                         {getTriple("Amning", amning_utskrivning, setAmningUt)}
                         {getTriple("Erhåller bröstmjölk", erhaller_bmjolk_ut, setErhallerBmjolkUt)} 
-                        {getYesNo("Barnet har v-sond", v_sond_ut, setVsondUt)}
+                        {getYesNo("Barnet har ventrikelsond", v_sond_ut, setVsondUt)}
                         {getInput("Barnet har infart", "text",false, infart_ut, setInfartUt)} 
                         {getInput("Andningsstöd","text",false, andningsstod_ut, setAndningsstodUt)}
                         {getYesNo("Extra syrgasbehov", extraGas_ut, setExtraGasUt)}

@@ -1,5 +1,9 @@
 import React, { Fragment, useEffect, useState} from "react";
+import Navigation from "../../components/navigationButtons";
+import Home from "../../components/HomeButton";
 import {getTriple, getInput, getYesNo, threeCheck, validateMulti} from "../../../utils/inputs.js"
+import layouts from "./registrations.module.css";
+
 
 
 const EditRegistration = (useParams) => {
@@ -224,21 +228,27 @@ const EditRegistration = (useParams) => {
             return <h1>Detta protokollnr existerar ej</h1>
         }
         return ( <Fragment>
-            <button id="cancel" onClick={() => {window.location = "/registration/" + id }}>Avbryt</button> <br/>
-            Protokollnr: <input value={id} type="number"/><br />
-
+             <div class = "navigation"><Navigation id={id}/></div>
+             <div id = "homeButton"><Home/></div>
+            <h1>Redigera Protokoll: {id}</h1>
+            <div class={layouts.form}>
+            <div class={layouts.protokollID} id={layouts.protokollID}>
+            <h1>Protokoll ID</h1>
+            Protokollnr: <input value={id} type="number"/><br/>
             {getInput("InskrivningsDatum", "date", true, regDate, setRegDate)}
             {getInput("Anledning för inskrivning", "text", true, reason, setReason)}
-            <h3>Vid Födelse:</h3>
+            </div>
 
+            <div class={layouts.bakgrundsdata} id={layouts.bakgrundsdata}>
+            <h3>Vid Födelse:</h3>
             {getInput("Barnets gestationsvecka", "number", true, veckor, setVeckor, 21, 42)}
             {getInput("dagar", "number", true, dagar, setDagar)} <br/>
-            
             {getInput("Födelsevikt (gram)", "number", true, vikt_fodelse, setViktFodelse)}
             {getInput("Födelselängd (cm)", "number", true, langd_fodelse, setLangdFodelse)}
             {getInput("Födelsehuvudomfång", "number", true, huvudomfang_fodelse, setHuvudomfangFodelse)}
+            </div>
 
-
+            <div class={layouts.inskrivning}  id={layouts.inskrivning}>
             <h3>Vid inskrivning:</h3>
             {getInput("Vikt (gram)" , "number", true, vikt_in, set_vikt_in)}
             {getInput("Huvudomfång (cm)" , "number", true, huvud_in, set_huvud_in)}
@@ -249,8 +259,10 @@ const EditRegistration = (useParams) => {
             {getInput("Infart", "text", false, infart_in, set_infart_in)}
             {getInput("Andningsstöd", "text", false, andning_in, set_andning_in)}
             {getYesNo("Extra syrgasnehov", syrgas_in, set_syrgas_in)}
+            </div>
 
             <br/>
+            <div class={layouts.bottom} id={layouts.bottom}>
             {getYesNo("Riskpatient", riskpatient, set_risk)}
                 <div className="multi">
                 Överraportering till bvc:
@@ -277,7 +289,8 @@ const EditRegistration = (useParams) => {
                             }
                         }} />
                 </div>
-                
+               
+
                 Om nej ange orsak: <input id="orsak" type="text" value={bvc_text} onChange={(e) => {
                     if (bvc_rap == false) {
                         validateBvc(true); // kinda ugly dont care bye bye
@@ -287,7 +300,10 @@ const EditRegistration = (useParams) => {
                     }
 
                 }}/>
+                </div>
+                </div>
             </Fragment>
+            
         );
     }
     return(
@@ -296,7 +312,8 @@ const EditRegistration = (useParams) => {
             <form onSubmit={submit}>
                 {getRegistration()}
                 {getDischarge()}
-                <button type="submit" onCick={validateMulti}> Spara </button>
+                <button type="submit" class={layouts.button1} onCick={validateMulti}> Spara </button>
+                <button id="cancel" class={layouts.button1} onClick={() => {window.location = "/registration/" + id }}>Avbryt</button> <br/>
             </form>
             </div>
         </Fragment>
