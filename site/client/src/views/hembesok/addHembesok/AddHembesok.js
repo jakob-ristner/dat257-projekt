@@ -69,61 +69,53 @@ const AddHembesok = (useParams) => {
         <h1>Lägg till hembesök för {protokollnr}</h1>  
         <button class = {layout.avbrytButton} onClick={() =>{window.location="/hembesok/" + protokollnr} }>Avbryt</button>
         <div class = {layout.test}>
-        <div class={layout.gridAdd}>
+   
     
             <form onSubmit={submit}>
-                
-                <div class={layout.info}>
-                <h1>Tid </h1>  
-                   <div class ={layout.gridInfo}>
 
-                    <div class = {layout.textFields}>Datum utfört: <input required type="date" value={date_performed} onChange={(e) => {set_date_performed(e.target.value)}}></input></div>
-                    <div class = {layout.textFields}>Till familj:<input required type="time" value={at_familyKl} onChange={(e) => {set_at_family(e.target.value)}}></input></div>
-                    <div class = {layout.textFields}>Från familj:<input required type="time" value={from_familyKl} onChange={(e) => {set_from_family(e.target.value)}}></input></div>
-                    <div class = {layout.textFields}>Utförd av: <input required value={performed_by} onChange={(e) => {set_performed_by(e.target.value)}}></input> </div>
+               <div class={layout.gridAdd}>
+                <div class={layout.info}> 
+                    <div class ={layout.gridInfo}>
+                    <div>Datum utfört: <input required type="date" value={date_performed} onChange={(e) => {set_date_performed(e.target.value)}}></input></div>
+                    <div>Till familj:<input required type="time" value={at_familyKl} onChange={(e) => {set_at_family(e.target.value)}}></input></div>
+                    <div>Från familj:<input required type="time" value={from_familyKl} onChange={(e) => {set_from_family(e.target.value)}}></input></div>
+                    <div>Utförd av: <input required value={performed_by} onChange={(e) => {set_performed_by(e.target.value)}}></input> </div>
                   </div>
                 </div>
-                <hr class = {layout.line}></hr>
                     <div class= {layout.atgard}>
-     
-                    <h1>Åtgärd</h1>
-                    Välj åtgärd:
+
                     <div class ={layout.gridAtgard}>
-                    <div class = {layout.checkBox}>Amning/nutrition: <input type="checkbox" checked={amning_nutrition} onChange={(e) => {set_amning_nutrition(e.target.checked)}}></input></div>
-                    <div class = {layout.checkBox}>Stödsamtal: <input type="checkbox" checked={stodsamtal} onChange={(e) => {set_stodsamtal(e.target.checked)}}></input></div> 
-                    <div class = {layout.checkBox}>Viktkontroll: <input type="checkbox" checked={viktkontroll} onChange={(e) => {set_viktkontroll(e.target.checked)}}></input></div>
-                    <div class = {layout.checkBox}>Provtagning: <input type="checkbox" checked={provtagning} onChange={(e) => {set_provtagning(e.target.checked)}}></input></div> 
-                    <div class = {layout.checkBox}>Läkemedel: <input type="checkbox" checked={lakemedel} onChange={(e) => {set_lakemedel(e.target.checked)}}></input></div> <br></br>
-                    <div class = {layout.textFields}>Annan Åtgärd: <input value={annan_at} onChange={(e) => {set_annan_at(e.target.value)}}></input></div> 
+                    Välj åtgärd:
+                    <div>Amning/nutrition: <input type="checkbox" checked={amning_nutrition} onChange={(e) => {set_amning_nutrition(e.target.checked)}}></input></div>
+                    <div>Stödsamtal: <input type="checkbox" checked={stodsamtal} onChange={(e) => {set_stodsamtal(e.target.checked)}}></input></div> 
+                    <div>Viktkontroll: <input type="checkbox" checked={viktkontroll} onChange={(e) => {set_viktkontroll(e.target.checked)}}></input></div>
+                    <div>Provtagning: <input type="checkbox" checked={provtagning} onChange={(e) => {set_provtagning(e.target.checked)}}></input></div> 
+                    <div>Läkemedel: <input type="checkbox" checked={lakemedel} onChange={(e) => {set_lakemedel(e.target.checked)}}></input></div>
+                    <div>Annan Åtgärd: <input value={annan_at} onChange={(e) => {set_annan_at(e.target.value)}}></input></div> 
                     </div>
  
                     </div>
 
-                    <hr class = {layout.line}></hr>
+                  
 
-                    <div class = {layout.resurs}>  
-                    <h1>Resurs </h1>
-                    Välj resurs:
+                    <div class = {layout.resurs}> 
                     <div class = {layout.gridResurs}>
-                    <div class = {layout.checkBox}>Läkare: <input type="checkbox" checked={lakare} onChange={(e) => {set_lakare(e.target.checked)}}></input></div>
-                    <div class = {layout.checkBox}>Logoped: <input type="checkbox" checked={logoped} onChange={(e) => {set_logoped(e.target.checked)}}></input></div>
-                    <div class = {layout.checkBox}> Dietist: <input type="checkbox" checked={dietist} onChange={(e) => {set_dietist(e.target.checked)}}></input></div>
-                    <div class = {layout.checkBox}> Kurator: <input type="checkbox" checked={kurator} onChange={(e) => {set_kurator(e.target.checked)}}></input></div><br></br>
-                    <div class = {layout.broadTextField}>Annan resurs: <input value={annan_resurs} onChange={(e) => {set_annan_resurs(e.target.value)}}></input></div>
+                    Välj resurs:
+                    <div>Läkare: <input type="checkbox" checked={lakare} onChange={(e) => {set_lakare(e.target.checked)}}></input></div>
+                    <div>Logoped: <input type="checkbox" checked={logoped} onChange={(e) => {set_logoped(e.target.checked)}}></input></div>
+                    <div> Dietist: <input type="checkbox" checked={dietist} onChange={(e) => {set_dietist(e.target.checked)}}></input></div>
+                    <div> Kurator: <input type="checkbox" checked={kurator} onChange={(e) => {set_kurator(e.target.checked)}}></input></div>
+                    <div>Annan resurs: <input value={annan_resurs} onChange={(e) => {set_annan_resurs(e.target.value)}}></input></div>
                     </div>
       
                     </div>
-
-                    <hr class = {layout.line}></hr>
-
                     <div class= {layout.avvikning}>
-                    <div><h1>Avvikning </h1></div>
-                    Välj avvikning:
                     <div class = {layout.gridAvvikning}>
-                    <div class = {layout.checkBox}>Logistik: <input type="checkbox" checked={av_logistik} onChange={(e) => {set_av_logistik(e.target.checked)}}></input></div>
-                    <div class = {layout.checkBox}>Barn/familj: <input type="checkbox" checked={av_barn_familj} onChange={(e) => {set_av_barn_familj(e.target.checked)}}></input></div>
-                    <div class = {layout.checkBox}>Personal: <input type="checkbox" checked={av_personal} onChange={(e) => {set_av_personal(e.target.checked)}}></input></div> <br></br>
-                    <div class = {layout.broadTextField}>Avvikning beskrivning: <input value={av_beskrivning}
+                    Välj Avvikning:
+                    <div>Logistik: <input type="checkbox" checked={av_logistik} onChange={(e) => {set_av_logistik(e.target.checked)}}></input></div>
+                    <div>Barn/familj: <input type="checkbox" checked={av_barn_familj} onChange={(e) => {set_av_barn_familj(e.target.checked)}}></input></div>
+                    <div>Personal: <input type="checkbox" checked={av_personal} onChange={(e) => {set_av_personal(e.target.checked)}}></input></div>
+                    <div>Avvikning beskrivning: <input value={av_beskrivning}
                     onChange={(e) => {
                         if (av_logistik == true || av_barn_familj == true || av_personal == true){
                             set_av_beskrivning(e.target.value)
@@ -132,8 +124,9 @@ const AddHembesok = (useParams) => {
                     </div>
                     </div>
                     <button class = {layout.saveButton}>Spara</button>
+                    </div>      
             </form>
-            </div>      
+    
             </div>
         </Fragment>
     );

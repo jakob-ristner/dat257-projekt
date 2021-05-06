@@ -4,8 +4,8 @@
   
   .gridAdd {
     display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: 20% 20% 20% 20% 20% 20% 20% ;
+  
+    grid-template-columns: 25% 25% 25% 25%;
     
   }
 
@@ -13,7 +13,7 @@
     display: grid;
     grid-row-gap: 3;
     grid-column-start: 1;
-    grid-column-end: 3;
+    grid-column-end: 1;
     grid-row-start: 1;
     grid-row-end: 1;
   }
@@ -22,7 +22,7 @@
     grid-row-gap: 3%;
     grid-column-start: 2;
     grid-row-start: 1;
-    grid-row-end: 3;
+    grid-row-end: 1;
   }
   
   .gridAdd .resurs {
@@ -30,7 +30,7 @@
     grid-row-gap: 3%;
     grid-column-start: 3;
     grid-row-start: 1;
-    grid-row-end: 3;
+    grid-row-end: 1;
   }
   
   .gridAdd .avvikning {
@@ -43,48 +43,28 @@
 
   .gridAdd .gridInfo{
       display: grid;
-      grid-template-columns: 20% 14% 16%;
-      grid-column-gap: 10px;
+      grid-template-rows: 10% 10% 10% 10%;
+      grid-row-gap: 5px;
       
   }
   .gridAdd .gridAtgard{
     display: grid;
-    grid-template-columns:13% 10% 10% 10% 10% 30%;
+    grid-template-rows:10% 10% 10% 10% 10% 10%;
+    grid-row-gap: 5px;
 }
   .gridAdd .gridResurs{
     display: grid;
-    grid-template-columns: 7% 8% 7% 7% 23%
+    grid-template-rows: 10% 10% 10% 10% 10%;
+    grid-row-gap: 5px;
+    
   }
 
   .gridAdd .gridAvvikning{
     display: grid;
-    grid-template-columns: 7% 9% 23%
+    grid-template-rows: 10% 10% 10% 10%;
+    grid-row-gap: 5px;
   }
 
-  .gridAtgard .textFields{
-      display: grid;
-      grid-template-columns: 66% 64%;
-      align-items: 1px;
-  }
-  .broadTextField{
-    display: grid;
-    grid-column-start: 1;
-    grid-column-end: 4;
-    grid-row-start: 2;
-    grid-template-columns: 36% 40%;
-    align-items: 1px;
-    
-}
-  .gridInfo .checkBox{
-    display: grid;
-    grid-template-columns: 40% 60%;
-}
-.gridAdd hr.line{
-  margin-top: 10px;
-  width: 100%;
-  background-color:black;
-  height: 3px;
-}
 .saveButton{
   position: absolute;
   left: 1332px;
@@ -94,6 +74,10 @@
   position: absolute;
   left: 152px;
   top: 640px;
+}
+.vl {
+  border-left: 6px solid green;
+  height: 500px;
 }
  
   
