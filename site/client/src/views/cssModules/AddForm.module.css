@@ -2,12 +2,14 @@
     background-color: #add8e6;
   }
   
-  .grid {
+  .gridAdd {
     display: grid;
-    grid-template-columns: 70% 20%;
+    grid-template-columns: auto;
+    grid-template-rows: 20% 20% 20% 20% 20% 20% 20% ;
+    
   }
 
-  .container .info {
+  .gridAdd .info {
     display: grid;
     grid-row-gap: 3;
     grid-column-start: 1;
@@ -15,7 +17,7 @@
     grid-row-start: 1;
     grid-row-end: 1;
   }
-  .container .atgard {
+  .gridAdd .atgard {
     display: grid;
     grid-row-gap: 3%;
     grid-column-start: 2;
@@ -23,7 +25,7 @@
     grid-row-end: 3;
   }
   
-  .container .resurs {
+  .gridAdd .resurs {
     display: grid;
     grid-row-gap: 3%;
     grid-column-start: 3;
@@ -31,7 +33,7 @@
     grid-row-end: 3;
   }
   
-  .container .avvikning {
+  .gridAdd .avvikning {
     display: grid;
     grid-row-gap: 3%;
     grid-column-start: 4;
@@ -39,37 +41,59 @@
     grid-row-end: 3;
   }
 
-  .container .gridInfo{
+  .gridAdd .gridInfo{
       display: grid;
-      grid-template-columns: 20% 14% 16% 15%;
+      grid-template-columns: 20% 14% 16%;
+      grid-column-gap: 10px;
       
   }
-  .container .gridAtgard{
+  .gridAdd .gridAtgard{
     display: grid;
     grid-template-columns:13% 10% 10% 10% 10% 30%;
 }
-  .container .gridResurs{
+  .gridAdd .gridResurs{
     display: grid;
     grid-template-columns: 7% 8% 7% 7% 23%
   }
 
-  .container .gridAvvikning{
+  .gridAdd .gridAvvikning{
     display: grid;
     grid-template-columns: 7% 9% 23%
   }
 
-  .gridInfo .textFields{
+  .gridAtgard .textFields{
       display: grid;
-      grid-template-columns: 40% 50%;
+      grid-template-columns: 66% 64%;
       align-items: 1px;
   }
+  .broadTextField{
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-template-columns: 36% 40%;
+    align-items: 1px;
+    
+}
   .gridInfo .checkBox{
     display: grid;
-    grid-template-columns: 40% 50%;
+    grid-template-columns: 40% 60%;
 }
-.container .line{
-  width: 10px;
-  background-color: red;
+.gridAdd hr.line{
+  margin-top: 10px;
+  width: 100%;
+  background-color:black;
+  height: 3px;
+}
+.saveButton{
+  position: absolute;
+  left: 1332px;
+  top: 640px;
+}
+.avbrytButton{
+  position: absolute;
+  left: 152px;
+  top: 640px;
 }
  
   
