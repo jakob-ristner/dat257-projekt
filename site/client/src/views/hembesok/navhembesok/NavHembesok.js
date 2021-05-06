@@ -136,26 +136,26 @@ const NavHembesok = (useParams) => {
 
                     <div class={layout.atgard}>
                     
-                    <label >Amning/nutrition<input type="checkbox" checked={form.amning_nutrition}/></label>
-                    <label >Stödsamtal<input type="checkbox" checked={form.stodsamtal}/></label>
-                    <label >Viktkontroll<input type="checkbox" checked={form.viktkontroll}/> </label>
-                    <label >Provtagning<input type="checkbox" checked={form.provtagning}/></label>
-                    <label >Läkemedel<input type="checkbox" checked={form.lakemedel}/></label>
+                    <label >Amning/nutrition<input type="checkbox" checked={form.amning_nutrition}/></label><br></br>
+                    <label >Stödsamtal<input type="checkbox" checked={form.stodsamtal}/></label><br/>
+                    <label >Viktkontroll<input type="checkbox" checked={form.viktkontroll}/> </label><br/>
+                    <label >Provtagning<input type="checkbox" checked={form.provtagning}/></label><br/>
+                    <label >Läkemedel<input type="checkbox" checked={form.lakemedel}/></label><br/>
                     <label >Annan Åtgärd:<input value={form.annan_at}/></label>
                     </div>
 
                     <div class={layout.resurs}>
-                    <label >Läkare<input type="checkbox" checked={form.lakare}/></label>
-                    <label >Logoped<input type="checkbox" checked={form.logoped}/></label>
-                    <label >Dietist<input type="checkbox" checked={form.dietist}/></label>
-                    <label > Kurator<input type="checkbox" checked={form.kurator}/></label>
+                    <label >Läkare<input type="checkbox" checked={form.lakare}/></label><br/>
+                    <label >Logoped<input type="checkbox" checked={form.logoped}/></label><br/>
+                    <label >Dietist<input type="checkbox" checked={form.dietist}/></label><br/>
+                    <label > Kurator<input type="checkbox" checked={form.kurator}/></label><br/>
                     <label >Annan resurs:<input value={form.annan_resurs}/></label>
                     </div>
 
                     <div class={layout.avvikning}>
-                    <label >Avvikning Logistik<input type="checkbox" checked={form.av_logistik}/></label>
-                    <label >Avvikning Barn/Familj<input type="checkbox" checked={form.av_barn_familj}/></label>
-                    <label >Avvikning Personal<input type="checkbox" checked={form.av_personal}/></label>
+                    <label >Avvikelse Logistik<input type="checkbox" checked={form.av_logistik}/></label><br/>
+                    <label >Avvikelse Barn/Familj<input type="checkbox" checked={form.av_barn_familj}/></label><br/>
+                    <label >Avvikelse Personal<input type="checkbox" checked={form.av_personal}/></label><br/>
                     <label >Beskrivning:<input value={form.av_beskrivning}/></label>
                     </div>
 
