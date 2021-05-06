@@ -1,0 +1,30 @@
+Checkboxar före ordet!
+
+Kolumner är mer najs än rader. 
+
+Hålla samma design i alla fönster.
+
+"Annan resurs": 
+
+PO-Möte 2021-05-06
+Sekreterare: Erik Berg
+
+
+Avvikelser: Tre typer logistik, barn/familj, och Personal
+	Beskrivning relevant. På alla sidor. 
+
+Helt delvis inte alls utskrivet!
+
+
+
+Riskpatient Ja/Nej.
+Fylls i vid inskrivning. 
+
+Överrapportering är inte säkert att det skett. Kan ske under vårdtiden. 
+
+
+Till nästa vecka:
+Mottagningsbesök hela
+Plus fixa layout som vi bestämt, se ovan ^^
+
+Nästa Sprint till den 12e maj kl. 11.00
