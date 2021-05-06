@@ -65,39 +65,44 @@ const AddDigitaltVard = (useParams) => {
         <Fragment>
              <h1>Lägg till digitalt vårdmöte för {protocolID}</h1>
 
-
     <form onSubmit={submit}>
-        <div class="addDvard">
-            <div class="date">
-                Datum utfört: <input required type="date" value={date} onChange={(e) => {set_date(e.target.value)}}></input><br/>
-                Start klockan: <input required type="time" value={start_time} onChange={(e) => {set_start_time(e.target.value)}}></input><br/>
-                Avslutad klockan: <input required type="time" value={end_time} onChange={(e) => {set_end_time(e.target.value)}}></input><br/>
-                Utförd av: <input required placeholder="Sköterske-ID" type="text" value={performed_by} onChange={(e) => {set_performed_by(e.target.value)}}></input><br/><br/>
+        <div class={layout.gridAdd}>
+            <div class={layout.info}>
+                <div class = {layout.gridInfo}>
+                <div>Datum utfört: <input required type="date" value={date} onChange={(e) => {set_date(e.target.value)}}></input></div>
+                <div>Start klockan: <input required type="time" value={start_time} onChange={(e) => {set_start_time(e.target.value)}}></input></div>
+                <div>Avslutad klockan: <input required type="time" value={end_time} onChange={(e) => {set_end_time(e.target.value)}}></input></div>
+                <div>Utförd av: <input required placeholder="Sköterske-ID" type="text" value={performed_by} onChange={(e) => {set_performed_by(e.target.value)}}></input></div>
             </div>
+        </div>
 
-            <div class="checkboxes">
-                <div className="multi">
-                Amning-/nutrionssamtal: <input class="distance" type="checkbox" checked={amning_nutrition} onChange={(e) => {set_amning_nutrition(e.target.checked)}}></input>
-                Stödsamtal: <input class="distance"  type="checkbox" checked={stodsamtal} onChange={(e) => {set_stodsamtal(e.target.checked)}}></input>
-                Viktkontroll: <input class="distance" type="checkbox" checked={viktkontroll} onChange={(e) => {set_viktkontroll(e.target.checked)}}></input><br/> 
+            <div class= {layout.atgard}>
+                <div className= {layout.gridAtgard}>
+                <div><input class="distance" type="checkbox" checked={amning_nutrition} onChange={(e) => {set_amning_nutrition(e.target.checked)}}></input>Amning-/nutrionssamtal:</div>
+                <div><input class="distance"  type="checkbox" checked={stodsamtal} onChange={(e) => {set_stodsamtal(e.target.checked)}}></input>Stödsamtal:</div>
+                <div><input class="distance" type="checkbox" checked={viktkontroll} onChange={(e) => {set_viktkontroll(e.target.checked)}}></input>Viktkontroll: </div> 
                 
-                Annat möte: Ja<input class="distance" type="checkbox" checked={annat_motes} onChange={(e) => {
+                <div><input class="distance" type="checkbox" checked={annat_motes} onChange={(e) => {
                     set_annat_motes(e.target.checked)
                     if(annat_motes){
                         set_annat_mote("")
-                    }}}></input>
-                Om Ja: <input type="text" value={annat_mote} onChange={(e) => {
+                    }}}></input>Annat möte: Ja</div>
+                Om Ja: <div><input type="text" value={annat_mote} onChange={(e) => {
                     if (annat_motes == true){
                         set_annat_mote(e.target.value)
-                    }}}></input><br/><br/>
+                    }}}></input></div>
                 </div>
-                <input class="distance" type="checkbox" checked={lakare} onChange={(e) => {set_lakare(e.target.checked)}}></input>Läkare
-                <input class="distance" type="checkbox" checked={logoped} onChange={(e) => {set_logoped(e.target.checked)}}></input>Logoped 
-                <input class="distance" type="checkbox" checked={dietist} onChange={(e) => {set_dietist(e.target.checked)}}></input> Dietist
-                <input class="distance" type="checkbox" checked={kurator} onChange={(e) => {set_kurator(e.target.checked)}}></input><br/>Kurator
-                Annan resurs: <input type="text" value={annan_resurs} onChange={(e) => {set_annan_resurs(e.target.value)}}></input><br/>
-                Avvikelser: <input type="text" value={avvikelse} onChange={(e) => {set_avvikelse(e.target.value)}}></input><br/>
-                
+            </div>
+
+             <div class= {layout.reurs}>
+                <div class= {layout.gridResurs}>
+                <div><input class="distance" type="checkbox" checked={lakare} onChange={(e) => {set_lakare(e.target.checked)}}></input>Läkare</div>
+                <div><input class="distance" type="checkbox" checked={logoped} onChange={(e) => {set_logoped(e.target.checked)}}></input>Logoped</div> 
+                <div><input class="distance" type="checkbox" checked={dietist} onChange={(e) => {set_dietist(e.target.checked)}}></input> Dietist</div>
+                <div><input class="distance" type="checkbox" checked={kurator} onChange={(e) => {set_kurator(e.target.checked)}}></input>Kurator</div>
+                Annan resurs: <input type="text" value={annan_resurs} onChange={(e) => {set_annan_resurs(e.target.value)}}></input>
+                Avvikelser: <input type="text" value={avvikelse} onChange={(e) => {set_avvikelse(e.target.value)}}></input>
+                </div>
             </div>
 
         <div class="saveButton">
@@ -107,7 +112,6 @@ const AddDigitaltVard = (useParams) => {
         </div>
         </div>
         </form>
-
          </Fragment>
     );
 }
