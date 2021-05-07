@@ -1,6 +1,7 @@
 module.exports = function(app, pool) {
     
     //get ALL hembesok as an array
+    
     app.get("/hembesok/:id", async(req, res) => {
         try {
             const { id } = req.params;
