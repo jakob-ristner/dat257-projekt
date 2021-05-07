@@ -1,0 +1,95 @@
+TEAM REFLECTION week 6
+Secretary: Anton Hansson
+
+------------------------------------------------------------------------------------------------------------
+CUSTOMER VALUE and SCOPE
+
+* Chosen scope of the application under development
+including the priority of features and for whom you
+are creating value:
+
+Recently our scope has been expanded on, the customer has brought regional information security specialists who have
+begun asking questions about how we handle the data. At the moment we are not storing personal data but since the
+customer seems to want to store the birthdate of the babies, this might change and we may be subject to many laws.
+
+Since the customer is very keen on having a working product at the end of this, they have begun thinking 
+more about the piority of features.
+
+*Success criteria
+The goal of the project has always been to deliver an as complete product as possible but we
+are probably not going to finish the project during this course. However this has been more
+concretely put dureing the last meeting with the PO since the project is nearing its end. 
+
+What we still need from them is a concrete definition of when the product is done from them since
+we realize that we do not really know this right now.
+
+*User Stories
+This week the user story process has been a lot harder since we have worked on a lot of user stories focused on design.
+We realized thet it is a lot more difficult creating and working from tasks in these design focused css sprints.
+The acceptance critierias are also much more vague, all of which has contributed to what we feel has been a downgrade
+in efficiancy and productivity.
+
+Because of the nature of design, it was much harder to realize when any given element was finished.
+
+To solve this issue we propose having stand up meetings where we discuss the design that we have worked on. 
+This will however be very difficult to achieve next week since the sprint is only three days long.
+
+* Acceptance test
+We did the same thing as last week, we were however supposed to create a "cheat sheet" for testing and reviewing code 
+but we forgot to do this. Next week we will create this cheat sheet just prior to the meeting together so that everybody 
+gets something to say.
+
+* KPIs
+    Team satisfaction/happiness: Average 6,5
+      *it is notable that very few team member enjoy writing css
+      *teams that were writing css has lower satisfaction than code
+
+    Userstories: 3/5 completed (done) 
+
+    Tasks: 23/26 completed (done)
+   
+
+------------------------------------------------------------------------------------------------------------------
+
+SOCIAL CONTRACT and EFFORT
+*social contract
+
+We have not changed our social contract but we have applied it in the situation where a team member
+was underperforming and it has worked well.
+
+* time spent
+This week, all of our team memmber from the Industrual Economy program have had their hands full on their
+bachelors work. As a result of this, less time has been spent on the project this week and has resulted
+in a less productive week than usual.
+
+
+--------------------------------------------------------------------------------------------------------------------
+DESIGN DECISIONS and PRODUCT STRUCTURE
+
+* Design decisions
+A lot has changed with the design since our last meeting with the PO. A layout for all of the 
+minor forms has been settled on. We should draw up this design in figma so that everyone
+working simultaniously has the same framwork to work after.
+
+* Technical Documentation
+We have started documenting some of our code this week but need to do more as well as document code from previous sprints.
+It is also worth noting that the css has become compiclated wnought tow warrant being commented as well.
+   
+-------------------------------------------------------------------------------------------------------------------------
+APPLICATION OF SCRUM 
+
+*Roles
+Roles have not changed
+
+* Agile practice
+This week, to try to be more productive, we hade two teams of 2 people and one team of 1 person. This is
+a very shortsighted idea it has seamed. You get more code written in the same timespan but you lose the
+element of helping eachother and just having somebody to code with and throw around ideas. This has been 
+especially bad in the context of developing design elements in css where human input can be very valuable,
+the enjoyment of this person was also very decreased. We will not be trying this out next week. 
+
+*Best practices for learning
+Something we should have looked at prior to starting to work with css a lot is to find some good
+resource on how to structure and work with css in large react projects. As well as where to start.
+
+
