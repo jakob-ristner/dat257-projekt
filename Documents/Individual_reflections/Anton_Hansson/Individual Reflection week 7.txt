@@ -1,0 +1,34 @@
+Individual Reflection Anton week 7 
+
+What do I want to learn or understand better?
+
+    This week we focused on layout and added one new feature. I've focused on layout and mostly coded in css.
+    I feel that I have a better understanding of how css grid works and how to use the html divs to divide and 
+    (conquer) structure the layout. There is a lot to learn regarding css and I want to get more knowledge and 
+    learn more.
+
+How can I help someone else, or the entire team, to learn something new?
+
+    This week, all pairs have worked more isolated which resulted in less dialog and less opportunity to help each other.
+    Since css is new to most members in our group, it's difficult to help others as well as get help sometimes. But we're 
+    all doing our best and with more practice in combination with better communication within the team, I'm certain that
+    we'll cooperate more and eventually code in css the same way we do when we're using javascript or html.
+    
+What is my contribution towards the team's use of scrum?
+	
+    I've contributed by participating on the team meetings and created user stories + tasks for the sprint. I follow the tasks when coding
+    and use the scrum board daily. I try to have the agile strategy in the back of my mind throughout the project and think about 
+    ways for us as a team to improve. But sometimes I slip and forget about it when I work. 
+
+    We tested a new way of dividing the group into four smaller groups (instead of three) where one member worked alone. 
+    After only one sprint we decided that it's not the right way to work for us. It might be more productive from one 
+    standpoint but the member that coded on his own had less possibilities to discuss with the rest of us and felt more alone which
+    makes the decision to discard it easy and go back to three groups.  
+ 	
+What is my contribution towards the team's deliveries?
+	
+    I've mostly worked on the layout for all the navigation sites this week together with Erik. We finished our user story 
+    and all the tasks with some time to spare as we predicted. We used the time to fix some of the bugs from the previous sprint as planned. 
+    Overall this week was slower compared to the other sprints since I find it difficult to feel the same satisfaction when coding 
+    in css compared with the other languages. I believe it's because I'm not adding functionality in the same way. Although I
+    understand the value of layout and design, it ain't my cup of tea. But I'm still improving and things might change. 
