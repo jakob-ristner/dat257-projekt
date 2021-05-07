@@ -1,0 +1,18 @@
+Individual reflection - Haris Cehic
+Week 7 30/4
+
+What do I want to learn or understand better?
+
+This week I worked a lot on CCS and design. Things to learn in the future based on this area would be primarily how design processes actually work in combination to Scrum and the most effective way to use it. Also it would be good to learn more of the high-level theories when working with UI/UX and not only the specific implementations in CSS.
+
+How can I help someone else, or the entire team, to learn something new?
+
+Because CSS was new for many this week I tried to help as much as I could with the knowledge I had of it. We usually have groups of two and three but this week I worked on a task by myself because we thought that based on the stakeholder input that would be the most effective way. This turned out to be a bad idea because I felt that I didn’t have anybody to brainstorm with and also that I didn’t get the full opportunity to help my team members.  
+
+What is my contribution towards the team’s use of Scrum?
+
+As the other weeks I took part in the sprint planning, review and other meetings. Although this week I missed the meeting with the stakeholder so that had some impact on this week's feeling of the whole sprint although the others summarized it well afterwards. Also as previously stated we tried a new configuration but in a true agile way we evaluated it and determined that that is not the best way to organize us. 
+
+What is my contribution towards the team’s deliveries?
+
+I finished all my tasks this week and my assigned user story. For next week we will go back to only working in teams so we can continue on a path that worked well for us. I was also active and participated in all the meetings besides the one with the PO. 
