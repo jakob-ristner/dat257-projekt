@@ -5,12 +5,25 @@
 .grid {
   display: grid;
   grid-template-columns: 70% 20%;
+  grid-template-rows: 20% 60% 20%;
+  grid-template-areas:
+    "list upbutton"
+    "list ."
+    "list downbutton";
+}
+
+.list {
+  grid-area: list;
 }
 
 .container {
+  /* grid-column: 1/2;
+ grid-row: 2/3;
+  grid-row: 2/3;*/
   display: grid;
-  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-columns: 18% 18% 18% 18% 18%;
   grid-template-rows: 33% 33% auto;
+  grid-column-gap: 2%;
 }
 
 .container input {
@@ -18,7 +31,7 @@
 }
 
 .container #edit {
-  grid-column-start: 5;
+  /*grid-column-start: 5;*/
   font-size: 16px;
   border: none;
   color: white;
@@ -45,51 +58,54 @@
 }
 
 .container .info {
-  grid-column-start: 1;
-  grid-row-start: 1;
-  grid-row-end: 3;
+  grid-column: 1/2;
+  grid-row: 1/3;
+  /*display: grid;
+  grid-template-columns: auto auto;*/
+  text-align: center;
 }
 
+.container.info:nth-child(odd){
+text-align: right;
+}
+
+
+/*
+.container.info:nth-child(even){
+  text-align: left;
+}*/
 .container .atgard {
-  grid-column-start: 2;
-  grid-row-start: 1;
-  grid-row-end: 3;
+  grid-column: 2/3;
+  grid-row: 1/3;
+  text-align: right;
+
+
 }
 
 .container .resurs {
-  grid-column-start: 3;
-  grid-row-start: 1;
-  grid-row-end: 3;
+  grid-column: 3/4;
+  grid-row: 1/3;
+  text-align: right;
+
 }
 
 .container .avvikning {
-  grid-column-start: 4;
-  grid-row-start: 1;
-  grid-row-end: 3;
+  grid-column: 4;
+  grid-row: 1/3;
+  text-align: right;
 }
 
-.container input {
-  margin-right: 20px;
-  color: black;
+
+.upButton {
+  padding-top: 12px;
+  grid-area: upbutton;
 }
 
-.editHembesok {
-  grid-column-start: 5;
-  padding: 4px 16px;
-  transition: all 2s;
+#arrowButton {
+  font-size: 100px;
 }
-
-.editHembesok:hover {
-  background-color: rgb(241, 241, 121);
-}
-
-.editSave {
-  padding: 4px 16px;
-  transition: all 2s;
-}
-
-.editSave:hover {
-  background-color: rgb(96, 230, 96);
+.downButton {
+  grid-area: downbutton;
 }
 
 #item0 {
@@ -106,6 +122,7 @@
   padding: 7px;
   border-left: 5px solid #2c4dad;
   border-bottom: 2px solid slategray;
+
 }
 
 #item2 {
@@ -114,4 +131,10 @@
   border-left: 5px solid royalblue;
   margin-bottom: 10px;
   box-shadow: 0 6px 10px -5px rgba(0, 0, 0, 0.7);
+}
+
+.protID {
+  left: 83%;
+  top: 2%;
+  position: absolute;
 }
