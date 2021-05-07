@@ -83,6 +83,7 @@ const EditDigvard = (useParams) => {
     return (<Fragment>
 
         <h1>Id: {id}</h1>
+        <button onClick={() => {window.location = "/digitalt-vardmote/" + protokollnr}}>Avbryt</button>
         <form onSubmit={submit}>
             Datum: <input required type="date" value={ date } 
                 onChange={(e) => {setDate(e.target.value)}}/> <br/>
