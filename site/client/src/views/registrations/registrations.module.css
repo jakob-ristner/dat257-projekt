@@ -25,7 +25,6 @@
   transform: translateY(4px);
 }
 
-
 .form {
   margin-top: 5%;
   margin-bottom: 5%;
@@ -303,4 +302,8 @@
 h1 {
   color: #2e4380;
   font-size: 140%;
+}
+
+h3 {
+  color: #2e4380;
 }

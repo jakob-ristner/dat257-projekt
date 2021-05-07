@@ -206,7 +206,7 @@ const Discharge = (useParams) => {
                         {getYesNo("Mamma vill amma", fullRegistration.mamma_vill_amma, () => {})}
                         
                         {getTriple("Amning", fullRegistration.amning_inskrivning, () => {})}
-                        {getTriple("Amning", fullRegistration.erhaller_bmjolk_in, () => {})}
+                        {getTriple("Erhåller bröstmjölk", fullRegistration.erhaller_bmjolk_in, () => {})}
                         {getYesNo("Barnet har ventrikelsond", fullRegistration.v_sond_in, () => {})}
                         Barnet har infart(Ange typ av infart) <input type="text" value={fullRegistration.infart_in} ></input><br></br>
                         Andningsstöd (ange form) <input type="text" value={fullRegistration.andningsstod_in} ></input><br></br>
