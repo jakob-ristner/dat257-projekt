@@ -1,5 +1,8 @@
 import React, { Fragment, useEffect, useState} from "react";
+import Navigation from "../components/navigationButtons";
+import Home from "../components/HomeButton";
 import {getTriple, getInput, getYesNo, threeCheck, validateMulti} from "../../utils/inputs.js"
+import layouts from "./registrations.module.css";
 
 
 const Registration = () => {
@@ -101,26 +104,28 @@ const Registration = () => {
 
     return (
         <Fragment>
-           
+            <div class = "navigation"><Navigation id={protocolID}/></div>
+             <div id = "homeButton"><Home/></div>
+            <h1>Fyll i nytt protokoll med ID: {protocolID}</h1>
                 <form onSubmit={submitRegistation}>    
-                <div class="form">
-                    <div class="protokollID" id="protokollID">
+                <div class={layouts.form}>
+                    <div class={layouts.protokollID} id={layouts.protokollID}>
                     <h1>Protokoll ID</h1>
                         <label for="protocolID">ProtkollID:</label>
                         <input type="number" required value={protocolID} onChange={(e) => {setProtocolID(e.target.value)} }></input><br></br>
                         {getInput("Anledning för inskrivning", "text", true, reason, setReason)}
                     </div>
             
-                <div class="bakgrundsdata" id="bakgrundsdata">
+                <div class={layouts.bakgrundsdata} id={layouts.bakgrundsdata}>
                 <h1>Födelsedata </h1>
                 {getInput("Barnets gestationsvecka", "number", true, veckor, setVeckor, 22, 44)}
-                {getInput("dagar", "number", true, dagar, setDagar,0,6)}
+                {getInput("Dagar", "number", true, dagar, setDagar,0,6)}
                 {getInput("Födelsevikt (gram)", "number", true, vikt_fodelse, setViktFodelse, 250, 6000)}
                 {getInput("Födelselängd (cm)", "number", true, langd_fodelse, setLangdFodelse, 15, 60)}
                 {getInput("Födelsehuvudomfång", "number", true, huvudomfang_fodelse, setHuvudomfangFodelse, 15, 50)}
                 </div>
             
-            <div class="inskrivning"  id="inskrivning">
+            <div class={layouts.inskrivning}  id={layouts.inskrivning}>
                    <h1>Inskrivning </h1>
                 {getInput("InskrivningsDatum", "date", true, regDate, setRegDate)}
                 {getInput("Vikt (g)", "number", true, vikt_inskrivning, setViktIn)}
@@ -129,17 +134,17 @@ const Registration = () => {
                 {getYesNo("Mamma vill amma", mamma_vill_amma, setMammaAmma)}    
                 {getTriple("Amning", amning_inskrivning, setAmningIn)}
                 {getTriple("Erhåller bröstmjölk", erhaller_bmjolk_in, setBmjolkIn)} 
-                {getYesNo("Barnet har v-sond", v_sond_in, setVsondIn)} 
-                Barnet har infart(Ange typ av infart) <input type="text" value={infart_in} onChange={(e) => {setInfartIn(e.target.value)}}></input><br></br>
-                Andningsstöd (ange form) <input type="text" value={andningsstod_in} onChange={(e) => {setAndningsIn(e.target.value)}}></input><br></br>
+                {getYesNo("Barnet har ventrikelsond", v_sond_in, setVsondIn)} 
+                Barnet har infart (Ange typ av infart) <input type="text" value={infart_in} onChange={(e) => {setInfartIn(e.target.value)}}></input><br></br>
+                Andningsstöd (Ange form) <input type="text" value={andningsstod_in} onChange={(e) => {setAndningsIn(e.target.value)}}></input><br></br>
                 {getYesNo("Extra syrgasbehov", extraGas_in, setExtraGasIn)}
             </div>
             
     
-            <div class="bottom" id="bottom">
+            <div class={layouts.bottom} id={layouts.bottom}>
                 {getYesNo("RiskPatient", riskpatient, setRiskPatient)}
-                <div className="multi">
-                Överraportering till Barnavårdscentral:
+                <div class={layouts.multi}>
+                Överraportering till Barnavårdscentralen:
                     ja <input type="checkbox"  class="ja" checked={bvcRapportering == true}
                         onChange={(e) => {
                             threeCheck(bvcRapportering, setBvcText, true)
@@ -173,11 +178,12 @@ const Registration = () => {
                     }
 
                 }}/>
-                <input type="submit" class="button1" onClick = {validateMulti()}></input>
+                <br></br>
+                <input type="submit" class={layouts.button1} onClick = {validateMulti()}></input>
             </div>
         
 
-            <div class="discharge" id="discharge" >
+            <div class={layouts.discharge} id={layouts.discharge} >
                 <h1>Utskrivning</h1>
                 <form>
                 <label for="outDate">Utskrivningsdatum</label>
@@ -197,7 +203,7 @@ const Registration = () => {
                             H <input type="checkbox" disabled /> 
                             D <input type="checkbox" disabled/> 
                             IA <input type="checkbox" disabled/><br />
-                        Barnet har v-sond: 
+                        Barnet har ventrikelsond: 
                             ja <input type="checkbox" disabled /> 
                             nej <input type="checkbox" disabled/> <br />
                         Barnet har infart(Ange typ av infart) <input type="text" disabled></input><br></br>

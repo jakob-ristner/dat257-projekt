@@ -47,11 +47,11 @@ import React, { Fragment} from "react";
     export function getTriple(name, state, setState){
         return (<Fragment>
             <div className="multi">
-                {name}: H<input checked={state == "H"}  
+                {name}: Helt<input checked={state == "H"}  
                 type="checkbox"  class="helt" onChange={() => {threeCheck(state, setState, "H")}}/> 
-                D<input checked={state == "D"}  
+                Delvis<input checked={state == "D"}  
                 type="checkbox"  class="delvis" onChange={() => {threeCheck(state, setState, "D")}}/>
-                IA<input checked={state == "IA"}
+                Inte alls<input checked={state == "IA"}
                 type="checkbox"  class="inte" onChange={() => {threeCheck(state, setState, "IA")}}/> <br />
             </div>
 
