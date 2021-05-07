@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState} from "react";
 import Navigation from "../components/navigationButtons";
 import Home from "../components/HomeButton";
-import layouts from "./registrations.module.css";
+import layouts from "../cssModules/registrations.module.css";
 import {getTriple, getInput, getYesNo, threeCheck, validateMulti} from "../../utils/inputs.js"
 
 const Discharge = (useParams) => {

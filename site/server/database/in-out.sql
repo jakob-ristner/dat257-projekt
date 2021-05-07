@@ -71,10 +71,20 @@ INSERT INTO registration (protocolID, regDate, reason, veckor, dagar,
     VALUES ('222', '2021-01-01', 'oneoneone', '1', '1', '3500', '83.2', '11.2',
     22,22,22,FALSE,'H','H',FALSE,'blankt','syre',FALSE, FALSE, FALSE,'knas');
 
+      INSERT INTO registration (protocolID, regDate, reason, veckor, dagar, 
+    vikt_fodelse, langd_fodelse, huvudomfang_fodelse,vikt_inskrivning,
+    langd_inskrivning,huvudomfang_in, mamma_vill_amma,amning_inskrivning,
+    erhaller_bmjolk_in,v_sond_in, infart_in, andningsstod_in, extraGas_in,
+    riskpatient, bvcRapportering, bvcText) 
+    VALUES ('112', '2021-01-01', 'oneonetwo', '2', '1', '3500', '83.2', '11.2',
+    11,11,11,TRUE,'H','H',TRUE,'blankt','syre',TRUE, TRUE, TRUE,'knas');
+
     INSERT INTO Discharge (protocolID, outDate, 
     vikt_utskrivning, langd_utskrivning,huvudomfang_ut, mamma_vill_amma_ut,amning_utskrivning,
     erhaller_bmjolk_ut,v_sond_ut, infart_ut, andningsstod_ut, extraGas_ut)
     VALUES ('222', '2021-01-01', 22,22,22,FALSE,'H','H',FALSE,'blankt','syre',FALSE);
+
+  
 
 
 

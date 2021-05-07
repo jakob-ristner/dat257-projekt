@@ -1,9 +1,13 @@
 import React, { Fragment, useEffect, useState} from "react";
-import {useParams} from "react-router-dom"; import "./navHembesok.css"
+import {useParams} from "react-router-dom"; 
 import Navigation from "../../components/navigationButtons";
 import HomeButton from "../../components/HomeButton";
-//import EditHembesok from "../editHembesok/EditHembesok"; //Redigeringsknappen
 import layout from "../../cssModules/NavLayout.module.css";
+import e from "cors";
+import IconButton from '@material-ui/core/IconButton';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
+import { brown } from "@material-ui/core/colors";
 
 const NavHembesok = (useParams) => {
 
@@ -14,13 +18,16 @@ const NavHembesok = (useParams) => {
     //const [idnr, setIdnr] = useState([]);
 
     const getHembesok = async (index) => {
+        
         try {
             const response = await fetch(
             "http://localhost:5000/hembesok/" + id);
             const jsonData = await response.json();
-            setHembesok(jsonData.reverse());
-            showHembesok(jsonData.slice(index, index + 3).reverse());
+            const show = jsonData[0];
+            setHembesok(jsonData);
+            showHembesok(jsonData.slice(index, index + 3));
             console.log(jsonData);
+            console.log(show);
         } catch(err) {
             console.error(err);
         }
@@ -32,7 +39,8 @@ const NavHembesok = (useParams) => {
     }
     
     const decHembIndex = async () => {
-        setHembIndex(Math.max(hembIndex - 3, 0), getHembesok());
+        //setHembIndex(Math.max(hembIndex - 3, 0), getHembesok());
+        setHembIndex(Math.max(hembIndex - 3, 0));
         getHembesok(Math.max(hembIndex - 3, 0));
     }
 
@@ -41,9 +49,9 @@ const NavHembesok = (useParams) => {
             return;
         }
         if (hembIndex === 0) {
-            return (<button onClick={() => decHembIndex()} disabled="true">Senare hembesök </button>);
+            return (<IconButton disabled="true" ><ArrowDropUpIcon id={layout.arrowButton} onClick={() => decHembIndex()} /> </IconButton>);
         }
-        return (<button onClick={() => decHembIndex()}>Senare hembesök </button>);
+        return (<IconButton><ArrowDropUpIcon id={layout.arrowButton} onClick={() => decHembIndex()}/></IconButton>);
     }
 
     const earlierButton = () => {
@@ -51,9 +59,9 @@ const NavHembesok = (useParams) => {
             return;
         }
         if (hembIndex === totHembesok.length - 3) {
-            return (<button onClick={() => incHembIndex()} disabled="true"> Tidigare hembesök </button>);
+            return (<IconButton disabled="true" ><ArrowDropDownIcon id={layout.arrowButton} onClick={() => incHembIndex()} /> </IconButton>);
         } 
-        return (<button onClick={() => incHembIndex()}> Tidigare hembesök </button>);
+        return (<IconButton ><ArrowDropDownIcon id={layout.arrowButton} onClick={() => incHembIndex()}/></IconButton>);
     }
 
     useEffect(() => { getHembesok(hembIndex);
@@ -62,12 +70,12 @@ const NavHembesok = (useParams) => {
     const getHeader = () => {
         if (totHembesok.length > 0) {
             return (
-                <h2>Visar hembesök {totHembesok.length -
-                    Math.min(totHembesok.length, hembIndex + 2 )}
+                <h2>Visar hembesök {totHembesok.length - 
+                    Math.min(totHembesok.length, hembIndex)}
                     - 
-                    {totHembesok.length - 
-                    Math.min(totHembesok.length, hembIndex)} ut 
-                    av totalt {totHembesok.length} st hembesök</h2>
+                    {totHembesok.length -
+                Math.min(totHembesok.length, hembIndex + 2 )} utav 
+                    totalt {totHembesok.length} st hembesök</h2>
             );
         }
         return (
@@ -81,29 +89,45 @@ const NavHembesok = (useParams) => {
         setIdnr(totHembesok.length - (index + hembIndex));
     }
     */
-    var offset = showListHembesok.length - 1;
+
+
+    const getItemID = (index) => {
+        switch (index) {
+            case 0: 
+                return layout.item0;
+            case 1:
+                return layout.item1;
+            case 2: 
+                return layout.item2;
+        }
+    }
+
+    //var offset = showListHembesok.length - 1;
     return (
         <Fragment>
-            <h1>Protokollnummer: {id} </h1>
 
+            <div className={layout.protID}>
+                <h2>Protokollnummer: {id} </h2>
+            </div>
+
+            <h1>Hembesök</h1>
             {getHeader()}
+            <div className={layout.grid}>
 
-        
-
-            {earlierButton()}
-            <div class = {layout.grid}>
-
+           <div className={layout.upButton}>
+           {laterButton()}
+           </div>
 
             
-            <div class="list">
+            <div className={layout.list}>
                 
-        
-            {showListHembesok.reverse().map((form, index) => (
-                <div class={layout.container} id={"item" + (offset-index)}>
+
+            {showListHembesok.map((form, index) => (
+                <div class={layout.container} id={getItemID(index)}>
                     <button id={layout.edit} onClick={() => 
                     {window.location="/hembesok/edit/" + form.id}}> Redigera </button> <br/>
                     <div class={layout.info}>
-                    Hembesöksnr: {totHembesok.length - (index + hembIndex)}<br/>
+                    <label>Hembesöksnr: </label> <text> {totHembesok.length - (index + hembIndex)}</text><br/>
                     Datum utfört: {form.date} <br/>
                     Kl till familj: {form.at_family}<br/>
                     Kl från familj: {form.end_time}<br/>
@@ -111,38 +135,46 @@ const NavHembesok = (useParams) => {
                     </div>
 
                     <div class={layout.atgard}>
-                    Amning/nutrition<input type="checkbox" checked={form.amning_nutrition}/>
-                    Stödsamtal<input type="checkbox" checked={form.stodsamtal}/>
-                    Viktkontroll<input type="checkbox" checked={form.viktkontroll}/> <br/>
-                    Provtagning<input type="checkbox" checked={form.provtagning}/>
-                        Läkemedel<input type="checkbox" checked={form.lakemedel}/><br/>
-                    Annan Åtgärd<input value={form.annan_at}/><br/><br/>
+                    
+                    <label >Amning/nutrition<input type="checkbox" checked={form.amning_nutrition}/></label><br></br>
+                    <label >Stödsamtal<input type="checkbox" checked={form.stodsamtal}/></label><br/>
+                    <label >Viktkontroll<input type="checkbox" checked={form.viktkontroll}/> </label><br/>
+                    <label >Provtagning<input type="checkbox" checked={form.provtagning}/></label><br/>
+                    <label >Läkemedel<input type="checkbox" checked={form.lakemedel}/></label><br/>
+                    <label >Annan Åtgärd:<input value={form.annan_at}/></label>
                     </div>
 
                     <div class={layout.resurs}>
-                    Läkare<input type="checkbox" checked={form.lakare}/>
-                    Logoped<input type="checkbox" checked={form.logoped}/><br/>
-                    Dietist<input type="checkbox" checked={form.dietist}/>
-                    Kurator<input type="checkbox" checked={form.kurator}/>
-                    Annan Resurs<input value={form.annan_resurs}/> <br/><br/>
+                    <label >Läkare<input type="checkbox" checked={form.lakare}/></label><br/>
+                    <label >Logoped<input type="checkbox" checked={form.logoped}/></label><br/>
+                    <label >Dietist<input type="checkbox" checked={form.dietist}/></label><br/>
+                    <label > Kurator<input type="checkbox" checked={form.kurator}/></label><br/>
+                    <label >Annan resurs:<input value={form.annan_resurs}/></label>
                     </div>
 
                     <div class={layout.avvikning}>
-                    Avvikning Logistik<input type="checkbox" checked={form.av_logistik}/>
-                    Avvikning Barn/Familj<input type="checkbox" checked={form.av_barn_familj}/><br/>
-                    Avvikning Personal<input type="checkbox" checked={form.av_personal}/><br/>
-                    Beskrivning<input value={form.av_beskrivning}/><br/>
+                    <label >Avvikelse Logistik<input type="checkbox" checked={form.av_logistik}/></label><br/>
+                    <label >Avvikelse Barn/Familj<input type="checkbox" checked={form.av_barn_familj}/></label><br/>
+                    <label >Avvikelse Personal<input type="checkbox" checked={form.av_personal}/></label><br/>
+                    <label >Beskrivning:<input value={form.av_beskrivning}/></label>
                     </div>
 
 
                 </div>
-            )).reverse()}    
+            ))}    
             </div>
+            <div className={layout.downButton}>
+                {earlierButton()}
+            </div>
+            </div>
+
             <div class = "navigation"><Navigation id={id}/></div>
             <div id = "homeButton"><HomeButton/></div>
-            </div>
-            {laterButton()}
+           
+         
 
+          
+       
 
             <button onClick={() => 
             {window.location="/hembesok/add/" + id}}>Skapa nytt hembesök</button>
