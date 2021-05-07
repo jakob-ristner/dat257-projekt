@@ -63,7 +63,21 @@ const AddDigitaltVard = (useParams) => {
     //CLicking the "Spara"-button sends a POST-request to the database.  
     return (
         <Fragment>
-             <h1>Lägg till digitalt vårdmöte för {protocolID}</h1>
+         <h1>Lägg till digitalt vårdmöte för {protocolID}</h1>
+         <button class = {layout.avbrytButton} onClick={() =>{window.location="/digitalt-vardmote/" + protocolID} }>Avbryt</button>
+        <div class = {layout.gridHalleluja}>
+        <div class = {layout.smallerBox}>
+            <div class = {layout.gridHeaders}>
+                <div>Välj tider:</div>
+                <hr class ={layout.line1}></hr>
+                <div>Välj Åtgärd:</div>
+                <hr class ={layout.line1}></hr>
+                <div>Välj Resurs:</div>
+                <hr class ={layout.line1}></hr>
+                <div>Välj Avvikning:</div>
+            </div>
+        </div>
+        <div class = {layout.test}>
 
     <form onSubmit={submit}>
         <div class={layout.gridAdd}>
@@ -87,7 +101,7 @@ const AddDigitaltVard = (useParams) => {
                     if(annat_motes){
                         set_annat_mote("")
                     }}}></input>Annat möte: Ja</div>
-                Om Ja: <div><input type="text" value={annat_mote} onChange={(e) => {
+                <div>Om Ja:<input type="text" value={annat_mote} onChange={(e) => {
                     if (annat_motes == true){
                         set_annat_mote(e.target.value)
                     }}}></input></div>
@@ -100,18 +114,24 @@ const AddDigitaltVard = (useParams) => {
                 <div><input class="distance" type="checkbox" checked={logoped} onChange={(e) => {set_logoped(e.target.checked)}}></input>Logoped</div> 
                 <div><input class="distance" type="checkbox" checked={dietist} onChange={(e) => {set_dietist(e.target.checked)}}></input> Dietist</div>
                 <div><input class="distance" type="checkbox" checked={kurator} onChange={(e) => {set_kurator(e.target.checked)}}></input>Kurator</div>
-                Annan resurs: <input type="text" value={annan_resurs} onChange={(e) => {set_annan_resurs(e.target.value)}}></input>
-                Avvikelser: <input type="text" value={avvikelse} onChange={(e) => {set_avvikelse(e.target.value)}}></input>
+                <div>Annan resurs: <input type="text" value={annan_resurs} onChange={(e) => {set_annan_resurs(e.target.value)}}></input></div>
+                
                 </div>
             </div>
+           
+            <div class= {layout.avvikning}>
+              <div class = {layout.gridAvvikning}>  
+                <div>Avvikelser: <input type="text" value={avvikelse} onChange={(e) => {set_avvikelse(e.target.value)}}></input></div>
+              </div>
+            </div>
 
-        <div class="saveButton">
+        <button class= {layout.saveButton}>Spara</button>
+        </div>
         
-        <button id="spara" type="submit" onClick={//TODO link to the nav-site
-            validateMulti()}>Spara</button>
-        </div>
-        </div>
         </form>
+        
+           </div>
+           </div>
          </Fragment>
     );
 }
