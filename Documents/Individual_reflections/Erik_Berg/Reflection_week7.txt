@@ -1,0 +1,40 @@
+INDIVIDUAL REFLECTION 
+Week 7
+Erik Berg
+
+* What do I want to learn or understand better?
+This week I feel that I've gotten a much better grasp on CSS and especially the grid
+CSS property. I still feel like I've got things to learn about CSS, but one thing
+we also did this week was to refactor everything and to use css modules which is 
+a thing in react. Next week I still want to learn more CSS because for every new thing
+I learn, there's like 10 more things I could learn. 
+
+
+* How can I help someone else, or the entire team, to learn something new?
+This week I haven't actually been that helpful to the entire team, and I feel
+like Anton is on about the same level as me when it comes to CSS so I haven't gotten 
+any opportunity to share my knowledge. In the future I still believe that programming 
+is where I've got most probability of being helpul, and if we do more direct coding
+work then I probably can help more. 
+
+
+* What is my contribution towards the team's use of Scrum?
+This week my contribution has been much the same as previous weeks, I've done user stories
+and tasks and taken an active part in our meetings both as team and in the customer meetings. 
+For the next week I want to make sure that we continue to work as our customer/PO requests, 
+and also I would like to fix some of the issues that was raised during the last meeting with our
+PO. 
+
+
+* What is my contribution towards the team's deliveries?
+This week has had much focus on design. I've been writing a lot of 
+css and together with Anton we created two proposals for the design 
+of the navigation sites of hembesok and digitala vårdmöten. We've also
+fixed a bug in how the hembesok/digitala vårdmöten was displayed. 
+
+Next week will be a bit shorter since it's a holiday from thursday. Therefore
+we've decided that we will do a bit less work next week, just fixing the feedback
+from the customer and doing the last of the triple sites that look similiar. 
+
+My ambition is to work on the last page, but we will be deciding this together on monday so 
+I don't quite yet know what to work on next week. 
