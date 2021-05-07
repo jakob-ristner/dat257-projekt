@@ -68,23 +68,22 @@ const AddHembesok = (useParams) => {
         <Fragment>
         <h1>Lägg till hembesök för {protokollnr}</h1>  
         <button class = {layout.avbrytButton} onClick={() =>{window.location="/hembesok/" + protokollnr} }>Avbryt</button>
-        <div class = {layout.gridHalleluja}>
-        <div class = {layout.smallerBox}>
-            <div class = {layout.gridHeaders}>
-                <div>Välj tider:</div>
-                <hr class ={layout.line1}></hr>
-                <div>Välj Åtgärd:</div>
-                <hr class ={layout.line1}></hr>
-                <div>Välj Resurs:</div>
-                <hr class ={layout.line1}></hr>
-                <div>Välj Avvikning:</div>
-            </div>
-        </div>
-        <div class = {layout.test}>
+       
+     
     
             <form onSubmit={submit}>
 
-               <div class={layout.gridAdd}>
+            <div class = {layout.gridHalleluja}>
+
+                <h2 className={layout.headerInfo}>Välj tider:</h2>
+
+                <h2 className={layout.headerAtgard}>Välj Åtgärd:</h2>
+
+                <h2 className={layout.headerResurs}>Välj Resurs:</h2>
+
+                <h2 className={layout.headerAvvikning}>Välj Avvikning:</h2>
+
+
                 <div class={layout.info}> 
                     <div class ={layout.gridInfo}>
                     <div>Datum utfört: <input required type="date" value={date_performed} onChange={(e) => {set_date_performed(e.target.value)}}></input></div>
@@ -132,11 +131,11 @@ const AddHembesok = (useParams) => {
                     </div>
                     </div>
                     <button class = {layout.saveButton}>Spara</button>
-                    </div>      
+                    </div>
             </form>
     
-            </div>
-            </div>
+            
+
         </Fragment>
     );
 }

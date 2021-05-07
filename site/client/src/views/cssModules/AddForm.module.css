@@ -1,83 +1,119 @@
 .gridHalleluja{
   display:grid;
-  grid-template-rows: 10% 136px;
-}
-.gridHalleluja .test {
-    background-color: #add8e6;
-    border-top: #000000;
-}
-.gridHalleluja .smallerBox{
-    background-color:#0080ff;
-   
-}
-.gridHeaders{
-  display:grid;
-  grid-template-columns: 24% 1% 24% 1% 24% 1% 20%;
-
-}
-
-  .gridAdd {
-    display: grid;
+  grid-template-areas: "headerInfo headerAtgard headerResurs headerAvvik"
+                        "info atgard resurs avvikning";
+  grid-template-rows: 40px auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-column-gap: 3px;
+  align-items: center;
   
+}
+
+
+.gridHeaders{
+
+  background-color:#0080ff;
+ /* grid-area: header;
+  /*height: 130px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;*/
+
+}
+
+.headerInfo{
+  grid-area: headerInfo;
+  background-color:#0080ff;
+}
+
+.headerAtgard{
+  grid-area: headerAtgard;
+  background-color:#0080ff;
+}
+
+.headerResurs{
+  grid-area: headerResurs;
+  background-color:#0080ff;
+
+}
+
+.headerAvvikning{
+  grid-area: headerAvvik;
+  background-color:#0080ff;
+  border-left: 5px solid black;
+}
+
+.gridAdd {
+    grid-area: grid;
+    /*display: grid;
     grid-template-columns: 25% 25% 25% 25%;
-    
+    grid-template-rows:90%
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;*/
   }
 
-  .gridAdd .info {
-    display: grid;
-    grid-row-gap: 3;
+  .info {
+    background-color: #add8e6;
+    /*grid-row-gap: 3%;
     grid-column-start: 1;
     grid-column-end: 1;
     grid-row-start: 1;
-    grid-row-end: 1;
+    grid-row-end: 1;*/
+    grid-area: info;
+ 
   }
-  .gridAdd .atgard {
-    display: grid;
+
+  .atgard {
+    background-color: #add8e6;
+    /*display: grid;
     grid-row-gap: 3%;
     grid-column-start: 2;
     grid-row-start: 1;
-    grid-row-end: 1;
+    grid-row-end: 1;*/
+    grid-area: atgard;
   }
   
-  .gridAdd .resurs {
-    display: grid;
+  .resurs {
+    background-color: #add8e6;
+    /*display: grid;
     grid-row-gap: 3%;
     grid-column-start: 3;
     grid-row-start: 1;
-    grid-row-end: 1;
+    grid-row-end: 1;*/
+    grid-area: resurs;
   }
   
-  .gridAdd .avvikning {
-    display: grid;
+  .avvikning {
+    background-color: #add8e6;
+    /*display: grid;
     grid-row-gap: 3%;
     grid-column-start: 4;
     grid-row-start: 1;
-    grid-row-end: 3;
+    grid-row-end: 1;*/
+    grid-area: avvikning;
   }
-
-  .gridAdd .gridInfo{
+/*
+  .info .gridInfo{
       display: grid;
-      grid-template-rows: 10% 10% 10% 10%;
-      grid-row-gap: 10px;
-    
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+      grid-row-gap: 5px;
   }
-  .gridAdd .gridAtgard{
+  .atgard .gridAtgard{
     display: grid;
-    grid-template-rows:10% 10% 10% 10% 10% 10%;
+    grid-template-rows:1fr 1fr 1fr 1fr 1fr 1fr;
     grid-row-gap: 5px;
 }
-  .gridAdd .gridResurs{
+  .resurs .gridResurs{
     display: grid;
     grid-template-rows: 10% 10% 10% 10% 10%;
     grid-row-gap: 5px;
-    
   }
 
-  .gridAdd .gridAvvikning{
+  .avvikning .gridAvvikning{
     display: grid;
     grid-template-rows: 10% 10% 10% 10%;
     grid-row-gap: 5px;
   }
+  */
 
 .saveButton{
   position: absolute;
@@ -97,9 +133,10 @@ hr.line1{
     
 }
 .gridInfo input {
+  text-align: right;
   clear: both;
   text-align: left;
-  width: 100px;
+  width: 150px;
 }
 
  
