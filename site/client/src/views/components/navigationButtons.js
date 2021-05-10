@@ -66,7 +66,7 @@ const Navigation = (params) => {
         }
         return (
             <button class = "navigationButton" onClick={() => {
-                window.location = "/mottagnignsbesok/" + id;
+                window.location = "/mottagningsbesok/" + id;
             }}> Mottagningsbesök </button>
         )
     }
