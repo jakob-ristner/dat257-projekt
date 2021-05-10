@@ -15,6 +15,7 @@ import EditRegistration from "./views/registrations/editRegistration/EditRegistr
 import AddDigitaltVard from "./views/digitalt-vardmote/add-dig-vard/AddDigitaltVard.js";
 import NavDigVard from "./views/digitalt-vardmote/navDigvard/navDigvard.js"
 import EditDigvard from "./views/digitalt-vardmote/edit-digvard/editDigvard.js"
+import NavMott from "./views/mottagningsbesok/NavMott.js"
 
 
 const rootElement = document.getElementById("root");
@@ -35,6 +36,7 @@ ReactDOM.render(
 
             <Route exact path="/digitalt-vardmote/:protocolID" component={NavDigVard} />
             <Route exact path="/digitalt-vardmote/edit/:id" component={EditDigvard} />
+            <Route exact path="/Mottagningsbesok/:protocolID" component={NavMott} />
         </Switch>
     </BrowserRouter>,
     rootElement
