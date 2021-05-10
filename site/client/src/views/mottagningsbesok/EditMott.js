@@ -103,7 +103,7 @@ const EditMott = (useParams) => {
         
     return(<Fragment>
         <h1>Id: {id}</h1>
-        <button onClick={() => {window.location = "/digitalt-vardmote/" + protokollnr}}>Avbryt</button>
+        <button onClick={() => {window.location = "/mottagningsbesok/" + protokollnr}}>Avbryt</button>
         <form onSubmit={submit}>
             <div className="information">
             Datum: <input required type="date" value={ date } 
