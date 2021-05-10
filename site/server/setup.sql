@@ -3,3 +3,4 @@
 \i example.sql
 \i database/hemb.sql
 \i database/dvard.sql
+\i database/mottag.sql
