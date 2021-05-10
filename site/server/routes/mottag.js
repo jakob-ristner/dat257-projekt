@@ -79,11 +79,10 @@ app.put("/mottagningsbesok/:id", async (req, res) => {
     });
 
 
-    //GET request for ONE mottagningsbesok
-    app.get("/mottagningsbesok/edit/:id", async(req, res) => {
+    //GET request for ONE mottagningsbesok 
+app.get("/mottagningsbesok/edit/:id", async(req, res) => {
         try {
             const {id} = req.params;
-            console.log(id);
             const oneBesok = await pool.query(
                 `SELECT 
                 protocolID,

@@ -26,8 +26,76 @@ const EditMott = (useParams) => {
         const [av_personal, setAvPersonal] = useState();
         const [av_beskrivning, setAvBesk] = useState();
 
-    const submit = (e) => {
+    const getInfo = async () => {
+        const response = await fetch(
+            "http://localhost:5000/mottagningsbesok/edit/" + id);
+        const jsonData = await response.json(); 
+
+        setProtokollnr(jsonData.protocolid);
+        setDate(jsonData.date);
+        setStartTime(jsonData.start_time);
+        setEndTime(jsonData.end_time);
+        setPerformedBy(jsonData.performed_by);
+        setAmning(jsonData.amning_nutrition);
+        setStodsamtal(jsonData.stodsamtal);
+        setViktkontroll(jsonData.viktkontroll);
+        setProvtagning(jsonData.provtagning);
+        setLakemedel(jsonData.lakemedel);
+        setAnnatMote(jsonData.annat_mote);
+        setLakare(jsonData.lakare);
+        setLogoped(jsonData.logoped);
+        setDietist(jsonData.dietist);
+        setKurator(jsonData.kurator);
+        setAnnanResurs(jsonData.annan_resurs);
+        setAvLogistik(jsonData.av_logistik);
+        setAvBarnFamilj(jsonData.av_barn_familj);
+        setAvPersonal(jsonData.av_personal);
+        setAvBesk(jsonData.av_beskrivning);
+    }
+
+    useEffect(()  => {
+        getInfo();
+    }, [])
+
+    const submit = async(e) => {
         e.preventDefault();
+        try {
+            const body = {
+            date,
+            start_time,
+            end_time,
+            performed_by,
+            amning_nutrition,
+            stodsamtal,
+            viktkontroll,
+            provtagning,
+            lakemedel,
+            annat_mote,
+            lakare,
+            logoped,
+            dietist,
+            kurator,
+            annan_resurs,
+            av_logistik,
+            av_barn_familj,
+            av_personal,
+            av_beskrivning
+            };
+
+            const response = await fetch("http://localhost:5000/mottagningsbesok/" + id,
+                {
+                    method: "PUT",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify(body)
+                });
+        
+
+            window.location = "mottagningsbesok/" + protokollnr;
+        } catch (err) {
+            console.error(err.message);
+        }
+
+
 
     }
     
