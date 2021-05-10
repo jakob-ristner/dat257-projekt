@@ -74,14 +74,16 @@ const AddHembesok = (useParams) => {
             <form onSubmit={submit}>
 
             <div class = {layout.gridHalleluja}>
+                <div className = {layout.gridHeaders}>
 
-                <h2 className={layout.headerInfo}>Välj tider:</h2>
+                <div><h2 className={layout.headerInfo}>Välj tider:</h2></div>
 
-                <h2 className={layout.headerAtgard}>Välj Åtgärd:</h2>
+                <div><h2 className={layout.headerAtgard}>Välj Åtgärd:</h2></div>
 
-                <h2 className={layout.headerResurs}>Välj Resurs:</h2>
+                <div><h2 className={layout.headerResurs}>Välj Resurs:</h2></div>
 
-                <h2 className={layout.headerAvvikning}>Välj Avvikning:</h2>
+                <div> <h2 className={layout.headerAvvikning}>Välj Avvikning:</h2></div>
+                </div>
 
                 <div class = {layout.flex}>
                 <div class={layout.info}> 

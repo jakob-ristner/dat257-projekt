@@ -1,55 +1,52 @@
 .gridHalleluja{
   display:grid;
-  grid-template-areas: "headerInfo headerAtgard headerResurs headerAvvik"
-                        "info atgard resurs avvikning";
-  grid-template-rows: 30px auto;
-  grid-template-columns: 1fr 1fr 1fr 1fr; 
-
-  align-items: center;
-  background-color: #add8e6;
+  grid-template-areas: "gridHeader"
+                        "flexBox";
+  grid-template-rows: 60px auto;
+  grid-template-columns: 100%;
   box-sizing: border-box;
-  row-gap: 5px;
   
 }
 
 .gridHeaders{
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
+  height:54px;
+  align-items: center;
   background-color:#0080ff;
   grid-area: gridHeader;
+  height: 70px
+
 
 }
 
-
 .headerInfo{
   grid-area: headerInfo;
-  background-color:#0080ff;
 }
 
 .headerAtgard{
   grid-area: headerAtgard;
-  background-color:#0080ff;
 }
 
 .headerResurs{
   grid-area: headerResurs;
-  background-color:#0080ff;
 
 }
 
 .headerAvvikning{
   grid-area: headerAvvik;
-  background-color:#0080ff;
-  border-left: 5px solid black;
 }
 
 .flex {
-    display:flex;
+    display:inline-flex;
+    grid-area: flexBox;
     /*display: grid;
     grid-template-columns: 25% 25% 25% 25%;
     grid-template-rows:90%
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;*/
+
+    justify-content: space-between;
   }
 
   .info {
