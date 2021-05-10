@@ -12,14 +12,11 @@
   
 }
 
-
 .gridHeaders{
-
-  background-color:#0080ff;
- /* grid-area: header;
-  /*height: 130px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;*/
+  grid-template-columns: 25% 25% 25% 25%;
+  background-color:#0080ff;
+  grid-area: gridHeader;
 
 }
 
@@ -46,8 +43,8 @@
   border-left: 5px solid black;
 }
 
-.gridAdd {
-    grid-area: grid;
+.flex {
+    display:flex;
     /*display: grid;
     grid-template-columns: 25% 25% 25% 25%;
     grid-template-rows:90%
@@ -57,6 +54,7 @@
 
   .info {
     background-color: #add8e6;
+    flex-basis: 100%;
     /*grid-row-gap: 3%;
     grid-column-start: 1;
     grid-column-end: 1;
@@ -69,6 +67,7 @@
 
   .atgard {
     background-color: #add8e6;
+    flex-basis: 100%;
     /*display: grid;
     grid-row-gap: 3%;
     grid-column-start: 2;
@@ -79,6 +78,7 @@
   
   .resurs {
     background-color: #add8e6;
+    flex-basis: 100%;
     /*display: grid;
     grid-row-gap: 3%;
     grid-column-start: 3;
@@ -89,6 +89,7 @@
   
   .avvikning {
     background-color: #add8e6;
+    flex-basis: 100%;
     /*display: grid;
     grid-row-gap: 3%;
     grid-column-start: 4;

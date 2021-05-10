@@ -83,7 +83,7 @@ const AddHembesok = (useParams) => {
 
                 <h2 className={layout.headerAvvikning}>Välj Avvikning:</h2>
 
-
+                <div class = {layout.flex}>
                 <div class={layout.info}> 
                     <div class ={layout.gridInfo}>
                     <div>Datum utfört: <input required type="date" value={date_performed} onChange={(e) => {set_date_performed(e.target.value)}}></input></div>
@@ -128,6 +128,7 @@ const AddHembesok = (useParams) => {
                             set_av_beskrivning(e.target.value)
                         }
                         }}></input></div>
+                    </div>
                     </div>
                     </div>
                     <button class = {layout.saveButton}>Spara</button>
