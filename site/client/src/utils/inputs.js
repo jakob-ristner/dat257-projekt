@@ -57,3 +57,26 @@ import React, { Fragment} from "react";
 
         </Fragment>);
     }
+
+    export function validateAtgard() {
+        var atgard = document.getElementsByClassName("atgard").item(0);
+        var inputs = atgard.getElementsByTagName("input");
+       
+        var valid = false;
+        for(var i = 0; i < inputs.length; i++){
+            if(inputs.item(i).checked){
+                valid = true;
+            }
+            if(inputs.item(i).value != "" && inputs.item(i).type === "text"){
+                valid = true;
+            }
+        }
+        console.log(valid);
+        if (!valid) {
+            inputs.item(0).setCustomValidity("En åtgärd måste väljas");
+        } else {
+            inputs.item(0).setCustomValidity("");
+        }
+    
+        
+    }

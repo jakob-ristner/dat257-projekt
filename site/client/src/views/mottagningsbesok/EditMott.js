@@ -1,5 +1,6 @@
-import React, {Fragment, useEffect, useState} from "react";
+import React, {Fragment, useEffect, useLayoutEffect, useState} from "react";
 import {useParams} from "react-router-dom";
+import {validateAtgard} from "../../utils/inputs.js"
 
 const EditMott = (useParams) => {
     const {id} = useParams.match.params;
@@ -104,6 +105,7 @@ const EditMott = (useParams) => {
         <h1>Id: {id}</h1>
         <button onClick={() => {window.location = "/digitalt-vardmote/" + protokollnr}}>Avbryt</button>
         <form onSubmit={submit}>
+            <div className="information">
             Datum: <input required type="date" value={ date } 
                 onChange={(e) => {setDate(e.target.value)}}/> <br/>
 
@@ -116,6 +118,9 @@ const EditMott = (useParams) => {
             Utförd av: <input required type="text" value={ performed_by } 
                 onChange={(e) => {setPerformedBy(e.target.value)}}/> <br/>
 
+            </div>
+
+            <div className="atgard" onChange={() => validateAtgard()}>
             Amning: <input type="checkbox" checked={ amning_nutrition } 
                 onChange={(e) => {setAmning(e.target.checked)}}/> <br/>
 
@@ -134,7 +139,9 @@ const EditMott = (useParams) => {
 
             Annan åtgärd: <input type="text" value={ annat_mote } 
                 onChange={(e) => {setAnnatMote(e.target.value)}}/> <br/>
+            </div>
 
+            <div className="resurs">
             Läkare: <input type="checkbox" checked={ lakare } 
                 onChange={(e) => {setLakare(e.target.checked)}}/> <br/>
 
@@ -148,7 +155,7 @@ const EditMott = (useParams) => {
 
             Annan Resurs: <input type="text" value={ annan_resurs } 
                 onChange={(e) => {setAnnanResurs(e.target.value)}}/> <br/>
-            
+            </div>
             {/* avvikelser*/}
             Logistik <input type="checkbox" checked={av_logistik} 
                 onChange={(e) => {setAvLogistik(e.target.checked)}}/> <br/>
