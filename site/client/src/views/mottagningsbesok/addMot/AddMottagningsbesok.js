@@ -73,6 +73,9 @@ const AddMottagningsbesok = (useParams) => {
         body: JSON.stringify(body)
     });
     await console.log(response);
+
+    window.location="/mottagningsbesok/" + protocolID;
+
 } catch (err) {
     console.error(err);
 }
@@ -83,7 +86,7 @@ const AddMottagningsbesok = (useParams) => {
     return (
         <Fragment>
              <h1>Lägg till mottagningsbesök för {protocolID}</h1>
-
+             <button  onClick={() =>{window.location="/mottagningsbesok/" + protocolID} }>Avbryt</button>
 
     <form onSubmit={submit}>
         <div class="addMotaggningsbesok">
@@ -124,14 +127,19 @@ const AddMottagningsbesok = (useParams) => {
                 Logistik: <input type="checkbox" checked={av_logistik} onChange={(e) => {set_av_logistik(e.target.checked)}}></input><br/>
                 Barn/familj: <input type="checkbox" checked={av_barn_familj} onChange={(e) => {set_av_barn_familj(e.target.checked)}}></input><br/>
                 Personal: <input type="checkbox" checked={av_personal} onChange={(e) => {set_av_personal(e.target.checked)}}></input><br/>
-                Förklaring: <input type="text" value={av_beskrivning} onChange={(e) => {set_av_beskrivning(e.target.value)}}></input><br/>
+                Förklaring: <input type="text" value={av_beskrivning} onChange={(e) => {
+                    if (av_logistik == true || av_barn_familj == true || av_personal == true){
+                            set_av_beskrivning(e.target.value)
+                        }
+                    }}></input><br/>
+                
                 
 
             </div>
 
         <div class="saveButton">
         
-        <button id="spara" type="submit" onClick={//TODO link to the nav-site
+        <button id="spara" type="submit" onClick={() =>
             validateMulti()}>Spara</button>
         </div>
         </div>
