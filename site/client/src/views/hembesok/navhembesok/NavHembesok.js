@@ -150,7 +150,7 @@ const NavHembesok = (useParams) => {
                     <label ><input type="checkbox" checked={form.lakare}/>Läkare</label><br/>
                     <label ><input type="checkbox" checked={form.logoped}/>Logoped</label><br/>
                     <label ><input type="checkbox" checked={form.dietist}/>Dietist</label><br/>
-                    <label > <input type="checkbox" checked={form.kurator}/>Kurator</label><br/>
+                    <label ><input type="checkbox" checked={form.kurator}/>Kurator</label><br/>
                     <label >Annan resurs:<input value={form.annan_resurs}/></label>
                     </div>
 
