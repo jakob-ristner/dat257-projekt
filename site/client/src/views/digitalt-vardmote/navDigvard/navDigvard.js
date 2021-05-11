@@ -103,21 +103,24 @@ class NavDigVard extends React.Component {
                 </div>
 
                 <div className={layout.atgard}>
-                    Amning: <input type="checkbox" checked={form.amning_nutrition}/> <br/>
-                    Stödsamtal: <input type="checkbox" checked={form.stodsamtal}/> <br/>
-                    Viktkontroll: <input type="checkbox" checked={form.viktkontroll}/> <br/>
+                    <input type="checkbox" checked={form.amning_nutrition}/> Amning <br/>
+                    <input type="checkbox" checked={form.stodsamtal}/> Stödsamtal <br/>
+                    <input type="checkbox" checked={form.viktkontroll}/> Viktkontroll <br/>
                     Annat: <input value = {form.annat_mote}></input> <br/>
                 </div>
 
                 <div className={layout.resurs}>
-                    Läkare: <input type="checkbox" checked={form.lakare}/> <br/>
-                    Logoped: <input type="checkbox" checked={form.logoped}/> <br/>
-                    Dietist: <input type="checkbox" checked={form.dietist}/> <br/>
-                    Kurator: <input type="checkbox" checked={form.kurator}/> <br/>
-                    Annan resurs: <input value = {form.annan_resurs}></input> <br/>
+                    <input type="checkbox" checked={form.lakare}/> Läkare <br/>
+                    <input type="checkbox" checked={form.logoped}/> Logoped <br/>
+                    <input type="checkbox" checked={form.dietist}/> Dietist <br/>
+                    <input type="checkbox" checked={form.kurator}/> Kurator <br/>
+                   <input value = {form.annan_resurs}></input>  Annan resurs <br/>
                 </div>
                 <div className={layout.avvikning}>
-                    Avvikelser: <input value = {form.avvikning}></input> <br/>
+                    <input type="checkbox" checked={form.av_logistik}></input> Avvikelse logistik <br></br>
+                    <input type="checkbox" checked={form.av_barn_familj}></input> Avvikelse barn/familj<br></br>
+                    <input type="checkbox" checked={form.av_personal}></input> Avvikelse personal <br></br>
+                    Förklaring: <input value = {form.av_beskrivning}></input> <br/>
                 </div>
             </div>
             )})}

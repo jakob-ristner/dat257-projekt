@@ -1,7 +1,8 @@
 import React, { Fragment, useEffect, useState} from "react";
 import {useParams} from "react-router-dom"; 
 import "./Digitalt-vardmote.css";
-import {validateMulti} from "../../../utils/inputs.js";
+import {validateMulti, validateAtgard} from "../../../utils/inputs.js";
+
 
 
 
@@ -26,7 +27,11 @@ const AddDigitaltVard = (useParams) => {
     const [dietist, set_dietist] = useState(false);
     const [kurator, set_kurator] = useState(false);
     const [annan_resurs, set_annan_resurs] = useState("");
-    const [avvikelse, set_avvikelse] = useState("");
+
+    const [av_logistik, set_av_logistik] = useState(false);
+    const [av_barn_familj, set_av_barn_familj] = useState(false);
+    const [av_personal, set_av_personal] = useState(false);
+    const [av_beskrivning, setAvBesk] = useState("");
 
     const validateMote = (checked) => {
         console.log(checked);
@@ -56,7 +61,10 @@ const AddDigitaltVard = (useParams) => {
                 dietist,
                 kurator,
                 annan_resurs,
-                avvikelse};
+                av_logistik,
+                av_barn_familj,
+                av_personal,
+                av_beskrivning};
 
             const response = await fetch("http://localhost:5000/digitalt-vardmote/add/" + protocolID, {
                 method: "POST",
@@ -68,13 +76,35 @@ const AddDigitaltVard = (useParams) => {
             console.error(err);
         }
     }
+    
+    useEffect(() => {
+        validateAtgard()
+    }, []);
+
+    /*   Annat möte: Ja<input class="distance" type="checkbox" checked={annat_motes} onChange={(e) => {
+                    set_annat_motes(e.target.checked)
+                    if(annat_motes){
+                        set_annat_mote("")
+                    }}}></input>
+
+                      if (annat_motes == true){
+                        validateMote(true);
+                        set_annat_mote(e.target.value)
+                    } else {
+                        validateMote(false);
+                    }
+
+                     {validateAtgard()}
+    */
+
+
     //Displaying the digitalt vårdmöte form with textfields and checkboxes.
     //CLicking the "Spara"-button sends a POST-request to the database.  
     return (
         <Fragment>
              <h1>Lägg till digitalt vårdmöte för {protocolID}</h1>
 
-
+  
     <form onSubmit={submit}>
         <div class="addDvard">
             <div class="date">
@@ -85,31 +115,25 @@ const AddDigitaltVard = (useParams) => {
             </div>
 
             <div class="checkboxes">
-                <div className="multi">
-                Amning-/nutrionssamtal: <input class="distance" type="checkbox" checked={amning_nutrition} onChange={(e) => {set_amning_nutrition(e.target.checked)}}></input>
-                Stödsamtal: <input class="distance"  type="checkbox" checked={stodsamtal} onChange={(e) => {set_stodsamtal(e.target.checked)}}></input>
-                Viktkontroll: <input class="distance" type="checkbox" checked={viktkontroll} onChange={(e) => {set_viktkontroll(e.target.checked)}}></input><br/> 
-                
-                Annat möte: Ja<input class="distance" type="checkbox" checked={annat_motes} onChange={(e) => {
-                    set_annat_motes(e.target.checked)
-                    if(annat_motes){
-                        set_annat_mote("")
-                    }}}></input>
-                Om Ja: <input id="motessort" type="text" value={annat_mote} onChange={(e) => {
-                    if (annat_motes == true){
-                        validateMote(true);
-                        set_annat_mote(e.target.value)
-                    } else {
-                        validateMote(false);
-                    }
+                <div className="atgard" onChange={() => validateAtgard()}>
+                <input class="distance" type="checkbox" checked={amning_nutrition} onChange={(e) => {set_amning_nutrition(e.target.checked)}}></input> Amning-/nutrionssamtal
+                <input class="distance"  type="checkbox" checked={stodsamtal} onChange={(e) => {set_stodsamtal(e.target.checked)}}></input>Stödsamtal
+                <input class="distance" type="checkbox" checked={viktkontroll} onChange={(e) => {set_viktkontroll(e.target.checked)}}></input><br/> Viktkontroll
+                Annan åtgärd: <input id="motessort" type="text" value={annat_mote} onChange={(e) => {set_annat_mote(e.target.value)
                     }}></input><br/><br/>
                 </div>
-                Läkare: <input class="distance" type="checkbox" checked={lakare} onChange={(e) => {set_lakare(e.target.checked)}}></input>
-                Logoped: <input class="distance" type="checkbox" checked={logoped} onChange={(e) => {set_logoped(e.target.checked)}}></input>
-                Dietist: <input class="distance" type="checkbox" checked={dietist} onChange={(e) => {set_dietist(e.target.checked)}}></input>
-                Kurator: <input class="distance" type="checkbox" checked={kurator} onChange={(e) => {set_kurator(e.target.checked)}}></input><br/>
+
+
+                <input class="distance" type="checkbox" checked={lakare} onChange={(e) => {set_lakare(e.target.checked)}}></input>Läkare
+                <input class="distance" type="checkbox" checked={logoped} onChange={(e) => {set_logoped(e.target.checked)}}></input> Logoped
+                <input class="distance" type="checkbox" checked={dietist} onChange={(e) => {set_dietist(e.target.checked)}}></input>Dietist
+                <input class="distance" type="checkbox" checked={kurator} onChange={(e) => {set_kurator(e.target.checked)}}></input><br/>Kurator
                 Annan resurs: <input type="text" value={annan_resurs} onChange={(e) => {set_annan_resurs(e.target.value)}}></input><br/>
-                Avvikelser: <input type="text" value={avvikelse} onChange={(e) => {set_avvikelse(e.target.value)}}></input><br/>
+
+                <input type="checkbox" checked={av_logistik} onChange={(e) => {set_av_logistik(e.target.checked)}}/> Avvikelse logistik
+                <input type="checkbox" checked={av_barn_familj} onChange={(e) => {set_av_barn_familj(e.target.checked)}}/> Avvikelse barn/familj
+                <input type="checkbox" checked={av_personal} onChange={(e) => {set_av_personal(e.target.checked)}}/> Avvikelse personal
+                Förklaring: <input type="text" value={av_beskrivning} onChange={(e) => {setAvBesk(e.target.value)}}></input><br/>
                 
             </div>
 
@@ -120,7 +144,7 @@ const AddDigitaltVard = (useParams) => {
         </div>
         </div>
         </form>
-
+      
          </Fragment>
     );
 }

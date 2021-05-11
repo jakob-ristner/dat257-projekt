@@ -20,7 +20,10 @@ CREATE TABLE Dvard (
     kurator BOOLEAN NOT NULL DEFAULT false,
     annan_resurs TEXT NOT NULL DEFAULT '',
 
-    avvikelse TEXT NOT NULL DEFAULT '',
+    av_logistik BOOLEAN NOT NULL DEFAULT FALSE,
+    av_barn_familj BOOLEAN NOT NULL DEFAULT FALSE,
+    av_personal BOOLEAN NOT NULL DEFAULT FALSE,
+    av_beskrivning TEXT NOT NULL DEFAULT '',
     UNIQUE(protocolID, date_start_time)
 );
 

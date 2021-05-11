@@ -18,7 +18,13 @@ const EditDigvard = (useParams) => {
     const [dietist, setDietist] = useState();
     const [kurator, setKurator] = useState();
     const [annan_resurs, setAnnanResurs] = useState();
-    const [avvikelse, setAvvikelse] = useState();
+
+
+    const [av_logistik, set_av_logistik] = useState(false);
+    const [av_barn_familj, set_av_barn_familj] = useState(false);
+    const [av_personal, set_av_personal] = useState(false);
+    const [av_beskrivning, setAvBesk] = useState("");
+
     const [protokollnr, setProtokollnr] = useState();
 
     const getInfo = async () => {
@@ -38,7 +44,12 @@ const EditDigvard = (useParams) => {
         setDietist(jsonData.dietist);
         setKurator(jsonData.kurator);
         setAnnanResurs(jsonData.annan_resurs);
-        setAvvikelse(jsonData.avvikelse);
+
+        set_av_logistik(jsonData.av_logistik);
+        set_av_barn_familj(jsonData.av_barn_familj);
+        set_av_personal(jsonData.av_personal);
+        setAvBesk(jsonData.av_beskrivning);
+        
         setProtokollnr(jsonData.protocolid);
     }
 
@@ -63,7 +74,10 @@ const EditDigvard = (useParams) => {
             dietist,
             kurator,
             annan_resurs,
-            avvikelse,
+            av_logistik,
+            av_barn_familj,
+            av_personal,
+            av_beskrivning,
             date_start_time
         }
         console.log(body);
@@ -87,43 +101,40 @@ const EditDigvard = (useParams) => {
         <form onSubmit={submit}>
             Datum: <input required type="date" value={ date } 
                 onChange={(e) => {setDate(e.target.value)}}/> <br/>
-
             Starttid: <input required type="time" value={ start_time } 
                 onChange={(e) => {setStartTime(e.target.value)}}/> <br/>
-
             Sluttid: <input required type="time" value={ end_time } 
                 onChange={(e) => {setEndTime(e.target.value)}}/> <br/>
-
             Utförd av: <input required type="text" value={ performed_by } 
                 onChange={(e) => {setPerformedBy(e.target.value)}}/> <br/>
 
-            Amning: <input type="checkbox" checked={ amning_nutrition } 
-                onChange={(e) => {setAmning(e.target.checked)}}/> <br/>
 
-            Stödsamtal: <input type="checkbox" checked={ stodsamtal } 
-                onChange={(e) => {setStodsamtal(e.target.checked)}}/> <br/>
-
-            Viktkontroll: <input type="checkbox" checked={ viktkontroll } 
-                onChange={(e) => {setViktkontroll(e.target.checked)}} /> <br/>
-
+            <input type="checkbox" checked={ amning_nutrition } 
+                onChange={(e) => {setAmning(e.target.checked)}}/> Amning <br/>
+            <input type="checkbox" checked={ stodsamtal } 
+                onChange={(e) => {setStodsamtal(e.target.checked)}}/> Stödsamtal <br/>
+            <input type="checkbox" checked={ viktkontroll } 
+                onChange={(e) => {setViktkontroll(e.target.checked)}} /> Viktkontroll <br/>
             Annat: <input type="text" value={ annat_mote } 
                 onChange={(e) => {setAnnat(e.target.value)}}/> <br/>
 
-            Läkare: <input type="checkbox" checked={ lakare } 
-                onChange={(e) => {setLakare(e.target.checked)}}/> <br/>
 
-            Logoped <input type="checkbox" checked={ logoped } 
-                onChange={(e) => {setLogoped(e.target.checked)}}/> <br/>
-
-            Dietist <input type="checkbox" checked={ dietist } 
-                onChange={(e) => {setDietist(e.target.checked)}}/> <br/>
-            Kurator <input type="checkbox" checked={ kurator } 
-                onChange={(e) => {setKurator(e.target.checked)}}/> <br/>
-
+            <input type="checkbox" checked={ lakare } 
+                onChange={(e) => {setLakare(e.target.checked)}}/> Läkare <br/>
+            <input type="checkbox" checked={ logoped } 
+                onChange={(e) => {setLogoped(e.target.checked)}}/> Logoped <br/>
+            <input type="checkbox" checked={ dietist } 
+                onChange={(e) => {setDietist(e.target.checked)}}/> Dietist <br/>
+           <input type="checkbox" checked={ kurator } 
+                onChange={(e) => {setKurator(e.target.checked)}}/>  Kurator <br/>
             Annan Resurs: <input type="text" value={ annan_resurs } 
                 onChange={(e) => {setAnnanResurs(e.target.value)}}/> <br/>
             
-            Avvikelser: <input type="text" value={avvikelse} onChange={(e) => {setAvvikelse(e.target.value)}}/> <br/>
+
+            <input type="checkbox" checked={av_logistik} onChange={(e) => {set_av_logistik(e.target.checked)}}/> Avvikelse logistik
+            <input type="checkbox" checked={av_barn_familj} onChange={(e) => {set_av_barn_familj(e.target.checked)}}/> Avvikelse barn/familj
+            <input type="checkbox" checked={av_personal} onChange={(e) => {set_av_personal(e.target.checked)}}/> Avvikelse personal
+            Förklaring: <input type="text" value={av_beskrivning} onChange={(e) => {setAvBesk(e.target.value)}}></input><br/>
 
             <input type="submit" value="Spara" />
 
