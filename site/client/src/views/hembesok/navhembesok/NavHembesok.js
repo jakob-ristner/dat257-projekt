@@ -58,7 +58,9 @@ const NavHembesok = (useParams) => {
         if (totHembesok.length === 0) {
             return;
         }
-        if (hembIndex === totHembesok.length - 3) {
+
+
+        if (hembIndex === totHembesok.length - Math.min(totHembesok.length, 3)) {
             return (<IconButton disabled="true" ><ArrowDropDownIcon id={layout.arrowButton} onClick={() => incHembIndex()} /> </IconButton>);
         } 
         return (<IconButton ><ArrowDropDownIcon id={layout.arrowButton} onClick={() => incHembIndex()}/></IconButton>);

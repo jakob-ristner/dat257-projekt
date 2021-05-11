@@ -41,17 +41,17 @@ const Discharge = (useParams) => {
                 "http://localhost:5000/registration/" + id);
             const jsonData = await response.json();
             setRegistration(jsonData[0]);
-          //  setIndividualReg();
+
+          var form = document.getElementById("registrationForm");
+                var inputs = form.getElementsByTagName("input");
+                for (var i = 0; i < inputs.length; i++) {
+                    inputs.item(i).disabled = true;
+                    console.log(inputs.item(i));
+                }
         } catch (error) {
             console.error(error);
         }
     }
-
-    useEffect(() => {
-        getRegistration();
-    }, []);
-
-
 
     //GET for all discharge params for the given protocol
     //Sets const dataSent to true. Used for knowing if discharge params
@@ -75,6 +75,13 @@ const Discharge = (useParams) => {
                 setInfartUt(dis.infart_ut);
                 setAndningsstodUt(dis.andningsstod_ut);
                 setExtraGasUt(dis.extragas_ut);
+
+                var form = document.getElementById("dischargeForm");
+                var inputs = form.getElementsByTagName("input");
+                for (var i = 0; i < inputs.length; i++) {
+                    inputs.item(i).disabled = true;
+                    console.log(inputs.item(i));
+                }
             }
             
            console.log(dis);
@@ -93,8 +100,11 @@ const Discharge = (useParams) => {
     }
 
     useEffect(() => {
+        getRegistration();
         getDischarge();
     }, []);
+
+
 
     /*const getPreviousData =() => {
         if (dataSent) {
@@ -159,7 +169,7 @@ const Discharge = (useParams) => {
         )
     }
 
-    console.log(fullRegistration);
+//    console.log(fullRegistration);
 
     //The HTML document returned to the browser
     return (
@@ -170,7 +180,7 @@ const Discharge = (useParams) => {
              <div class={layouts.formDischarge}>
              
 
-                <form>
+                <form id="registrationForm">
                     <div class={layouts.formDischarge2}>
                     <div class={layouts.header} id={layouts.header}>
                          <h1>Protokoll ID </h1>
@@ -226,7 +236,7 @@ const Discharge = (useParams) => {
            
                <div class={layouts.discharge} id={layouts.discharge} >
                 <h1>Utskrivning</h1>
-                <form onSubmit={submitDischarge}>
+                <form onSubmit={submitDischarge} id="dischargeForm">
                         {getInput("Utskrivningsdatum", "date", true, outDate, setOutDate)}
                         {getInput("Vikt (g)", "number", true, vikt_utskrivning, setViktUt)}
                         {getInput("Längd (cm)", "number", true, langd_utskrivning, setLangdUt)}
@@ -239,7 +249,7 @@ const Discharge = (useParams) => {
                         {getInput("Andningsstöd","text",false, andningsstod_ut, setAndningsstodUt)}
                         {getYesNo("Extra syrgasbehov", extraGas_ut, setExtraGasUt)}
                         {submitEdit()}
-                    </form>
+                </form>
                     
             </div>
         </div>       
