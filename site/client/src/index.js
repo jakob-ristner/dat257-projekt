@@ -6,7 +6,7 @@ import './index.css';
 //views 
 import AddHembesok from "./views/hembesok/addHembesok/AddHembesok";
 import EditHembesok from "./views/hembesok/editHembesok/EditHembesok";
-
+import AddMottagningsbesok from "./views/mottagningsbesok/addMot/AddMottagningsbesok";
 import TestView from "./views/testView/TestView.js"
 import NavHembesok from "./views/hembesok/navhembesok/NavHembesok.js"
 import Registrations from "./views/registrations/registrations.js";
@@ -28,7 +28,7 @@ ReactDOM.render(
             <Route exact path ="/registration/edit/:id" component ={EditRegistration} />
 
             <Route exact path="/digitalt-vardmote/add/:protocolID" component={AddDigitaltVard} />
-
+            <Route exact path="/mottagningsbesok/add/:protocolID" component={AddMottagningsbesok} />
             <Route exact path="/Hembesok/add/:protokollnr" component={AddHembesok} />
             <Route exact path="/Hembesok/edit/:hembesokid" component={EditHembesok} />
             <Route exact path="/Registration" component={Registrations} />
