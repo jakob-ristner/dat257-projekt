@@ -1,40 +1,65 @@
 .gridHalleluja{
   display:grid;
-  grid-template-areas: "gridHeader"
-                        "flexBox";
-  grid-template-rows: 60px auto;
-  grid-template-columns: 100%;
-  box-sizing: border-box;
+  grid-template-areas: "headerInfo headerAtgard headerResurs headerAvvik"
+                        "info atgard resurs avvikning";
+  grid-template-rows: 53px auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr ;
   
 }
-
+/*
 .gridHeaders{
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
-  height:54px;
   align-items: center;
-  background-color:#0080ff;
+  
   grid-area: gridHeader;
-  height: 70px
 
 
 }
+*/
 
 .headerInfo{
   grid-area: headerInfo;
+  background-color:#314a94;
+  color:aliceblue;
+  font-weight: 400;
+  padding-left: 12px;
+  padding-bottom: 15px;
+  
+  
+  
+ border-right: 2px solid rgb(138, 135, 135);
+
 }
 
 .headerAtgard{
   grid-area: headerAtgard;
+  background-color:#314a94;
+  color:aliceblue;
+  border-right: 2px solid rgb(138, 135, 135);
+  font-weight: 400;
+  padding-left: 12px;
+  padding-bottom: 15px;
 }
 
 .headerResurs{
   grid-area: headerResurs;
+  background-color:#314a94;
+  color:aliceblue;
+  border-right: 2px solid rgb(138, 135, 135);
+  font-weight: 400;
+  padding-left: 12px;
+  padding-bottom: 15px;
 
 }
 
 .headerAvvikning{
   grid-area: headerAvvik;
+  background-color:#314a94;
+  color:aliceblue;
+  font-weight: 400;
+  padding-left: 12px;
+  padding-bottom: 15px;
 }
 
 .flex {
@@ -50,8 +75,7 @@
   }
 
   .info {
-    background-color: #add8e6;
-    flex-basis: 100%;
+    background-color: #c2d1ff;
     /*grid-row-gap: 3%;
     grid-column-start: 1;
     grid-column-end: 1;
@@ -59,22 +83,25 @@
     grid-row-end: 1;*/
     grid-area: info;
     text-align: right;
+    padding:10px;
+    border-right: 2px solid rgb(138, 135, 135);
  
   }
 
   .atgard {
-    background-color: #add8e6;
-    flex-basis: 100%;
+    background-color: #c2d1ff;
     /*display: grid;
     grid-row-gap: 3%;
     grid-column-start: 2;
     grid-row-start: 1;
     grid-row-end: 1;*/
     grid-area: atgard;
+    padding:10px;
+    border-right: 2px solid rgb(138, 135, 135);
   }
   
   .resurs {
-    background-color: #add8e6;
+    background-color: #c2d1ff;
     flex-basis: 100%;
     /*display: grid;
     grid-row-gap: 3%;
@@ -82,10 +109,12 @@
     grid-row-start: 1;
     grid-row-end: 1;*/
     grid-area: resurs;
+    padding:10px;
+    border-right: 2px solid rgb(138, 135, 135);
   }
   
   .avvikning {
-    background-color: #add8e6;
+    background-color: #c2d1ff;
     flex-basis: 100%;
     /*display: grid;
     grid-row-gap: 3%;
@@ -93,40 +122,70 @@
     grid-row-start: 1;
     grid-row-end: 1;*/
     grid-area: avvikning;
+    padding:10px;
   }
-  /*
-  .info .gridInfo{
-      display: grid;
-      grid-template-rows: 1fr 1fr 1fr 1fr;
-      grid-row-gap: 5px;
-  }
-  .atgard .gridAtgard{
-    display: grid;
-    grid-template-rows:1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-row-gap: 5px;
+
+.divButton{
+  grid-row: 4/4;
+  grid-column:4/4;
+
 }
-  .resurs .gridResurs{
-    display: grid;
-    grid-template-rows: 10% 10% 10% 10% 10%;
-    grid-row-gap: 5px;
-  }
-
-  .avvikning .gridAvvikning{
-    display: grid;
-    grid-template-rows: 10% 10% 10% 10%;
-    grid-row-gap: 5px;
-  }
-  */
-
 .saveButton{
-  position: absolute;
-  left: 1390px;
-  top: 215px;
+  float:right;
+  margin-top:5px;
+  margin-left:5px;
+  border: none;
+  color: white;
+  padding: 12px 26px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 6px 4px;
+  cursor: pointer;
+  border-radius: 15px;
+  background-color: #314a94;
+  border-style: solid;
+  border-color: #131f42;
+  border-width: 2px;
+  
+ 
 }
 .avbrytButton{
-  position: absolute;
-  left: 1330px;
-  top: 215px;
+  float:right;
+  margin-top:5px;
+  border: none;
+  color: white;
+  padding: 12px 26px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 6px 4px;
+  cursor: pointer;
+  border-radius: 15px;
+  background-color: #7484b4;
+  border-style: solid;
+  border-color: #415180;
+  border-width: 2px;
+}
+.avbrytButton:hover {
+  background-color: #0f2154;
+}
+
+.saveButton:hover {
+  background-color: #0f2154;
+}
+
+.saveButton:active {
+  background-color: #0f2154;
+  box-shadow: 0 0 8px 5px #666;
+  transform: translateY(4px);
+}
+.avbrytButton:active {
+  background-color: #0f2154;
+  box-shadow: 0 0 8px 5px #666;
+  transform: translateY(4px);
 }
 hr.line1{
   position: relative;

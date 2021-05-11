@@ -67,14 +67,13 @@ const AddHembesok = (useParams) => {
     return(
         <Fragment>
         <h1>Lägg till hembesök för {protokollnr}</h1>  
-        <button class = {layout.avbrytButton} onClick={() =>{window.location="/hembesok/" + protokollnr} }>Avbryt</button>
+        
        
      
     
             <form onSubmit={submit}>
 
             <div class = {layout.gridHalleluja}>
-                <div className = {layout.gridHeaders}>
 
                 <div><h2 className={layout.headerInfo}>Välj tider:</h2></div>
 
@@ -83,10 +82,8 @@ const AddHembesok = (useParams) => {
                 <div><h2 className={layout.headerResurs}>Välj Resurs:</h2></div>
 
                 <div> <h2 className={layout.headerAvvikning}>Välj Avvikning:</h2></div>
-                </div>
 
-                <div class = {layout.flex}>
-                <div class={layout.info}> 
+                    <div class={layout.info}> 
                     <div class ={layout.gridInfo}>
                     <div>Datum utfört: <input required type="date" value={date_performed} onChange={(e) => {set_date_performed(e.target.value)}}></input></div>
                     <div>Till familj:<input required type="time" value={at_familyKl} onChange={(e) => {set_at_family(e.target.value)}}></input></div>
@@ -132,8 +129,12 @@ const AddHembesok = (useParams) => {
                         }}></input></div>
                     </div>
                     </div>
-                    </div>
+                    <div class = {layout.divButton}>
                     <button class = {layout.saveButton}>Spara</button>
+                    <button class = {layout.avbrytButton} onClick={() =>{window.location="/hembesok/" + protokollnr} }>Avbryt</button>
+                    
+                   
+                    </div>
                     </div>
             </form>
     
