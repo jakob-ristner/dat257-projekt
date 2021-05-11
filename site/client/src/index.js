@@ -6,7 +6,7 @@ import './index.css';
 //views 
 import AddHembesok from "./views/hembesok/addHembesok/AddHembesok";
 import EditHembesok from "./views/hembesok/editHembesok/EditHembesok";
-import AddMottagningsbesok from "./views/mottagningsbesok/addMot/AddMottagningsbesok";
+import AddMottagningsbesok from "./views/mottagningsbesok/addMottagningsbesok/AddMottagningsbesok";
 import TestView from "./views/testView/TestView.js"
 import NavHembesok from "./views/hembesok/navhembesok/NavHembesok.js"
 import Registrations from "./views/registrations/registrations.js";

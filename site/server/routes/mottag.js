@@ -119,10 +119,10 @@ app.get("/mottagningsbesok/edit/:id", async(req, res) => {
 
 //add motagg
 
-app.post("/mottagningsbesok/:protocolID", async(req, res) => {
+app.post("/mottagningsbesok/add/:protocolID", async(req, res) => {
     try {
         const {protocolID} = req.params;
-        console.log(protocolID);
+        //console.log(protocolID);
         const {
                 date_start_time, 
                 end_time,
