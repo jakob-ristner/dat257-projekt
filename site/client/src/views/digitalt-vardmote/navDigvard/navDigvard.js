@@ -114,7 +114,7 @@ class NavDigVard extends React.Component {
                     <input type="checkbox" checked={form.logoped}/> Logoped <br/>
                     <input type="checkbox" checked={form.dietist}/> Dietist <br/>
                     <input type="checkbox" checked={form.kurator}/> Kurator <br/>
-                    Annan resurs <input value = {form.annan_resurs}></input>  <br/>
+                    Annan resurs: <input value = {form.annan_resurs}></input>  <br/>
                 </div>
                 <div className={layout.avvikning}>
                     <input type="checkbox" checked={form.av_logistik}></input> Avvikelse logistik <br></br>

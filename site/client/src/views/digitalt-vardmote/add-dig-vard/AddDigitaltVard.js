@@ -139,8 +139,8 @@ const AddDigitaltVard = (useParams) => {
 
         <div class="saveButton">
         
-        <button id="spara" type="submit" onClick={//TODO link to the nav-site
-            validateMulti()}>Spara</button>
+        <button id="spara" type="submit" onClick={() =>
+            window.location = "/digitalt-vardmote/" + protocolID}>Spara</button>
         </div>
         </div>
         </form>

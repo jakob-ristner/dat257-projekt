@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect, useState} from "react";
 import {useParams} from "react-router-dom"; 
+import { validateAtgard } from "../../../utils/inputs";
 
 
 const EditDigvard = (useParams) => {
@@ -109,6 +110,7 @@ const EditDigvard = (useParams) => {
                 onChange={(e) => {setPerformedBy(e.target.value)}}/> <br/>
 
 
+            <div className="atgard" onChange={() => validateAtgard()}>
             <input type="checkbox" checked={ amning_nutrition } 
                 onChange={(e) => {setAmning(e.target.checked)}}/> Amning <br/>
             <input type="checkbox" checked={ stodsamtal } 
@@ -117,7 +119,7 @@ const EditDigvard = (useParams) => {
                 onChange={(e) => {setViktkontroll(e.target.checked)}} /> Viktkontroll <br/>
             Annat: <input type="text" value={ annat_mote } 
                 onChange={(e) => {setAnnat(e.target.value)}}/> <br/>
-
+            </div>
 
             <input type="checkbox" checked={ lakare } 
                 onChange={(e) => {setLakare(e.target.checked)}}/> Läkare <br/>
@@ -131,9 +133,9 @@ const EditDigvard = (useParams) => {
                 onChange={(e) => {setAnnanResurs(e.target.value)}}/> <br/>
             
 
-            <input type="checkbox" checked={av_logistik} onChange={(e) => {set_av_logistik(e.target.checked)}}/> Avvikelse logistik
-            <input type="checkbox" checked={av_barn_familj} onChange={(e) => {set_av_barn_familj(e.target.checked)}}/> Avvikelse barn/familj
-            <input type="checkbox" checked={av_personal} onChange={(e) => {set_av_personal(e.target.checked)}}/> Avvikelse personal
+            <input type="checkbox" checked={av_logistik} onChange={(e) => {set_av_logistik(e.target.checked)}}/> Avvikelse logistik <br></br>
+            <input type="checkbox" checked={av_barn_familj} onChange={(e) => {set_av_barn_familj(e.target.checked)}}/> Avvikelse barn/familj<br></br>
+            <input type="checkbox" checked={av_personal} onChange={(e) => {set_av_personal(e.target.checked)}}/> Avvikelse personal <br></br>
             Förklaring: <input type="text" value={av_beskrivning} onChange={(e) => {setAvBesk(e.target.value)}}></input><br/>
 
             <input type="submit" value="Spara" />
