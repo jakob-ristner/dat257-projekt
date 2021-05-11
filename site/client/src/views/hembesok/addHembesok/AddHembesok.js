@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect, useState} from "react";
 import {useParams} from "react-router-dom"; 
+import layout from "../../cssModules/AddForm.module.css";
 
 const AddHembesok = (useParams) => {
 
@@ -66,49 +67,78 @@ const AddHembesok = (useParams) => {
     return(
         <Fragment>
         <h1>Lägg till hembesök för {protokollnr}</h1>  
-        <button onClick={() =>{window.location="/hembesok/" + protokollnr} }>Avbryt</button>
-        <div class="hembesok">
+        <button class = {layout.avbrytButton} onClick={() =>{window.location="/hembesok/" + protokollnr} }>Avbryt</button>
+       
+     
     
             <form onSubmit={submit}>
+
+            <div class = {layout.gridHalleluja}>
+                <div className = {layout.gridHeaders}>
+
+                <div><h2 className={layout.headerInfo}>Välj tider:</h2></div>
+
+                <div><h2 className={layout.headerAtgard}>Välj Åtgärd:</h2></div>
+
+                <div><h2 className={layout.headerResurs}>Välj Resurs:</h2></div>
+
+                <div> <h2 className={layout.headerAvvikning}>Välj Avvikning:</h2></div>
+                </div>
+
+                <div class = {layout.flex}>
+                <div class={layout.info}> 
+                    <div class ={layout.gridInfo}>
+                    <div>Datum utfört: <input required type="date" value={date_performed} onChange={(e) => {set_date_performed(e.target.value)}}></input></div>
+                    <div>Till familj:<input required type="time" value={at_familyKl} onChange={(e) => {set_at_family(e.target.value)}}></input></div>
+                    <div>Från familj:<input required type="time" value={from_familyKl} onChange={(e) => {set_from_family(e.target.value)}}></input></div>
+                    <div>Utförd av: <input required value={performed_by} onChange={(e) => {set_performed_by(e.target.value)}}></input> </div>
+                  </div>
+                </div>
                 
-                <div class="info">
-                   Datum utfört: <input required type="date" value={date_performed} onChange={(e) => {set_date_performed(e.target.value)}}></input><br/>
-                   Till familj:<input required type="time" value={at_familyKl} onChange={(e) => {set_at_family(e.target.value)}}></input><br/>
-                   Från familj:<input required type="time" value={from_familyKl} onChange={(e) => {set_from_family(e.target.value)}}></input><br/> 
-                   Utförd av: <input required value={performed_by} onChange={(e) => {set_performed_by(e.target.value)}}></input><br/> 
+                
+                 <div class= {layout.atgard}>
+                    <div class ={layout.gridAtgard}>
+                    <div><input type="checkbox" checked={amning_nutrition} onChange={(e) => {set_amning_nutrition(e.target.checked)}}></input>Amning/nutrition </div>
+                    <div><input type="checkbox" checked={stodsamtal} onChange={(e) => {set_stodsamtal(e.target.checked)}}></input>Stödsamtal </div> 
+                    <div><input type="checkbox" checked={viktkontroll} onChange={(e) => {set_viktkontroll(e.target.checked)}}></input>Viktkontroll </div>
+                    <div><input type="checkbox" checked={provtagning} onChange={(e) => {set_provtagning(e.target.checked)}}></input>Provtagning</div> 
+                    <div><input type="checkbox" checked={lakemedel} onChange={(e) => {set_lakemedel(e.target.checked)}}></input>Läkemedel</div>
+                    <div>Annan Åtgärd: <input value={annan_at} onChange={(e) => {set_annan_at(e.target.value)}}></input></div> 
                     </div>
+                  </div>
 
-                    <div class="atgard">
-                    Amning/nutrition: <input type="checkbox" checked={amning_nutrition} onChange={(e) => {set_amning_nutrition(e.target.checked)}}></input><br/>
-                    Stödsamtal: <input type="checkbox" checked={stodsamtal} onChange={(e) => {set_stodsamtal(e.target.checked)}}></input><br/>
-                    Viktkontroll: <input type="checkbox" checked={viktkontroll} onChange={(e) => {set_viktkontroll(e.target.checked)}}></input><br/>
-                    Provtagning: <input type="checkbox" checked={provtagning} onChange={(e) => {set_provtagning(e.target.checked)}}></input><br/>
-                    Läkemedel: <input type="checkbox" checked={lakemedel} onChange={(e) => {set_lakemedel(e.target.checked)}}></input><br/>
-                    Annan Åtgärd: <input value={annan_at} onChange={(e) => {set_annan_at(e.target.value)}}></input><br/>
+                    <div class = {layout.resurs}> 
+                    <div class = {layout.gridResurs}>
+                    
+                    <div><input type="checkbox" checked={lakare} onChange={(e) => {set_lakare(e.target.checked)}}></input>Läkare </div>
+                    <div><input type="checkbox" checked={logoped} onChange={(e) => {set_logoped(e.target.checked)}}></input>Logoped </div>
+                    <div><input type="checkbox" checked={dietist} onChange={(e) => {set_dietist(e.target.checked)}}></input>Dietist</div>
+                    <div><input type="checkbox" checked={kurator} onChange={(e) => {set_kurator(e.target.checked)}}></input>Kurator </div>
+                    <div>Annan resurs: <input value={annan_resurs} onChange={(e) => {set_annan_resurs(e.target.value)}}></input></div>
                     </div>
-
-                    <div class="resurs">
-                    Läkare: <input type="checkbox" checked={lakare} onChange={(e) => {set_lakare(e.target.checked)}}></input><br/>
-                    Logoped: <input type="checkbox" checked={logoped} onChange={(e) => {set_logoped(e.target.checked)}}></input><br/>
-                    Dietist: <input type="checkbox" checked={dietist} onChange={(e) => {set_dietist(e.target.checked)}}></input><br/>
-                    Kurator: <input type="checkbox" checked={kurator} onChange={(e) => {set_kurator(e.target.checked)}}></input><br/>
-                    Annan resurs: <input value={annan_resurs} onChange={(e) => {set_annan_resurs(e.target.value)}}></input><br/>
+                
                     </div>
-
-                    <div class="avvikning">
-                    Logistik: <input type="checkbox" checked={av_logistik} onChange={(e) => {set_av_logistik(e.target.checked)}}></input><br/>
-                    Barn/familj: <input type="checkbox" checked={av_barn_familj} onChange={(e) => {set_av_barn_familj(e.target.checked)}}></input><br/>
-                    Personal: <input type="checkbox" checked={av_personal} onChange={(e) => {set_av_personal(e.target.checked)}}></input><br/>
-                    Avvikning beskrivning: <input value={av_beskrivning} 
+                    <div class= {layout.avvikning}>
+                    <div class = {layout.gridAvvikning}>
+                    
+                    <div><input type="checkbox" checked={av_logistik} onChange={(e) => {set_av_logistik(e.target.checked)}}></input>Logistik</div>
+                    <div><input type="checkbox" checked={av_barn_familj} onChange={(e) => {set_av_barn_familj(e.target.checked)}}></input>Barn/familj</div>
+                    <div><input type="checkbox" checked={av_personal} onChange={(e) => {set_av_personal(e.target.checked)}}></input>Personal </div>
+                    <div>Avvikning beskrivning: <input value={av_beskrivning}
                     onChange={(e) => {
                         if (av_logistik == true || av_barn_familj == true || av_personal == true){
                             set_av_beskrivning(e.target.value)
                         }
-                        }}></input><br/>
+                        }}></input></div>
                     </div>
-                    <button>Spara</button>
+                    </div>
+                    </div>
+                    <button class = {layout.saveButton}>Spara</button>
+                    </div>
             </form>
-            </div>      
+    
+            
+
         </Fragment>
     );
 }

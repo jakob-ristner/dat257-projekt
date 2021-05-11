@@ -1,0 +1,146 @@
+.gridHalleluja{
+  display:grid;
+  grid-template-areas: "gridHeader"
+                        "flexBox";
+  grid-template-rows: 60px auto;
+  grid-template-columns: 100%;
+  box-sizing: border-box;
+  
+}
+
+.gridHeaders{
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  height:54px;
+  align-items: center;
+  background-color:#0080ff;
+  grid-area: gridHeader;
+  height: 70px
+
+
+}
+
+.headerInfo{
+  grid-area: headerInfo;
+}
+
+.headerAtgard{
+  grid-area: headerAtgard;
+}
+
+.headerResurs{
+  grid-area: headerResurs;
+
+}
+
+.headerAvvikning{
+  grid-area: headerAvvik;
+}
+
+.flex {
+    display:inline-flex;
+    grid-area: flexBox;
+    /*display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows:90%
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;*/
+
+    justify-content: space-between;
+  }
+
+  .info {
+    background-color: #add8e6;
+    flex-basis: 100%;
+    /*grid-row-gap: 3%;
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;*/
+    grid-area: info;
+    text-align: right;
+ 
+  }
+
+  .atgard {
+    background-color: #add8e6;
+    flex-basis: 100%;
+    /*display: grid;
+    grid-row-gap: 3%;
+    grid-column-start: 2;
+    grid-row-start: 1;
+    grid-row-end: 1;*/
+    grid-area: atgard;
+  }
+  
+  .resurs {
+    background-color: #add8e6;
+    flex-basis: 100%;
+    /*display: grid;
+    grid-row-gap: 3%;
+    grid-column-start: 3;
+    grid-row-start: 1;
+    grid-row-end: 1;*/
+    grid-area: resurs;
+  }
+  
+  .avvikning {
+    background-color: #add8e6;
+    flex-basis: 100%;
+    /*display: grid;
+    grid-row-gap: 3%;
+    grid-column-start: 4;
+    grid-row-start: 1;
+    grid-row-end: 1;*/
+    grid-area: avvikning;
+  }
+  /*
+  .info .gridInfo{
+      display: grid;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+      grid-row-gap: 5px;
+  }
+  .atgard .gridAtgard{
+    display: grid;
+    grid-template-rows:1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-row-gap: 5px;
+}
+  .resurs .gridResurs{
+    display: grid;
+    grid-template-rows: 10% 10% 10% 10% 10%;
+    grid-row-gap: 5px;
+  }
+
+  .avvikning .gridAvvikning{
+    display: grid;
+    grid-template-rows: 10% 10% 10% 10%;
+    grid-row-gap: 5px;
+  }
+  */
+
+.saveButton{
+  position: absolute;
+  left: 1390px;
+  top: 215px;
+}
+.avbrytButton{
+  position: absolute;
+  left: 1330px;
+  top: 215px;
+}
+hr.line1{
+  position: relative;
+  margin-top: 0px;
+    width: 0px;
+    height: 165px; 
+    
+}
+.gridInfo input {
+  text-align: right;
+  clear: both;
+  text-align: left;
+  width: 150px;
+}
+
+ 
+  
