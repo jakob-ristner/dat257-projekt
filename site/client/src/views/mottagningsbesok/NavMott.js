@@ -140,7 +140,7 @@ class NavMott extends React.Component {
                     <input type="checkbox" checked={form.av_logistik}/> Logistik<br/>
                     <input type="checkbox" checked={form.av_barn_familj}/> Familj <br/>
                     <input type="checkbox" checked={form.av_personal}/> Personal <br/>
-                    Beskrivning: <input value = {form.annan_resurs}></input> <br/>
+                    Beskrivning: <input value = {form.av_beskrivning}></input> <br/>
                 </div>
             </div>
             )})}
