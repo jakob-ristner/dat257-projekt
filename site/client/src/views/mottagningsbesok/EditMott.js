@@ -91,7 +91,7 @@ const EditMott = (useParams) => {
                 });
         
 
-            window.location = "mottagningsbesok/" + protokollnr;
+            window.location = "/mottagningsbesok/" + protokollnr;
         } catch (err) {
             console.error(err.message);
         }
