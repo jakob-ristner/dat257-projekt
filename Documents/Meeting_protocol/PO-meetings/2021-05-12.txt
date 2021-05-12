@@ -1,0 +1,38 @@
+PO MEETING 
+2021-05-12
+Secretary:
+Erik Berg
+
+
+Visar vad vi gjort förra veckan
+
+Hur tänker vi om återinläggning?
+	Åter till hemsjukvård - vårdtiden pausats och blivit inlagd. 
+	Är det nytt protokoll eller inte?
+	Svar nej, borde fortsätta på samma protokoll. 
+
+	Kan skrivas ut från återinläggning direkt. Då blir de automatiskt utskrivna
+	från neo-hsv. Då måste sjuksköterskorna fylla i utskrivning - tabben. 
+
+Tabellen på återinläggning - har inget att göra med återinläggning
+Handlar om att barnen ska göra undersökningen på samma dag. 
+
+	Byt namn på ÅTERINLÄGGNING till ÅTERINLÄGGNING & UNDERSÖKNINGAR
+Behöver kunna välja flera olika typer av undersökningar med datum. 
+
+Behöver gå att dokumentera flera återinläggningar. 
+
+Utskrivningsklar datum: & orsak till uppskjuten utskrivning:
+Om läkare inte kan skriva ut fast patienten kan bli utskriven. 
+Kanske borde ligga under utskrivningsdelen. 
+Ha en planerad utskrivningsdatum och en faktisk utksrivningsdatum fält.
+Och en förklaringsruta. 
+
+VAD GÖRA NÄSTA VECKA:
+Vad är kvar - Inloggning, framsida, återinläggning (med undersidor), ladda ner till excel!
+
+PO vill att vi löser inlogg, framsida, återinläggning (med undersidor). 
+Vill att vi blir klara så fort som möjligt!
+
+NÄSTA MÖTE: 
+21 maj 2021  kl. 11:00
