@@ -91,7 +91,7 @@ const EditMott = (useParams) => {
                 });
         
 
-            window.location = "mottagningsbesok/" + protokollnr;
+            window.location = "/mottagningsbesok/" + protokollnr;
         } catch (err) {
             console.error(err.message);
         }
@@ -121,20 +121,20 @@ const EditMott = (useParams) => {
             </div>
 
             <div className="atgard" onChange={() => validateAtgard()}>
-            Amning: <input type="checkbox" checked={ amning_nutrition } 
-                onChange={(e) => {setAmning(e.target.checked)}}/> <br/>
+             <input type="checkbox" checked={ amning_nutrition } 
+                onChange={(e) => {setAmning(e.target.checked)}}/> Amning <br/>
 
-            Stödsamtal: <input type="checkbox" checked={ stodsamtal } 
-                onChange={(e) => {setStodsamtal(e.target.checked)}}/> <br/>
+             <input type="checkbox" checked={ stodsamtal } 
+                onChange={(e) => {setStodsamtal(e.target.checked)}}/> Stödsamtal<br/>
 
-            Viktkontroll: <input type="checkbox" checked={ viktkontroll } 
-                onChange={(e) => {setViktkontroll(e.target.checked)}} /> <br/>
+            <input type="checkbox" checked={ viktkontroll } 
+                onChange={(e) => {setViktkontroll(e.target.checked)}} /> Viktkontroll <br/>
 
-            Provtagning: <input type="checkbox" checked={provtagning} 
-                onChange={(e) => {setProvtagning(e.target.checked)}} /> <br/>
+             <input type="checkbox" checked={provtagning} 
+                onChange={(e) => {setProvtagning(e.target.checked)}} />Provtagning <br/>
 
-            Läkemedel: <input type="checkbox" checked={lakemedel} 
-                onChange={(e) => {setLakemedel(e.target.checked)}} /> <br/>
+             <input type="checkbox" checked={lakemedel} 
+                onChange={(e) => {setLakemedel(e.target.checked)}} />Läkemedel <br/>
                 
 
             Annan åtgärd: <input type="text" value={ annat_mote } 
@@ -142,27 +142,27 @@ const EditMott = (useParams) => {
             </div>
 
             <div className="resurs">
-            Läkare: <input type="checkbox" checked={ lakare } 
-                onChange={(e) => {setLakare(e.target.checked)}}/> <br/>
+            <input type="checkbox" checked={ lakare } 
+                onChange={(e) => {setLakare(e.target.checked)}}/> Läkare<br/>
 
-            Logoped <input type="checkbox" checked={ logoped } 
-                onChange={(e) => {setLogoped(e.target.checked)}}/> <br/>
+            <input type="checkbox" checked={ logoped } 
+                onChange={(e) => {setLogoped(e.target.checked)}}/> Logoped <br/>
 
-            Dietist <input type="checkbox" checked={ dietist } 
-                onChange={(e) => {setDietist(e.target.checked)}}/> <br/>
-            Kurator <input type="checkbox" checked={ kurator } 
-                onChange={(e) => {setKurator(e.target.checked)}}/> <br/>
+            <input type="checkbox" checked={ dietist } 
+                onChange={(e) => {setDietist(e.target.checked)}}/> Dietist <br/>
+             <input type="checkbox" checked={ kurator } 
+                onChange={(e) => {setKurator(e.target.checked)}}/> Kurator <br/>
 
             Annan Resurs: <input type="text" value={ annan_resurs } 
                 onChange={(e) => {setAnnanResurs(e.target.value)}}/> <br/>
             </div>
             {/* avvikelser*/}
-            Logistik <input type="checkbox" checked={av_logistik} 
-                onChange={(e) => {setAvLogistik(e.target.checked)}}/> <br/>
-            Barn/Familj <input type="checkbox" checked={ av_barn_familj } 
-                onChange={(e) => {setAvBarnFamilj(e.target.checked)}}/> <br/>
-            Personal <input type="checkbox" checked={av_personal} 
-                onChange={(e) => {setAvPersonal(e.target.checked)}}/> <br/>
+            <input type="checkbox" checked={av_logistik} 
+                onChange={(e) => {setAvLogistik(e.target.checked)}}/> Logistik <br/>
+             <input type="checkbox" checked={ av_barn_familj } 
+                onChange={(e) => {setAvBarnFamilj(e.target.checked)}}/> Barn/Familj<br/>
+             <input type="checkbox" checked={av_personal} 
+                onChange={(e) => {setAvPersonal(e.target.checked)}}/>Personal <br/>
             Förklaring: <input type="text" value={av_beskrivning} 
                 onChange={(e) => {setAvBesk(e.target.value)}}/> <br/>
 

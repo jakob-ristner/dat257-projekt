@@ -142,7 +142,7 @@ const Registration = () => {
             
     
             <div class={layouts.bottom} id={layouts.bottom}>
-                {getYesNo("RiskPatient", riskpatient, setRiskPatient)}
+                {getYesNo("Riskpatient", riskpatient, setRiskPatient)}
                 <div class={layouts.multi}>
                 Överraportering till Barnavårdscentralen:
                     ja <input type="checkbox"  class="ja" checked={bvcRapportering == true}
