@@ -224,7 +224,7 @@ const Discharge = (useParams) => {
                     </div>
 
                     <div class={layouts.riskpatient} id={layouts.riskpatient}>
-                        Riskpatient <input type="checkbox" checked={fullRegistration.riskpatient} ></input><br></br>
+                        {getYesNo("Riskpatient", fullRegistration.riskpatient, () => {})}
                         {getYesNo("Överrapportering till Barnavårdscentralen i hemmet", fullRegistration.bvcrapportering, () => {})}
                         Om nej ange orsak<input type="text" value={fullRegistration.bvctext} ></input><br></br>
                         {editButton()}

@@ -127,8 +127,8 @@ const AddDigitaltVard = (useParams) => {
                 <div>Utförd av: <input required placeholder="Sköterske-ID" type="text" value={performed_by} onChange={(e) => {set_performed_by(e.target.value)}}></input></div>
             </div>
         </div>
-            <div className = "atgard">
-            <div class= {layout.atgard}>
+            
+            <div class= {layout.atgard + " atgard"}>
                 <div><input class="distance" type="checkbox" checked={amning_nutrition} onChange={(e) => {set_amning_nutrition(e.target.checked)}}></input>Amning-/nutrionssamtal:</div>
                 <div><input class="distance"  type="checkbox" checked={stodsamtal} onChange={(e) => {set_stodsamtal(e.target.checked)}}></input>Stödsamtal:</div>
                 <div><input class="distance" type="checkbox" checked={viktkontroll} onChange={(e) => {set_viktkontroll(e.target.checked)}}></input>Viktkontroll: </div> 
@@ -143,7 +143,7 @@ const AddDigitaltVard = (useParams) => {
                         set_annat_mote(e.target.value)
                     }}}></input></div>
              </div>
-            </div>
+
 
              <div class= {layout.reurs}>
                 <div class= {layout.gridResurs}>

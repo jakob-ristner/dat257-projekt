@@ -96,7 +96,7 @@ const AddHembesok = (useParams) => {
                 </div>
                 
                 
-                 <div class= {layout.atgard}>
+                 <div class= {layout.atgard + " atgard"}>
                     <div class ={layout.gridAtgard}>
                     <div><input type="checkbox" checked={amning_nutrition} onChange={(e) => {set_amning_nutrition(e.target.checked)}}></input>Amning/nutrition </div>
                     <div><input type="checkbox" checked={stodsamtal} onChange={(e) => {set_stodsamtal(e.target.checked)}}></input>Stödsamtal </div> 
@@ -126,7 +126,7 @@ const AddHembesok = (useParams) => {
                     <div><input type="checkbox" checked={av_personal} onChange={(e) => {set_av_personal(e.target.checked)}}></input>Personal </div>
                     <div>Avvikning beskrivning: <input value={av_beskrivning}
                     onChange={(e) => {
-                        if (av_logistik == true || av_barn_familj == true || av_personal == true){
+                        if (av_logistik || av_barn_familj || av_personal){
                             set_av_beskrivning(e.target.value)
                         }
                         }}></input></div>
