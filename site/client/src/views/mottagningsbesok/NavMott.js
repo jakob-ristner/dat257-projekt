@@ -154,7 +154,7 @@ class NavMott extends React.Component {
         </div>
       
         <button onClick={() => 
-        {window.location="/digitalt-vardmote/add/" + this.protocolID}}>Skapa nytt Mottagningsbesök</button>
+        {window.location="/mottagningsbesok/add/" + this.protocolID}}>Skapa nytt Mottagningsbesök</button>
     
      </Fragment>);
     }

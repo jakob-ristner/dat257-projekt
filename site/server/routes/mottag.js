@@ -139,5 +139,86 @@ app.get("/mottagningsbesok/edit/:id", async(req, res) => {
         }
         
     })
+//add motagg
+
+app.post("/mottagningsbesok/add/:protocolID", async(req, res) => {
+    try {
+        const {protocolID} = req.params;
+        //console.log(protocolID);
+        const {
+                date_start_time, 
+                end_time,
+                performed_by,
+                amning_nutrition,
+                stodsamtal,
+                viktkontroll,
+                provtagning,
+                lakemedel,
+                annat_mote,
+                lakare,
+                logoped,
+                dietist,
+                kurator,
+                annan_resurs,
+                av_logistik,
+                av_barn_familj,
+                av_personal,
+                av_beskrivning
+        } = req.body;
+
+        const newMottagningsbesok= await pool.query(
+            `INSERT INTO mottag (
+                protocolID,
+                date_start_time,
+                end_time,
+                performed_by,
+                amning_nutrition,
+                stodsamtal,
+                viktkontroll,
+                provtagning,
+                lakemedel,
+                annat_mote,
+                lakare,
+                logoped,
+                dietist,
+                kurator,
+                annan_resurs,               
+                av_logistik,
+                av_barn_familj,
+                av_personal, 
+                av_beskrivning
+                )
+                VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17 , $18 , $19 ) RETURNING *`,
+                [
+                    protocolID,
+                    date_start_time,
+                    end_time,
+                    performed_by,
+                    amning_nutrition,
+                    stodsamtal,
+                    viktkontroll,
+                    provtagning,
+                    lakemedel,
+                    annat_mote,
+                    lakare,
+                    logoped,
+                    dietist,
+                    kurator,
+                    annan_resurs,
+                    av_logistik,
+                    av_barn_familj,
+                    av_personal, 
+                    av_beskrivning
+                ]
+                );
+
+                res.json(newMottagningsbesok.rows);
+            } catch (e) {
+                console.error(e);
+            }
+        })
+
+        
 
 }
+

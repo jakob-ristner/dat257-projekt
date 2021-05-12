@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState} from "react";
 import {useParams} from "react-router-dom"; 
-import {validateMulti} from "../../../utils/inputs.js";
+import {validateMulti, validateAtgard} from "../../../utils/inputs.js";
+
 
 
 
@@ -31,6 +32,7 @@ const AddMottagningsbesok = (useParams) => {
    const [av_beskrivning, set_av_beskrivning] = useState("");
    const [av_personal, set_av_personal] = useState(false);
    
+   /*
    const validateMote = (checked) => {
     console.log(checked);
     if (checked && document.getElementById("motessort").value == "") {
@@ -39,14 +41,14 @@ const AddMottagningsbesok = (useParams) => {
         document.getElementById("motessort").setCustomValidity("");
     }
 }
-   
+   */
       //Method for submitting the new Motaggningsbesok and saving it in the Postgres Database 
       const submit = async(e) => {
         e.preventDefault();
         
-   try {
-    const date_start_time = date + " " + start_time; 
-    const body ={
+        try {
+            const date_start_time = date + " " + start_time; 
+            const body ={
         date_start_time,
         end_time,
         performed_by,
@@ -71,8 +73,7 @@ const AddMottagningsbesok = (useParams) => {
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(body)
     });
-    await console.log(response);
-
+    
     window.location="/mottagningsbesok/" + protocolID;
 
 } catch (err) {
@@ -80,11 +81,14 @@ const AddMottagningsbesok = (useParams) => {
 }
 }
 
+useEffect(()=> {validateAtgard()}, []);
+
 //Displaying the digitalt vårdmöte form with textfields and checkboxes.
     //CLicking the "Spara"-button sends a POST-request to the database.  
     return (
         <Fragment>
              <h1>Lägg till mottagningsbesök för {protocolID}</h1>
+
              <button  onClick={() =>{window.location="/mottagningsbesok/" + protocolID} }>Avbryt</button>
 
     <form onSubmit={submit}>
@@ -97,26 +101,14 @@ const AddMottagningsbesok = (useParams) => {
             </div>
 
             <div class="checkboxes">
-                <div className="multi">
+                <div className="atgard" onChange={() => validateAtgard()}>
                 Amning-/nutrionssamtal: <input class="distance" type="checkbox" checked={amning_nutrition} onChange={(e) => {set_amning_nutrition(e.target.checked)}}></input>
                 Stödsamtal: <input class="distance"  type="checkbox" checked={stodsamtal} onChange={(e) => {set_stodsamtal(e.target.checked)}}></input>
                 Viktkontroll: <input class="distance" type="checkbox" checked={viktkontroll} onChange={(e) => {set_viktkontroll(e.target.checked)}}></input><br/>
                 Provtagning: <input class="distance" type="checkbox" checked={provtagning} onChange={(e) => {set_provtagning(e.target.checked)}}></input><br/> 
                 Läkemedel: <input class="distance" type="checkbox" checked={lakemedel} onChange={(e) => {set_lakemedel(e.target.checked)}}></input><br/>
                 
-                Annat möte: Ja<input class="distance" type="checkbox" checked={annat_motes} onChange={(e) => {
-                    set_annat_motes(e.target.checked)
-                    if(annat_motes){
-                        set_annat_mote("")
-                    }}}></input>
-                Om Ja: <input id="motessort" type="text" value={annat_mote} onChange={(e) => {
-                    if (annat_motes == true){
-                        validateMote(true);
-                        set_annat_mote(e.target.value)
-                    } else {
-                        validateMote(false);
-                    }
-                    }}></input><br/><br/>
+                Förklaring: <input id="motessort" type="text" value={annat_mote} onChange={(e) => {set_annat_mote(e.target.value)}}></input><br/><br/>
                 </div>
                 Läkare: <input class="distance" type="checkbox" checked={lakare} onChange={(e) => {set_lakare(e.target.checked)}}></input>
                 Logoped: <input class="distance" type="checkbox" checked={logoped} onChange={(e) => {set_logoped(e.target.checked)}}></input>
@@ -126,11 +118,14 @@ const AddMottagningsbesok = (useParams) => {
                 Logistik: <input type="checkbox" checked={av_logistik} onChange={(e) => {set_av_logistik(e.target.checked)}}></input><br/>
                 Barn/familj: <input type="checkbox" checked={av_barn_familj} onChange={(e) => {set_av_barn_familj(e.target.checked)}}></input><br/>
                 Personal: <input type="checkbox" checked={av_personal} onChange={(e) => {set_av_personal(e.target.checked)}}></input><br/>
+
                 Förklaring: <input type="text" value={av_beskrivning} onChange={(e) => {
-                    if (av_logistik == true || av_barn_familj == true || av_personal == true){
+                    if (av_logistik || av_barn_familj || av_personal ){
                             set_av_beskrivning(e.target.value)
                         }
                     }}></input><br/>
+                
+
                 
                 
 
@@ -138,8 +133,7 @@ const AddMottagningsbesok = (useParams) => {
 
         <div class="saveButton">
         
-        <button id="spara" type="submit" onClick={() =>
-            validateMulti()}>Spara</button>
+        <button id="spara" type="submit">Spara</button>
         </div>
         </div>
         </form>
