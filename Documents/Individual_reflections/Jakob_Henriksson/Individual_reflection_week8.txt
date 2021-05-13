@@ -1,0 +1,23 @@
+Individual reflection 2021-05-13
+
+what do I want to learn or understand better?
+-This week I want to understand how to fix a secure log in for our website. To me this concept sounds challenging but hopefully it will work out well if I put in the effort! Other than that
+I would like to become better at writing better commit messages and comment my code better so that I can more easily backtrack what I have done each week during the whole agile process. 
+In the future this will help me greayly when working in a team environment where multiple people work on similar tasks.
+
+how can I help someone else, or the entire team, to learn something new?
+-Right now I can help the with programming and css as I am very comfortable with both these concepts now. I am also more confident in making userstories and tasks. With this I can
+help my team to make better code and userstories/tasks. I am also the main contact with our customer and therefore I can help my team follow the PO's whishes.
+
+what is my contribution towards the team’s use of Scrum?
+-This week we continued finishing our userstories and tasks during our sprint. One new thing we added to our reviewing process is that we made a step through guide that everyone should
+follow during our testing and code review phase. This will ensure that all teammebers follows the same structure and will therefore be more accurate. My contribution this week has been
+working per usual during the sprint, using trello to track the sprint process with userstories and tasks and I've been helping with the test and review step-through guide. I am still
+the main email contact with our PO. One mistake we made this week overall was that our effort estimation was lower than we expected, our idea of why this happened is because we had a 3
+day sprint this week because of 'vacation days' and therefore it was harder to estimate how much time we would put in-
+
+what is my contribution towards the team’s deliveries?
+-This week me and Haris made the navigation site for mottagningbesok which went really smoothly since we could reuse alot of the code from the other navigation sites. Since we finished early
+we went to the backlog and started working on a userstory that we didn't manage to last week which was layoutAddForm. This css file is now finished and can be implemented on all Add forms easily.
+We implemented this new layout for hembesok and Mohammad implemented it for digitalvard. Now for next week we will leave the layout for now and focus on the functionalty of the program and will continue
+with the layout once everything is finished functionally.
