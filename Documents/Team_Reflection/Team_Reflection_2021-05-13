@@ -1,0 +1,84 @@
+TEAM REFLECTION week 8
+Secretary: Nima Hansen
+------------------------------------------------------------------------------------------------------------
+CUSTOMER VALUE and SCOPE
+
+* Chosen scope of the application under development
+including the priority of features and for whom you
+are creating value: It has increased, one more "site" has been added, återläggning is bigger than we earlier thought.
+ We know better now about
+what they want to have in återläggning
+
+
+
+*Success criteria
+we have shifted our focus to the functionality rather than design when choosing our success criteria.
+
+
+*User Stories
+Has not really changed here either, but what we can say is that we worked better this week than the week before with the user stories.
+But our effort estimation was very off.
+
+
+* Acceptance test
+
+* KPIs
+ 
+
+    Userstories: 3/5 completed (done) 
+
+    Tasks: 25/29 completed (done)
+
+    Team Satisfaction: 8
+    * we missjudged our effort estimation a bit and many team members which they could do more.
+   
+
+------------------------------------------------------------------------------------------------------------------
+
+SOCIAL CONTRACT and EFFORT
+*social contract
+Has not changed.
+
+* time spent
+This week, some of us feelt that they could have put more time this sprint, but it was very short (3 days).
+But next week we aim to put more time at the sprint.
+
+
+--------------------------------------------------------------------------------------------------------------------
+DESIGN DECISIONS and PRODUCT STRUCTURE
+
+* Design decisions
+
+
+* Technical Documentation
+
+
+* how you use and update your documentation throughout the sprints
+    We have started documenting more,
+    but we should make a overall documentation for the code in javadoc.
+
+* how you ensure code quality and enforce coding standards
+    We made a form for the testing process to ensure code quality.
+
+
+   
+-------------------------------------------------------------------------------------------------------------------------
+APPLICATION OF SCRUM 
+
+*Roles
+Roles have not changed. The role of design responsible will not be as important next week as we will work less with design.
+
+* Agile practice
+Effort estimation was harder because of the sprint of 3 days, 
+
+* the sprint review and how it relates to your scope and customer value (Did you have a PO, if yes, who?, if no, how did you carry out the review? Did the review result in a re-prioritisation of user stories?
+ How did the reviews relate to your DoD? Did the feedback change your way of working?) : 
+  We reprioritized. and since we communicated very late about the "återläggnings" page we got
+  had to rethink about how we would work with the return page. We should have asked about this earlier, which we take with us
+  to the next sprints.
+
+ * Ric wanted us to reprioritize and think more about the functionality than the design.
+
+
+
+
