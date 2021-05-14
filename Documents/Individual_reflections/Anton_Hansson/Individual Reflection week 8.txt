@@ -1,0 +1,37 @@
+Individual Reflection Anton week 8 
+
+What do I want to learn or understand better?
+
+    Next week is our final sprint and we will focus on just functioanlity. I'm not sure yet which features I will 
+    be working on next week but I want to understand how to set up a login-page and a home-page for our application.
+    Both these features will have a significant effect on the final product. They must be secure and comprehensable. 
+    Also, both of them have a strong connection with all other parts of our application. Therefor I will take a look at
+    all of our previous code and components to refresh my mind and make sure I understand everyhing. 
+    
+How can I help someone else, or the entire team, to learn something new?
+
+    When we're coding I always try to explain what I'm doing or why some code is needed to help my teammates understand more.
+    I also ask questions when someone else is programming or I review their code to give them an oppurtunity to explain it.
+    Explaining helps improve knowledge for both parties (the speaker and the listener) which is great and it is easier to
+    find gaps in one's knowledge.
+        
+What is my contribution towards the team's use of scrum?
+	
+    I've contributed by participating on all team meetings and created user stories + tasks for the sprint. I helped asking the PO questions
+    regarding features in order to create user stories for next week and prioritize them. In unison with our supervisor, Adelric, we choose
+    to prioritize functioanlity over design during this weeks sprint, even though our PO didn't emphasis it. The reason was to be able to 
+    provide a product that at least has most of the functionality in place. 
+
+    During this weeks PO-meeting they changed their mind regarding a feature which meant it was divided into two separate features insteed.
+    This will amp up the workload a bit but we will send them a mock-up of these two features. Hopefully we'll then be able to do it as they 
+    want it right from the start and avoid having to rewrite code.  
+    
+What is my contribution towards the team's deliveries?
+	
+    This week me, Nima and Mohammad worked on addMottagningsbesok. I both coded and helped the other when we developed the view and all the
+    backend code. It was a short sprint (due to Kristihimmelfärd) but it when quite fast. We could probably have done more but this week
+    we had the final deadline of our Bachlour Thesis which we had to prioritize. 
+
+    Next week is our final sprint and we will try to add two new features along side a login-page and home-page. It migh be 
+    challenging but also fun to try.  
+    
