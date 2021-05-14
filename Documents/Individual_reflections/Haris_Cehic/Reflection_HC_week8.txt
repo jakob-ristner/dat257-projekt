@@ -1,0 +1,20 @@
+Individual reflection - Haris Cehic
+
+Week 8 14/5
+
+What do I want to learn or understand better?
+
+This week was a short week so because of that there was limited time to learn something new. Although I feel like I understood parts of the program better this week as we worked on some different parts of it. Also learned more about merge conflicts because there were a few of them. Next week we will be doing a login page and I’m eager to learn more about that and the security behind it because it is something that I haven’t looked into before.
+
+How can I help someone else, or the entire team, to learn something new?
+
+Because we work in teams it really enhances the way we share knowledge with each other. For example this week we could combine our knowledge of CSS to really make something great out of it. Also we have different knowledge of the program and working in different teams helps the whole group to grasp it even better. The code reviews also help to catch up with what others have been doing. And as usual I try to help as much as I can if someone has any questions etc. 
+
+What is my contribution towards the team’s use of Scrum?
+
+As usual I have been participating in the planning, review and PO-meeting. Because this was a short week it was challenging to do the effort estimation when planning the week. It turned out that we finished our tasks very quickly, which in one way is good because we had time to work on other things, but wasn’t optimal for planning the sprint. Now we know more about how to plan a short week and how much each US takes to finish but because we will not have a short week going forward, that's not going to be an issue anymore.
+
+What is my contribution towards the team’s deliveries?
+
+We worked in teams as usual and besides taking part in the meetings etc we finished our tasks ahead of time and the cooperation was really good and I felt that we could complement each other in our knowledge of the coding languages and of the program. 
+
