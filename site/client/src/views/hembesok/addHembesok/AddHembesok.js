@@ -5,10 +5,14 @@ import layout from "../../cssModules/AddForm.module.css";
 const AddHembesok = (useParams) => {
 
     const {protokollnr} = useParams.match.params;
+
+    //date
     const [date_performed, set_date_performed] = useState("");
     const [at_familyKl, set_at_family] = useState("");
     const [from_familyKl, set_from_family] = useState("");
     const [performed_by, set_performed_by] = useState("");
+
+    //checkboxes
     const [amning_nutrition, set_amning_nutrition] = useState(false);
     const [stodsamtal, set_stodsamtal] = useState(false);
     const [viktkontroll, set_viktkontroll] = useState(false);
@@ -18,6 +22,8 @@ const AddHembesok = (useParams) => {
     const [logoped, set_logoped] = useState(false);
     const [dietist, set_dietist] = useState(false);
     const [kurator, set_kurator] = useState(false);
+
+    //avvikelser
     const [av_logistik, set_av_logistik] = useState(false);
     const [av_barn_familj, set_av_barn_familj] = useState(false);
     const [av_personal, set_av_personal] = useState(false);
@@ -25,6 +31,7 @@ const AddHembesok = (useParams) => {
     const [annan_resurs, set_annan_resurs] = useState("");
     const [av_beskrivning, set_av_beskrivning] = useState("");
 
+    //Method for submitting the new Hembesok and saving it in the Postgres Database
     const submit = async(e) => {
         e.preventDefault();
        const at_family = date_performed + " " + at_familyKl;
@@ -64,6 +71,8 @@ const AddHembesok = (useParams) => {
         }
     }
 
+    //Displaying the hembesok form with textfields and checkboxes.
+       //CLicking the "Spara"-button sends a POST-request to the database. 
     return(
         <Fragment>
         <h1>Lägg till hembesök för {protokollnr}</h1>  
