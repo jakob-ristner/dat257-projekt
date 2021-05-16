@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState} from "react";
 import {useParams} from "react-router-dom"; 
 import {validateMulti, validateAtgard} from "../../../utils/inputs.js";
-
+import layout from "../../cssModules/AddForm.module.css";
 
 
 
@@ -89,53 +89,77 @@ useEffect(()=> {validateAtgard()}, []);
         <Fragment>
              <h1>Lägg till mottagningsbesök för {protocolID}</h1>
 
-             <button  onClick={() =>{window.location="/mottagningsbesok/" + protocolID} }>Avbryt</button>
 
     <form onSubmit={submit}>
-        <div class="addMotaggningsbesok">
-            <div class="date">
-                Datum utfört: <input required type="date" value={date} onChange={(e) => {set_date(e.target.value)}}></input><br/>
-                Start klockan: <input required type="time" value={start_time} onChange={(e) => {set_start_time(e.target.value)}}></input><br/>
-                Avslutad klockan: <input required type="time" value={end_time} onChange={(e) => {set_end_time(e.target.value)}}></input><br/>
-                Utförd av: <input required placeholder="Sköterske-ID" type="text" value={performed_by} onChange={(e) => {set_performed_by(e.target.value)}}></input><br/><br/>
+
+    <div class = {layout.gridHalleluja}>
+
+                <div><h2 className={layout.headerInfo}>Välj tider:</h2></div>
+
+                <div><h2 className={layout.headerAtgard}>Välj Åtgärd:</h2></div>
+
+                <div><h2 className={layout.headerResurs}>Välj Resurs:</h2></div>
+
+                <div> <h2 className={layout.headerAvvikning}>Välj Avvikning:</h2></div>
+
+        <div class= {layout.info}>
+            <div class= {layout.gridInfo}>
+            <div> Datum utfört: <input required type="date" value={date} onChange={(e) => {set_date(e.target.value)}}></input></div>
+            <div>Start klockan: <input required type="time" value={start_time} onChange={(e) => {set_start_time(e.target.value)}}></input></div>
+            <div>Avslutad klockan: <input required type="time" value={end_time} onChange={(e) => {set_end_time(e.target.value)}}></input></div>
+            <div>Utförd av: <input required placeholder="Sköterske-ID" type="text" value={performed_by} onChange={(e) => {set_performed_by(e.target.value)}}></input></div>
             </div>
+          </div>
 
-            <div class="checkboxes">
-                <div className="atgard" onChange={() => validateAtgard()}>
-                Amning-/nutrionssamtal: <input class="distance" type="checkbox" checked={amning_nutrition} onChange={(e) => {set_amning_nutrition(e.target.checked)}}></input>
-                Stödsamtal: <input class="distance"  type="checkbox" checked={stodsamtal} onChange={(e) => {set_stodsamtal(e.target.checked)}}></input>
-                Viktkontroll: <input class="distance" type="checkbox" checked={viktkontroll} onChange={(e) => {set_viktkontroll(e.target.checked)}}></input><br/>
-                Provtagning: <input class="distance" type="checkbox" checked={provtagning} onChange={(e) => {set_provtagning(e.target.checked)}}></input><br/> 
-                Läkemedel: <input class="distance" type="checkbox" checked={lakemedel} onChange={(e) => {set_lakemedel(e.target.checked)}}></input><br/>
-                
-                Förklaring: <input id="motessort" type="text" value={annat_mote} onChange={(e) => {set_annat_mote(e.target.value)}}></input><br/><br/>
+          <div class= {layout.atgard + " atgard"}>
+                <div class ={layout.gridAtgard}>
+                <div><input  type="checkbox" checked={amning_nutrition} onChange={(e) => {set_amning_nutrition(e.target.checked)}}></input>Amning-/nutrionssamtal </div>
+                <div><input   type="checkbox" checked={stodsamtal} onChange={(e) => {set_stodsamtal(e.target.checked)}}></input>Stödsamtal </div>
+                <div><input  type="checkbox" checked={viktkontroll} onChange={(e) => {set_viktkontroll(e.target.checked)}}></input>Viktkontroll </div>
+                <div><input  type="checkbox" checked={provtagning} onChange={(e) => {set_provtagning(e.target.checked)}}></input>Provtagning </div>
+                <div><input  type="checkbox" checked={lakemedel} onChange={(e) => {set_lakemedel(e.target.checked)}}></input>Läkemedel </div>
+                <div>Förklaring: <input id="motessort" type="text" value={annat_mote} onChange={(e) => {set_annat_mote(e.target.value)}}></input></div>
+
                 </div>
-                Läkare: <input class="distance" type="checkbox" checked={lakare} onChange={(e) => {set_lakare(e.target.checked)}}></input>
-                Logoped: <input class="distance" type="checkbox" checked={logoped} onChange={(e) => {set_logoped(e.target.checked)}}></input>
-                Dietist: <input class="distance" type="checkbox" checked={dietist} onChange={(e) => {set_dietist(e.target.checked)}}></input>
-                Kurator: <input class="distance" type="checkbox" checked={kurator} onChange={(e) => {set_kurator(e.target.checked)}}></input><br/>
-                Annan resurs: <input type="text" value={annan_resurs} onChange={(e) => {set_annan_resurs(e.target.value)}}></input><br/>
-                Logistik: <input type="checkbox" checked={av_logistik} onChange={(e) => {set_av_logistik(e.target.checked)}}></input><br/>
-                Barn/familj: <input type="checkbox" checked={av_barn_familj} onChange={(e) => {set_av_barn_familj(e.target.checked)}}></input><br/>
-                Personal: <input type="checkbox" checked={av_personal} onChange={(e) => {set_av_personal(e.target.checked)}}></input><br/>
+                </div>
+                
+        
+                <div class = {layout.resurs}> 
+                    <div class = {layout.gridResurs}>
+                <div><input  type="checkbox" checked={lakare} onChange={(e) => {set_lakare(e.target.checked)}}></input>Läkare </div>
+                 <div><input  type="checkbox" checked={logoped} onChange={(e) => {set_logoped(e.target.checked)}}></input>Logoped </div>
+                 <div><input  type="checkbox" checked={dietist} onChange={(e) => {set_dietist(e.target.checked)}}></input>Dietist </div>
+                 <div><input  type="checkbox" checked={kurator} onChange={(e) => {set_kurator(e.target.checked)}}></input>Kurator </div>
+                 <div>Annan resurs: <input type="text" value={annan_resurs} onChange={(e) => {set_annan_resurs(e.target.value)}}></input></div>
 
-                Förklaring: <input type="text" value={av_beskrivning} onChange={(e) => {
+                </div>
+                </div>
+
+                <div class= {layout.avvikning}>
+                    <div class = {layout.gridAvvikning}>
+                    <div><input type="checkbox" checked={av_logistik} onChange={(e) => {set_av_logistik(e.target.checked)}}></input>Logistik</div>
+                    <div><input type="checkbox" checked={av_barn_familj} onChange={(e) => {set_av_barn_familj(e.target.checked)}}></input>Barn/familj</div>
+                    <div><input type="checkbox" checked={av_personal} onChange={(e) => {set_av_personal(e.target.checked)}}></input>Personal</div>
+
+                    <div>Förklaring: <input type="text" value={av_beskrivning} 
+                    onChange={(e) => {
                     if (av_logistik || av_barn_familj || av_personal ){
                             set_av_beskrivning(e.target.value)
                         }
-                    }}></input><br/>
+                    }}></input></div>
+
+                    </div>
+                    </div>
                 
 
-                
-                
+        <div class= {layout.divButton}>
+        <button class = {layout.saveButton}>Spara</button>
+        <button class = {layout.avbrytButton}  onClick={() =>{window.location="/mottagningsbesok/" + protocolID} }>Avbryt</button>
 
-            </div>
-
-        <div class="saveButton">
-        
-        <button id="spara" type="submit">Spara</button>
         </div>
+
         </div>
+
         </form>
 
          </Fragment>
