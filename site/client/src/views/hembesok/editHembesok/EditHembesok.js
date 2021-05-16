@@ -118,7 +118,7 @@ const getHembData = () => {
        //CLicking the "Spara"-button sends a POST-request to the database.
     return (
         <Fragment>
-            <h1>Redigera hembesök med id {hembesokid}</h1>
+            <h1>Redigera hembesök med id: {hembesokid}</h1>
 
             <div className={layout.protID}>
             <h2>Protokollnummer: {protokollnr}</h2>
