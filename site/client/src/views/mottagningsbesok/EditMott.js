@@ -1,16 +1,20 @@
 import React, {Fragment, useEffect, useLayoutEffect, useState} from "react";
 import {useParams} from "react-router-dom";
-import {validateAtgard} from "../../utils/inputs.js"
+import {validateAtgard} from "../../utils/inputs.js";
+import layout from "../cssModules/AddForm.module.css";
+
 
 const EditMott = (useParams) => {
     const {id} = useParams.match.params;
 
-    
+        //date
         const [protokollnr, setProtokollnr] = useState();
         const [date, setDate] = useState();
         const [start_time, setStartTime] = useState();
         const [end_time, setEndTime] = useState();
         const [performed_by, setPerformedBy] = useState();
+
+        //checkboxes
         const [amning_nutrition, setAmning] = useState();
         const [stodsamtal, setStodsamtal] = useState();
         const [viktkontroll, setViktkontroll] = useState();
@@ -23,10 +27,13 @@ const EditMott = (useParams) => {
         const [kurator, setKurator] = useState();
         const [annan_resurs, setAnnanResurs] = useState();
         const [av_logistik, setAvLogistik] = useState();
+
+        //avvikelser
         const [av_barn_familj, setAvBarnFamilj] = useState();
         const [av_personal, setAvPersonal] = useState();
         const [av_beskrivning, setAvBesk] = useState();
 
+    //Method for modifying the old Mottagningsbesok    
     const getInfo = async () => {
         const response = await fetch(
             "http://localhost:5000/mottagningsbesok/edit/" + id);
@@ -58,6 +65,7 @@ const EditMott = (useParams) => {
         getInfo();
     }, [])
 
+    //Method for submitting the new update on Mottagningsbesok and saving it in the Postgres Database
     const submit = async(e) => {
         e.preventDefault();
         try {
@@ -100,74 +108,116 @@ const EditMott = (useParams) => {
 
     }
     
-        
+     //Displaying the Mottagningsbesok form with textfields and checkboxes.
+       //CLicking the "Spara"-button sends a POST-request to the database.
+
     return(<Fragment>
-        <h1>Id: {id}</h1>
-        <button onClick={() => {window.location = "/mottagningsbesok/" + protokollnr}}>Avbryt</button>
+        <h1> Redigera mottagningsbesok med Id: {id}</h1>
+
+        <div className={layout.protID}>
+            <h2>Protokollnummer: {protokollnr}</h2>
+        </div>
+        
         <form onSubmit={submit}>
-            <div className="information">
-            Datum: <input required type="date" value={ date } 
-                onChange={(e) => {setDate(e.target.value)}}/> <br/>
 
-            Starttid: <input required type="time" value={ start_time } 
-                onChange={(e) => {setStartTime(e.target.value)}}/> <br/>
+        <div class = {layout.gridHalleluja}>
 
-            Sluttid: <input required type="time" value={ end_time } 
-                onChange={(e) => {setEndTime(e.target.value)}}/> <br/>
+            <div><h2 className={layout.headerInfo}>Välj tider:</h2></div>
 
-            Utförd av: <input required type="text" value={ performed_by } 
-                onChange={(e) => {setPerformedBy(e.target.value)}}/> <br/>
+            <div><h2 className={layout.headerAtgard}>Välj Åtgärd:</h2></div>
+
+            <div><h2 className={layout.headerResurs}>Välj Resurs:</h2></div>
+
+            <div> <h2 className={layout.headerAvvikning}>Välj Avvikning:</h2></div>
+
+
+            <div class= {layout.info}>
+             <div class ={layout.gridInfo}>
+
+             <div>Datum: <input required type="date" value={ date } 
+                onChange={(e) => {setDate(e.target.value)}}/> </div>
+
+            <div>Starttid: <input required type="time" value={ start_time } 
+                onChange={(e) => {setStartTime(e.target.value)}}/> </div>
+
+            <div>Sluttid: <input required type="time" value={ end_time } 
+                onChange={(e) => {setEndTime(e.target.value)}}/> </div>
+
+            <div>Utförd av: <input required type="text" value={ performed_by } 
+                onChange={(e) => {setPerformedBy(e.target.value)}}/> </div>
 
             </div>
+            </div>
 
-            <div className="atgard" onChange={() => validateAtgard()}>
-             <input type="checkbox" checked={ amning_nutrition } 
-                onChange={(e) => {setAmning(e.target.checked)}}/> Amning <br/>
+            <div class= {layout.atgard + " atgard"} onChange={() => validateAtgard()}>
+            <div class ={layout.gridAtgard}>
 
-             <input type="checkbox" checked={ stodsamtal } 
-                onChange={(e) => {setStodsamtal(e.target.checked)}}/> Stödsamtal<br/>
+            <div><input type="checkbox" checked={ amning_nutrition } 
+                onChange={(e) => {setAmning(e.target.checked)}}/> Amning </div>
 
-            <input type="checkbox" checked={ viktkontroll } 
-                onChange={(e) => {setViktkontroll(e.target.checked)}} /> Viktkontroll <br/>
+            <div><input type="checkbox" checked={ stodsamtal } 
+                onChange={(e) => {setStodsamtal(e.target.checked)}}/> Stödsamtal</div>
 
-             <input type="checkbox" checked={provtagning} 
-                onChange={(e) => {setProvtagning(e.target.checked)}} />Provtagning <br/>
+            <div><input type="checkbox" checked={ viktkontroll } 
+                onChange={(e) => {setViktkontroll(e.target.checked)}} /> Viktkontroll </div>
 
-             <input type="checkbox" checked={lakemedel} 
-                onChange={(e) => {setLakemedel(e.target.checked)}} />Läkemedel <br/>
+            <div><input type="checkbox" checked={provtagning} 
+                onChange={(e) => {setProvtagning(e.target.checked)}} />Provtagning </div>
+
+            <div><input type="checkbox" checked={lakemedel} 
+                onChange={(e) => {setLakemedel(e.target.checked)}} />Läkemedel </div>
                 
 
-            Annan åtgärd: <input type="text" value={ annat_mote } 
-                onChange={(e) => {setAnnatMote(e.target.value)}}/> <br/>
+            <div> Annan åtgärd: <input type="text" value={ annat_mote } 
+                onChange={(e) => {setAnnatMote(e.target.value)}}/> </div>
+
+            </div>
             </div>
 
-            <div className="resurs">
-            <input type="checkbox" checked={ lakare } 
-                onChange={(e) => {setLakare(e.target.checked)}}/> Läkare<br/>
+            <div class= {layout.resurs}>
+            <div class = {layout.gridResurs}>
 
-            <input type="checkbox" checked={ logoped } 
-                onChange={(e) => {setLogoped(e.target.checked)}}/> Logoped <br/>
+            <div><input type="checkbox" checked={ lakare } 
+                onChange={(e) => {setLakare(e.target.checked)}}/> Läkare </div>
 
-            <input type="checkbox" checked={ dietist } 
-                onChange={(e) => {setDietist(e.target.checked)}}/> Dietist <br/>
-             <input type="checkbox" checked={ kurator } 
-                onChange={(e) => {setKurator(e.target.checked)}}/> Kurator <br/>
+            <div><input type="checkbox" checked={ logoped } 
+                onChange={(e) => {setLogoped(e.target.checked)}}/> Logoped </div>
 
-            Annan Resurs: <input type="text" value={ annan_resurs } 
-                onChange={(e) => {setAnnanResurs(e.target.value)}}/> <br/>
+            <div><input type="checkbox" checked={ dietist } 
+                onChange={(e) => {setDietist(e.target.checked)}}/> Dietist </div>
+
+             <div><input type="checkbox" checked={ kurator } 
+                onChange={(e) => {setKurator(e.target.checked)}}/> Kurator </div>
+
+            <div>Annan Resurs: <input type="text" value={ annan_resurs } 
+                onChange={(e) => {setAnnanResurs(e.target.value)}}/> </div>
+
             </div>
+            </div>
+
             {/* avvikelser*/}
-            <input type="checkbox" checked={av_logistik} 
-                onChange={(e) => {setAvLogistik(e.target.checked)}}/> Logistik <br/>
-             <input type="checkbox" checked={ av_barn_familj } 
-                onChange={(e) => {setAvBarnFamilj(e.target.checked)}}/> Barn/Familj<br/>
-             <input type="checkbox" checked={av_personal} 
-                onChange={(e) => {setAvPersonal(e.target.checked)}}/>Personal <br/>
-            Förklaring: <input type="text" value={av_beskrivning} 
-                onChange={(e) => {setAvBesk(e.target.value)}}/> <br/>
+            <div class= {layout.avvikning}>
+            <div class = {layout.gridAvvikning}>
 
-            <input type="submit" value="Spara" />
+            <div><input type="checkbox" checked={av_logistik} 
+                onChange={(e) => {setAvLogistik(e.target.checked)}}/> Logistik </div>
+            <div><input type="checkbox" checked={ av_barn_familj } 
+                onChange={(e) => {setAvBarnFamilj(e.target.checked)}}/> Barn/Familj </div>
+            <div><input type="checkbox" checked={av_personal} 
+                onChange={(e) => {setAvPersonal(e.target.checked)}}/>Personal </div>
+            <div>Förklaring: <input type="text" value={av_beskrivning} 
+                onChange={(e) => {setAvBesk(e.target.value)}}/> </div>
 
+            </div>
+            </div>  
+
+            <div class = {layout.divButton}>
+            <button class = {layout.saveButton}>Spara</button>
+            <button class= {layout.avbrytButton} onClick={() => {window.location = "/digitalt-vardmote/" + protokollnr}}>Avbryt</button>
+            </div>
+
+        
+        </div>
         </form>
 
     </Fragment>);
