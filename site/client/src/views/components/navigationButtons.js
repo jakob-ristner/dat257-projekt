@@ -43,7 +43,7 @@ const Navigation = (params) => {
         )
     }
     const getNavigationDigitalaVardmot = () => {
-        if (isInPath("digital-vardmote")) {
+        if (isInPath("digitalt-vardmote")) {
             return (
             <button disabled class = "navigationButton"  onClick={() => {
                 window.location = "/digitalt-vardmote/" + id;
@@ -71,17 +71,17 @@ const Navigation = (params) => {
         )
     }
     const getNavigationAterlaggning = () => {
-        if (isInPath("aterlaggning")) {
+        if (isInPath("undersokning")) {
             return (
             <button disabled class = "navigationButton"  onClick={() => {
-                window.location = "/aterlaggning/" + id;
-            }}> Återläggning </button>
+                window.location = "/undersokning/" + id;
+            }}> Undersökning </button>
             )
         }
         return (
             <button class = "navigationButton" onClick={() => {
-                window.location = "/aterlaggning/" + id;
-            }}> Återläggning </button>
+                window.location = "/undersokning/" + id;
+            }}> Undersökning </button>
         )
     }
         return(
