@@ -16,7 +16,9 @@ import AddDigitaltVard from "./views/digitalt-vardmote/add-dig-vard/AddDigitaltV
 import NavDigVard from "./views/digitalt-vardmote/navDigvard/navDigvard.js"
 import EditDigvard from "./views/digitalt-vardmote/edit-digvard/editDigvard.js"
 import EditMott from "./views/mottagningsbesok/EditMott.js";
-import NavMott from "./views/mottagningsbesok/NavMott.js"
+import NavMott from "./views/mottagningsbesok/NavMott.js";
+import LoginView from "./views/login/LoginView.js";
+import ForgotPW from "./views/login/ForgotPW.js";
 
 
 const rootElement = document.getElementById("root");
@@ -26,6 +28,8 @@ ReactDOM.render(
             <Route exact path="/Hembesok/:id" component={NavHembesok} />
 
             <Route exact path ="/" component ={TestView} />
+            <Route exact path ="/login" component = {LoginView}></Route> 
+            <Route exact path ="/forgot-password" component = {ForgotPW}></Route>
             <Route exact path ="/registration/edit/:id" component ={EditRegistration} />
 
             <Route exact path="/digitalt-vardmote/add/:protocolID" component={AddDigitaltVard} />
