@@ -4,3 +4,4 @@
 \i database/hemb.sql
 \i database/dvard.sql
 \i database/mottag.sql
+\i database/undersok.sql
