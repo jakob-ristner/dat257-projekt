@@ -1,13 +1,14 @@
 import React, { Fragment, useEffect, useState} from "react";
 import {useParams} from "react-router-dom"; 
 import layout from "../../cssModules/AddForm.module.css";
+//import {validateAtgard} from "../../utils/inputs.js";
 
 const AddAterlaggning = (useParams) => {
 
     const {protocolID} = useParams.match.params;
 
     //date
-    const [aterlaggning_startdate, set_aterlaggning_startdate] = useState("");
+    const [aterlaggning_startdate, set_startdate] = useState("");
     const [orsak, set_orsak] = useState("");
 
     //end
@@ -24,7 +25,7 @@ const AddAterlaggning = (useParams) => {
                 orsak
        }; 
             
-            const response = await fetch("http://localhost:5000/aterlaggning/add/" + protocolID, {
+            const response = await fetch("http://localhost:5000/aterlaggning/" + protocolID, {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(body)
@@ -37,7 +38,7 @@ const AddAterlaggning = (useParams) => {
             
         }
     }
-
+    //useEffect(()=> {validateAtgard()}, []);
 
 
     //Displaying the hembesok form with textfields and checkboxes.
@@ -50,11 +51,11 @@ const AddAterlaggning = (useParams) => {
          <form onSubmit={submit}>
 
 
-        <div>Startdatum  <input required type="date" value={aterlaggning_startdate} onChange={(e) => {set_aterlaggning_startdate(e.target.value)}}></input></div>
+        <div>Startdatum  <input required type="date" value={aterlaggning_startdate} onChange={(e) => {set_startdate(e.target.value)}}></input></div>
         
 
         
-        <div>Orsak: <input value={orsak} onChange={(e) => {set_orsak(e.target.value)}}></input></div>
+        <div>Orsak: <input type="text" value={orsak} onChange={(e) => {set_orsak(e.target.value)}}></input></div>
         
 
      

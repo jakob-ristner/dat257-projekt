@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+
 import HomeButton from "../../components/HomeButton"
 import layout from "../../cssModules/NavLayout.module.css";
 import IconButton from '@material-ui/core/IconButton';
@@ -124,7 +125,7 @@ class NavAterlaggning extends React.Component {
                 </div>
 
                 <div className={layout.atgard}>
-                    Orsak: <input value = {form.annat}></input> <br/>
+                    Orsak: <input value = {form.orsak}></input> <br/>
                 </div>
 
                 <div className={layout.resurs}>
@@ -137,6 +138,7 @@ class NavAterlaggning extends React.Component {
             )})}
             </div>
 
+        
             <div id = "homeButton"><HomeButton/></div>
 
             <div className={layout.downButton}>

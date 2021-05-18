@@ -4,7 +4,8 @@ module.exports = function(app, pool){
         try {
             const {protocolID} = req.params;
             const allNavAterlaggning = await pool.query(
-            `SELECT protocolID,
+            `SELECT 
+                id,
                 to_char(aterlaggning_startdate, 'yyyy-mm-dd') AS startdate, 
                 to_char(aterlaggning_enddate, 'yyyy-mm-dd') AS enddate, 
                 utskrivning_hemmet,
@@ -21,7 +22,7 @@ module.exports = function(app, pool){
     })
     
     //add aterlaggning
-    app.post("/aterlaggning/add/:protocolID", async(req, res) => {
+    app.post("/aterlaggning/:protocolID", async(req, res) => {
         try{
             const{protocolID} = req.params;
             //console.log(protocolID);
