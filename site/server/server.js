@@ -17,6 +17,7 @@ require("./routes/mottag.js")(app,pool);
 require("./routes/aterlaggning.js")(app,pool);
 
 
+
 // ROUTES
 app.get("/patients", async(req, res) => {
     try {
