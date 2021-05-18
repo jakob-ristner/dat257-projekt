@@ -1,13 +1,35 @@
 module.exports = function(app, pool){
 
-    app.put("/aterlaggning/add/:id", async(req, res) => {
+    app.get("/aterlaggning/:protocolID", async(req, res) => {
+        try {
+            const {protocolID} = req.params;
+            const allNavUnder = await pool.query(
+            `SELECT 
+                id,
+                to_char(aterlaggning_startdate, 'yyyy-mm-dd') AS aterlaggning_startdate, 
+                annat FROM Aterlaggning
+                WHERE protocolID = $1 ORDER BY aterlaggning_startdate DESC
+            `, [protocolID]);
+
+            res.json(allNavAterlaggning.rows);
+
+        } catch (err) {
+            console.error(err);
+        }
+
+    })
+    
+    /*
+    app.put("/aterlaggning/:id", async(req, res) => {
         try{
+            
             const{id} = req.params;
             const{
              aterlaggning_startdate,
              orsak
             } = req.body;
-    
+            
+            const { id } = req.params;
             const updateMottagning = await pool.query(
                 `INSERT INTO addAterlaggning (
                     protocolID,
@@ -51,4 +73,6 @@ app.put("/aterlaggning/end/:id", async(req, res) => {
         console.error(error);
     }
 });
+*/
+
 }

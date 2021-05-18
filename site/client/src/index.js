@@ -19,6 +19,9 @@ import EditMott from "./views/mottagningsbesok/EditMott.js";
 import NavMott from "./views/mottagningsbesok/NavMott.js"
 
 
+import NavAterlaggning from "./views/aterlaggning/navAterlaggning/NavAterlaggning.js";
+
+
 const rootElement = document.getElementById("root");
 ReactDOM.render(
      <BrowserRouter>
@@ -39,6 +42,9 @@ ReactDOM.render(
             <Route exact path="/mottagningsbesok/edit/:id" component={EditMott}/>
             <Route exact path="/digitalt-vardmote/edit/:id" component={EditDigvard} />
             <Route exact path="/mottagningsbesok/:protocolID" component={NavMott} />
+
+            <Route exact path="/aterlaggning/:protokollnr" component={NavAterlaggning} />
+
         </Switch>
     </BrowserRouter>,
     rootElement
