@@ -1,19 +1,25 @@
 const express = require("express");
 const cors = require("cors");
+var session = require('express-session');
 const app = express();
 const pool = require("./db");
 
  
-
-
-//middleware
 app.use(cors());
+
+app.use(session({
+    secret: 'diamond pickaxe',
+    resave: false,
+    saveUninitialized: false
+}))
+
 app.use(express.json());
 
 require("./routes/registration.js")(app,pool);
 require("./routes/hembesok.js")(app, pool);
 require("./routes/dvard.js")(app,pool);
 require("./routes/mottag.js")(app,pool);
+require("./routes/login.js")(app,pool);
 
 // ROUTES
 app.get("/patients", async(req, res) => {

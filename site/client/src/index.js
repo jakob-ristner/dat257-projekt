@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch, useParams} from "react-router-dom";
+import {ReactSession} from 'react-client-session';
 import './index.css';
 
 //views 
@@ -22,6 +23,10 @@ import ForgotPW from "./views/login/ForgotPW.js";
 
 
 const rootElement = document.getElementById("root");
+ReactSession.setStoreType("localstorage");
+if (ReactSession.get("id") == undefined && window.location.pathname != "/login") {
+    window.location = "/login";
+}
 ReactDOM.render(
      <BrowserRouter>
         <Switch>

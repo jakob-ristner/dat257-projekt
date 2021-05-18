@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import Navigation from "../components/navigationButtons"
+import {ReactSession} from "react-client-session"
 
 const testView = () => {
     return (
