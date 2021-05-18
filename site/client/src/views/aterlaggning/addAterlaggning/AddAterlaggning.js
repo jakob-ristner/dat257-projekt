@@ -30,6 +30,8 @@ const AddAterlaggning = (useParams) => {
                 body: JSON.stringify(body)
             });
 
+            window.location="/aterlaggning/" + protocolID;
+
         } catch (err) {
             console.error(err);
             
@@ -42,12 +44,26 @@ const AddAterlaggning = (useParams) => {
        //CLicking the "Spara"-button sends a POST-request to the database. 
        return(
         <Fragment>
+
+        <h1>Lägg till Återläggning för {protocolID}</h1>
+
          <form onSubmit={submit}>
-        <h1>Lägg till Återläggning för {protocolID}</h1>  
+
+
         <div>Startdatum  <input required type="date" value={aterlaggning_startdate} onChange={(e) => {set_aterlaggning_startdate(e.target.value)}}></input></div>
-        <div>Orsak: <input value={orsak} onChange={(e) => {set_orsak(e.target.value)}}></input></div> 
+        
+
+        
+        <div>Orsak: <input value={orsak} onChange={(e) => {set_orsak(e.target.value)}}></input></div>
+        
+
      
+    <div class = {layout.divButton}>
         <button class = {layout.saveButton}>Spara</button>
+        <button class = {layout.avbrytButton} onClick={() =>{window.location="/aterlaggning/" + protocolID} }>Avbryt</button>
+    </div>
+
+    
         </form>
         </Fragment>
     );
