@@ -3,12 +3,14 @@ module.exports = function(app, pool){
     app.get("/aterlaggning/:protocolID", async(req, res) => {
         try {
             const {protocolID} = req.params;
-            const allNavUnder = await pool.query(
+            const allNavAterlaggning = await pool.query(
             `SELECT 
-                id,
-                to_char(aterlaggning_startdate, 'yyyy-mm-dd') AS aterlaggning_startdate, 
-                annat FROM Aterlaggning
-                WHERE protocolID = $1 ORDER BY aterlaggning_startdate DESC
+                protocolID,
+                to_char(aterlaggning_startdate, 'yyyy-mm-dd') AS startdate, 
+                to_char(aterlaggning_enddate, 'yyyy-mm-dd') AS enddate, 
+                utskrivning_hemmet,
+                orsak FROM Aterlaggning
+                WHERE protocolID = $1 ORDER BY startdate DESC
             `, [protocolID]);
 
             res.json(allNavAterlaggning.rows);
@@ -19,60 +21,58 @@ module.exports = function(app, pool){
 
     })
     
-    /*
-    app.put("/aterlaggning/:id", async(req, res) => {
+    
+    app.post("/aterlaggning/add/:protocolID", async(req, res) => {
         try{
-            
-            const{id} = req.params;
+            const{protocolID} = req.params;
             const{
              aterlaggning_startdate,
              orsak
             } = req.body;
-            
-            const { id } = req.params;
-            const updateMottagning = await pool.query(
-                `INSERT INTO addAterlaggning (
+        
+            const addAterlaggning = await pool.query(
+                `INSERT INTO Aterlaggning (
                     protocolID,
                     aterlaggning_startdate,
                     orsak) 
                     VALUES ($1, $2, $3) RETURNING *`,
                     [
-                        protcolID,
+                        protocolID,
                         aterlaggning_startdate,
                         orsak
                     ]
             );
 
+        res.json(addAterlaggning.rows);
         } catch (error) {
             console.error(error);
         }
     });
 
 
-app.put("/aterlaggning/end/:id", async(req, res) => {
+app.post("/aterlaggning/end/:protocolID", async(req, res) => {
     try{
-        const{id} = req.params;
+        const{protocolID} = req.params;
         const{
          
         } = req.body;
-        const updateMottagning = await pool.query(
-            `INSERT INTO endAterlaggning (
+        const addEndAterlaggning = await pool.query(
+            `INSERT INTO Aterlaggning (
                 protocolID,
                 aterlaggning_enddate,
                 utskrivning_hemmet) 
                 VALUES ($1, $2, $3) RETURNING *`,
                 [
-                    protcolID,
+                    protocolID,
                     aterlaggning_enddate,
                     utskrivning_hemmet
                 ]
         );
 
-
+        res.json(addEndAterlaggning.rows);
     } catch (error) {
         console.error(error);
     }
 });
-*/
 
 }

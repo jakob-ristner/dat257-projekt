@@ -17,9 +17,9 @@ import NavDigVard from "./views/digitalt-vardmote/navDigvard/navDigvard.js"
 import EditDigvard from "./views/digitalt-vardmote/edit-digvard/editDigvard.js"
 import EditMott from "./views/mottagningsbesok/EditMott.js";
 import NavMott from "./views/mottagningsbesok/NavMott.js"
-
-
 import NavAterlaggning from "./views/aterlaggning/navAterlaggning/NavAterlaggning.js";
+import AddAterlaggnig from "./views/aterlaggning/addAterlaggning/AddAterlaggning.js";
+import AddEndAterlaggnig from "./views/aterlaggning/addAterlaggning/AddEndAterlaggning.js";
 
 
 const rootElement = document.getElementById("root");
@@ -43,7 +43,10 @@ ReactDOM.render(
             <Route exact path="/digitalt-vardmote/edit/:id" component={EditDigvard} />
             <Route exact path="/mottagningsbesok/:protocolID" component={NavMott} />
 
-            <Route exact path="/aterlaggning/:protokollnr" component={NavAterlaggning} />
+            <Route exact path="/aterlaggning/:protocolID" component={NavAterlaggning} />
+            <Route exact path="/aterlaggning/add/:protocolID" component={AddAterlaggnig} />
+            <Route exact path="/aterlaggning/end/:protocolID" component={AddEndAterlaggnig} />
+
 
         </Switch>
     </BrowserRouter>,

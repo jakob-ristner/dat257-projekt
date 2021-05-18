@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import Navigation from "../../components/navigationButtons";
 import HomeButton from "../../components/HomeButton"
 import layout from "../../cssModules/NavLayout.module.css";
 import IconButton from '@material-ui/core/IconButton';
@@ -114,21 +113,30 @@ class NavAterlaggning extends React.Component {
                     <button id={layout.edit} onClick={() =>
                     {window.location = "/aterlaggning/edit/" + form.id}
                     }> Redigera </button >
+        
+                    <button id={layout.edit} onClick={() =>
+                    {window.location = "/aterlaggning/end/" + form.id}
+                    }> Avsluta återläggning </button >
 
                 <div className={layout.info}>
                     Undersökning nr: {this.state.data.length - (this.state.index + i)} <br/> 
-                    Datum: {form.aterlaggning_startdate} <br/>
-
+                    Datum: {form.startdate} <br/>
                 </div>
 
                 <div className={layout.atgard}>
                     Orsak: <input value = {form.annat}></input> <br/>
                 </div>
 
+                <div className={layout.resurs}>
+                    Avslutningsdatum: {form.enddate} <br/>
+                    Utskriven till hemmet:   
+                        <input type="checkbox" checked={form.utskrivning_hemmet} /> <br />
+                </div>  
+
             </div>
             )})}
             </div>
-            <div class = "navigation"><Navigation id={this.protocolID}/></div>
+
             <div id = "homeButton"><HomeButton/></div>
 
             <div className={layout.downButton}>

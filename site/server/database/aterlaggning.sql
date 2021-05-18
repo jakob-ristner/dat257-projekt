@@ -6,34 +6,26 @@ CREATE TABLE Aterlaggning (
     FOREIGN KEY (protocolID) REFERENCES Registration(protocolID),
     
     aterlaggning_startdate DATE NOT NULL, -- Start date and start time
+    aterlaggning_enddate DATE NOT NULL DEFAULT NOW(), -- End date and start time
+    utskrivning_hemmet BOOLEAN DEFAULT FALSE NOT NULL,
     orsak TEXT NOT NULL DEFAULT ''
 );
 
 
-/* CREATE TABLE endAterlaggning (
-     id SERIAL PRIMARY KEY,
-    protocolID INT NOT NULL,
-    FOREIGN KEY (id) REFERENCES addAterlaggning(id),
-    
-    aterlaggning_enddate DATE NOT NULL, -- Start date and start time
-    utskrivning_hemmet BOOLEAN DEFAULT FALSE NOT NULL
-);*/
 
 
 
 --Test values
-INSERT INTO Aterlaggning (protocolID, aterlaggning_startdate, orsak)
-    VALUES ('111', '2021-03-01', 'hafkjk');
+INSERT INTO Aterlaggning (protocolID, aterlaggning_startdate, aterlaggning_enddate, utskrivning_hemmet, orsak)
+    VALUES ('111', '2021-03-01', '2021-03-05', true, 'hafkjk');
 
-INSERT INTO Aterlaggning (protocolID, aterlaggning_startdate, orsak)
-    VALUES ('111', '2021-04-01', 'test1');
+INSERT INTO Aterlaggning (protocolID, aterlaggning_startdate, aterlaggning_enddate, utskrivning_hemmet, orsak)
+    VALUES ('111', '2021-04-01', '2021-05-05', false,  'test1');
 
-INSERT INTO Aterlaggning (protocolID, aterlaggning_startdate, orsak)
-    VALUES ('222', '2021-05-01', 'test2');
+INSERT INTO Aterlaggning (protocolID, aterlaggning_startdate, utskrivning_hemmet, orsak)
+    VALUES ('222', '2021-05-01', true, 'test2');
 
-/*
-INSERT INTO endAterlaggning (protocolID, aterlaggning_enddate, utskrivning_hemmet)
-    VALUES ('111', '2021-03-05', true);
 
-*/
+
+
 
