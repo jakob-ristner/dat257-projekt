@@ -22,6 +22,7 @@ class NavMott extends React.Component {
             .then(response => response.json())
             .then(console.log("Fetched resource"))
             .then(data => this.setState({ data }));
+            console.log(this.data);
            // .then(() => this.render());
     }
 

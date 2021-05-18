@@ -7,7 +7,7 @@ import React, { Fragment} from "react";
         } else {
             setState(value);
         }
-        validateMulti();
+        
     }
 
     export function validateMulti() {
@@ -54,6 +54,7 @@ import React, { Fragment} from "react";
                 Inte alls<input checked={state == "IA"}
                 type="checkbox"  class="inte" onChange={() => {threeCheck(state, setState, "IA")}}/> <br />
             </div>
+        
 
         </Fragment>);
     }
