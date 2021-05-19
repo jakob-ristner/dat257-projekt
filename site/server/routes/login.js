@@ -21,25 +21,27 @@ module.exports = function(app, pool){
                 res.json({verified});
                 return;
             } 
+
+
+
+            await bcrypt.compare(password, user.rows[0].password, function(err, result){
+                console.log(password);
+                console.log(user.rows[0].password);
+                console.log(result);
             
-            bcrypt.compare(password, user.rows[0].password, function(err, result){
-                correct = result;
-            })
-            
-            if (correct) {
-                //console.log(req.session);
-                verified = true;
-                req.session.login = true;
+                if (result) {
+                    verified = true;
+                    req.session.login = true;
                 
-                req.session.save(function(err){});
-               // console.log(req.session);
-                //console.log(req.session.id);
-                res.json({verified, id: req.session.id});
+                    req.session.save(function(err){});
+                    res.json({verified, id: req.session.id});
+                    return;
+                } else {
+                    res.json({verified});
                 return;
-            } else {
-                res.json({verified});
-                return;
-            }
+                }
+            });
+
         } catch (err) {
             console.error(err.message);
             res.json({verified});

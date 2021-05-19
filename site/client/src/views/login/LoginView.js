@@ -1,7 +1,6 @@
 import React, {Fragment, useEffect, useState} from 'react';
 import layout from "../cssModules/Login.module.css";
 import {ReactSession} from 'react-client-session';
-import { response } from 'express';
 
 const LoginView = ()  => {
     const [email, setEmail] = useState();
