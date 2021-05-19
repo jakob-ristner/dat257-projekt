@@ -17,7 +17,7 @@ import NavDigVard from "./views/digitalt-vardmote/navDigvard/navDigvard.js"
 import EditDigvard from "./views/digitalt-vardmote/edit-digvard/editDigvard.js"
 import EditMott from "./views/mottagningsbesok/EditMott.js";
 import NavMott from "./views/mottagningsbesok/NavMott.js"
-
+import Homepage from "./views/homepage/Homepage.js"
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(
@@ -26,6 +26,7 @@ ReactDOM.render(
             <Route exact path="/Hembesok/:id" component={NavHembesok} />
 
             <Route exact path ="/" component ={TestView} />
+            <Route exact path ="/startsida/" component ={Homepage} />
             <Route exact path ="/registration/edit/:id" component ={EditRegistration} />
 
             <Route exact path="/digitalt-vardmote/add/:protocolID" component={AddDigitaltVard} />
