@@ -1,16 +1,16 @@
 import React, {Fragment, useEffect, useState} from 'react';
 import layout from "../cssModules/Login.module.css";
 import {ReactSession} from 'react-client-session';
+import { response } from 'express';
 
 const LoginView = ()  => {
     const [email, setEmail] = useState();
     const [verified, setVerified] = useState(true);
     const [password, setPassword] = useState();
-
+    
 
     const login = async(e) => {
         e.preventDefault();
-        //TODO fixa login
         const body = {email, password};
         const response = await fetch("http://localhost:5000/login", {
             method: "POST", 

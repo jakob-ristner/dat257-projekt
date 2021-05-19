@@ -4,17 +4,29 @@ SERVERSIDE SESSION IS DESTROYED WHILST THE CLIENT
 STILL HAS A SESSION. 
 */
 module.exports = function(app, pool){
+    const bcrypt = require("bcryptjs");
+
+
+    
     app.post("/login", async (req, res) => {
         verified = false;
         try {
-           
+            var correct;
             const {email, password} = req.body;
             const user = await pool.query(`SELECT * FROM Login 
                 WHERE email = $1`, [email]);
+
+
             if (user.rows.length != 1) {
                 res.json({verified});
                 return;
-            } else if (user.rows[0].password === password) {
+            } 
+            
+            bcrypt.compare(password, user.rows[0].password, function(err, result){
+                correct = result;
+            })
+            
+            if (correct) {
                 //console.log(req.session);
                 verified = true;
                 req.session.login = true;
