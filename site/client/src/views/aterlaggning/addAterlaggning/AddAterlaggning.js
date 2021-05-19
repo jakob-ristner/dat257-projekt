@@ -38,7 +38,7 @@ const AddAterlaggning = (useParams) => {
             
         }
     }
-    //useEffect(()=> {validateAtgard()}, []);
+    //useEffect(()=> {validateAtgard()}, []); /köra validatemulti en gång här, importera yes no?
 
 
     //Displaying the hembesok form with textfields and checkboxes.
@@ -52,10 +52,13 @@ const AddAterlaggning = (useParams) => {
 
 
         <div>Startdatum  <input required type="date" value={aterlaggning_startdate} onChange={(e) => {set_startdate(e.target.value)}}></input></div>
+        <div>Orsak: <input type="text" value={orsak} onChange={(e) => {set_orsak(e.target.value)}}></input></div>
+        <div>Avslutningsdatum:<input required type="date" disabled></input></div>
+        <div>Utskrivning till hemmet:
+            Ja  <input required type="checkbox" disabled></input>
+            Nej <input required type="checkbox" disabled></input></div>
         
 
-        
-        <div>Orsak: <input type="text" value={orsak} onChange={(e) => {set_orsak(e.target.value)}}></input></div>
         
 
      

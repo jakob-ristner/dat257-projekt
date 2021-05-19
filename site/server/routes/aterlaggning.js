@@ -51,26 +51,24 @@ module.exports = function(app, pool){
     });
 
 
-app.post("/aterlaggning/end/:protocolID", async(req, res) => {
+app.put("/aterlaggning/end/:protocolID", async(req, res) => {
     try{
         const{protocolID} = req.params;
         const{
+            aterlaggning_enddate,
+            utskrivning_hemmet
          
         } = req.body;
         const addEndAterlaggning = await pool.query(
-            `INSERT INTO Aterlaggning (
-                protocolID,
-                aterlaggning_enddate,
-                utskrivning_hemmet) 
-                VALUES ($1, $2, $3) RETURNING *`,
+            `UPDATE Aterlaggning SET aterlaggning_enddate = $2, utskrivning_hemmet = $3 WHERE protocolID = $1`,
                 [
                     protocolID,
                     aterlaggning_enddate,
                     utskrivning_hemmet
                 ]
         );
-
-        res.json(addEndAterlaggning.rows);
+        console.log(hej);
+        res.json(addEndAterlaggning);
     } catch (error) {
         console.error(error);
     }
