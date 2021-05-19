@@ -7,7 +7,7 @@ const getLogout = () => {
 }
 
 const logout = async () => {
-    await fetch("http://localhost:5000/logout");
+    await fetch("http://localhost:5000/logout", { credentials: 'include'});
     ReactSession.remove("id");
     window.location = "/login";
 

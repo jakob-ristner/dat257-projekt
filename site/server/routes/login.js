@@ -15,12 +15,13 @@ module.exports = function(app, pool){
                 res.json({verified});
                 return;
             } else if (user.rows[0].password === password) {
+                //console.log(req.session);
                 verified = true;
                 req.session.login = true;
                 
                 req.session.save(function(err){});
-                console.log(req.session);
-                console.log(req.session.id);
+               // console.log(req.session);
+                //console.log(req.session.id);
                 res.json({verified, id: req.session.id});
                 return;
             } else {

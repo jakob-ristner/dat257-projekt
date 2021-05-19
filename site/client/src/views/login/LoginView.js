@@ -15,13 +15,14 @@ const LoginView = ()  => {
         const response = await fetch("http://localhost:5000/login", {
             method: "POST", 
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(body)
+            body: JSON.stringify(body),
+            credentials: 'include'
         })
         const jsonData = await response.json();
         setVerified(jsonData.verified); 
         if (jsonData.verified) {
             // TODO put id in session cookie
-            //ReactSession.set("id", jsonData.id);
+            ReactSession.set("id", jsonData.id);
             window.location = "/";
         } 
 

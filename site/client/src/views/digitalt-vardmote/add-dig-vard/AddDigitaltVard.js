@@ -68,7 +68,8 @@ const AddDigitaltVard = (useParams) => {
             const response = await fetch("http://localhost:5000/digitalt-vardmote/add/" + protocolID, {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
-                body: JSON.stringify(body)
+                body: JSON.stringify(body),
+                credentials: 'include'
             });
 
             await console.log(response);

@@ -18,7 +18,7 @@ class NavMott extends React.Component {
             index: 0
         };
  
-        fetch('http://localhost:5000/mottagningsbesok/' + this.protocolID)
+        fetch('http://localhost:5000/mottagningsbesok/' + this.protocolID, { credentials: 'include'})
             .then(response => response.json())
             .then(console.log("Fetched resource"))
             .then(data => this.setState({ data }));
