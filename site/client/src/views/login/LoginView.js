@@ -21,7 +21,7 @@ const LoginView = ()  => {
         setVerified(jsonData.verified); 
         if (jsonData.verified) {
             // TODO put id in session cookie
-            ReactSession.set("id", jsonData.id);
+            //ReactSession.set("id", jsonData.id);
             window.location = "/";
         } 
 

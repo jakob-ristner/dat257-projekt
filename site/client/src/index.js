@@ -23,9 +23,9 @@ import ForgotPW from "./views/login/ForgotPW.js";
 
 
 const rootElement = document.getElementById("root");
-ReactSession.setStoreType("localstorage");
+//ReactSession.setStoreType("localstorage");
 if (ReactSession.get("id") == undefined && window.location.pathname != "/login") {
-    window.location = "/login";
+    //window.location = "/login";
 }
 ReactDOM.render(
      <BrowserRouter>

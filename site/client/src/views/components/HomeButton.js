@@ -6,9 +6,11 @@ const getLogout = () => {
     return ( <button className="home" id="logout" onClick={logout}>Logga ut</button> );
 }
 
-const logout = () => {
+const logout = async () => {
+    await fetch("http://localhost:5000/logout");
     ReactSession.remove("id");
     window.location = "/login";
+
 }
 
 
