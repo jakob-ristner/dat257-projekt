@@ -81,24 +81,53 @@ return(<Fragment>
             <h2>Protokollnummer: {protokollnr}</h2>
     </div>
 
+
      <form onSubmit={updateAterlaggning}>
 
+     <div class = {layout.gridHalleluja}>
+
+         <div><h2 className={layout.headerInfo}>Datun:</h2></div>
+
+         <div><h2 className={layout.headerAtgard}>Orsak:</h2></div>
+
+         <div><h2 className={layout.headerResurs}>Avslutad Återinläggning:</h2></div>
+
+
+         <div class={layout.info}> 
+           <div class ={layout.gridInfo}>
     <div>Startdatum  <input required type="date" value={aterlaggning_startdate} onChange={(e) => {set_startdate(e.target.value)}}></input></div>
+           </div>
+         </div> 
+
+         <div class= {layout.atgard + " atgard"}>
+            <div class ={layout.gridAtgard}>
     <div>Orsak: <input required type="text" value={orsak} onChange={(e) => {set_orsak(e.target.value)}}></input></div>
+
+            </div>
+        </div>
+
+
+        <div class = {layout.resurs}> 
+            <div class = {layout.gridResurs}> 
     <div>Avslutningsdatum:<input required type="date" value={aterlaggning_enddate} onChange={(e) => {set_aterlaggning_enddate(e.target.value)}}></input></div>
     <div>
             {getYesNo("Utskrivning till hemmet:", utskrivning_hemmet, set_utskrivning_hemmet)}    
     </div>
     
+            </div>
+        </div>
 
     
 
- 
-    <button >Spara</button>
-    <button  onClick={() =>{window.location = "/aterlaggning/" + protokollnr} }>Avbryt</button>
+        <div class = {layout.divButtonAter}>
+    <button class = {layout.saveButtonAter}>Spara</button>
+    <button class = {layout.avbrytButtonAter}  onClick={() =>{window.location = "/aterlaggning/" + protokollnr} }>Avbryt</button>
+
+       </div>
 
 
 
+    </div>
     </form>
     </Fragment>);
 }

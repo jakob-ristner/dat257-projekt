@@ -87,13 +87,14 @@ const AddEndAterlaggning = (useParams) => {
              </div>
 
         <div class = {layout.resurs}> 
-            <div class = {layout.gridResurs}></div>
+            <div class = {layout.gridResurs}>
         <div>Avslutningsdatum:<input required type="date" value={aterlaggning_enddate} onChange={(e) => {set_aterlaggning_enddate(e.target.value)}}></input></div>
         <div>
             {getYesNo("Utskrivning till hemmet:", utskrivning_hemmet, set_utskrivning_hemmet)}
             
         </div>
              </div>
+        </div>   
         
         
 
