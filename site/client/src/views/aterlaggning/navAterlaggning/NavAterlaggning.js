@@ -131,7 +131,7 @@ class NavAterlaggning extends React.Component {
                 <div className={layout.resurs}>
                     Avslutningsdatum: {form.enddate} <br/>
                     Utskriven till hemmet:   
-                        <input type="checkbox" checked={form.utskrivning_hemmet} /> <br />
+                    <input type="checkbox" checked={form.utskrivning_hemmet} /> <br />
                 </div>  
 
             </div>

@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState} from "react";
 import {useParams} from "react-router-dom"; 
 import layout from "../../cssModules/AddForm.module.css";
+import { getYesNo } from "../../../utils/inputs";
 //import {validateAtgard} from "../../utils/inputs.js";
 
 const AddAterlaggning = (useParams) => {
@@ -54,10 +55,9 @@ const AddAterlaggning = (useParams) => {
         <div>Startdatum  <input required type="date" value={aterlaggning_startdate} onChange={(e) => {set_startdate(e.target.value)}}></input></div>
         <div>Orsak: <input type="text" value={orsak} onChange={(e) => {set_orsak(e.target.value)}}></input></div>
         <div>Avslutningsdatum:<input required type="date" disabled></input></div>
-        <div>Utskrivning till hemmet:
-            Ja  <input required type="checkbox" disabled></input>
-            Nej <input required type="checkbox" disabled></input></div>
-        
+        <div>
+            {getYesNo("Utskrivning till hemmet:", utskrivning_hemmet)}    
+        </div>
 
         
 
