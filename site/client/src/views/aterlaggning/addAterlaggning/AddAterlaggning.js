@@ -53,11 +53,12 @@ const AddAterlaggning = (useParams) => {
 
 
         <div>Startdatum  <input required type="date" value={aterlaggning_startdate} onChange={(e) => {set_startdate(e.target.value)}}></input></div>
-        <div>Orsak: <input type="text" value={orsak} onChange={(e) => {set_orsak(e.target.value)}}></input></div>
+        <div>Orsak: <input required type="text" value={orsak} onChange={(e) => {set_orsak(e.target.value)}}></input></div>
         <div>Avslutningsdatum:<input required type="date" disabled></input></div>
-        <div>
-            {getYesNo("Utskrivning till hemmet:", utskrivning_hemmet)}    
-        </div>
+        <div>Utskrivning till hemmet:
+            Ja  <input required type="checkbox" disabled></input>
+            Nej <input required type="checkbox" disabled></input></div>
+        
 
         
 

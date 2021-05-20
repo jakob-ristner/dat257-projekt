@@ -5,9 +5,8 @@ module.exports = function(app, pool){
 
 app.put("/aterlaggning/:id", async(req, res) => {
     try{
-        const{protocolID} = req.params;
+        const{id} = req.params;
         const{
-         date,
          aterlaggning_startdate,
          aterlaggning_enddate,
          utskrivning_hemmet,
@@ -23,7 +22,7 @@ app.put("/aterlaggning/:id", async(req, res) => {
                 orsak = $5
                 WHERE id = $1`,
                 [
-                    protocolID,
+                    id,
                     aterlaggning_startdate,
                     aterlaggning_enddate,
                     utskrivning_hemmet,
@@ -99,8 +98,9 @@ app.get("/aterlaggning/edit/:id", async(req, res) => {
                 `INSERT INTO Aterlaggning (
                     protocolID,
                     aterlaggning_startdate,
-                    orsak) 
-                    VALUES ($1, $2, $3) RETURNING *`,
+                    orsak
+                    ) 
+                    VALUES ($1, $2, $3 ) RETURNING *`,
                     [
                         protocolID,
                         aterlaggning_startdate,

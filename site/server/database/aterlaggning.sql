@@ -8,7 +8,9 @@ CREATE TABLE Aterlaggning (
     aterlaggning_startdate DATE NOT NULL, -- Start date and start time
     aterlaggning_enddate DATE NOT NULL DEFAULT NOW(), -- End date and start time
     utskrivning_hemmet BOOLEAN DEFAULT FALSE NOT NULL,
-    orsak TEXT NOT NULL DEFAULT ''
+    orsak TEXT NOT NULL DEFAULT '',
+
+    UNIQUE(protocolID, aterlaggning_startdate)
 );
 
 

@@ -5,7 +5,7 @@ import { getYesNo } from "../../../utils/inputs";
 
 const EditAterlaggning = (useParams) => {
     const {id} = useParams.match.params;
-    console.log(useParams.match.params)
+    //console.log(useParams.match.params)
 
     // Setting states
     //const [protokollnr, setProtokollnr] = useState();
@@ -14,7 +14,7 @@ const EditAterlaggning = (useParams) => {
     const [orsak, set_orsak] = useState("");
     const [aterlaggning_enddate, set_aterlaggning_enddate] = useState("");
     const [utskrivning_hemmet, set_utskrivning_hemmet] = useState(false);
-    const [aterlagg_exists, set_aterlagg] = useState(false);
+    //const [aterlagg_exists, set_aterlagg] = useState(false);
 
     const [protokollnr, setProtokollnr] = useState();
 
@@ -25,13 +25,14 @@ const EditAterlaggning = (useParams) => {
         const jsonData = await response.json();
         //const ater = jsonData[0];
         //if (ater != undefined){
-            set_aterlagg(true);
+           
+            setProtokollnr(jsonData.protocolid);     
+
+            //set_aterlagg(true);
             set_startdate(jsonData.aterlaggning_startdate);
             set_orsak(jsonData.orsak);
             set_aterlaggning_enddate(jsonData.aterlaggning_enddate);
             set_utskrivning_hemmet(jsonData.utskrivning_hemmet);
-
-            setProtokollnr(jsonData.protocolid);
 
 
             //setProtokollnr(jsonData.protocolid);
@@ -62,6 +63,7 @@ const EditAterlaggning = (useParams) => {
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(body)
             });
+
             window.location="/aterlaggning/" + protokollnr;
         } catch (error) {
             console.log(error.message);
@@ -75,6 +77,9 @@ return(<Fragment>
 
     <h1>Redigera Återläggning med Id: {id}</h1>
 
+    <div className={layout.protID}>
+            <h2>Protokollnummer: {protokollnr}</h2>
+    </div>
 
      <form onSubmit={updateAterlaggning}>
 
