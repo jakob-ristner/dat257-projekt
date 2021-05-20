@@ -1,7 +1,7 @@
 module.exports = function(app, pool){
 
     /////////////////////// Edit ////////////////////////
-//Put request for updating the mottagningsbesok form.
+//Put request for updating the aterlaggning form.
 
 app.put("/aterlaggning/:id", async(req, res) => {
     try{
@@ -114,8 +114,9 @@ app.get("/aterlaggning/edit/:id", async(req, res) => {
         }
     });
 
-
-app.put("/aterlaggning/end/:protocolID", async(req, res) => {
+//END aterlaggning
+/*
+app.post("/aterlaggning/end/:protocolID", async(req, res) => {
     try{
         const{protocolID} = req.params;
         const{
@@ -124,19 +125,46 @@ app.put("/aterlaggning/end/:protocolID", async(req, res) => {
          
         } = req.body;
         const addEndAterlaggning = await pool.query(
-            `UPDATE Aterlaggning SET aterlaggning_enddate = $2, utskrivning_hemmet = $3 WHERE protocolID = $1`,
+            `INSERT INTO Aterlaggning (
+                protocolID,
+                aterlaggning_enddate,
+                utskrivning_hemmet) 
+                VALUES ($1, $2, $3) RETURNING *`,
                 [
                     protocolID,
                     aterlaggning_enddate,
                     utskrivning_hemmet
                 ]
         );
-        console.log(hej);
-        res.json(addEndAterlaggning);
+
+        res.json(addEndAterlaggning.rows);
     } catch (error) {
         console.error(error);
     }
 });
+*/
 
+
+//END edit aterlaggning
+app.get("/aterlaggning/end/:id", async(req, res) => {
+    try{
+        const{id} = req.params;
+        const endAterlaggning = await pool.query(
+            `SELECT 
+                protocolID,
+                to_char(aterlaggning_startdate, 'yyyy-mm-dd') AS startdate, 
+                to_char(aterlaggning_enddate, 'yyyy-mm-dd') AS enddate, 
+                utskrivning_hemmet,
+                orsak 
+                FROM Aterlaggning
+                WHERE id = $1
+            `, [id]
+        );
+
+    res.json(endAterlaggning.rows[0]);
+    } catch (e) {
+        console.error(e);
+    }
+});
 
 }

@@ -16,7 +16,7 @@ const AddAterlaggning = (useParams) => {
     const [aterlaggning_enddate, set_aterlaggning_enddate] = useState("");
     const [utskrivning_hemmet, set_utskrivning_hemmet] = useState(false);
 
-      //Method for submitting the new Hembesok and saving it in the Postgres Database
+      //Method for submitting the new Aterlaggning and saving it in the Postgres Database
       const submit = async(e) => {
         e.preventDefault();
 
@@ -42,7 +42,7 @@ const AddAterlaggning = (useParams) => {
     //useEffect(()=> {validateAtgard()}, []); /köra validatemulti en gång här, importera yes no?
 
 
-    //Displaying the hembesok form with textfields and checkboxes.
+    //Displaying the aterlaggning form with textfields and checkboxes.
        //CLicking the "Spara"-button sends a POST-request to the database. 
        return(
         <Fragment>
@@ -55,9 +55,10 @@ const AddAterlaggning = (useParams) => {
         <div>Startdatum  <input required type="date" value={aterlaggning_startdate} onChange={(e) => {set_startdate(e.target.value)}}></input></div>
         <div>Orsak: <input required type="text" value={orsak} onChange={(e) => {set_orsak(e.target.value)}}></input></div>
         <div>Avslutningsdatum:<input required type="date" disabled></input></div>
-        <div>Utskrivning till hemmet:
-            Ja  <input required type="checkbox" disabled></input>
-            Nej <input required type="checkbox" disabled></input></div>
+
+        <div>Utskrivning till hemmet:<input type="checkbox" disabled checked={utskrivning_hemmet}/> Ja 
+        <input type="checkbox" disabled checked={utskrivning_hemmet}/> Nej </div>
+
         
 
         

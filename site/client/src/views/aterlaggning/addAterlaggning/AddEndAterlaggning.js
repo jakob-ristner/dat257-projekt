@@ -6,7 +6,7 @@ import layout from "../../cssModules/AddForm.module.css";
 
 const AddEndAterlaggning = (useParams) => {
 
-    const {protocolID} = useParams.match.params;
+    const {id} = useParams.match.params;
 
     //date
     const [aterlaggning_startdate, set_startdate] = useState("");
@@ -16,45 +16,52 @@ const AddEndAterlaggning = (useParams) => {
     const [aterlaggning_enddate, set_aterlaggning_enddate] = useState("");
     const [utskrivning_hemmet, set_utskrivning_hemmet] = useState(false);
 
-      //Method for submitting the new Hembesok and saving it in the Postgres Database
-      const submit = async(e) => {
-        e.preventDefault();
+    const [protokollnr, setProtokollnr] = useState();
 
-        try {
-            const body ={
-                aterlaggning_enddate,
-                utskrivning_hemmet
-                
-       }; 
-            
-            const response = await fetch("http://localhost:5000/aterlaggning/end/" + protocolID, {
-                method: "PUT",
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify(body)
-            });
 
-            window.location="/aterlaggning/end/" + protocolID;
+      //method for enddate the old Återläggning
+    const getAterlagg = async() => {
+        const response = await fetch(
+        "http://localhost:5000/aterlaggning/end/" + id);
+        const jsonData = await response.json();
+        //const ater = jsonData[0];
+        //if (ater != undefined){
+           
+            setProtokollnr(jsonData.protocolid);     
 
-        } catch (err) {
-            console.error(err);
-            
-        }
+            //set_aterlagg(true);
+            set_startdate(jsonData.aterlaggning_startdate);
+            set_orsak(jsonData.orsak);
+            set_aterlaggning_enddate(jsonData.aterlaggning_enddate);
+            set_utskrivning_hemmet(jsonData.utskrivning_hemmet);
+
+
+            //setProtokollnr(jsonData.protocolid);
+       // }
+        //else{
+        //    set_aterlagg(false);
+        //}
     }
-    //useEffect(()=> {validateAtgard()}, []);
 
+    useEffect(() => { 
+       getAterlagg();
+          }, [])
+       
 
     //Displaying the hembesok form with textfields and checkboxes.
        //CLicking the "Spara"-button sends a POST-request to the database. 
        return(
         <Fragment>
 
-        <h1>Lägg till Återläggning för {protocolID}</h1>
+        <h1>End Återläggning för {id}</h1>
 
-         <form onSubmit={submit}>
+        
+
+         <form onSubmit={getAterlagg}>
 
 
-        <div>Startdatum  <input required type="date" disabled></input></div>
-        <div>Orsak: <input type="text" disabled></input></div>
+        <div>Startdatum  <input required type="date" disabled value={aterlaggning_startdate}></input></div>
+        <div>Orsak: <input type="text" disabled value={orsak}></input></div>
         <div>Avslutningsdatum:<input required type="date" value={aterlaggning_enddate} onChange={(e) => {set_aterlaggning_enddate(e.target.value)}}></input></div>
         <div>
             {getYesNo("Utskrivning till hemmet:", utskrivning_hemmet, set_utskrivning_hemmet)}
@@ -66,7 +73,7 @@ const AddEndAterlaggning = (useParams) => {
      
     <div class = {layout.divButton}>
         <button class = {layout.saveButton}>Spara</button>
-        <button class = {layout.avbrytButton} onClick={() =>{window.location="/aterlaggning/" + protocolID} }>Avbryt</button>
+        <button class = {layout.avbrytButton} onClick={() =>{window.location="/aterlaggning/" + protokollnr} }>Avbryt</button>
     </div>
 
     

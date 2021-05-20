@@ -48,7 +48,7 @@ ReactDOM.render(
 
             <Route exact path="/aterlaggning/:protocolID" component={NavAterlaggning} />
             <Route exact path="/aterlaggning/add/:protocolID" component={AddAterlaggning} />
-            <Route exact path="/aterlaggning/end/:protocolID" component={AddEndAterlaggning} />
+            <Route exact path="/aterlaggning/end/:id" component={AddEndAterlaggning} />
             <Route exact path="/aterlaggning/edit/:id" component={EditAterlaggning} />
 
 
