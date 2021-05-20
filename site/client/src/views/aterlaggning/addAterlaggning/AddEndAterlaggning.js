@@ -53,30 +53,58 @@ const AddEndAterlaggning = (useParams) => {
        return(
         <Fragment>
 
-        <h1>End Återläggning för {id}</h1>
-
+        <h1>End Återläggning med id: {id}</h1>
+        
+        <div className={layout.protID}>
+            <h2>Protokollnummer: {protokollnr}</h2>
+        </div>
         
 
-         <form onSubmit={getAterlagg}>
+        <form onSubmit={getAterlagg}>
+
+         <div class = {layout.gridHalleluja}>
+
+            <div><h2 className={layout.headerInfo}>Datun:</h2></div>
+
+            <div><h2 className={layout.headerAtgard}>Orsak:</h2></div>
+
+            <div><h2 className={layout.headerResurs}>Avslutad Återinläggning:</h2></div>
 
 
+
+        <div class={layout.info}> 
+           <div class ={layout.gridInfo}>
         <div>Startdatum  <input required type="date" disabled value={aterlaggning_startdate}></input></div>
+
+        </div>
+           </div>
+
+        <div class= {layout.atgard + " atgard"}>
+            <div class ={layout.gridAtgard}>
         <div>Orsak: <input type="text" disabled value={orsak}></input></div>
+
+        </div>
+             </div>
+
+        <div class = {layout.resurs}> 
+            <div class = {layout.gridResurs}></div>
         <div>Avslutningsdatum:<input required type="date" value={aterlaggning_enddate} onChange={(e) => {set_aterlaggning_enddate(e.target.value)}}></input></div>
         <div>
             {getYesNo("Utskrivning till hemmet:", utskrivning_hemmet, set_utskrivning_hemmet)}
             
         </div>
+             </div>
         
         
 
      
-    <div class = {layout.divButton}>
-        <button class = {layout.saveButton}>Spara</button>
-        <button class = {layout.avbrytButton} onClick={() =>{window.location="/aterlaggning/" + protokollnr} }>Avbryt</button>
+    <div class = {layout.divButtonAter}>
+        <button class = {layout.saveButtonAter}>Spara</button>
+        <button class = {layout.avbrytButtonAter} onClick={() =>{window.location="/aterlaggning/" + protokollnr} }>Avbryt</button>
     </div>
 
     
+    </div>
         </form>
         </Fragment>
     );

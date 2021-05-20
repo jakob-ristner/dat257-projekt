@@ -57,7 +57,7 @@ const AddAterlaggning = (useParams) => {
 
           <div><h2 className={layout.headerAtgard}>Orsak:</h2></div>
 
-          <div><h2 className={layout.headerResurs}>Avslutaf Återinläggning:</h2></div>
+          <div><h2 className={layout.headerResurs}>Avslutad Återinläggning:</h2></div>
 
           <div> <h2 className={layout.headerAvvikning}>Avsluta/Redigera</h2></div>
 
