@@ -51,17 +51,46 @@ const AddAterlaggning = (useParams) => {
 
          <form onSubmit={submit}>
 
+         <div class = {layout.gridHalleluja}>
+
+          <div><h2 className={layout.headerInfo}>Datun:</h2></div>
+
+          <div><h2 className={layout.headerAtgard}>Orsak:</h2></div>
+
+          <div><h2 className={layout.headerResurs}>Avslutaf Återinläggning:</h2></div>
+
+          <div> <h2 className={layout.headerAvvikning}>Avsluta/Redigera</h2></div>
+
+          <div class={layout.info}> 
+           <div class ={layout.gridInfo}>
 
         <div>Startdatum  <input required type="date" value={aterlaggning_startdate} onChange={(e) => {set_startdate(e.target.value)}}></input></div>
+
+         </div>
+         </div>
+
+         <div class= {layout.atgard + " atgard"}>
+            <div class ={layout.gridAtgard}>
+
         <div>Orsak: <input required type="text" value={orsak} onChange={(e) => {set_orsak(e.target.value)}}></input></div>
+
+           </div>
+           </div>
+
+           <div class = {layout.resurs}> 
+                <div class = {layout.gridResurs}>
         <div>Avslutningsdatum:<input required type="date" disabled></input></div>
 
+                </div>
+            </div>
+
+            <div class= {layout.avvikning}>
+                <div class = {layout.gridAvvikning}>
         <div>Utskrivning till hemmet:<input type="checkbox" disabled checked={utskrivning_hemmet}/> Ja 
         <input type="checkbox" disabled checked={utskrivning_hemmet}/> Nej </div>
 
-        
-
-        
+            </div>
+           </div>  
 
      
     <div class = {layout.divButton}>
@@ -70,6 +99,8 @@ const AddAterlaggning = (useParams) => {
     </div>
 
     
+    </div>
+
         </form>
         </Fragment>
     );
