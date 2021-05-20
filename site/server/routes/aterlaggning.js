@@ -114,38 +114,8 @@ app.get("/aterlaggning/edit/:id", async(req, res) => {
         }
     });
 
-//END aterlaggning
-/*
-app.post("/aterlaggning/end/:protocolID", async(req, res) => {
-    try{
-        const{protocolID} = req.params;
-        const{
-            aterlaggning_enddate,
-            utskrivning_hemmet
-         
-        } = req.body;
-        const addEndAterlaggning = await pool.query(
-            `INSERT INTO Aterlaggning (
-                protocolID,
-                aterlaggning_enddate,
-                utskrivning_hemmet) 
-                VALUES ($1, $2, $3) RETURNING *`,
-                [
-                    protocolID,
-                    aterlaggning_enddate,
-                    utskrivning_hemmet
-                ]
-        );
+//END END aterlaggning
 
-        res.json(addEndAterlaggning.rows);
-    } catch (error) {
-        console.error(error);
-    }
-});
-*/
-
-
-//END edit aterlaggning
 app.get("/aterlaggning/end/:id", async(req, res) => {
     try{
         const{id} = req.params;

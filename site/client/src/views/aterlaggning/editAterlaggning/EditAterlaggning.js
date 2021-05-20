@@ -71,7 +71,7 @@ const EditAterlaggning = (useParams) => {
        
     }
 
-//Displaying the atterlaggning form with textfields and checkboxes.
+//Displaying the aterlaggning form with textfields and checkboxes.
 //CLicking the "Spara"-button sends a POST-request to the database.
 return(<Fragment>
 
