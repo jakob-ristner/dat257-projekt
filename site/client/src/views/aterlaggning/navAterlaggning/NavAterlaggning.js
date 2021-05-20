@@ -111,11 +111,11 @@ class NavAterlaggning extends React.Component {
 
             {sliced.map((form, i) => { return(
             <div className={layout.container} id={this.getItemID(i)}>
-                    <button id={layout.edit} onClick={() =>
+                    <button id={layout.editAterlaggning} onClick={() =>
                     {window.location = "/aterlaggning/edit/" + form.id}
                     }> Redigera </button >
         
-                    <button id={layout.edit} onClick={() =>
+                    <button id={layout.editAterlaggning} onClick={() =>
                     {window.location = "/aterlaggning/end/" + form.id}
                     }> Avsluta återläggning </button >
 
