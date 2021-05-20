@@ -3,7 +3,7 @@ module.exports = function(app, pool){
     /////////////////////// Edit ////////////////////////
 //Put request for updating the mottagningsbesok form.
 
-app.put("/aterlaggning/:protocolID", async(req, res) => {
+app.put("/aterlaggning/:id", async(req, res) => {
     try{
         const{protocolID} = req.params;
         const{
@@ -14,8 +14,6 @@ app.put("/aterlaggning/:protocolID", async(req, res) => {
          orsak,
 
         } = req.body;
-
-        const date_start_time = date + " " + start_time;
     
         const updateAterlaggning = await pool.query(
             `UPDATE Aterlaggning SET

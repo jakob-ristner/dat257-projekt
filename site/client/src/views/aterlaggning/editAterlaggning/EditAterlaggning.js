@@ -16,6 +16,8 @@ const EditAterlaggning = (useParams) => {
     const [utskrivning_hemmet, set_utskrivning_hemmet] = useState(false);
     const [aterlagg_exists, set_aterlagg] = useState(false);
 
+    const [protokollnr, setProtokollnr] = useState();
+
     //method for editing the old Återläggning
     const getAterlagg = async() => {
         const response = await fetch(
@@ -28,6 +30,9 @@ const EditAterlaggning = (useParams) => {
             set_orsak(jsonData.orsak);
             set_aterlaggning_enddate(jsonData.aterlaggning_enddate);
             set_utskrivning_hemmet(jsonData.utskrivning_hemmet);
+
+            setProtokollnr(jsonData.protocolid);
+
 
             //setProtokollnr(jsonData.protocolid);
        // }
@@ -57,7 +62,7 @@ const EditAterlaggning = (useParams) => {
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(body)
             });
-            window.location="/aterlaggning/" + protocolID;
+            window.location="/aterlaggning/" + protokollnr;
         } catch (error) {
             console.log(error.message);
         }
@@ -85,7 +90,7 @@ return(<Fragment>
 
  
     <button >Spara</button>
-    <button  onClick={() =>{window.location = "/aterlaggning/" + protocolID} }>Avbryt</button>
+    <button  onClick={() =>{window.location = "/aterlaggning/" + protokollnr} }>Avbryt</button>
 
 
 
