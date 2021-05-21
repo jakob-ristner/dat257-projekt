@@ -1,0 +1,57 @@
+Möte PO 2021-05-20
+
+Sekreterare: Erik Berg
+
+Förklarar hur login fungerar. 
+
+Vi saknar sida för att skapa nya användare
+och sida för om man glömt lösenord.
+
+Haris visar återläggning:
+* Inte så många funderingar, känns ganska klart. 
+
+Anton visar undersökning/startsidan:
+* Startsidan: Note to self - gör väljknappen till en
+drop-down meny. 
+
+Inskrivningsrutan till höger borde det stå
+In/-utskrivning på. 
+
+Saknar ett errormeddelande på startsidan
+
+Välj ska byta strängnamn kan ändras till hembesök. 
+
+
+Vad är kvar:
+Nedladdning till excel
+layout
+skapa användare, admin
+glömt lösenord. 
+
+Hur ser det ut framåt?
+- Avtal och sådant.
+Talat med jurist. Hur tänker vi rent avtalsmässigt. 
+
+Johannes tänker att det vore bra med ett avtal med våra önskemål
+vi har skapat detta så vi har upphovsrätt till detta, dvs vi måste
+ge bort detta. Där det är skrivet att neonatal hemsjukvård tar över,
+och att om vi ska arbeta med service och så och osv. 
+
+Kan de återkoppla till oss om det blir problem och sådant?
+
+
+Zoommöte efter tentorna
+* Vilka vill jobba kvar
+* Vi funderar på buggfixar och sånt. 
+* Vi kan prata ihop oss kring avtal och sånt. 
+* Diskussion främst kring avtal. 
+
+Hur ska protocol-ID sparas?
+* Nummer och årtal. Med bindestreck. 
+ - Spara som TEXT. 
+
+
+Prel nästa möte 
+8/6 kl. 09.00
+
+Om ej fungerar så håller vi kontakt genom Jakob. 
