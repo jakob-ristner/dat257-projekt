@@ -1,0 +1,50 @@
+TEAM REFLECTION week 9
+Secretary: Haris Cehic
+------------------------------------------------------------------------------------------------------------
+CUSTOMER VALUE and SCOPE
+
+*Scope
+The scope hasn't changed in particular in this last week. Although the customer change the scope a bit as they want the project to be done in full since we haven't finished it fully they want us to continue. And in regards to this they want us to set up a contract etc.
+
+*Effort estimation/Tasks
+Effort estimation was better this week since we now had a full week. Also we have more experience now that makes the estimation and construction och the user stories easier. We missed a few tasks this week since we changed how we he solution after we created the task. A bit more research before constructing the tasks would be helpful. 
+
+*Tests
+Test this week was easier and went smoother as we had a template. To improve even further we should follow up more closely on the issues brought up at the testing. Also a full test when everything is done is an idea an also that the customer gets to test it. 
+
+
+* KPIs
+
+    User Stories: 4/7  completed (done) 
+	(Discrepancy is because we should've had a few more tasks that hasn't been resolved)
+
+    Tasks: 31/33 completed (done)
+
+    "Feeling": 8-9-10
+
+------------------------------------------------------------------------------------------------------------------
+SOCIAL CONTRACT and EFFORT
+
+Nothing new here this week, we took on more work but with the same pace as previous because we feel more confident and knowledgeable now.
+
+------------------------------------------------------------------------------------------------------------------
+DESIGN DECISIONS and PRODUCT STRUCTURE
+
+We added login and added tools that made everything safe which support customer value. Because of this we also needed to add a few changes to our code so everything would be safe. 
+
+We continued with code reviews and testing and also intend to add more documentation. See more in first part about testing. 
+
+-------------------------------------------------------------------------------------------------------------------
+APPLICATION OF SCRUM 
+
+*Roles
+This week we didn't have any specific roles besides Scrum Master and this worked well this week. 
+
+*Agile practices
+We had a check up meeting in the middle of the sprint that worked well. One possible improvement could be to have specific slots in the week for help that would make it easier to coordinated etc.
+This week we didn't have any focus on layout which made everything go smoother. 
+
+*Best practices
+We are for the most part better to use the scrum board and structure our work based on that. 
+
+
