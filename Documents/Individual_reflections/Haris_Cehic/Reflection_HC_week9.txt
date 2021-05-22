@@ -1,0 +1,20 @@
+Individual reflection - Haris Cehic
+
+Week 9 21/5
+
+What do I want to learn or understand better?
+
+This week there weren't any new programming languages etc to learn but I learned a lot more about the project and its different parts. Only thing I would want to learn more about at this point is the login page and how to make it secure that a part of the team worked on. But to sum it up a bit, I feel one very effective way that we chose to learn new stuff was to work in teams and really learn from each other. Also to not only do one thing throughout the project but to work on all types of tasks and with different tools really helped me learn a lot about coding but also project-management wise. 
+
+How can I help someone else, or the entire team, to learn something new?
+
+Because we worked in teams we can really help each other learn new stuff but also help each other out when we are stuck on a problem. One improvement could be to have fixed time slots in the week where different teams can help each other so that part is a bit more effective and organized. But to have a dedicated help-channel in Discord helped a lot. As always I tried to help others as much I could with the knowledge I got but also to ask for help when needed so one doesn’t get stuck and can’t progress.
+
+What is my contribution towards the team’s use of Scrum?
+
+I took part in the planning meeting where we did effort estimations and constructed our tasks for the user stories. Also took part of the review where we really get to share our ideas on how to do better and improve our use of Scrum for the next sprint. Also took part in the PO meeting, showing what we’ve worked on and listened to their feedback. 
+
+What is my contribution towards the team’s deliveries?
+
+As always we worked in teams and I was very active in that part making sure we progressed and had good cooperation and could deliver our tasks. Also took part in all of the meetings and helped out as much I could with new ideas, writing team reflections etc. 
+
