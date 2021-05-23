@@ -3,7 +3,7 @@ import "./HomeButton.css";
 const getNavigationHome = () => {
     return (
         <button class = "home"  onClick={() => {
-            window.location = "/";
+            window.location = "/startsida";
         }}> Home </button>
     )
 }

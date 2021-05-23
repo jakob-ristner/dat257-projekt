@@ -15,6 +15,7 @@ require("./routes/hembesok.js")(app, pool);
 require("./routes/dvard.js")(app,pool);
 require("./routes/mottag.js")(app,pool);
 require("./routes/undersok.js")(app,pool);
+require("./routes/home.js")(app,pool);
 
 // ROUTES
 app.get("/patients", async(req, res) => {
