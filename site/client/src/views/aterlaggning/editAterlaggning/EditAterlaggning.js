@@ -21,7 +21,7 @@ const EditAterlaggning = (useParams) => {
     //method for editing the old Återläggning
     const getAterlagg = async() => {
         const response = await fetch(
-        "http://localhost:5000/aterlaggning/edit/" + id);
+        "http://localhost:5000/aterlaggning/edit/" + id, {credentials: "include"});
         const jsonData = await response.json();
         //const ater = jsonData[0];
         //if (ater != undefined){
@@ -61,7 +61,8 @@ const EditAterlaggning = (useParams) => {
             const response = await fetch("http://localhost:5000/aterlaggning/" + id,{
                 method: "PUT",
                 headers: {"Content-Type": "application/json"},
-                body: JSON.stringify(body)
+                body: JSON.stringify(body),
+                credentials: "include"
             });
 
             window.location="/aterlaggning/" + protokollnr;

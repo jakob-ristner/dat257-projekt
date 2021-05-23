@@ -22,7 +22,7 @@ const AddEndAterlaggning = (useParams) => {
       //method for enddate the old Återläggning
     const getAterlagg = async() => {
         const response = await fetch(
-        "http://localhost:5000/aterlaggning/end/" + id);
+        "http://localhost:5000/aterlaggning/end/" + id, {credentials: "include"});
         const jsonData = await response.json();
         //const ater = jsonData[0];
         //if (ater != undefined){
@@ -59,7 +59,8 @@ const AddEndAterlaggning = (useParams) => {
                      const response = await fetch("http://localhost:5000/aterlaggning/end/" + id, {
                     method: "PUT",
                     headers: {"Content-Type": "application/json"},
-                    body: JSON.stringify(body)
+                    body: JSON.stringify(body),
+                    credentials: "include"
                 });
     
                 window.location="/aterlaggning/" + protokollnr;

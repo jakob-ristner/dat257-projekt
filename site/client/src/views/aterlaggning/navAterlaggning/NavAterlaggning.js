@@ -18,7 +18,7 @@ class NavAterlaggning extends React.Component {
             index: 0
         };
 
-        fetch('http://localhost:5000/aterlaggning/' + this.protocolID)
+        fetch('http://localhost:5000/aterlaggning/' + this.protocolID, {credentials: "include"})
             .then(response => response.json())
             .then(data => this.setState({ data }))
             .then(console.log(this.state.data));
