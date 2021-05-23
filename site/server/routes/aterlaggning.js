@@ -44,8 +44,8 @@ app.get("/aterlaggning/edit/:id", async(req, res) => {
         const oneAterlaggning = await pool.query(
             `SELECT 
                 protocolID,
-                to_char(aterlaggning_startdate, 'yyyy-mm-dd') AS startdate, 
-                to_char(aterlaggning_enddate, 'yyyy-mm-dd') AS enddate, 
+                to_char(aterlaggning_startdate, 'yyyy-mm-dd') AS aterlaggning_startdate, 
+                to_char(aterlaggning_enddate, 'yyyy-mm-dd') AS aterlaggning_enddate, 
                 utskrivning_hemmet,
                 orsak 
                 FROM Aterlaggning
@@ -114,6 +114,34 @@ app.get("/aterlaggning/edit/:id", async(req, res) => {
         }
     });
 
+      //add END aterlaggning
+      app.put("/aterlaggning/end/:id", async(req, res) => {
+        try{
+            const{id} = req.params;
+            //console.log(protocolID);
+            const{
+             aterlaggning_enddate,
+             utskrivning_hemmet
+            } = req.body;
+        
+            const addEndAterlaggning = await pool.query(
+                `UPDATE Aterlaggning SET
+                aterlaggning_enddate = $2,
+                utskrivning_hemmet = $3
+                WHERE id = $1`,
+                [
+                    id,
+                    aterlaggning_enddate,
+                    utskrivning_hemmet
+                ]
+            );
+
+        res.json(addEndAterlaggning.rows);
+        } catch (error) {
+            console.error(error);
+        }
+    });
+
 //END END aterlaggning
 
 app.get("/aterlaggning/end/:id", async(req, res) => {
@@ -122,8 +150,8 @@ app.get("/aterlaggning/end/:id", async(req, res) => {
         const endAterlaggning = await pool.query(
             `SELECT 
                 protocolID,
-                to_char(aterlaggning_startdate, 'yyyy-mm-dd') AS startdate, 
-                to_char(aterlaggning_enddate, 'yyyy-mm-dd') AS enddate, 
+                to_char(aterlaggning_startdate, 'yyyy-mm-dd') AS aterlaggning_startdate, 
+                to_char(aterlaggning_enddate, 'yyyy-mm-dd') AS aterlaggning_enddate, 
                 utskrivning_hemmet,
                 orsak 
                 FROM Aterlaggning

@@ -46,6 +46,29 @@ const AddEndAterlaggning = (useParams) => {
     useEffect(() => { 
        getAterlagg();
           }, [])
+
+          const addEnd = async(e) => {
+            e.preventDefault();
+    
+            try {
+                const body ={
+                    aterlaggning_enddate,
+                    utskrivning_hemmet
+           }; 
+                
+                     const response = await fetch("http://localhost:5000/aterlaggning/end/" + id, {
+                    method: "PUT",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify(body)
+                });
+    
+                window.location="/aterlaggning/" + protokollnr;
+    
+            } catch (err) {
+                console.error(err);
+                
+            }
+        }
        
 
     //Displaying the aterlaggning form with textfields and checkboxes.
@@ -60,7 +83,7 @@ const AddEndAterlaggning = (useParams) => {
         </div>
         
 
-        <form onSubmit={getAterlagg}>
+        <form onSubmit={addEnd}>
 
          <div class = {layout.gridHalleluja}>
 

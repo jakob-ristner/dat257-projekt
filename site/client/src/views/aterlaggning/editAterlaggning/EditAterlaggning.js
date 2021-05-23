@@ -48,7 +48,7 @@ const EditAterlaggning = (useParams) => {
           
 
     //Method for submitting the new update on Återläggning and saving it in the Postgres Database
-    const updateAterlaggning = async(e) => {
+        const updateAterlaggning = async(e) => {
         e.preventDefault();
          try {
              const body ={
