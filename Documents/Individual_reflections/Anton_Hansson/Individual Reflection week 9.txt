@@ -1,0 +1,31 @@
+Individual Reflection Anton week 9 
+
+What do I want to learn or understand better?
+
+	This week was our final sprint. We will do our presentation on Monday and then start working on our final reflection.
+	I want to take a step back and make sure I understand all parts of our application. I will reflect upon the course and would also like to learn more tools
+	that I can use to work more agile and improve my own, and the whole team's, use of scrum in the future. 
+	
+	This has been a fun course and I've learned a lot codewise and about using agile practices. 
+	
+    
+How can I help someone else, or the entire team, to learn something new?
+
+    These last 2 weeks I can help my teammates by discussing how things have been, what we've done, ways to improve and what we've learned. 
+	We will reflect together in order to get everyone's opinion and make sure we are on the same page or discuss why we see things differently. 
+        
+What is my contribution towards the team's use of scrum?
+	
+    I've contributed by participating in all team meetings and created user stories + tasks for the sprint. I have been open to new ideas on 
+	how to improve our use of scrum and I've given suggestions on how to work more agile. One thing we tried this week was a meeting in the middle of
+	the sprint where everyone could inform the others how things were going so far and if a coding-pair needed any help from the others. 
+	It was a short but effective meeting which made a difference in my opinion. 
+  
+What is my contribution towards the team's deliveries?
+	
+    This week me and Jakob H worked on addUndersokning, navUndersokning and the startpage. We were efficient and finished all our tasks and user stories by the end of the sprint.
+	I feel that I've improved a lot during these last 2 months when it comes to coding in HTML and Javascript. It's fun to see how much more knowledge I've obtained and I've 
+	enjoyed coding together with new people from the IT-department. It's been a good collaboration and I'm proud of what we've developed. 
+
+	Our customer has asked us to finish the product so that they can implement it in their work (hospital). Therefor most of us will probably continue with the last features 
+	during the beginning of the summer and make sure it's ready to launch so that we've created maximum value for our customer.  
