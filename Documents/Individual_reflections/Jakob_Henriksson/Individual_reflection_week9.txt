@@ -1,0 +1,21 @@
+Individual reflection 2021-05-21
+
+what do I want to learn or understand better?
+-For the next week we will firstly have a presentation on monday and on the same day we will focus on making our final report (teamreflection). Therefore, my main focus to learn this week
+will be how to write a well written final report and how to make good preperations for a demo.
+
+how can I help someone else, or the entire team, to learn something new?
+-This week I can at most help people with language and such since we wont program as much this week. I can also contribute with my knowledge on commenting code, which information that is relevant
+to comment on and how to write it with the correct terminology. I can also help with merging on github.
+
+what is my contribution towards the team’s use of Scrum?
+-This week my contibution towards scrum has been working with an agile workflow. During the week we always work towards our userstories by finishing tasks which has been incredibly useful.
+We have also worked closely with our KPI team overall happiness this week. One thing we did differently this week was that we had a mid-sprint meeting where atleast one groupmember from
+each group should participate to let our scrummaster know how its going in person. This is one thing I wish we would have started with earlier since it was very effectful on team morale.
+This week I have also been the main contact with our PO. We also used the code review form this week which was helpful aswell.
+
+what is my contribution towards the team’s deliveries?
+-This week I was working with Anton on the navigation site for undersökning, add undersökning site and the startpage for our website (after log in). This week has been a blast! Both me and 
+Anton worked very effectivly and every time we found an error we solved it faster than usual. Other than that me and Anton created some more realistic values for the demo and also made
+some minor changes on files to avoid conflicts since another team has been working with a log in page (we added some credentials in fetches and such). Overall this has been the best week for
+me!
