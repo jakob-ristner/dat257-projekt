@@ -1,0 +1,45 @@
+INDIVIDUAL REFLECTION 
+Week 9
+Erik Berg
+
+* What do I want to learn or understand better?
+I have learned a lot this week about how to write a secure login page and about 
+how computer and especially login security works. There were a lot of problems 
+that me and Jakob had to deal with since neither of us was quite sure about
+how to write the login. As this is the last sprint that we did as a team, what 
+I would like to take with me for the future is the experiences we have had here 
+in this team and also how to work with others during the pandemic when we haven't
+been able to meet eachother. 
+
+I also would like to learn a bit about how we actually are going to integrate this
+system to our customer since they are so happy with our work so far that we probably
+will have to actually deploy it, and that's something we as a team haven't looked at yet
+and therefore it would be nice if I could learn something about that. 
+
+* How can I help someone else, or the entire team, to learn something new?
+Now after this week when we've written the login page, we need to teach our
+team members how it works so that everyone understands how we now need to change
+our  fetch requests. 
+
+
+* What is my contribution towards the team's use of Scrum?
+This week I came with a proposal that we should do a meeting in the middle of the week 
+to check up and see that everyone had gotten somewhere during the sprint. However, I was 
+unavailable during that meeting so I didn't get to be there, but it seems like it was a good
+idea and something we should keep doing in the future. 
+
+Otherwise this week has been mostly doing tasks, and creating user stories. For the future we 
+probably have to look at how we are going to write our design stories. 
+
+I would also like that in the future we can let the customer test the product which will help 
+us in understanding the exact needs and what we might have done wrong so far. 
+
+* What is my contribution towards the team's deliveries?
+This week me and Jakob has written the login page, and also a page for if one forgets their password. 
+It has been a fun experience. For the next part we need to complete the "forgot password" page, and also
+create a page for adding more users to the site. 
+
+
+
+
+
