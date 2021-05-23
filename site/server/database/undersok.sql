@@ -16,10 +16,10 @@ CREATE TABLE Undersok(
 
 --Test values
 INSERT INTO Undersok (protocolID, undersok_date, ultraljud_hjarta, annat)
-    VALUES (g'111', '2021-01-01', true, 'ccc');
+    VALUES ('111', '2021-01-01', true, 'Annan Undersokning');
 
-INSERT INTO Undersok (protocolID, undersok_date, ultraljud_hjarta, annat)
-    VALUES ('222', '2021-01-01', false, 'megakoll');
+INSERT INTO Undersok (protocolID, undersok_date, ultraljud_hjarta, lakarbesok, annat)
+    VALUES ('111', '2021-01-01', false, true , 'Gastroskopi');
 
 INSERT INTO Undersok (protocolID, undersok_date, lakarbesok, annat)
-    VALUES ('112', '2021-01-01', true, 'snabbtitt');
+    VALUES ('112', '2021-01-01', true, 'Hjarnundersökning');

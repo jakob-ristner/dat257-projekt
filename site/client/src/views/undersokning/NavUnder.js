@@ -18,14 +18,11 @@ class NavUnder extends React.Component {
             index: 0
         };
  
-        fetch('http://localhost:5000/undersokning/' + this.protocolID)
+        fetch('http://localhost:5000/undersokning/' + this.protocolID ,{
+            credentials: 'include' })
             .then(response => response.json())
             .then(data => this.setState({ data }))
-            .then(console.log(this.state.data));
-
-            /*const jsonData = response.json();
-            const show = jsonData[0];
-            console.log(show)*/
+            .then(console.log(this.state.data))
     }
 
     incIndex() {
