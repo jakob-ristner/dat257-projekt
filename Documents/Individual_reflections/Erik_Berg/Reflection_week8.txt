@@ -1,0 +1,38 @@
+Apparently my individual reflection for week 8 disappeared in some git commit
+so i will redo this reflection now even though it is a week late. 
+
+//Erik Berg 2021-05-23
+
+INDIVIDUAL REFLECTION
+Week 8
+Erik Berg
+
+* What do I want to learn or understand better?
+This week was a very short week since we only had three days to complete it. 
+In that timespan I wouldn't say that I learned much more than I already know,
+apart from getting even more comfortable with our codebase and the project. 
+
+I would like next week to contain new things for me, and I would like to learn
+something new. If that is CSS or how to do login or something like that, I don't
+know, but this week was pretty bad on the learning more side of things. 
+
+* How can I help someone else, or the entire team, to learn something new?
+I still believe my strong suit is the programming and not the design and layout. 
+I should probably learn more about layout and design and not focus so much on the 
+programming since it seems like the entire team is learning a lot when it comes
+to programming. 
+
+* What is my contribution towards the team's use of Scrum?
+This week my contribution has been mostly with regards to user stories and task writing. 
+I also believe that that will be the main goal also next week, however I would like to 
+try something new which is a meeting in the middle of the week just to check up on 
+everyone and see that the project is flowing along. I believe this will lead to 
+everyone understanding the code better and feeling more connected in our tasks, since
+there was a bit of disconnect this week with how we we were coding everything. 
+
+
+* What is my contribution towards the team's deliveries?
+This week I did a page on the mottagningsbesok. We did the edit page which gathers information and
+lets the users change it. Next week I would like to learn something new whilst working 
+with the deliveries, so hopefully I can work on the login because as of yet I don't know
+anything about login and it seems like a fun challenge next week. 
