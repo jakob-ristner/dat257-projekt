@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch, useParams} from "react-router-dom";
+import {ReactSession} from 'react-client-session';
 import './index.css';
 
 //views 
@@ -23,12 +24,18 @@ import NavAterlaggning from "./views/aterlaggning/navAterlaggning/NavAterlaggnin
 import AddAterlaggning from "./views/aterlaggning/addAterlaggning/AddAterlaggning.js";
 import AddEndAterlaggning from "./views/aterlaggning/addAterlaggning/AddEndAterlaggning.js";
 import EditAterlaggning from "./views/aterlaggning/editAterlaggning/EditAterlaggning.js";
+import LoginView from "./views/login/LoginView.js";
+import ForgotPW from "./views/login/ForgotPW.js";
 
 
 
 import Homepage from "./views/homepage/Homepage.js"
 
 const rootElement = document.getElementById("root");
+ReactSession.setStoreType("localstorage");
+if (ReactSession.get("id") == undefined && window.location.pathname != "/login") {
+    window.location = "/login";
+}
 ReactDOM.render(
      <BrowserRouter>
         <Switch>
@@ -36,6 +43,8 @@ ReactDOM.render(
 
             <Route exact path ="/" component ={TestView} />
             <Route exact path ="/startsida/" component ={Homepage} />
+            <Route exact path ="/login" component = {LoginView}></Route> 
+            <Route exact path ="/forgot-password" component = {ForgotPW}></Route>
             <Route exact path ="/registration/edit/:id" component ={EditRegistration} />
 
             <Route exact path="/digitalt-vardmote/add/:protocolID" component={AddDigitaltVard} />

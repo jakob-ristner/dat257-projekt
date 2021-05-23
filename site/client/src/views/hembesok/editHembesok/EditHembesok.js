@@ -38,7 +38,7 @@ const EditHembesok = (useParams) => {
     //Method for modifying the old Hembesok
     const getHemb = async() => {
             const response = await fetch(
-            "http://localhost:5000/hembesok/edit/" + hembesokid);
+            "http://localhost:5000/hembesok/edit/" + hembesokid, { credentials: 'include'});
             const jsonData = await response.json();
             const ehemb = jsonData[0];
             if (ehemb != undefined){
@@ -102,7 +102,8 @@ const EditHembesok = (useParams) => {
             const response = await fetch('http://localhost:5000/hembesok/edit/' + hembesokid,{
                 method: "PUT",
                 headers: {"Content-Type": "application/json"},
-                body: JSON.stringify(body)
+                body: JSON.stringify(body),
+                credentials: 'include'
             });
             window.location="/hembesok/" + protokollnr;
         } catch (error) {

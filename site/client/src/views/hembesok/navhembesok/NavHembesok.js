@@ -21,7 +21,9 @@ const NavHembesok = (useParams) => {
         
         try {
             const response = await fetch(
-            "http://localhost:5000/hembesok/" + id);
+            "http://localhost:5000/hembesok/" + id, {
+                credentials: "include"
+            });
             const jsonData = await response.json();
             const show = jsonData[0];
             setHembesok(jsonData);

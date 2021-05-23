@@ -71,7 +71,8 @@ const AddMottagningsbesok = (useParams) => {
     const response = await fetch("http://localhost:5000/mottagningsbesok/add/" + protocolID, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(body)
+        body: JSON.stringify(body),
+        credentials: 'include'
     });
     
     window.location="/mottagningsbesok/" + protocolID;

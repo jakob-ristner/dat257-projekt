@@ -1,0 +1,20 @@
+.mainLayout {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-rows: 5fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 6px;
+}
+
+.mainHeader{
+    font-size: 60px;
+}
+
+.subHeader{
+    font-size: 20px;
+}
+
+.loginButton{
+    align-self: right;
+    justify-self: right;
+}

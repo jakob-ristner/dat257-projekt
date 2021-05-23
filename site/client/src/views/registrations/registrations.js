@@ -81,7 +81,8 @@ const Registration = () => {
             const respone = await fetch('http://localhost:5000/registration', { 
                     method: 'POST',
                     headers:{'Content-Type': 'application/json'},
-                    body: JSON.stringify(body)
+                    body: JSON.stringify(body),
+                    credentials: 'include'
             });
 
             window.location = "/registration/" + protocolID;
@@ -95,7 +96,7 @@ const Registration = () => {
     const getRegistration = async(index) => {
         try {
             const response = await fetch(
-                "http://localhost:5000/registration/" + protocolID);
+                "http://localhost:5000/registration/" + protocolID, { credentials: 'include'});
                 const jsonData = await response.json();
         } catch(err) {
             console.error(err);

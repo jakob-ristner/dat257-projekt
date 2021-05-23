@@ -38,7 +38,7 @@ const Discharge = (useParams) => {
     const getRegistration = async () => {
         try {
             const response = await fetch(
-                "http://localhost:5000/registration/" + id);
+                "http://localhost:5000/registration/" + id, { credentials: 'include'});
             const jsonData = await response.json();
             setRegistration(jsonData[0]);
 
@@ -59,7 +59,7 @@ const Discharge = (useParams) => {
     const getDischarge = async () => {
         try {
             const response = await fetch(
-                "http://localhost:5000/discharge/" + id);
+                "http://localhost:5000/discharge/" + id, { credentials: 'include'});
             const jsonData = await response.json();
             const dis = jsonData[0];
             if(dis != undefined){
@@ -139,7 +139,8 @@ const Discharge = (useParams) => {
             const response = await fetch('http://localhost:5000/discharge/' + id, { 
                     method: 'POST',
                     headers:{'Content-Type': 'application/json'},
-                    body: JSON.stringify(body)
+                    body: JSON.stringify(body),
+                    credentials: 'include'
             });
 
             await console.log(response);

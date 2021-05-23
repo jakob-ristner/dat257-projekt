@@ -58,7 +58,7 @@ const Homepage = () => {
         else if (navigate == "hembesok"){
             return "Hembesök"
         }
-        else if (navigate == "?"){
+        else if (navigate == "aterlaggning"){
             return "Återläggning"
         }
         else if (navigate == "undersokning"){
@@ -97,7 +97,7 @@ const Homepage = () => {
                     <Dropdown.Item value={navigate}><button onClick={() => setNavigate("registration")}>In-/utskrivning</button></Dropdown.Item><br/><br/>
                     <Dropdown.Item value={navigate}><button onClick={() => setNavigate("hembesok")}>Hembesök</button></Dropdown.Item><br/><br/>
                     <Dropdown.Item value={navigate}><button onClick={() => setNavigate("mottagningsbesok")}>Mottagningsbesök</button></Dropdown.Item><br/><br/>
-                    <Dropdown.Item id="ater" value={navigate}><button onClick={() => setNavigate("?")}>Återläggning</button></Dropdown.Item><br/><br/>
+                    <Dropdown.Item id="ater" value={navigate}><button onClick={() => setNavigate("aterlaggning")}>Återläggning</button></Dropdown.Item><br/><br/>
                     <Dropdown.Item value={navigate}><button onClick={() => setNavigate("undersokning")}>Undersökning</button></Dropdown.Item><br/><br/>
                     <Dropdown.Item value={navigate}><button onClick={() => setNavigate("digitalt-vardmote")}>Digitalt vårdmöte</button></Dropdown.Item>
                 </DropdownButton>

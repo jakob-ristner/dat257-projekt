@@ -91,7 +91,8 @@ const EditDigvard = (useParams) => {
         const response = await fetch('http://localhost:5000/digitalt-vardmote/' + id,{
             method: "PUT",
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(body)
+            body: JSON.stringify(body),
+            credentials: 'include'
         });
         console.log(response);
         window.location = "/digitalt-vardmote/" + protokollnr;

@@ -95,7 +95,8 @@ const EditMott = (useParams) => {
                 {
                     method: "PUT",
                     headers: {"Content-Type": "application/json"},
-                    body: JSON.stringify(body)
+                    body: JSON.stringify(body),
+                    credentials: 'include'
                 });
         
 
@@ -148,7 +149,7 @@ const EditMott = (useParams) => {
             </div>
             </div>
 
-            <div class= {layout.atgard + " atgard"} onChange={() => validateAtgard()}>
+            <div class= {layout.atgard} >
             <div class ={layout.gridAtgard + " atgard"} onChange={() => validateAtgard()}>
 
             <div><input type="checkbox" checked={ amning_nutrition } 

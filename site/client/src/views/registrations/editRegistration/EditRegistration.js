@@ -102,7 +102,8 @@ const EditRegistration = (useParams) => {
                     const response = await fetch("http://localhost:5000/discharge/" + id, {
                         method: "PUT",
                         headers: {"Content-Type": "application/json"},
-                        body: JSON.stringify(bodyDis)
+                        body: JSON.stringify(bodyDis),
+                        credentials: 'include'
                     }) 
                 } 
 
@@ -111,7 +112,8 @@ const EditRegistration = (useParams) => {
                     const response = await fetch("http://localhost:5000/registration/" + id, {
                         method: "PUT",
                         headers: {"Content-Type": "application/json"},
-                        body: JSON.stringify(bodyReg)
+                        body: JSON.stringify(bodyReg),
+                        credentials: 'include'
                     })
                 }
                 
@@ -126,7 +128,7 @@ const EditRegistration = (useParams) => {
 
     const getReg = async () => {
 
-        const response = await fetch("http://localhost:5000/registration/" + id);
+        const response = await fetch("http://localhost:5000/registration/" + id, { credentials: 'include'});
         const jsonData = await response.json();
         const reg = jsonData[0];
 
@@ -166,7 +168,7 @@ const EditRegistration = (useParams) => {
 
     const getDis = async () => {
         
-        const response = await fetch("http://localhost:5000/discharge/" + id);
+        const response = await fetch("http://localhost:5000/discharge/" + id, { credentials: 'include'});
         const jsonData = await response.json();
         const dis = jsonData[0];
 

@@ -18,10 +18,11 @@ class NavDigVard extends React.Component {
             index: 0
         };
  
-        fetch('http://localhost:5000/digitalt-vardmote/' + this.protocolID)
+        fetch('http://localhost:5000/digitalt-vardmote/' + this.protocolID, { credentials: 'include'})
             .then(response => response.json())
             .then(console.log("Fetched resource"))
             .then(data => this.setState({ data }));
+            
            // .then(() => this.render());
     }
 
