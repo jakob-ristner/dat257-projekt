@@ -207,4 +207,66 @@ hr.line1{
   position: absolute;
 }
  
+/* Aterlaggning Button  */
+.divButtonAter{
+  grid-row: 3/3;
+  grid-column:3/3;
+
+}
+.saveButtonAter{
+  float:right;
+  margin-top:5px;
+  margin-left:5px;
+  border: none;
+  color: white;
+  padding: 12px 26px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 6px 4px;
+  cursor: pointer;
+  border-radius: 15px;
+  background-color: #314a94;
+  border-style: solid;
+  border-color: #131f42;
+  border-width: 2px;
   
+ 
+}
+.avbrytButtonAter{
+  float:right;
+  margin-top:5px;
+  border: none;
+  color: white;
+  padding: 12px 26px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 6px 4px;
+  cursor: pointer;
+  border-radius: 15px;
+  background-color: #7484b4;
+  border-style: solid;
+  border-color: #415180;
+  border-width: 2px;
+}
+.avbrytButtonAter:hover {
+  background-color: #0f2154;
+}
+
+.saveButtonAter:hover {
+  background-color: #0f2154;
+}
+
+.saveButtonAter:active {
+  background-color: #0f2154;
+  box-shadow: 0 0 8px 5px #666;
+  transform: translateY(4px);
+}
+.avbrytButtonAter:active {
+  background-color: #0f2154;
+  box-shadow: 0 0 8px 5px #666;
+  transform: translateY(4px);
+}

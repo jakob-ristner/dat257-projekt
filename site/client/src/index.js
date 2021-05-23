@@ -19,6 +19,12 @@ import EditMott from "./views/mottagningsbesok/EditMott.js";
 import NavMott from "./views/mottagningsbesok/NavMott.js"
 import NavUnder from "./views/undersokning/NavUnder.js"
 import AddUnder from "./views/undersokning/AddUnder.js"
+import NavAterlaggning from "./views/aterlaggning/navAterlaggning/NavAterlaggning.js";
+import AddAterlaggning from "./views/aterlaggning/addAterlaggning/AddAterlaggning.js";
+import AddEndAterlaggning from "./views/aterlaggning/addAterlaggning/AddEndAterlaggning.js";
+import EditAterlaggning from "./views/aterlaggning/editAterlaggning/EditAterlaggning.js";
+
+
 
 import Homepage from "./views/homepage/Homepage.js"
 
@@ -45,6 +51,12 @@ ReactDOM.render(
             <Route exact path="/mottagningsbesok/:protocolID" component={NavMott} />
             <Route exact path="/undersokning/:protocolID" component={NavUnder} />
             <Route exact path="/undersokning/add/:protocolID" component={AddUnder} />
+
+            <Route exact path="/aterlaggning/:protocolID" component={NavAterlaggning} />
+            <Route exact path="/aterlaggning/add/:protocolID" component={AddAterlaggning} />
+            <Route exact path="/aterlaggning/end/:id" component={AddEndAterlaggning} />
+            <Route exact path="/aterlaggning/edit/:id" component={EditAterlaggning} />
+
 
         </Switch>
     </BrowserRouter>,
