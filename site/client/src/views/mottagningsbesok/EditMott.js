@@ -104,10 +104,9 @@ const EditMott = (useParams) => {
             console.error(err.message);
         }
 
-
-
     }
     
+    useEffect(()=> {validateAtgard()}, []);
      //Displaying the Mottagningsbesok form with textfields and checkboxes.
        //CLicking the "Spara"-button sends a POST-request to the database.
 
@@ -150,7 +149,7 @@ const EditMott = (useParams) => {
             </div>
 
             <div class= {layout.atgard + " atgard"} onChange={() => validateAtgard()}>
-            <div class ={layout.gridAtgard}>
+            <div class ={layout.gridAtgard + " atgard"} onChange={() => validateAtgard()}>
 
             <div><input type="checkbox" checked={ amning_nutrition } 
                 onChange={(e) => {setAmning(e.target.checked)}}/> Amning </div>

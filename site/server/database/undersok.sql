@@ -16,7 +16,7 @@ CREATE TABLE Undersok(
 
 --Test values
 INSERT INTO Undersok (protocolID, undersok_date, ultraljud_hjarta, annat)
-    VALUES ('111', '2021-01-01', true, 'www');
+    VALUES (g'111', '2021-01-01', true, 'ccc');
 
 INSERT INTO Undersok (protocolID, undersok_date, ultraljud_hjarta, annat)
     VALUES ('222', '2021-01-01', false, 'megakoll');

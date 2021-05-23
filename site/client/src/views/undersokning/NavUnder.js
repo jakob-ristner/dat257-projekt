@@ -7,7 +7,7 @@ import IconButton from '@material-ui/core/IconButton';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 
-class NavMott extends React.Component {
+class NavUnder extends React.Component {
     
     constructor(props) {
         super(props);
@@ -18,12 +18,14 @@ class NavMott extends React.Component {
             index: 0
         };
  
-        fetch('http://localhost:5000/mottagningsbesok/' + this.protocolID)
+        fetch('http://localhost:5000/undersokning/' + this.protocolID)
             .then(response => response.json())
-            .then(console.log("Fetched resource"))
-            .then(data => this.setState({ data }));
-            console.log(this.data);
-           // .then(() => this.render());
+            .then(data => this.setState({ data }))
+            .then(console.log(this.state.data));
+
+            /*const jsonData = response.json();
+            const show = jsonData[0];
+            console.log(show)*/
     }
 
     incIndex() {
@@ -92,7 +94,7 @@ class NavMott extends React.Component {
         var sliced = this.state.data.slice(this.state.index, this.state.index + 3);
         var offset = 1 - sliced.length;
         return ( <Fragment>
-        <h1>Mottagningsbesök</h1>
+        <h1>Undersökningar</h1>
         {this.getHeader()}
         <div className={layout.protID}>
             <h2>Protokollnummer: {this.protocolID}</h2>
@@ -110,39 +112,24 @@ class NavMott extends React.Component {
             {sliced.map((form, i) => { return(
             <div className={layout.container} id={this.getItemID(i)}>
                     <button id={layout.edit} onClick={() =>
-                    {window.location = "/Mottagningsbesok/edit/" + form.id}
+                    {window.location = "/undersokning/edit/" + form.id}
                     }> Redigera </button >
                 
                 <div className={layout.info}>
-                    Mottagningsbesök nr: {this.state.data.length - (this.state.index + i)} <br/> 
-                    Datum: {form.date} <br/>
-                    Starttid: {form.start_time} <br/>
-                    Sluttid: {form.end_time} <br/>
-                    Utförd av: {form.performed_by} <br/>
+                    Undersökning nr: {this.state.data.length - (this.state.index + i)} <br/> 
+                    Datum: {form.undersok_date} <br/>
+                    
                 </div>
 
                 <div className={layout.atgard}>
-                    <input type="checkbox" checked={form.amning_nutrition}/> Amning <br/>
-                    <input type="checkbox" checked={form.stodsamtal}/> Stödsamtal <br/>
-                    <input type="checkbox" checked={form.viktkontroll}/> Viktkontroll <br/>
-                    <input type="checkbox" checked={form.provtagning}/> Provtagning <br/>
-                    <input type="checkbox" checked={form.lakemedel}/> Läkemedel <br/>
-                    Annan åtgärd: <input value = {form.annat_mote}></input> <br/>
+                    <input type="checkbox" checked={form.ultraljud_hjarta}/> Ultraljud hjärta <br/>
+                    <input type="checkbox" checked={form.lakarbesok}/> Läkarbesök <br/>
+                    <input type="checkbox" checked={form.ogonundersokning}/> Ögonundersökning <br/>
+                    <input type="checkbox" checked={form.ortopedkonsult}/> Ortopedkonsult <br/>
+                    <input type="checkbox" checked={form.oronundersokning}/> Öronundersökning <br/>
+                    Annan undersökning: <input value = {form.annat}></input> <br/>
                 </div>
-
-                <div className={layout.resurs}>
-                    <input type="checkbox" checked={form.lakare}/> Läkare <br/>
-                    <input type="checkbox" checked={form.logoped}/> Logoped <br/>
-                    <input type="checkbox" checked={form.dietist}/> Dietist <br/>
-                    <input type="checkbox" checked={form.kurator}/> Kurator <br/>
-                    Annan resurs: <input value = {form.annan_resurs}></input> <br/>
-                </div>
-                <div className={layout.avvikning}>
-                    <input type="checkbox" checked={form.av_logistik}/> Logistik<br/>
-                    <input type="checkbox" checked={form.av_barn_familj}/> Familj <br/>
-                    <input type="checkbox" checked={form.av_personal}/> Personal <br/>
-                    Beskrivning: <input value = {form.av_beskrivning}></input> <br/>
-                </div>
+                
             </div>
             )})}
             </div>
@@ -155,10 +142,10 @@ class NavMott extends React.Component {
         </div>
       
         <button onClick={() => 
-        {window.location="/mottagningsbesok/add/" + this.protocolID}}>Skapa nytt Mottagningsbesök</button>
+        {window.location="/undersokning/add/" + this.protocolID}}>Lägg till ny undersökning</button>
     
      </Fragment>);
     }
 }
 
-export default NavMott;
+export default NavUnder;
