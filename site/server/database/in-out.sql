@@ -61,7 +61,7 @@ INSERT INTO registration (protocolID, regDate, reason, veckor, dagar,
     erhaller_bmjolk_in,v_sond_in, infart_in, andningsstod_in, extraGas_in,
     riskpatient, bvcRapportering, bvcText) 
     VALUES ('111', '2021-01-01', 'oneoneone', '1', '1', '3500', '83.2', '11.2',
-    11,11,11,TRUE,'H','H',TRUE,'blankt','syre',TRUE, TRUE, TRUE,'knas');
+    11,11,11,TRUE,'H','H',TRUE,'blankt','syre',TRUE, TRUE, TRUE,'Ej överrapportering');
 
     INSERT INTO registration (protocolID, regDate, reason, veckor, dagar, 
     vikt_fodelse, langd_fodelse, huvudomfang_fodelse,vikt_inskrivning,
@@ -69,7 +69,7 @@ INSERT INTO registration (protocolID, regDate, reason, veckor, dagar,
     erhaller_bmjolk_in,v_sond_in, infart_in, andningsstod_in, extraGas_in,
     riskpatient, bvcRapportering, bvcText) 
     VALUES ('222', '2021-01-01', 'oneoneone', '1', '1', '3500', '83.2', '11.2',
-    22,22,22,FALSE,'H','H',FALSE,'blankt','syre',FALSE, FALSE, FALSE,'knas');
+    22,22,22,FALSE,'H','H',FALSE,'blankt','syre',FALSE, FALSE, FALSE,'Överrapportering pga anledningar');
 
       INSERT INTO registration (protocolID, regDate, reason, veckor, dagar, 
     vikt_fodelse, langd_fodelse, huvudomfang_fodelse,vikt_inskrivning,

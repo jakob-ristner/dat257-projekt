@@ -41,8 +41,8 @@ ReactDOM.render(
         <Switch>
             <Route exact path="/Hembesok/:id" component={NavHembesok} />
 
-            <Route exact path ="/" component ={TestView} />
-            <Route exact path ="/startsida/" component ={Homepage} />
+          
+            <Route exact path ="/" component ={Homepage} />
             <Route exact path ="/login" component = {LoginView}></Route> 
             <Route exact path ="/forgot-password" component = {ForgotPW}></Route>
             <Route exact path ="/registration/edit/:id" component ={EditRegistration} />
@@ -72,6 +72,8 @@ ReactDOM.render(
     rootElement
 );
 
+
+//  <Route exact path ="/" component ={TestView} />
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals

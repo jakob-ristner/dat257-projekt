@@ -8,5 +8,9 @@ CREATE TABLE Login(
     mast BOOLEAN NOT NULL DEFAULT false
 );
 
+
+
+
+
 INSERT INTO Login (email, name, password) VALUES ('abc', 'Jakob', '$2a$10$bPz8W2IpvrcA8ux4.CAf.ergphFk8lQvVk3M1zpHT0PjXo3JfB.vC');
 

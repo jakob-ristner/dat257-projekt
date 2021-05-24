@@ -75,16 +75,16 @@ class NavMott extends React.Component {
     getHeader() {
         if (this.state.data.length > 0) {
             return (
-                <h2>Visar hembesök {this.state.data.length - 
+                <h2>Visar mottagningsbesök {this.state.data.length - 
                     Math.min(this.state.data.length, this.state.index)}
                     - 
                     {this.state.data.length -
                 Math.min(this.state.data.length, this.state.index + 2 )} utav 
-                    totalt {this.state.data.length} st hembesök</h2>
+                    totalt {this.state.data.length} st mottagningsbesök</h2>
             );
         }
         return (
-            <h2>Det finns ej några hembesök för detta protokollnr</h2> 
+            <h2>Det finns ej några mottagningsbesök för detta protokollnr</h2> 
         );
     }
 

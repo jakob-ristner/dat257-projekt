@@ -22,4 +22,4 @@ INSERT INTO Undersok (protocolID, undersok_date, ultraljud_hjarta, lakarbesok, a
     VALUES ('111', '2021-01-01', false, true , 'Gastroskopi');
 
 INSERT INTO Undersok (protocolID, undersok_date, lakarbesok, annat)
-    VALUES ('112', '2021-01-01', true, 'Hjarnundersökning');
+    VALUES ('112', '2021-01-01', true, 'Hjärnundersökning');

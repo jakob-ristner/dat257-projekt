@@ -32,23 +32,23 @@ CREATE TABLE Mottag(
 
 --Test values
 INSERT INTO Mottag (protocolID, date_start_time, end_time, performed_by)
-    VALUES ('111', '2021-01-01 16:00', '18:00', 'rILL');
+    VALUES ('111', '2021-01-01 16:00', '18:00', 'Henrik');
 
 INSERT INTO Mottag (protocolID, date_start_time, end_time, performed_by)
-    VALUES ('111', '2021-01-01 17:00', '18:00', 'rILL');
+    VALUES ('111', '2021-01-01 17:00', '18:00', 'Johanna');
 
 INSERT INTO Mottag (protocolID, date_start_time, end_time, performed_by)
-    VALUES ('111', '2021-01-01 15:00', '18:00', 'rILL');
-
-
-INSERT INTO Mottag (protocolID, date_start_time, end_time, performed_by)
-    VALUES ('111', '2021-01-01 13:00', '18:00', 'rILL');
+    VALUES ('111', '2021-01-01 15:00', '18:00', 'Frida');
 
 
 INSERT INTO Mottag (protocolID, date_start_time, end_time, performed_by)
-    VALUES ('111', '2021-01-04 19:00', '18:00', 'rILL');
+    VALUES ('111', '2021-01-01 13:00', '18:00', 'Erik');
+
+
+INSERT INTO Mottag (protocolID, date_start_time, end_time, performed_by)
+    VALUES ('111', '2021-01-04 19:00', '18:00', 'Lisa');
 
 
 INSERT INTO Mottag (protocolID, date_start_time, end_time, performed_by, amning_nutrition)
-    VALUES ('111', '2020-02-23 11:00', '18:00', 'rILL', 'true');
+    VALUES ('111', '2020-02-23 11:00', '18:00', 'Johan', 'true');
 

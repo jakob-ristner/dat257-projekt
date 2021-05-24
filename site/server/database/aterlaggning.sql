@@ -14,8 +14,13 @@ CREATE TABLE Aterlaggning (
 );
 
 
+INSERT INTO Aterlaggning (protocolID, aterlaggning_startdate, aterlaggning_enddate, utskrivning_hemmet, orsak)
+    VALUES ('111', '2021-05-20', '2022-06-02', TRUE, 'person mycket sjuk');
 
+INSERT INTO Aterlaggning (protocolID, aterlaggning_startdate)
+    VALUES ('111', '2021-05-27');
 
+    
 
 
 

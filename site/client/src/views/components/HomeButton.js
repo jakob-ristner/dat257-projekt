@@ -19,7 +19,7 @@ const getNavigationHome = () => {
     return (
         <Fragment>
         <button class = "home"  onClick={() => {
-            window.location = "/startsida";
+            window.location = "/";
         }}> Home </button>
         {getLogout()}
         </Fragment>
