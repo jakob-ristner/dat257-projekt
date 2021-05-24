@@ -120,7 +120,7 @@ class NavAterlaggning extends React.Component {
                     }> Avsluta återläggning </button >
 
                 <div className={layout.info}>
-                    Undersökning nr: {this.state.data.length - (this.state.index + i)} <br/> 
+                    Återläggning nr: {this.state.data.length - (this.state.index + i)} <br/> 
                     Datum: {form.startdate} <br/>
                 </div>
 

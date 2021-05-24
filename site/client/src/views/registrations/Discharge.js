@@ -177,7 +177,7 @@ const Discharge = (useParams) => {
         <Fragment>
              <div class = "navigation"><Navigation id={id}/></div>
              <div id = "homeButton"><Home/></div>
-         <h1>Visar Protokoll: {id}</h1>
+             <h1>Visar Protokoll: {id}</h1>
              <div class={layouts.formDischarge}>
              
 
