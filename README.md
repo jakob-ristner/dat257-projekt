@@ -54,15 +54,17 @@ To start the client, simply navigate to the client directory and type npm start.
 
 The client will now run on localhost:3000
 
+To start the database, follow the guide above and write \i setup.sql in the /site/server/ folder
+
 # How the program works
 
 ## Client side
-The client side is responsible for what you see on the website and all of the code is located in site/client. The client is seperated in to views and since some
+The client side is responsible for what you see on the website and all of the code is located in site/client. The client is seperated into views and since some
 parts such as the navigation buttons and home buttons are reused in multiple views, these are located seperately in a component directory. The website consists of
 many forms, the client communicates to the webserver by sending http requests with data from the forms.
 
 ## Server side
-The main server file is located in site/server/server.js and it is the one you run to start the server. To avoid having to much code in one file, the server is
-seperated in to many different routes that are then imported back into the server.js file. The routes are responsible for handing http requests for a specific
+The main server file is located in site/server/server.js and it is the one you run to start the server. To avoid having too much code in one file, the server is
+seperated into many different routes that are then imported back into the server.js file. The routes are responsible for handing http requests for a specific
 part of the site. The webserver then communicates with the database by querying it using a javascript library and then sends a http response back to the client
 side.
